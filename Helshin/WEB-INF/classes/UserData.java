@@ -3,11 +3,26 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.DriverManager;
 import Bean.UserBox;
 
 public class UserData{
 	public static void main(String[] args){
-		OracleUserData(new UserBox());
+		//ResultSet rs = null;
+		
+		UserBox a = new UserBox();
+		a.setLname("a");
+		a.setFname("b");
+		a.setLhname("c");
+		a.setFhname("d");
+		a.setTelphone("e");
+		a.setMail("f");
+		a.setPass("g");
+		a.setAddress("h");
+		a.setSex("’j");
+		a.setBirth("j");
+		
+		OracleUserData(a);
 		
 	}
 	public static void OracleUserData(UserBox b){
@@ -15,10 +30,42 @@ public class UserData{
 		ResultSet rs = null;
 		
 		Connection cn = new OracleConnector("helshin","helshinbox").getCn();
-		String query = "INSERT INTO USERTABLE (lastname,firstname,slastname_hira,firstname_hira,phone,mail,password,address,sex,birthyear) VALUES("+b.getLname()+","+b.getFname()+","+b.getLhname()+","+b.getFhname()+","+b.getTelphone()+","+b.getMail()+","+b.getPass()+","+b.getAddress()+","+b.getSex()+","+b.getBirth()+")";
+		System.out.println(b.getSex());
+		//int q;
+		//int qq;
+		String q = "SELECT MAX(user_id+1) FROM userTable";
+		//int q = Integer.parseInt(aq);
+		//System.out.println(q);
+		
+		String qq = "SELECT MAX(address_id+1) FROM addressTable";
+		//int qq = Integer.parseInt(qqq);
+		//System.out.println(qq);
+		
+		
+		
+		
 		try{
 			st = cn.createStatement();
-			rs = st.executeQuery(query);
+			//int i = st.executeUpdate(query);
+			rs = st.executeQuery(q);
+			
+			
+			rs.next();
+			//cn.commit();
+			
+			//String q = "SELECT MAX(user_id+1) FROM userTable";
+			//String qq = "SELECT MAX(address_id+1) FROM userTable";
+			
+			int aq = rs.getInt(1);
+			rs = st.executeQuery(qq);
+			rs.next();
+			int qqq = rs.getInt(1);
+			
+			
+			String query = 
+		"INSERT INTO USERTABLE (user_id,user_lastname,user_firstname,user_lastname_hira,user_firstname_hira,user_phone,user_mail,user_pass,user_address_id,user_sex,user_birthday) VALUES( '"+aq+" ','"+b.getLname()+"','"+b.getFname()+"','"+b.getLhname()+"','"+b.getFhname()+"','"+b.getTelphone()+"','"+b.getMail()+"','"+b.getPass()+"',1,'"+b.getSex()+"','"+b.getBirth()+"')";
+		int i = st.executeUpdate(query);
+			
 		}catch(SQLException e){
 			e.printStackTrace();
 		}
