@@ -14,6 +14,19 @@
 	</servlet-mapping>
 	<servlet>
 		<servlet-name>login</servlet-name>
-		<jsp-file>/helshin2.jsp</jsp-file>
+		<jsp-file>/WEB-INF/jsp/user/helshin2.jsp</jsp-file>
 	</servlet>
+	
+	<servlet>
+		<servlet-name>FrontServlet</servlet-name>
+		<servlet-class>Kanrisya.FrontServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FrontServlet</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+	
+	<welcome-file-list>
+		<welcome-file>/WEB-INF/jsp/kanrisya/kanrisya.jsp</welcome-file>
+	</welcome-file-list>
 </web-app>

@@ -1,7 +1,9 @@
+//package User;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import Bean.UserBox;
+import User.UserBox;
 
 public class OracleConnector{
 	Connection cn;

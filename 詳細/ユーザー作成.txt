@@ -1,0 +1,5 @@
+CREATE USER helshin
+ IDENTIFIED BY helshinbox
+/
+
+GRANT DBA TO helshin;

@@ -1,10 +1,12 @@
+//package User;
+
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import Bean.UserBox;
+import User.UserBox;
 
 public class UserServlet extends HttpServlet{
 	public void doGet(HttpServletRequest req,HttpServletResponse res)
@@ -38,7 +40,7 @@ public class UserServlet extends HttpServlet{
 		
 		req.setAttribute("userbox",a);
 		
-		UserData.OracleUserData(a);
+		UserData.OracleUserData(a);	//クラスメソッドを参照
 			
 		//req.setAttribute("email",email);
 		//req.setAttribute("tel",tel);

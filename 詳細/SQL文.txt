@@ -1,0 +1,70 @@
+/*商品表*/
+create table product
+(
+pro_id number(6) primary key
+,pro_name  VARCHAR2(100) not null
+,pro_money number(7) not null
+,pro_stock  number(6) default 0
+,pro_calorie number(6) CONSTRAINTS constraint_name CHECK (plo_calorie <= 0)
+,pro_release_date DATE default sysdate
+,pro_type VARCHAR(8)
+);
+
+☆/*？？表*/
+create table order
+(
+or_id number
+,or_pro_id number(6)
+,or_user_id number(6) not null
+,or_count number(2) CONSTRAINTS constraint_name CHECK ( 0<= or_count <=99 )
+,or_type number(1) not null CONSTRAINTS constraint_name CHECK (or_type IN ('0', '1'))
+   ,or_info VARCHAR2(300) not null
+   ,or_date DATE
+   ,or_store BOOLEAN not null
+   ,foreign key(or_pro_id) references  product(pro_id)
+   ,foreign key(or_user_id) references  user(user_id)
+);
+
+/*ユーザー表*/
+create table userTable
+(
+user_id number(6) CONSTRAINT pk_userTable_id PRIMARY KEY
+,user_lastname VARCHAR2(50) not null
+,user_firstname VARCHAR2(50) not null
+,user_lastname_hira VARCHAR2(80) not null
+,user_firstname_hira VARCHAR2(80) not null
+   ,user_sex VARCHAR2(3) CONSTRAINT ck_userTable_sex CHECK (user_sex IN ('男', '女'))
+   ,user_mail VARCHAR2(256)
+   ,user_phone VARCHAR2(11)
+   ,user_address_id NUMBER(8) references addressTable(address_id)
+   ,user_pass VARCHAR2(16)
+   ,user_birthday VARCHAR2(4)
+,user_admin NUMBER(1) default 0
+);
+
+insert into userTable values(1,'泉','奈央人','いずみ','なおと','男','ni18304003@ga.tera-house.ac.jp','08058889513',001,'not0812','1999',0);
+
+
+create table addressTable
+(
+address_id NUMBER(8) CONSTRAINT pk_addressTable_id PRIMARY KEY
+,address VARCHAR(300)
+);
+
+insert into addressTable values(001,'中野');
+
+CREATE TABLE c(
+a VARCHAR(4)
+);
+
+
+
+/*店舗表*/
+create table store
+(
+st_id number primary key
+,st_name  VARCHAR2(6)
+,st_address VARCHAR2(30) not null
+,st_info  VARCHAR2(300)not null
+,st_phone VARCHAR2(11)
+);
