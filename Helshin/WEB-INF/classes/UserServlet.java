@@ -11,7 +11,7 @@ import User.UserBox;
 public class UserServlet extends HttpServlet{
 	public void doGet(HttpServletRequest req,HttpServletResponse res)
 	throws IOException,ServletException{
-		req.setCharacterEncoding("Windows-31J");
+		req.setCharacterEncoding("UTF-8");
 		
 		String lname = req.getParameter("lastname");
 		String fname = req.getParameter("firstname");
@@ -40,7 +40,7 @@ public class UserServlet extends HttpServlet{
 		
 		req.setAttribute("userbox",a);
 		
-		UserData.OracleUserData(a);	//クラスメソッドを参照
+		UserData.OracleUserData(a);	//繧ｯ繝ｩ繧ｹ繝｡繧ｽ繝�繝峨ｒ蜿ら�ｧ
 			
 		//req.setAttribute("email",email);
 		//req.setAttribute("tel",tel);

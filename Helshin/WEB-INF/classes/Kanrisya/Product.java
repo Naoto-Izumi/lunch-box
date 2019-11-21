@@ -2,8 +2,8 @@ package Kanrisya;
 import java.io.Serializable;
 
 public class Product implements Serializable{
-	private String name;	//ƒ†[ƒU[–¼
-	private String id;	//ƒ†[ƒU[ID
+	private String name;	//ãƒ¦ãƒ¼ã‚¶ãƒ¼å
+	private String id;	//ãƒ¦ãƒ¼ã‚¶ãƒ¼ID
 	private String mail;
 	private String telphone;
 	public String getName(){

@@ -1,15 +1,15 @@
-<%@ page pageEncoding="Windows-31J"
-	contentType="text/html;charset=Windows-31J" %>
+<%@ page pageEncoding="UTF-8"
+	contentType="text/html;charset=UTF-8" %>
 	
 <html>
-<head>V‹K“o˜^‰æ–Ê</head>
-<title>“ü—Í“à—e•s“K‡</title>
+<head>æ–°è¦ç™»éŒ²ç”»é¢</head>
+<title>å…¥åŠ›å†…å®¹ä¸é©åˆ</title>
 </head>
 <body>
 	<center>
-	<h1>“o˜^Š®—¹</h1>
-	<p>ƒ†[ƒU[‚ªŠ®—¹‚µ‚Ü‚µ‚½B</p>
-	<a>•Â‚¶‚é</a>
+	<h1>ç™»éŒ²å®Œäº†</h1>
+	<p>ãƒ¦ãƒ¼ã‚¶ãƒ¼ãŒå®Œäº†ã—ã¾ã—ãŸã€‚</p>
+	<a>é–‰ã˜ã‚‹</a>
 	</center>
 </body>
 </html>

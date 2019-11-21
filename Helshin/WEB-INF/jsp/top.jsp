@@ -1,15 +1,15 @@
 <%@ page pageEncoding="Windows-31J"
-	contentType="text/html;charset=Windows-31J" %>
+	contentType="text/html;charset=UTF-8" %>
 
 <html>
 <head>
-	<title>ƒwƒ‹ƒVƒ“•Ù“–</title>
+	<title>ãƒ˜ãƒ«ã‚·ãƒ³å¼å½“</title>
 </head>
 <body>
 	<h1>Helshin</h1>c
-	<a href="*">ƒƒjƒ…[</a>
-	<a href="*">“X•Ü</a>
-	<a href="*">‚»‚Ì‘¼</a>
+	<a href="*">ãƒ¡ãƒ‹ãƒ¥ãƒ¼</a>
+	<a href="*">åº—èˆ—</a>
+	<a href="*">ãã®ä»–</a>
 </body>
 
 	

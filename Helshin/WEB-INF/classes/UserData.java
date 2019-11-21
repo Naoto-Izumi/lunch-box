@@ -21,7 +21,7 @@ public class UserData{
 		a.setMail("f");
 		a.setPass("g");
 		a.setAddress("h");
-		a.setSex("’j");
+		a.setSex("ç”·");
 		a.setBirth("j");
 		
 		OracleUserData(a);

@@ -1,28 +1,28 @@
-<%@ page pageEncoding="Windows-31J"
-	contentType="text/html;charset=Windows-31J" %>
+<%@ page pageEncoding="UTF-8"
+	contentType="text/html;charset=UTF-8" %>
 	
 <html>
 <head>
-<title>V‹K“o˜^</title>
+<title>æ–°è¦ç™»éŒ²</title>
 </head>
 <body>
-	<h1>ƒ†[ƒU[“o˜^</h1>
+	<h1>ãƒ¦ãƒ¼ã‚¶ãƒ¼ç™»éŒ²</h1>
 	<form method='get' action='login'>
 	<table>
-	<tr><td>©</td><td><input type='text' name='lastname'></td></tr>
-	<tr><td>–¼</td><td><input type='text' name='firstname'></td></tr>
-	<tr><td>©(ƒJƒ^ƒJƒi)</td><td><input type='text' name='lastname_hira'></td></tr>
-	<tr><td>–¼(ƒJƒ^ƒJƒi)</td><td><input type='text' name='firstname_hira'></td></tr>
-	<tr><td>“d˜b”Ô†</td><td><input type='tel' name='phone'></td></tr>
-	<tr><td>ƒ[ƒ‹ƒAƒhƒŒƒX</td><td><input type='email' name='mail'></td></tr>
-	<tr><td>ƒpƒXƒ[ƒh</td><td><input type='password' name='password'></td></tr>
-	<tr><td>ƒpƒXƒ[ƒh(Šm”F—p)</td><td><input type='password' name='password'></td></tr>
-	<tr><td>ZŠ</td><td><input type='text' name='address'></td></tr>
-	<tr><td>«•Ê</td><td>’j<input type='radio' name='sex'> —<input type='radio' name='sex'></td></tr>
-	<tr><td>¶”NŒŽ“ú</td><td><input type='datetime' name='birthyear'></td></tr>
+	<tr><td>å§“</td><td><input type='text' name='lastname'></td></tr>
+	<tr><td>å</td><td><input type='text' name='firstname'></td></tr>
+	<tr><td>å§“(ã‚«ã‚¿ã‚«ãƒŠ)</td><td><input type='text' name='lastname_hira'></td></tr>
+	<tr><td>å(ã‚«ã‚¿ã‚«ãƒŠ)</td><td><input type='text' name='firstname_hira'></td></tr>
+	<tr><td>é›»è©±ç•ªå·</td><td><input type='tel' name='phone'></td></tr>
+	<tr><td>ãƒ¡ãƒ¼ãƒ«ã‚¢ãƒ‰ãƒ¬ã‚¹</td><td><input type='email' name='mail'></td></tr>
+	<tr><td>ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰</td><td><input type='password' name='password'></td></tr>
+	<tr><td>ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰(ç¢ºèªç”¨)</td><td><input type='password' name='password'></td></tr>
+	<tr><td>ä½æ‰€</td><td><input type='text' name='address'></td></tr>
+	<tr><td>æ€§åˆ¥</td><td>ç”·<input type='radio' name='sex'> å¥³<input type='radio' name='sex'></td></tr>
+	<tr><td>ç”Ÿå¹´æœˆæ—¥</td><td><input type='datetime' name='birthyear'></td></tr>
 	</table>
 	<br><br>
-	<input type='submit' value='‘—M'>
+	<input type='submit' value='é€ä¿¡'>
 	</form>
 </body>
 </html>

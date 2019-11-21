@@ -11,13 +11,13 @@ import javax.servlet.http.HttpServlet;
 public class FrontServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest req,HttpServletResponse res)
 		throws ServletException,IOException{
-		
+		req.setCharacterEncoding("UTF-8");
 			doPost(req,res);
 	}
 	public void doPost(HttpServletRequest req,HttpServletResponse res)
 	throws IOException,ServletException{
 		
-		req.setCharacterEncoding("Windows-31J");
+		req.setCharacterEncoding("UTF-8");
 		
 		Map data = req.getParameterMap();
 		

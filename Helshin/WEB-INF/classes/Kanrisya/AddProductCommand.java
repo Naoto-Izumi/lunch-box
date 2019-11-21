@@ -6,22 +6,22 @@ public class AddProductCommand extends AbstractCommand{
 	public String execute(){
 		Product p=new Product();
 		
-		//parameterMap‚©‚çname‚Æprice‚¤‚¯‚Æ‚é
+		//parameterMapã‹ã‚‰nameã¨priceã†ã‘ã¨ã‚‹
 		Map parameters = getParameters();
 		
-		String name = ((String[])parameters.get("name"))[0];	//request‚Å‘—‚ç‚ê‚Ä‚«‚½ƒL[‚Ìƒpƒ‰ƒ[ƒ^[
+		String name = ((String[])parameters.get("name"))[0];	//requestã§é€ã‚‰ã‚Œã¦ããŸã‚­ãƒ¼ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãƒ¼
 		System.out.println(name);
-		//String id = ((String[])parameters.get("id"))[0];	//request‚Å‘—‚ç‚ê‚Ä‚«‚½ƒL[‚Ìƒpƒ‰ƒ[ƒ^[
+		//String id = ((String[])parameters.get("id"))[0];	//requestã§é€ã‚‰ã‚Œã¦ããŸã‚­ãƒ¼ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãƒ¼
 		//String tel = ((String[])parameters.get("telphone"))[0];
 		//String mail = ((String[])parameters.get("mail"))[0];
 		
-		//ó‚¯æ‚Á‚½•¨‚ğproduct‚Éset‚·‚é
+		//å—ã‘å–ã£ãŸç‰©ã‚’productã«setã™ã‚‹
 		p.setName(name);
 		//p.setId(id);
 		//p.setTelphone(tel);
 		//p.setMail(mail);
 		
-		//ƒf[ƒ^ƒx[ƒX‚É“o˜^‚·‚é
+		//ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã«ç™»éŒ²ã™ã‚‹
 		DbDummy.addProduct(p);
 		
 		return "/view";
