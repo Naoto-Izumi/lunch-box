@@ -2,15 +2,15 @@ package Kanrisya;
 import java.io.Serializable;
 
 public class Product implements Serializable{
-	private String name;	//ユーザー名
+	private String lname;	//ユーザー名
 	private String id;	//ユーザーID
 	private String mail;
 	private String telphone;
-	public String getName(){
-		return name;
+	public String getLname(){
+		return lname;
 	}
-	public void setName(String name){
-		this.name = name;
+	public void setLname(String lname){
+		this.lname = lname;
 	}
 	public String getId(){
 		return id;

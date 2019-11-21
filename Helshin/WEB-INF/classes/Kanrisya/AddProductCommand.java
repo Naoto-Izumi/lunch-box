@@ -5,21 +5,28 @@ public class AddProductCommand extends AbstractCommand{
 	
 	public String execute(){
 		Product p=new Product();
+		//FrontServlet f = new FrontServlet();
 		
 		//parameterMapからnameとpriceうけとる
 		Map parameters = getParameters();
 		
-		String name = ((String[])parameters.get("name"))[0];	//requestで送られてきたキーのパラメーター
-		System.out.println(name);
-		//String id = ((String[])parameters.get("id"))[0];	//requestで送られてきたキーのパラメーター
-		//String tel = ((String[])parameters.get("telphone"))[0];
-		//String mail = ((String[])parameters.get("mail"))[0];
+		String lastname = ((String[])parameters.get("lastname"))[0];	//requestで送られてきたキーのパラメーター
+		
+		Product[] s = new 
+		//lock
+		
+		System.out.println(lastname);
+		System.out.println(id);
+		System.out.println(mail);
+		System.out.println(telphone);
+		//lock
 		
 		//受け取った物をproductにsetする
-		p.setName(name);
-		//p.setId(id);
-		//p.setTelphone(tel);
-		//p.setMail(mail);
+		p.getLname(lastname);
+		p.getId(id);
+		p.getMail(mail);
+		p.getTelphone(telphone);
+		//lock
 		
 		//データベースに登録する
 		DbDummy.addProduct(p);

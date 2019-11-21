@@ -30,6 +30,15 @@ public class FrontServlet extends HttpServlet{
 		Object result = command.getResult();
 		req.setAttribute("result",result);
 		
+		Product pp = new Product();
+		pp.setLname("a");
+		pp.setTelphone("e");
+		pp.setMail("f");
+		pp.setId("1");
+		//req.setAttribute("product",pp);
+		
+		//KanrisyaData.OracleKanrisyaData(pp);
+		
 		RequestDispatcher dis = req.getRequestDispatcher(url);
 		dis.forward(req,res);
 	}
