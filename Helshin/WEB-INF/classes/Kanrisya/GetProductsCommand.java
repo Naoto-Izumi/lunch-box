@@ -10,7 +10,7 @@ public class GetProductsCommand extends AbstractCommand{
 		Iterator it = pList.iterator();
 		while(it.hasNext()){
 			Product p  = (Product)it.next();
-			String a = p.getName();
+			String a = p.getLname();
 			//System.out.println("a");
 			//System.out.println(a);
 		}

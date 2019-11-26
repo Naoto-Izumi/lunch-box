@@ -10,22 +10,22 @@ public class AddProductCommand extends AbstractCommand{
 		//parameterMapからnameとpriceうけとる
 		Map parameters = getParameters();
 		
-		String lastname = ((String[])parameters.get("lastname"))[0];	//requestで送られてきたキーのパラメーター
+		String aaaaa = ((String[])parameters.get("lastname"))[0];	//requestで送られてきたキーのパラメーター
 		
-		Product[] s = new 
+		//Product[] s = new 
 		//lock
 		
-		System.out.println(lastname);
-		System.out.println(id);
-		System.out.println(mail);
-		System.out.println(telphone);
+		System.out.println(aaaaa);
+		//System.out.println(id);
+		//System.out.println(mail);
+		//System.out.println(telphone);
 		//lock
 		
 		//受け取った物をproductにsetする
-		p.getLname(lastname);
-		p.getId(id);
-		p.getMail(mail);
-		p.getTelphone(telphone);
+		String o = p.getLname();//別のクラスでpをセットする
+		//p.getId(id);
+		//p.getMail(mail);
+		//p.getTelphone(telphone);
 		//lock
 		
 		//データベースに登録する

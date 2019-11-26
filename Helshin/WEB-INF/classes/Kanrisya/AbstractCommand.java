@@ -10,10 +10,10 @@ public abstract class AbstractCommand{
 	public Object getResult(){
 		return result;
 	}
-	protected void setResult(Object data){
+	public void setResult(Object data){
 		this.result = data;
 	}
-	protected Map getParameters(){
+	public Map getParameters(){
 		return parameters;
 	}
 	public abstract String execute();
