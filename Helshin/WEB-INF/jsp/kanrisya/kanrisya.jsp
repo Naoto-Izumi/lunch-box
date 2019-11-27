@@ -4,17 +4,17 @@
 	
 <html>
 <head>
-<title>商品一覧</title>
+<title>管理者情報</title>
 </head>
 <body>
-	<h1>商品一覧</h1>
-	<form method='post' action='add'>
+	<h1>管理者 ユーザー管理</h1>
+	<form method='get' action='add'>
 		商品名<input type='text' name = 'lastname'><br>
 		<input type='submit' value='登録'>
 	</form>
 	
 	<table border="1">
-		<tr><th>商品名</th><th>id</th><th>メアド</th><th>電話番号</th><th>ロック</th></tr>
+		<tr><th>ユーザー名</th><th>id</th><th>メアド</th><th>電話番号</th><th>ロック</th></tr>
 		<c:forEach var="product" items="${result}">
 			<tr><td>${product.lname}</td><td>${product.id}</td><td>${product.mail}</td><td>${product.telphone}</td><td>null</td></tr>
 		</c:forEach>

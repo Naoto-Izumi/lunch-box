@@ -16,7 +16,7 @@ public class GetProductsCommand extends AbstractCommand{
 		}
 		super.setResult(pList);
 		
-		return "/WEB-INF/jsp/kanrisya/kanrisya.jsp";
+		return "/WEB-INF/jsp/kanrisya.jsp";
 	}
 	
 }

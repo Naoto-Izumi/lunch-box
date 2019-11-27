@@ -14,10 +14,13 @@ public class KanrisyaTableReferer{
 	
 	public KanrisyaTableReferer(Connection cn,String TableName){
 		this.cn = cn;
-		String query = "SELECT user_id,user_lastname,user_mail,user_phone FROM userTable WHERE user_lastname" +TableName;
+		String query = "SELECT user_id,user_lastname,user_mail,user_phone FROM userTable WHERE user_lastname LIKE '%" +TableName+"%'";
 		try{
 			st = cn.createStatement();
+			System.out.println(cn);
+			System.out.println(st);
 			rs = st.executeQuery(query);
+			System.out.println(rs);
 		}catch(SQLException e){
 			e.printStackTrace();
 		}

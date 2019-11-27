@@ -5,7 +5,7 @@ public class InputProductCommand extends AbstractCommand{
 	public String execute(){
 	
 		
-		return "/WEB-INF/jsp/kanrisya/kanrisya.jsp";
+		return "/WEB-INF/jsp/kanrisya.jsp";
 		/*Product d = new Product();
 		//d.setAttribute("name",name);
 		//d.setName(name);
