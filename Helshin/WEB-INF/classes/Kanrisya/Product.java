@@ -6,6 +6,7 @@ public class Product implements Serializable{
 	private String id;	//ユーザーID
 	private String mail;
 	private String telphone;
+	private String lid;
 	public String getLname(){
 		return lname;
 	}
@@ -29,5 +30,11 @@ public class Product implements Serializable{
 	}
 	public void setTelphone(String telphone){
 		this.telphone = telphone;
+	}
+	public String getLid(){
+		return lid;
+	}
+	public void setLid(String lid){
+		this.lid = lid;
 	}
 }

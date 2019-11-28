@@ -1,22 +1,19 @@
 package Kanrisya;
 import java.util.Map;
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.List;
 
 public class GetProductsCommand extends AbstractCommand{
 	public String execute(){
+		
+		Map parameters = getParameters();
+		
+		String lname =((String[])parameters.get("lastname"))[0];
 	
-		ArrayList pList=DbDummy.getDatabase();
-		Iterator it = pList.iterator();
-		while(it.hasNext()){
-			Product p  = (Product)it.next();
-			String a = p.getLname();
-			//System.out.println("a");
-			//System.out.println(a);
-		}
+		List pList = KanrisyaData.OracleKanrisyaData(lname);
+		
 		super.setResult(pList);
 		
-		return "/WEB-INF/jsp/kanrisya.jsp";
+		return "/WEB-INF/jsp/kanrisya/kanrisya.jsp";
 	}
 	
 }
