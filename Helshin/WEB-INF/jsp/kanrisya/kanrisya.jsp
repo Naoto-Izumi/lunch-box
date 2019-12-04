@@ -18,7 +18,8 @@
 		<c:forEach var="product" items="${result}">
 			<tr><td>${product.lname}</td><td>${product.id}</td>
 			<td>${product.mail}</td><td>${product.telphone}</td>
-			<td>${product.lid}</td></tr>
+			<td><form method='get' action='add'>
+			<input type='checkbox' name='id' value='${product.id}'></td><td><input type='submit'></form></td></tr>
 		</c:forEach>
 	</table>
 </body>

@@ -11,7 +11,13 @@ public class GetProductsCommand extends AbstractCommand{
 	
 		List pList = KanrisyaData.OracleKanrisyaData(lname);
 		
-		super.setResult(pList);
+		setResult(pList);
+		
+		/*for(int i = 0; i<=9; i++){
+			KanrisyaData k = new KanrisyaData
+			System.out.println(p.getLid());
+			
+		}*/
 		
 		return "/WEB-INF/jsp/kanrisya/kanrisya.jsp";
 	}

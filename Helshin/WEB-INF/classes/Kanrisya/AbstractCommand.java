@@ -16,5 +16,5 @@ public abstract class AbstractCommand{
 	public Map getParameters(){
 		return parameters;
 	}
-	public abstract String execute();
+	public abstract String execute();	//AddProductCommandクラスやInputProductCommandクラスやGetProductsCommandクラスに継承する。
 }

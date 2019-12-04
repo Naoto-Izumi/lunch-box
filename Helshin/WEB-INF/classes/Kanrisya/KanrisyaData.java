@@ -22,8 +22,7 @@ public class KanrisyaData{
 		Statement st = null;
 		ResultSet rs = null;
 		Connection cn = new OracleConnector("helshin","helshinbox").getCn();
-		String q = "SELECT user_id,user_lastname,user_mail,user_phone FROM userTable u JOIN lockTable l ON u.user_id = l.lo_user_id where u.user_lastname LIKE '"+lname+"%'";
-		//String aq = A.InportKanrisyaData(?);
+		String q = "SELECT user_id,user_lastname,user_mail,user_phone FROM userTable  where user_lastname LIKE '"+lname+"%'";
 		
 		List<Product> ppp= new ArrayList<Product>();
 		
@@ -35,8 +34,6 @@ public class KanrisyaData{
 			
 			int columnCount = rsMeta.getColumnCount();
 			
-			
-			
 			while(rs.next()){
 				Product pr = new Product();
 				
@@ -45,17 +42,24 @@ public class KanrisyaData{
 				System.out.println(rs.getString(2));
 				System.out.println(rs.getString(3));
 				System.out.println(rs.getString(4));
-				System.out.println(rs.getString(5));
+				//System.out.println(rs.getString(5));
 				pr.setTelphone(rs.getString(4));	
 				pr.setMail(rs.getString(3));		
 				pr.setId(rs.getString(1));
-				pr.setLid(rs.getString(5));
-					
+				//pr.setLid(rs.getString(5));
+				
+				/*for(int i = 0; true; i++){
+					while(true){
+						pr.setLid(rs.getString(5));
+					}
+					System.out.println(true);	
+				}*/
+				
 				ppp.add(pr);
 			}
 		}
 		catch(SQLException e){
-			e.printStackTrace();
+			//throw new SQLException(e);
 		}finally{
 			if(st != null){
 				try{

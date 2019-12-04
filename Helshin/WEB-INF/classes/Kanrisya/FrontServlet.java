@@ -15,8 +15,6 @@ public class FrontServlet extends HttpServlet{
 
 		Map data = req.getParameterMap();
 		
-		String a = req.getParameter("lastname");
-			
 		String path = req.getServletPath();
 		AbstractCommand command = CommandFactory.getCommand(path);	//ConcreteCommandを取得・
 			
@@ -24,10 +22,12 @@ public class FrontServlet extends HttpServlet{
 			
 		String url = command.execute();//executeでwhileを呼び込む。
 			
-		Object ppp = command.getResult();
-			
-		req.setAttribute("result",ppp);
+		Object ppp = command.getResult();	//AbstractCommandクラスにあるgetResult()メソッドを取得。
+			System.out.println(ppp);
+		req.setAttribute("result",ppp);		//Objectの変数にあるpppからsetAttributeでresultを呼び出す。
 				
+		//KanrisyaInsert.OracleKanrisyaInsert(ppp);
+			
 		RequestDispatcher r = req.getRequestDispatcher(url);
 			
 		r.forward(req,res);
