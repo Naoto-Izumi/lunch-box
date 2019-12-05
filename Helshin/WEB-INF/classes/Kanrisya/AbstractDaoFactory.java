@@ -1,21 +1,25 @@
 package Kanrisya;
-//import java.io.File;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
-public abstract class CommandFactory{
-	public static AbstractCommand getCommand(RequestContext rc){
-		AbstractCommand command = null;
+//import java.lang.ClassNotFoundException;
+//import java.lang.InstantiationException;
+//import java.lang.IllegalAccessException;
+
+public abstract class AbstractDaoFactory{
+	public static AbstractDaoFactory getFactory(){
+		AbstractDaoFactory factory = null;
 		
 		Properties prop = new Properties();
 		
 		try{
-			prop.load(new FileInputStream("c:/Helshin/helshin.properties"));
-			String name = prop.getProperty(rc.getCommandPath());
+			prop.load(new FileInputStream("c:/Helshin/dao.properties"));
+			String name = prop.getProperty("dao");
 			Class c = Class.forName(name);
-			command = (AbstractCommand) c.newInstance();
+			factory = (AbstractDaoFactory) c.newInstance();
 			
 		}catch(FileNotFoundException e){
 			throw new RuntimeException(e.getMessage(),e);
@@ -28,8 +32,7 @@ public abstract class CommandFactory{
 		}catch(IllegalAccessException e){
 			throw new RuntimeException(e.getMessage(),e);
 		}
-		return command;
+		return factory;
 	}
+	public abstract ProductsDao getProductsDao();
 }
-
-		

@@ -2,9 +2,11 @@ package Kanrisya;
 import java.util.Map;
 
 public class InputProductCommand extends AbstractCommand{
-	public String execute(){
+	public ResponseContext execute(ResponseContext resc){
 	
-		return "/WEB-INF/jsp/kanrisya/kanrisya.jsp";
+		resc.setTarget("kanrisya/kanrisya");
+		
+		return resc;
 	}
 }
 

@@ -76,6 +76,10 @@ public class KanrisyaInsert{
 			cn.commit();
 			//何もしてない
 			//１をもらったからそれをインサート
+			String a =
+			"DELETE FROM userTable(user_id) Values('"+query+"')";
+			
+			st=cn.prepareStatement(a);
 			
 		}catch(SQLException e){
 			e.printStackTrace();

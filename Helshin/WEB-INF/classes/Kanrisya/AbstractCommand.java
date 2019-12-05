@@ -1,20 +1,13 @@
 package Kanrisya;
-import java.util.Map;
+//import java.util.Map;
 
 public abstract class AbstractCommand{
-	private Map parameters;
-	private Object result;
-	public void init(Map parameters){
-		this.parameters = parameters;
+	private RequestContext reqContext;
+	public void init(RequestContext reqc){
+		reqContext = reqc;
 	}
-	public Object getResult(){
-		return result;
+	public RequestContext getRequestContext(){
+		return reqContext;
 	}
-	public void setResult(Object data){
-		this.result = data;
-	}
-	public Map getParameters(){
-		return parameters;
-	}
-	public abstract String execute();	//AddProductCommandクラスやInputProductCommandクラスやGetProductsCommandクラスに継承する。
+	public abstract ResponseContext execute(ResponseContext resc);	//AddProductCommandクラスやInputProductCommandクラスやGetProductsCommandクラスに継承する。
 }

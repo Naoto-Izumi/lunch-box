@@ -11,25 +11,22 @@ import javax.servlet.http.HttpServlet;
 public class FrontServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest req,HttpServletResponse res)
 		throws ServletException,IOException{
+			
+			doPost(req,res);
+		}
+	protected void doPost(HttpServletRequest req,HttpServletResponse res)
+		throws ServletException,IOException{
+		
 		req.setCharacterEncoding("UTF-8");
 
-		Map data = req.getParameterMap();
+		ApplicationController app = new WebApplicationController();
+			
+			RequestContext reqc = app.getRequest(req);
+			
+			ResponseContext resc = app.handleRequest(reqc);
 		
-		String path = req.getServletPath();
-		AbstractCommand command = CommandFactory.getCommand(path);	//ConcreteCommandを取得・
-			
-		command.init(data);
-			
-		String url = command.execute();//executeでwhileを呼び込む。
-			
-		Object ppp = command.getResult();	//AbstractCommandクラスにあるgetResult()メソッドを取得。
-			System.out.println(ppp);
-		req.setAttribute("result",ppp);		//Objectの変数にあるpppからsetAttributeでresultを呼び出す。
-				
-		//KanrisyaInsert.OracleKanrisyaInsert(ppp);
-			
-		RequestDispatcher r = req.getRequestDispatcher(url);
-			
-		r.forward(req,res);
+			resc.setResponse(res);
+		
+			app.handleResponse(reqc,resc);
 	}
 }
