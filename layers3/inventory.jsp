@@ -1,8 +1,8 @@
 <%@ page pageEncoding="utf-8" contentType="text/html; charset=UTF-8" %>
 <html>
-<head><title>商品注文画面</title></head>
+<head><title>在庫管理</title></head>
 <body>
-	<h1>商品の注文</h1>
+	<h1>在庫状況</h1>
 	
 	
 </body>
