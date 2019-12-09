@@ -32,22 +32,7 @@
 
 
 
-	<servlet>
-		<servlet-name>productinput</servlet-name>
-		<jsp-file>/productinput.jsp</jsp-file>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>productinput</servlet-name>
-		<url-pattern>/productinput</url-pattern>
-	</servlet-mapping>
-	<servlet>
-		<servlet-name>productorder</servlet-name>
-		<jsp-file>/productorder.jsp</jsp-file>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>productorder</servlet-name>
-		<url-pattern>/productorder</url-pattern>
-	</servlet-mapping>
+	
 	<servlet>
 		<servlet-name>orderlogin</servlet-name>
 		<jsp-file>/orderlogin.jsp</jsp-file>
@@ -85,7 +70,7 @@
 		<url-pattern>/pqs</url-pattern>
 	</servlet-mapping>
 
-		<servlet>
+	<servlet>
 		<servlet-name>SQueryServlet</servlet-name>
 		<servlet-class>SQueryServlet</servlet-class>
 	</servlet>
@@ -93,5 +78,43 @@
 		<servlet-name>SQueryServlet</servlet-name>
 		<url-pattern>/sqs</url-pattern>
 	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>PDeleteServlet</servlet-name>
+		<servlet-class>PDeleteServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PDeleteServlet</servlet-name>
+		<url-pattern>/pde</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>SDeleteServlet</servlet-name>
+		<servlet-class>SDeleteServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SDeleteServlet</servlet-name>
+		<url-pattern>/sde</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>PStockChangeServlet</servlet-name>
+		<servlet-class>PStockChangeServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PStockChangeServlet</servlet-name>
+		<url-pattern>/pscs</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>PStockServlet</servlet-name>
+		<servlet-class>PStockServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PStockServlet</servlet-name>
+		<url-pattern>/pss</url-pattern>
+	</servlet-mapping>
+
 
 </web-app>

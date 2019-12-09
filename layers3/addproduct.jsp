@@ -35,7 +35,11 @@
 		かに<br>
 		含む<input type='radio' name='kani' value='1'>含まない<input type='radio' name='kani' value='0' checked="checked" ><br>
 	<input type='submit' value='登録'>
-
-
+<br>
+<a href="addproduct.jsp">商品登録</a><br>
+<a href="pss">在庫変更</a><br>
+<a href="pqs">商品削除</a><br>
+<a href="addstore.jsp">店舗登録</a><br>
+<a href="sqs">店舗削除</a><br>
 </body>
 </html>

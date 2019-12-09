@@ -86,7 +86,7 @@ public class RegistJdbc{
 				e.printStackTrace();
 			}
 		}
-		return "form.jsp";
+		return "addproduct.jsp";
 	}
 
 
