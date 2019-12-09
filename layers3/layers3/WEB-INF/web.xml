@@ -1,0 +1,97 @@
+<web-app>
+	<filter>
+		<filter-name>logincheckfilter</filter-name>
+		<filter-class>LoginCheckFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>logincheckfilter</filter-name>
+		<url-pattern>/productinput</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>logincheckfilter</filter-name>
+		<url-pattern>/productorder</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+	</filter-mapping>
+	<filter>
+		
+		<filter-name>authenticatefilter</filter-name>
+		<filter-class>AuthenticateFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>authenticatefilter</filter-name>
+		<url-pattern>/productinput</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>authenticatefilter</filter-name>
+		<url-pattern>/productorder</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+	</filter-mapping>
+
+
+
+
+	<servlet>
+		<servlet-name>productinput</servlet-name>
+		<jsp-file>/productinput.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>productinput</servlet-name>
+		<url-pattern>/productinput</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>productorder</servlet-name>
+		<jsp-file>/productorder.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>productorder</servlet-name>
+		<url-pattern>/productorder</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>orderlogin</servlet-name>
+		<jsp-file>/orderlogin.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>orderlogin</servlet-name>
+		<url-pattern>/orderlogin</url-pattern>
+	</servlet-mapping>
+	
+
+	<servlet>
+		<servlet-name>PRegistServlet</servlet-name>
+		<servlet-class>PRegistServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PRegistServlet</servlet-name>
+		<url-pattern>/prs</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>SRegistServlet</servlet-name>
+		<servlet-class>SRegistServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SRegistServlet</servlet-name>
+		<url-pattern>/srs</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>PQueryServlet</servlet-name>
+		<servlet-class>PQueryServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PQueryServlet</servlet-name>
+		<url-pattern>/pqs</url-pattern>
+	</servlet-mapping>
+
+		<servlet>
+		<servlet-name>SQueryServlet</servlet-name>
+		<servlet-class>SQueryServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SQueryServlet</servlet-name>
+		<url-pattern>/sqs</url-pattern>
+	</servlet-mapping>
+
+</web-app>
