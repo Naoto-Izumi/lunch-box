@@ -25,8 +25,7 @@ public class UserServlet extends HttpServlet{
 		String birth = req.getParameter("birthyear");
 		
 		UserBox a = new UserBox();
-		//a.UserBox(lname,fname,lhname,fhname,telphone,mail,pass,address,sex,birth,tableName);
-		
+
 		a.setLname(lname);
 		a.setFname(fname);
 		a.setLhname(lhname);
@@ -41,9 +40,6 @@ public class UserServlet extends HttpServlet{
 		req.setAttribute("userbox",a);
 		
 		UserData.OracleUserData(a);	//クラスメソッドを参照
-			
-		//req.setAttribute("email",email);
-		//req.setAttribute("tel",tel);
 		
 		RequestDispatcher f = req.getRequestDispatcher("/helshin");
 		f.forward(req,res);

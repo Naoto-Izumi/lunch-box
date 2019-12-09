@@ -3,7 +3,6 @@ package Kanrisya;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import User.UserBox;
 
 public class OracleConnector{
 	Connection cn;

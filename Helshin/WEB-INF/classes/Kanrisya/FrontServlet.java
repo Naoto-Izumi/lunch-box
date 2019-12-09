@@ -1,45 +1,32 @@
 package Kanrisya;
+
 import java.io.IOException;
 import java.util.Map;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import javax.servlet.http.HttpServlet;
 
 public class FrontServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest req,HttpServletResponse res)
 		throws ServletException,IOException{
-		req.setCharacterEncoding("UTF-8");
+			
 			doPost(req,res);
-	}
-	public void doPost(HttpServletRequest req,HttpServletResponse res)
-	throws IOException,ServletException{
+		}
+	protected void doPost(HttpServletRequest req,HttpServletResponse res)
+		throws ServletException,IOException{
 		
 		req.setCharacterEncoding("UTF-8");
+
+		ApplicationController app = new WebApplicationController();
+			
+			RequestContext reqc = app.getRequest(req);
+			
+			ResponseContext resc = app.handleRequest(reqc);
 		
-		Map data = req.getParameterMap();
+			resc.setResponse(res);
 		
-		String path = req.getServletPath();
-		AbstractCommand command = CommandFactory.getCommand(path);
-		command.init(data);
-		
-		String url = command.execute();
-		
-		Object result = command.getResult();
-		req.setAttribute("result",result);
-		
-		Product pp = new Product();
-		pp.setLname("a");
-		pp.setTelphone("e");
-		pp.setMail("f");
-		pp.setId("1");
-		//req.setAttribute("product",pp);
-		
-		//KanrisyaData.OracleKanrisyaData(pp);
-		
-		RequestDispatcher dis = req.getRequestDispatcher(url);
-		dis.forward(req,res);
+			app.handleResponse(reqc,resc);
 	}
 }

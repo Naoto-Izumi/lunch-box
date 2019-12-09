@@ -1,19 +1,19 @@
 package Kanrisya;
-import java.io.File;
+//import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
 public abstract class CommandFactory{
-	public static AbstractCommand getCommand(String path){
+	public static AbstractCommand getCommand(RequestContext rc){
 		AbstractCommand command = null;
 		
 		Properties prop = new Properties();
 		
 		try{
 			prop.load(new FileInputStream("c:/Helshin/helshin.properties"));
-			String name = prop.getProperty(path);
+			String name = prop.getProperty(rc.getCommandPath());
 			Class c = Class.forName(name);
 			command = (AbstractCommand) c.newInstance();
 			

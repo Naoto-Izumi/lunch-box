@@ -1,37 +1,49 @@
 package Kanrisya;
-import java.util.Map;
+
+//import dao.AbstractDaoFactory;
+//import dao.ProductsDao;
 
 public class AddProductCommand extends AbstractCommand{
 	
-	public String execute(){
-		Product p=new Product();
-		//FrontServlet f = new FrontServlet();
+	public ResponseContext execute(ResponseContext resc){
+		RequestContext reqc = getRequestContext();
 		
-		//parameterMapからnameとpriceうけとる
-		Map parameters = getParameters();
+		//Map parameters = getParameters();	//parameterMapからnameとpriceうけとる
 		
-		String lastname = ((String[])parameters.get("lastname"))[0];	//requestで送られてきたキーのパラメーター
+		//String aaaaa = ((String[])parameters.get("id"))[0];	//requestで送られてきたキーのパラメーター
 		
-		Product[] s = new 
+		String[] ao = reqc.getParameter("id");
+		String aaaaa = ao[0];
+		
+		Product p = new Product();
+		
+		p.setId(aaaaa);
+		//KanrisyaInsert.OracleKanrisyaInsert(p);
+		
 		//lock
 		
-		System.out.println(lastname);
-		System.out.println(id);
-		System.out.println(mail);
-		System.out.println(telphone);
+		System.out.println(aaaaa);
 		//lock
 		
+		
+		/*for(int i = 0; i<=9; i++){
+			//Product p = new Product();
+			System.out.println(p.getLid());
+			
+		}*/
 		//受け取った物をproductにsetする
-		p.getLname(lastname);
-		p.getId(id);
-		p.getMail(mail);
-		p.getTelphone(telphone);
+		//String o = p.getLname();//別のクラスでpをセットする
 		//lock
 		
-		//データベースに登録する
-		DbDummy.addProduct(p);
+		//return "/WEB-INF/jsp/kanrisya/kanrisya.jsp";
 		
-		return "/view";
+		AbstractDaoFactory factory = AbstractDaoFactory.getFactory();
+		ProductsDao dao = factory.getProductsDao();
+		dao.addProduct(p);
+		
+		resc.setTarget("kanrisya/kanrisya");
+		
+		return resc;
 		
 	}
 }

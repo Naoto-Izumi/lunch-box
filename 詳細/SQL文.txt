@@ -1,17 +1,5 @@
-/*商品表*/
-create table product
-(
-pro_id number(6) primary key
-,pro_name  VARCHAR2(100) not null
-,pro_money number(7) not null
-,pro_stock  number(6) default 0
-,pro_calorie number(6) CONSTRAINTS constraint_name CHECK (plo_calorie <= 0)
-,pro_release_date DATE default sysdate
-,pro_type VARCHAR(8)
-);
-
-☆/*？？表*/
-create table order
+/*注文表*/
+create table orderTable
 (
 or_id number
 ,or_pro_id number(6)
@@ -44,6 +32,7 @@ user_id number(6) CONSTRAINT pk_userTable_id PRIMARY KEY
 
 insert into userTable values(1,'泉','奈央人','いずみ','なおと','男','ni18304003@ga.tera-house.ac.jp','08058889513',001,'not0812','1999',0);
 
+insert into userTable values(11,'小泉','信二','こいずみ','しんじ','男','sk18304028@ga.tera-house.ac.jp','00000000000');
 
 create table addressTable
 (
@@ -57,8 +46,6 @@ CREATE TABLE c(
 a VARCHAR(4)
 );
 
-
-
 /*店舗表*/
 create table store
 (
@@ -67,4 +54,29 @@ st_id number primary key
 ,st_address VARCHAR2(30) not null
 ,st_info  VARCHAR2(300)not null
 ,st_phone VARCHAR2(11)
+);
+
+/*商品表*/
+ create table productTable
+(
+pro_id number(6) primary key
+,pro_name  VARCHAR2(100) not null
+,pro_money number(7) not null
+,pro_stock  number(6) default 0 not null
+,pro_calorie number(6) CONSTRAINTS ck_pro_calorie CHECK (pro_calorie >= 0)
+,pro_release_date DATE default sysdate
+,pro_type VARCHAR(8) not null
+,pro_image BFILE
+,pro_protein number(4) default 0
+,pro_carbohydrate number(4) default 0
+,pro_lipid number(4) default 0
+,pro_vitamin number(4) default 0
+,pro_inorganic number(4) default 0
+,pro_wheat number(1) default 0 not null
+,pro_egg number(1) default 0 not null
+,pro_milk number(1) default 0 not null
+,pro_peanuts number(1) default 0 not null
+,pro_buckwheat number(1) default 0 not null
+,pro_shrimp number(1) default 0 not null
+,pro_club number(1) default 0 not null
 );

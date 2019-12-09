@@ -1,22 +1,25 @@
 package Kanrisya;
-import java.util.Map;
-import java.util.ArrayList;
-import java.util.Iterator;
+//import java.util.Map;
+import java.util.List;
+
+//import dao.AbstractDaoFactory;
+//import dao.ProductsDao;
 
 public class GetProductsCommand extends AbstractCommand{
-	public String execute(){
-	
-		ArrayList pList=DbDummy.getDatabase();
-		Iterator it = pList.iterator();
-		while(it.hasNext()){
-			Product p  = (Product)it.next();
-			String a = p.getName();
-			//System.out.println("a");
-			//System.out.println(a);
-		}
-		super.setResult(pList);
+	public ResponseContext execute(ResponseContext resc){
+		RequestContext reqc = getRequestContext();
+		String[] ao = reqc.getParameter("lastname");
+		String lastname = ao[0];
+		AbstractDaoFactory factory = AbstractDaoFactory.getFactory();
+		ProductsDao dao = factory.getProductsDao();//OraProductsDaoなのでは！？
 		
-		return "/WEB-INF/jsp/kanrisya/kanrisya.jsp";
+		
+		List products = dao.getProduct(lastname);
+		
+		resc.setResult(products);
+		resc.setTarget("kanrisya/kanrisya");
+		
+		return resc;
 	}
 	
 }
