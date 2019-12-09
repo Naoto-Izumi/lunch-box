@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script src="js/lightbox.js"></script>  
+        <title>menu</title>
+        <script>
+            function check(){
+                if(document.custom.syusyoku.value==""){
+                    alert("");
+                }else if(document.custom.syusai.value==""){
+                    alert("");
+                }else if(document.custom.huku1.value==""){
+                    alert("");
+                }else if(document.custom.huku2.value==""){
+                    alert("");
+                }else{
+                    document.custom.submit();
+                }
+            }
+
+            $(function(){
+                $("#b1").val($(""))
+            })
+
+
+            var target = null;
+
+            window.onload = function() {
+                
+                var syusyoku = document.getElementById('syusyoku');
+                var syusai = document.getElementById('syusai');
+                var hukusai = document.getElementById('hukusai');
+                
+                // drag側
+                syusyoku.addEventListener('dragstart', function(e){
+                    target = e.target;
+                }, false);
+                syusai.addEventListener('dragstart', function(e){
+                    target = e.target;
+                }, false);
+                hukusai.addEventListener('dragstart', function(e){
+                    target = e.target;
+                }, false);
+                // drag4.addEventListener('dragstart', function(e){
+                //     target = e.target;
+                // }, false);
+                // drag5.addEventListener('dragstart', function(e){
+                //     target = e.target;
+                // }, false);
+
+                // drop側
+                drop.addEventListener('dragover', function(e){
+                    e.preventDefault();
+                }, false);
+                
+                drop.addEventListener('drop', function(e){
+                    e.preventDefault();
+                    e.target.appendChild(target);
+                    $(function(){
+                        var src=syusyoku.getAttribute('src');
+                        $("#a1").val(src);
+                        var src2=syusai.getAttribute('src');
+                        $("#a2").val(src2);
+                    })
+                }, false);
+
+                
+            } 
+
+            // val s1=document.getElementById("s1").value;
+
+            // $(function(a){
+            //     $("#x").attr("src",a)
+            // })(s1);
+
+
+
+            
+        </script>
+        <style>
+            .box {
+                width: 300px;
+                height: 150px;
+                border: 1px solid black;
+                margin: 3px;
+            }
+        </style>
+    </head>
+    <body>
+            <div class="box">
+                    <img id="syusyoku" src="image/bento1.jpg" height="40%" width="40%">
+                    <img id="syusai"src="image/bento2.jpg" height="10%" width="10%">
+                    <img id="hukusai"src="image/bento3.jpg" height="10%" width="10%">
+                    <img id="hukusai"src="image/bento4.jpg" height="10%" width="10%">
+                    <img id="hukusai"src="image/bento5.jpg" height="10%" width="10%">
+                </div>
+                <div class="box" id="drop">
+                        <form action="CustomMenuServlet"" method="post" name="custom">
+                            <img id="x"><input type="hidden" id="a1" name="syusyoku" value=""><br>
+                            <input type="hidden" id="a2" name="syusai" value=""><br>
+                            <input type="hidden" id="a3" name="huku1" value=""><br>
+                            <input type="hidden" id="a4" name="huku2" value=""><br>
+                            <input type="button" onclick="check();" value="カート">
+                        </form>
+                </div>
+                
+        <div>
+            <form action="CustomMenuServlet"" method="post" name="custom">
+                主食：<input type="text" id="a1" name="syusyoku" ><br>
+                主菜：<input type="text" id="a2" name="syusai" value=""><br>
+                副菜：<input type="text" id="a3" name="huku1" value=""><br>
+                副菜：<input type="text" id="a4" name="huku2" ><br>
+                <input type="button" onclick="check();" value="カート">
+            </form>
+            <img src="image/bento1.jpg" alt="image/bento1.jpg" height="10%" width="10%">
+            <img src="image/bento2.jpg" height="10%" width="10%">
+            <img src="image/bento3.jpg" height="10%" width="10%">
+            <img src="image/bento4.jpg" height="10%" width="10%">
+            <img src="image/bento5.jpg" height="10%" width="10%">
+        </div>
+
+        
+
+
+    </body>
+</html>

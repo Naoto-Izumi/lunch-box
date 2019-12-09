@@ -1,0 +1,54 @@
+<web-app>
+    <servlet>
+        <servlet-name>TopServlet</servlet-name>
+        <servlet-class>TopServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TopServlet</servlet-name>
+        <url-pattern>/TopServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>TestServlet</servlet-name>
+        <servlet-class>TestServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TestServlet</servlet-name>
+        <url-pattern>/TestServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>MenuServlet</servlet-name>
+        <servlet-class>MenuServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MenuServlet</servlet-name>
+        <url-pattern>/MenuServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CustomMenuServlet</servlet-name>
+        <servlet-class>CustomMenuServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CustomMenuServlet</servlet-name>
+        <url-pattern>/CustomMenuServlet</url-pattern>
+    </servlet-mapping>
+    
+        <servlet>
+        <servlet-name>UserInformationServlet</servlet-name>
+        <servlet-class>UserInformationServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserInformationServlet</servlet-name>
+        <url-pattern>/UserInformationServlet</url-pattern>
+    </servlet-mapping>
+    
+        <servlet>
+        <servlet-name>CompleteServlet</servlet-name>
+        <servlet-class>CompleteServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CompleteServlet</servlet-name>
+        <url-pattern>/CompleteServlet</url-pattern>
+    </servlet-mapping>
+
+</web-app>
