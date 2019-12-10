@@ -1,7 +1,7 @@
 <web-app>
 	<servlet>
 		<servlet-name>UserServlet</servlet-name>
-		<servlet-class>UserServlet</servlet-class>
+		<servlet-class>User.Regist.UserServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>UserServlet</servlet-name>
@@ -15,6 +15,24 @@
 	<servlet>
 		<servlet-name>login</servlet-name>
 		<jsp-file>/WEB-INF/jsp/user/helshin2.jsp</jsp-file>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>UriageServlet</servlet-name>
+		<servlet-class>Kanrisya.Uriage.UriageServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UriageServlet</servlet-name>
+		<url-pattern>/uriage</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>uriage</servlet-name>
+		<url-pattern>/helshin2</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>uriage</servlet-name>
+		<jsp-file>/uriage.jsp</jsp-file>
 	</servlet>
 	
 	<servlet>
