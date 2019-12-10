@@ -1,4 +1,5 @@
 //’•¶‚µ‚½ŒÂ”AproductTable‚ÌİŒÉ‚ğŒ¸‚ç‚·
+//‚¢‚ç‚È‚¢‚â‚Â
 package dao;
 
 import java.sql.Connection;
@@ -8,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import Bean.Product;
 
 public  class ProductUpDao implements ProductsDao{
 	public Product getProduct(String pid){return null;}
@@ -30,7 +32,7 @@ public  class ProductUpDao implements ProductsDao{
 
             st=cn.prepareStatement(sql);
 
-            id=id.substring(5);
+            // id=id.substring(5);
 
             st.setInt(1,Integer.parseInt(stock));
             st.setInt(2,Integer.parseInt(id));

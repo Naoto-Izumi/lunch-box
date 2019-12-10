@@ -6,12 +6,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpSession;
-import Bean.CustomBentoBean;
-import Bean.CartBean;
-import Bean.TotalPriceBean;
-import Bean.PriceBean;
-import function.price;
-import function.CutURL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
@@ -29,7 +23,7 @@ public void doPost(HttpServletRequest req,HttpServletResponse res)
         req.setCharacterEncoding("Windows-31J");
         
         MenuDao md=new MenuDao();
-        List mlist = md.getAllProducts();
+        ArrayList mlist = (ArrayList)md.getAllProducts();
         System.out.println(mlist);
         req.setAttribute("users",mlist);
 

@@ -2,8 +2,7 @@ package Bean;
 
 import java.io.Serializable;
 
-public class Product implements Serializable{
-    //Userの注文情報
+public class UserBean implements Serializable{
     private String name = null;
     private String tel = null;
     private String mail = null;
@@ -13,17 +12,8 @@ public class Product implements Serializable{
     private String cardname = null;
     private String cardnumber = null;
     private String carddate = null;
-    //商品Id,商品画像 
-    private String id = null;
-    private String image = null; 
-
-    //商品idと個数
-    private String stock = null;
-    private String num = null; 
 
 
-
-    //元UserBean 
     public void setName(String name){
         this.name = name;
     }
@@ -77,37 +67,6 @@ public class Product implements Serializable{
     }
     public String getCarddate(){
         return carddate;
-    }
-
-    //元menubean　menuDao,topservlet
-   
-    public void setId(String id){
-        this.id = id;
-    }
-    public void setImage(String image){
-        this.image = image;
-    }
-
-    public String getId(){
-        return id;
-    }
-    public String getImage(){
-        return image;
-    }
-
-    //商品idと個数　productUpDao,Complete
-
-    public void setStock(String stock){
-        this.stock = stock;
-    }
-    public void setNum(String num){
-        this.num = num;
-    }
-    public String getStock(){
-        return stock;
-    }
-    public String getNum(){
-        return num;
     }
     
 }

@@ -26,39 +26,13 @@
     }
 
 
-    $(function() {
-  $("#droparea").on({
-    "dragenter dragover":function(e){
-      e.preventDefault();
-    },
-    "drop":function(e){
-      var file = e.originalEvent.dataTransfer.files[0];
-      var fr1 = new FileReader();
-      fr1.onload = function(e) {
-        var blob=new Blob([e.target.result],{"type":file.type});
-        var fr2 = new FileReader();
-        fr2.onload = function(e) {
-          var src=e.target.result;
-          src=new Uint8Array(src);
-          src=String.fromCharCode.apply("",src);
-          src=btoa(src);
-          src="data:"+file.type+";base64,"+src;
-          $("<img>").attr({"src":src,"alt":file.name}).appendTo('#viewarea');
-        }
-        fr2.readAsArrayBuffer(blob);
-      }
-      fr1.readAsArrayBuffer(file);
-      e.preventDefault();
-    },
-  });
-});
+
 
 </script>
 </head>
 <body>
 <h1>メニュー</h1>
-<div id="droparea">ファイルをドロップしてください。</div>
-<div id="viewarea">ここに表示</div>
+
 <div>
     <form action="CustomMenuServlet"" method="post" name="custom">
         主食：<input type="text" name="syusyoku"><br>
