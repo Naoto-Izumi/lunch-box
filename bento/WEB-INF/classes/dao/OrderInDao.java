@@ -67,10 +67,15 @@ public class OrderInDao implements ProductsDao{
             st=cn.prepareStatement(upsql);
 
             
-            id=id.substring(5);
+            // id=id.substring(5);
+
+            String stock=p.getStock();
+            String id=p.getNum();
 
             st.setInt(1,Integer.parseInt(stock));
             st.setInt(2,Integer.parseInt(id));
+
+
 
 
             st.executeUpdate();

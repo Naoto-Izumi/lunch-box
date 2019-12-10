@@ -7,13 +7,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpSession;
-import Bean.UserBean;
+import Bean.Product;
 
 public class UserInformationServlet extends HttpServlet{
 	public void doPost(HttpServletRequest req,HttpServletResponse res)
 	throws IOException,ServletException{	
 
-        UserBean ub = new UserBean();
+        Product p = new Product();
 
 		req.setCharacterEncoding("Windows-31J");
         String name = req.getParameter("name");
@@ -32,9 +32,9 @@ public class UserInformationServlet extends HttpServlet{
             System.out.println("cardnumber"+cardnumber);
             System.out.println("carddate"+carddate);
 
-            ub.setCardname(cardname);
-            ub.setCardnumber(cardnumber);
-            ub.setCarddate(carddate);
+            p.setCardname(cardname);
+            p.setCardnumber(cardnumber);
+            p.setCarddate(carddate);
 
         }
         
@@ -50,15 +50,15 @@ public class UserInformationServlet extends HttpServlet{
 
 
 
-        // UserBean ub = new UserBean();
-        ub.setName(name);
-        ub.setTel(tel);
-        ub.setMail(mail);
-        ub.setAddress(address);
-        ub.setTime(time);
-        ub.setPrice(price);
+        // UserBean p = new UserBean();
+        p.setName(name);
+        p.setTel(tel);
+        p.setMail(mail);
+        p.setAddress(address);
+        p.setTime(time);
+        p.setPrice(price);
         HttpSession session = req.getSession();
-        session.setAttribute("ub",ub);
+        session.setAttribute("p",p);
 
 		RequestDispatcher dispatcher=req.getRequestDispatcher("/confirmation.jsp");
 		
