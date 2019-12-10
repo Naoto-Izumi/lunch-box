@@ -1,82 +1,169 @@
-/*注文表*/
-create table orderTable
-(
-or_id number
-,or_pro_id number(6)
-,or_user_id number(6) not null
-,or_count number(2) CONSTRAINTS constraint_name CHECK ( 0<= or_count <=99 )
-,or_type number(1) not null CONSTRAINTS constraint_name CHECK (or_type IN ('0', '1'))
-   ,or_info VARCHAR2(300) not null
-   ,or_date DATE
-   ,or_store BOOLEAN not null
-   ,foreign key(or_pro_id) references  product(pro_id)
-   ,foreign key(or_user_id) references  user(user_id)
-);
-
-/*ユーザー表*/
-create table userTable
-(
-user_id number(6) CONSTRAINT pk_userTable_id PRIMARY KEY
-,user_lastname VARCHAR2(50) not null
-,user_firstname VARCHAR2(50) not null
-,user_lastname_hira VARCHAR2(80) not null
-,user_firstname_hira VARCHAR2(80) not null
-   ,user_sex VARCHAR2(3) CONSTRAINT ck_userTable_sex CHECK (user_sex IN ('男', '女'))
-   ,user_mail VARCHAR2(256)
-   ,user_phone VARCHAR2(11)
-   ,user_address_id NUMBER(8) references addressTable(address_id)
-   ,user_pass VARCHAR2(16)
-   ,user_birthday VARCHAR2(4)
-,user_admin NUMBER(1) default 0
-);
-
-insert into userTable values(1,'泉','奈央人','いずみ','なおと','男','ni18304003@ga.tera-house.ac.jp','08058889513',001,'not0812','1999',0);
-
-insert into userTable values(11,'小泉','信二','こいずみ','しんじ','男','sk18304028@ga.tera-house.ac.jp','00000000000');
-
-create table addressTable
-(
-address_id NUMBER(8) CONSTRAINT pk_addressTable_id PRIMARY KEY
-,address VARCHAR(300)
-);
-
-insert into addressTable values(001,'中野');
-
-CREATE TABLE c(
-a VARCHAR(4)
-);
-
-/*店舗表*/
-create table store
-(
-st_id number primary key
-,st_name  VARCHAR2(6)
-,st_address VARCHAR2(30) not null
-,st_info  VARCHAR2(300)not null
-,st_phone VARCHAR2(11)
-);
-
 /*商品表*/
- create table productTable
-(
-pro_id number(6) primary key
-,pro_name  VARCHAR2(100) not null
-,pro_money number(7) not null
-,pro_stock  number(6) default 0 not null
-,pro_calorie number(6) CONSTRAINTS ck_pro_calorie CHECK (pro_calorie >= 0)
-,pro_release_date DATE default sysdate
-,pro_type VARCHAR(8) not null
-,pro_image BFILE
-,pro_protein number(4) default 0
-,pro_carbohydrate number(4) default 0
-,pro_lipid number(4) default 0
-,pro_vitamin number(4) default 0
-,pro_inorganic number(4) default 0
-,pro_wheat number(1) default 0 not null
-,pro_egg number(1) default 0 not null
-,pro_milk number(1) default 0 not null
-,pro_peanuts number(1) default 0 not null
-,pro_buckwheat number(1) default 0 not null
-,pro_shrimp number(1) default 0 not null
-,pro_club number(1) default 0 not null
-);
+create table productTable									
+(									
+	pro_id number(6) primary key								
+	,pro_name  VARCHAR2(100) not null							
+	,pro_money number(7) not null								
+	,pro_stock  number(6) default 0 not null						
+	,pro_calorie number(6) CONSTRAINTS ck_pro_calorie CHECK (pro_calorie >= 0)			
+	,pro_release_date DATE default sysdate	
+	,pro_type VARCHAR2(8) not null								
+	,pro_image VARCHAR2(100)								
+	,pro_protein number(4) default 0
+	,pro_carbohydrate number(4) default 0
+	,pro_lipid number(4) default 0								
+	,pro_vitamin number(4) default 0
+	,pro_inorganic number(4) default 0
+	,pro_wheat number(1) default 0 not null CONSTRAINTS ck_pro_wheat CHECK (pro_wheat IN (0,1))								
+	,pro_egg number(1) default 0 not null CONSTRAINTS ck_pro_egg CHECK (pro_egg IN (0,1))								
+	,pro_milk number(1) default 0 not null CONSTRAINTS ck_pro_milk CHECK (pro_milk IN (0,1))								
+	,pro_peanuts number(1) default 0 not null CONSTRAINTS ck_pro_peanuts CHECK (pro_peanuts IN (0,1))								,pro_buckwheat number(1) default 0 not null CONSTRAINTS ck_pro_buckwheat CHECK (pro_buckwheat IN (0,1))								,pro_shrimp number(1) default 0 not null CONSTRAINTS ck_pro_shrimp CHECK (pro_shrimp IN (0,1))								
+	,pro_club number(1) default 0 not null CONSTRAINTS ck_pro_club CHECK (pro_club IN (0,1))								
+);									
+										
+CREATE SEQUENCE sq_pro_id;									
+										
+INSERT INTO productTable (pro_id,pro_name,pro_money,pro_calorie,pro_type,pro_image)										
+VALUES(sq_pro_id.NEXTVAL,'ハンバーグ',300,400,'主菜','image/bento1.jpg');										
+										
+INSERT INTO productTable (pro_id,pro_name,pro_money,pro_calorie,pro_type,pro_image,pro_egg)									
+VALUES(sq_pro_id.NEXTVAL,'卵焼き',300,400,'副菜','image/bento2.jpg',1);										
+										
+INSERT INTO productTable (pro_id,pro_name,pro_money,pro_calorie,pro_type,pro_image)										
+VALUES(sq_pro_id.NEXTVAL,'とんかつ',300,400,'主菜','image/bento5.jpg');										
+																				
+col pro_name format A10										
+col pro_image format A10										
+col pro_type format A10										
+SELECT pro_id,pro_name,pro_calorie,pro_stock,pro_calorie,pro_release_date,pro_type,pro_image FROM productTable;										
+SELECT pro_protein,pro_carbohydrate,pro_lipid,pro_vitamin,pro_inorganic,pro_wheat,pro_egg,pro_milk,pro_peanuts,pro_buckwheat,pro_shrimp,pro_club FROM productTable;
+										
+/*住所表*/										
+create table addressTable(										
+	address_id number(8) primary key									
+	,address VARCHAR2(300)									
+);										
+										
+CREATE SEQUENCE sq_address_id;										
+										
+INSERT INTO addressTable(address_id,address)										
+VALUES(sq_address_id.NEXTVAL,'東京');										
+										
+col address format A20										
+select * from addressTable;										
+
+/*ユーザー表*/										
+create table userTable										
+(										
+	user_id number primary key									
+	,user_lastname VARCHAR2(50) not null									
+	,user_firstname VARCHAR2(50) not null									
+	,user_lastname_hira VARCHAR2(80) not null									
+	,user_firstname_hira VARCHAR2(80) not null									
+	,user_sex VARCHAR2(3) CONSTRAINTS ck_user_sex CHECK (user_sex IN ('男', '女'))										
+	,user_mail VARCHAR2(256)										
+	,user_phone VARCHAR2(11)										
+	,user_address_id number(8)										
+	,user_pass VARCHAR2(16)										
+	,user_birthday VARCHAR2(4)										
+	,user_admin number(1) default 0 not null									
+	,CONSTRAINT fk_user_address_id foreign key(user_address_id) references  addressTable(address_id)									
+);										
+										
+CREATE SEQUENCE sq_user_id;										
+										
+																				
+INSERT INTO userTable(user_id,user_lastname,user_firstname,user_lastname_hira,user_firstname_hira,user_sex,user_address_id)					VALUES(sq_user_id.NEXTVAL,'高橋','晴斗','たかはし','はると','男',sq_address_id.CURRVAL);																				
+col user_lastname format A10										
+col user_firstname format A10										
+col user_lastname_hira format A10										
+col user_firstname_hira format A10										
+col user_mail format A10										
+col user_pass format A10										
+select * from userTable;										
+
+/*注文表*/										
+create table orderTable										
+(										
+	or_id number primary key									
+	,or_pro_id number(6)									
+	,or_user_id number(6) not null									
+	,or_count number(2) CONSTRAINTS ck_or_count CHECK ( or_count BETWEEN 0 AND 99)									
+	,or_type number(1) not null CONSTRAINTS ck_or_type CHECK (or_type IN ('0', '1'))									
+	,or_address_id number(8) not null										
+	,or_date DATE default sysdate										
+	,or_store number(1) default 0 not null										
+	,CONSTRAINT fk_or_pro_id foreign key(or_pro_id) references  productTable(pro_id)										,CONSTRAINT fk_or_user_id foreign key(or_user_id) references  userTable(user_id)										,CONSTRAINT fk_or_address_id foreign key(or_address_id) references  addressTable(address_id)									
+);										
+										
+CREATE SEQUENCE sq_or_id;										
+										
+INSERT INTO orderTable(or_id,or_pro_id,or_user_id,or_count,or_type,or_address_id)										
+VALUES(sq_or_id.NEXTVAL,1,1,1,0,1);										
+										
+select * from orderTable;										
+																				
+/*店舗表*/										
+create table storeTable										
+(										
+	st_id number(6) primary key									
+	,st_name  VARCHAR2(30) not null CONSTRAINTS uq_st_name UNIQUE									
+	,st_address VARCHAR2(300) not null CONSTRAINTS uq_st_address UNIQUE									
+	,st_phone VARCHAR2(11)									
+	,st_hours  VARCHAR2(11)									
+);										
+										
+CREATE SEQUENCE sq_st_id;										
+										
+INSERT INTO storeTable(st_id,st_name,st_address)										
+VALUES(sq_st_id.NEXTVAL,'東中野店','東中野');										
+										
+col st_address for A10										
+col st_name for A10										
+select * from storeTable;										
+
+/*アカウントロック表*/										
+create table lockTable									
+(									
+	lo_id number primary key								
+	,lo_user_id number(6)								
+	,CONSTRAINT fk_lo_user_id foreign key(lo_user_id) references  userTable(user_id)						
+);									
+										
+/*明細書表*/										
+create table specificationTable										
+(										
+	sp_or_id number									
+	,sp_pro_id number(6)									
+	,CONSTRAINT fk_sp_or_id foreign key(sp_or_id) references  orderTable(or_id)									
+	,CONSTRAINT fk_sp_pro_id foreign key(sp_pro_id) references  productTable(pro_id)									
+);										
+
+/*クレジット情報表*/										
+create table creditTable									
+(										
+	cre_id number(6) primary key									
+	,cre_user_id number(6)									
+	,cre_name VARCHAR2(50)									
+	,cre_number number(16)									
+	,cre_date VARCHAR2(4)									
+	,CONSTRAINT fk_cre_user_id foreign key(cre_user_id) references  userTable(user_id)									
+);										
+										
+//drop										
+										
+drop table creditTable;										
+drop table specificationTable;										
+drop table lockTable;										
+drop table storeTable;										
+drop table orderTable;										
+drop table userTable;										
+drop table addressTable;										
+drop table productTable;										
+										
+drop SEQUENCE cre_id;										
+drop SEQUENCE sq_st_id;										
+drop SEQUENCE sq_or_id;										
+drop SEQUENCE sq_user_id;										
+drop SEQUENCE sq_address_id;										
+drop SEQUENCE sq_pro_id;
