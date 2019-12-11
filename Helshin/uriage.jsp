@@ -15,8 +15,8 @@
 	
 	<table border="1">
 		<tr><th>商品名</th><th>売り上げ</th></tr>
-		<c:forEach var="product" items="${result}">
-			<tr><td>${product.pname}</td><td>${uriagebox.count}</td></tr>
+		<c:forEach var="UriageBox" items="${result}">
+			<tr><td>${UriageBox.name}</td><td>${UriageBox.count}</td></tr>
 		</c:forEach>
 	</table>
 </body>

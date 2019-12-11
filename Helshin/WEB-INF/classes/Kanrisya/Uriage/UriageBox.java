@@ -4,6 +4,8 @@ public class UriageBox{
 	private String year;
 	private String month;
 	private String count;
+	//private String oid;
+	private String name;
 	public String getYear(){
 		return year;
 	}
@@ -16,10 +18,24 @@ public class UriageBox{
 	public void setMonth(String month){
 		this.month = month;
 	}
-	/*public String getCount(){
+	public String getCount(){
 		return count;
 	}
-	public vYear setCount(String count){
+	public void setCount(String count){
 		this.count = count;
+	}
+	
+	public String getName(){
+		return name;
+	}
+	public void setName(String name){
+		this.name = name;
+	}
+	
+	/*public String getPid(){
+		return pid;
+	}
+	public void setPid(String pid){
+		this.pid = pid;
 	}*/
 }
