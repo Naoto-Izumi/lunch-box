@@ -20,7 +20,7 @@ import Bean.Product;
 public class CompleteServlet extends HttpServlet{
 	public void doGet(HttpServletRequest req,HttpServletResponse res)
 	throws IOException,ServletException{	
-		req.setCharacterEncoding("Windows-31J");
+		req.setCharacterEncoding("UTF-8");
         HttpSession session = req.getSession();
         // UserBean ub = (UserBean)session.getAttribute("ub");
 		Product p=(Product)session.getAttribute("p");

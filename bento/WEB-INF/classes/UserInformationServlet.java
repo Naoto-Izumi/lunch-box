@@ -15,7 +15,7 @@ public class UserInformationServlet extends HttpServlet{
 
         Product p = new Product();
 
-		req.setCharacterEncoding("Windows-31J");
+		req.setCharacterEncoding("UTF-8");
         String name = req.getParameter("name");
         String tel = req.getParameter("tel");
         String mail = req.getParameter("mail");

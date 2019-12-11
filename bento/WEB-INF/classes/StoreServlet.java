@@ -18,7 +18,7 @@ public void doGet(HttpServletRequest req,HttpServletResponse res)
     }
 public void doPost(HttpServletRequest req,HttpServletResponse res)
 	throws IOException,ServletException{	
-        req.setCharacterEncoding("Windows-31J");
+        req.setCharacterEncoding("UTF-8");
         
         StoreDao st=new StoreDao();
         ArrayList slist = (ArrayList)st.getAllProducts();

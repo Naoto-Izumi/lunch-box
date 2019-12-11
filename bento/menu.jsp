@@ -1,4 +1,4 @@
-<%@page pageEncoding="Windows-31J" contentType="text/html; charset=Windows-31J"%>
+<%@page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
@@ -32,9 +32,22 @@
 </head>
 <body>
 <h1>メニュー</h1>
+    <form action="RefineServlet" method="post" name="refine">
+        複数選択可の項目
+        <label><input type="checkbox" name="check" value="">小麦</label>
+        <label><input type="checkbox" name="check" value="">卵</label>
+        <label><input type="checkbox" name="check" value="">乳</label>
+        <label><input type="checkbox" name="check" value="">落花生</label>
+        <label><input type="checkbox" name="check" value="">そば</label>
+        <label><input type="checkbox" name="check" value="">えび</label>
+        <label><input type="checkbox" name="check" value="">かに</label>
+        <input type="button" value="絞り込みページ">
+    </form>
+
+
 
 <div>
-    <form action="CustomMenuServlet"" method="post" name="custom">
+    <form action="CustomMenuServlet" method="post" name="custom">
         主食：<input type="text" name="syusyoku"><br>
         主菜：<input type="text" name="syusai" value=""><br>
         副菜：<input type="text" name="huku1" value=""><br>

@@ -20,7 +20,7 @@ public void doGet(HttpServletRequest req,HttpServletResponse res)
     }
 public void doPost(HttpServletRequest req,HttpServletResponse res)
 	throws IOException,ServletException{	
-        req.setCharacterEncoding("Windows-31J");
+        req.setCharacterEncoding("UTF-8");
         
         MenuDao md=new MenuDao();
         ArrayList mlist = (ArrayList)md.getAllProducts();
