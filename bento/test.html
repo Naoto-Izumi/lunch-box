@@ -6,19 +6,19 @@
         <script src="js/lightbox.js"></script>  
         <title>menu</title>
         <script>
-            function check(){
-                if(document.custom.syusyoku.value==""){
-                    alert("");
-                }else if(document.custom.syusai.value==""){
-                    alert("");
-                }else if(document.custom.huku1.value==""){
-                    alert("");
-                }else if(document.custom.huku2.value==""){
-                    alert("");
-                }else{
-                    document.custom.submit();
-                }
-            }
+            // function check(){
+            //     if(document.custom.syusyoku.value==""){
+            //         alert("");
+            //     }else if(document.custom.syusai.value==""){
+            //         alert("");
+            //     }else if(document.custom.huku1.value==""){
+            //         alert("");
+            //     }else if(document.custom.huku2.value==""){
+            //         alert("");
+            //     }else{
+            //         document.custom.submit();
+            //     }
+            // }
 
             $(function(){
                 $("#b1").val($(""))
@@ -33,16 +33,16 @@
                 var syusai = document.getElementById('syusai');
                 var hukusai = document.getElementById('hukusai');
                 
-                // drag側
-                syusyoku.addEventListener('dragstart', function(e){
-                    target = e.target;
-                }, false);
-                syusai.addEventListener('dragstart', function(e){
-                    target = e.target;
-                }, false);
-                hukusai.addEventListener('dragstart', function(e){
-                    target = e.target;
-                }, false);
+                // drag蛛ｴ
+                // syusyoku.addEventListener('dragstart', function(e){
+                //     target = e.target;
+                // }, false);
+                // syusai.addEventListener('dragstart', function(e){
+                //     target = e.target;
+                // }, false);
+                // hukusai.addEventListener('dragstart', function(e){
+                //     target = e.target;
+                // }, false);
                 // drag4.addEventListener('dragstart', function(e){
                 //     target = e.target;
                 // }, false);
@@ -50,34 +50,65 @@
                 //     target = e.target;
                 // }, false);
 
-                // drop側
-                drop.addEventListener('dragover', function(e){
-                    e.preventDefault();
-                }, false);
+                // drop蛛ｴ
+            //     drop.addEventListener('dragover', function(e){
+            //         e.preventDefault();
+            //     }, false);
                 
-                drop.addEventListener('drop', function(e){
-                    e.preventDefault();
-                    e.target.appendChild(target);
-                    $(function(){
-                        var src=syusyoku.getAttribute('src');
-                        $("#a1").val(src);
-                        var src2=syusai.getAttribute('src');
-                        $("#a2").val(src2);
-                    })
-                }, false);
+            //     drop.addEventListener('drop', function(e){
+            //         e.preventDefault();
+            //         e.target.appendChild(target);
+            //         $(function(){
+            //             var src=syusyoku.getAttribute('src');
+            //             $("#a1").val(src);
+            //             var src2=syusai.getAttribute('src');
+            //             $("#a2").val(src2);
+            //         })
+            //     }, false);
 
                 
-            } 
+            // } 
 
             // val s1=document.getElementById("s1").value;
 
             // $(function(a){
             //     $("#x").attr("src",a)
             // })(s1);
-
-
-
-            
+            // $(function(){
+            //     var url1
+            //     var url2
+            //     var url3
+            //     var url4
+            //     $("#syusyoku").on("change",function(){
+            //         url1 = $("#syusyoku").val();
+            //         var result1 = url1.substr(17);
+            //         $("#syusyoku").replaceWith("<input type='image' src='"+result1+"' id='syusyoku' name='syusyoku' height='10%' width='10%'>");
+            //         console.log(url1);
+            //         console.log(result);
+            //     });
+            //     $("#syusai").on("change",function(){
+            //         url2 = $("#syusai").val();
+            //         var result2 = url2.substr(17);
+            //         $("#syusai").replaceWith("<input type='image' src='"+result2+"' id='syusyoku' name='syusai' height='10%' width='10%'>");
+            //         console.log(url2);
+            //         console.log(result);
+            //     });
+            //     $("#hukusai1").on("change",function(){
+            //         url3 = $("#hukusai1").val();
+            //         var result3 = url3.substr(17);
+            //         $("#hukusai1").replaceWith("<input type='image' src='"+result3+"' id='hukusai1' name='syusyoku' height='10%' width='10%'>");
+            //         console.log(url3);
+            //         console.log(result);
+            //     });
+            //     $("#hukusai2").on("change",function(){
+            //         url4 = $("#hukusai2").val();
+            //         var result4 = url4.substr(17);
+            //         $("#hukusai2").replaceWith("<input type='image' src='"+result4+"' id='hukusai2' name='syusyoku' height='10%' width='10%'>");
+            //         console.log(url4);
+            //         console.log(result);
+            //     });
+            // })
+            }
         </script>
         <style>
             .box {
@@ -89,30 +120,31 @@
         </style>
     </head>
     <body>
-            <div class="box">
+            <!-- <div class="box">
                     <img id="syusyoku" src="image/bento1.jpg" height="40%" width="40%">
                     <img id="syusai"src="image/bento2.jpg" height="10%" width="10%">
                     <img id="hukusai"src="image/bento3.jpg" height="10%" width="10%">
                     <img id="hukusai"src="image/bento4.jpg" height="10%" width="10%">
                     <img id="hukusai"src="image/bento5.jpg" height="10%" width="10%">
-                </div>
-                <div class="box" id="drop">
-                        <form action="CustomMenuServlet"" method="post" name="custom">
-                            <img id="x"><input type="hidden" id="a1" name="syusyoku" value=""><br>
-                            <input type="hidden" id="a2" name="syusai" value=""><br>
-                            <input type="hidden" id="a3" name="huku1" value=""><br>
-                            <input type="hidden" id="a4" name="huku2" value=""><br>
-                            <input type="button" onclick="check();" value="カート">
-                        </form>
-                </div>
+            </div>
+            <div class="box" id="drop">
+                    <form action="CustomMenuServlet"" method="post" name="custom">
+                        <img id="x"><input type="hidden" id="a1" name="syusyoku" value=""><br>
+                        <input type="hidden" id="a2" name="syusai" value=""><br>
+                        <input type="hidden" id="a3" name="huku1" value=""><br>
+                        <input type="hidden" id="a4" name="huku2" value=""><br>
+                        <input type="button" onclick="check();" value="繧ｫ繝ｼ繝�">
+                    </form>
+            </div> -->
                 
         <div>
-            <form action="CustomMenuServlet"" method="post" name="custom">
-                主食：<input type="text" id="a1" name="syusyoku" ><br>
-                主菜：<input type="text" id="a2" name="syusai" value=""><br>
-                副菜：<input type="text" id="a3" name="huku1" value=""><br>
-                副菜：<input type="text" id="a4" name="huku2" ><br>
-                <input type="button" onclick="check();" value="カート">
+            <form action="CustomMenuServlet"" method="get" name="custom">
+                <span id="one">主食</span><input type="text" id="syusyoku" name="syusyoku" value=""><br>
+                <span id="two">主菜</span><input type="text" id="syusai" name="syusai" value=""><br>
+                <span id="three">副菜</span><input type="text" id="hukusai1" name="huku1" value=""><br>
+                <span id="four">副菜</span><input type="text" id="hukusai2" name="huku2" ><br>
+                <!-- <input type="button" onclick="check();" value="カート"> -->
+                <input type="submit" id="cart" value="カート">
             </form>
             <img src="image/bento1.jpg" alt="image/bento1.jpg" height="10%" width="10%">
             <img src="image/bento2.jpg" height="10%" width="10%">
@@ -120,9 +152,32 @@
             <img src="image/bento4.jpg" height="10%" width="10%">
             <img src="image/bento5.jpg" height="10%" width="10%">
         </div>
-
-        
-
-
+        <div id="aaa">
+            sample<input type="text" id="sample"name="sample"><br>
+            <!-- <input type='image' src='"+result4+"' id='hukusai2' name='syusyoku' height='10%' width='10%'> -->
+        </div>
+        <script>
+            $(function() {
+                var element;
+                $("input[type='text']").on('input', function(event){
+                    var value = $(this).val().substr(17);
+                    if(value.match(/jpg/)){
+                        var id = "#"+$(this).attr("id");
+                        var prev = "#"+$(this).prev().attr("id");
+                        var name = $(this).attr("name");
+                        $(prev).after('<input type=image id="'+($(this).attr("id")+"1")+'" src="'+value+'" name="'+name+'" value="'+value+'" height=10% width=10% disabled>');                       
+                        $(id).remove();
+                    }
+                });
+                // $('img').on("mouseover",function(e) {
+                //     $(this).after("<input type='text>");
+                //     console.log("aaa");
+                // });
+                // $('img').on("mouseout",function(e) {
+                //     $(this).after("<input type='text>");
+                //     console.log("bbb");
+                // });
+            });
+        </script>
     </body>
 </html>

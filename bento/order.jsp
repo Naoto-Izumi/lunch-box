@@ -51,7 +51,7 @@ import="java.util.TreeMap"%>
     <p>${plist.count6}</p> -->
 
         <p>合計:${realTotal}</p>
-        <a href="menu.jsp">もう一度頼む</a>
+        <a href="TopServlet">もう一度頼む</a>
         <a href="userinformation.jsp">個人情報入力</a>
     </body>
 </html>

@@ -1,4 +1,5 @@
 <web-app>
+
     <servlet>
         <servlet-name>TopServlet</servlet-name>
         <servlet-class>TopServlet</servlet-class>
@@ -6,6 +7,14 @@
     <servlet-mapping>
         <servlet-name>TopServlet</servlet-name>
         <url-pattern>/TopServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>StoreServlet</servlet-name>
+        <servlet-class>StoreServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>StoreServlet</servlet-name>
+        <url-pattern>/StoreServlet</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>TestServlet</servlet-name>

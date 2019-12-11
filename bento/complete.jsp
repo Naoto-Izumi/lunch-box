@@ -4,6 +4,6 @@
     <title>完了ページ</title>
 </head>
     <body>
-            <p>name=${sessionScope.ub.name}様、注文完了しました!! </p>
+            <p>注文完了しました!! </p>
     </body>
 </html>

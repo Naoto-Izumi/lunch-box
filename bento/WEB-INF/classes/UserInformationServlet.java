@@ -21,9 +21,11 @@ public class UserInformationServlet extends HttpServlet{
         String mail = req.getParameter("mail");
         String address = req.getParameter("address");
         String time = req.getParameter("time");
-        String price = req.getParameter("price");
+        String type = req.getParameter("type");
 
-        if(price.equals("1")){
+        
+
+        if(type.equals("1")){
             String cardname=req.getParameter("cardname");
             String cardnumber=req.getParameter("cardnumber");
             String carddate=req.getParameter("carddate");
@@ -45,7 +47,7 @@ public class UserInformationServlet extends HttpServlet{
         System.out.println("mail"+mail);
         System.out.println("address"+address);
         System.out.println("time"+time);
-        System.out.println("price"+price);
+        System.out.println("type"+type);
 
 
 
@@ -56,7 +58,7 @@ public class UserInformationServlet extends HttpServlet{
         p.setMail(mail);
         p.setAddress(address);
         p.setTime(time);
-        p.setPrice(price);
+        p.setType(type);
         HttpSession session = req.getSession();
         session.setAttribute("p",p);
 

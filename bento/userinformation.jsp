@@ -29,8 +29,8 @@
             住所<input type="text" name="address"><br>
             時間<input type="time" name="time"><br>
             支払い方法
-            <input type="radio" name="price" value="0" onchange="showCash();" checked>現金
-            <input type="radio" name="price" value="1" onchange="showCard();">カード<br>
+            <input type="radio" name="type" value="0" onchange="showCash();" checked>現金
+            <input type="radio" name="type" value="1" onchange="showCard();">カード<br>
 
             <ul id="card" class="passive">
                 <li>カード名義人(半角ローマ字)<input type="text" name="cardname"></li>

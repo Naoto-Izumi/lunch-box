@@ -6,5 +6,6 @@
 </head>
     <body>
             <a href="TopServlet">topページ</a>
+            <a href="StoreServlet">storeページ</a>
     </body>
 </html>

@@ -6,14 +6,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.*;
+import dao.StoreDao;
 
-import dao.MenuDao;
-
-public class TopServlet extends HttpServlet{
+public class StoreServlet extends HttpServlet{
 public void doGet(HttpServletRequest req,HttpServletResponse res)
 	throws IOException,ServletException{	
         doPost(req,res);
@@ -22,12 +20,12 @@ public void doPost(HttpServletRequest req,HttpServletResponse res)
 	throws IOException,ServletException{	
         req.setCharacterEncoding("Windows-31J");
         
-        MenuDao md=new MenuDao();
-        ArrayList mlist = (ArrayList)md.getAllProducts();
-        System.out.println(mlist);
-        req.setAttribute("product",mlist);
+        StoreDao st=new StoreDao();
+        ArrayList slist = (ArrayList)st.getAllProducts();
+        System.out.println(slist);
+        req.setAttribute("product",slist);
 
-		RequestDispatcher dispatcher=req.getRequestDispatcher("/menu.jsp");
+		RequestDispatcher dispatcher=req.getRequestDispatcher("/store.jsp");
 		
 		dispatcher.forward(req,res);
 

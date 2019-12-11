@@ -9,7 +9,7 @@ public class Product implements Serializable{
     private String mail = null;
     private String address = null;
     private String time = null;
-    private String price = null;
+    private String type = null;
     private String cardname = null;
     private String cardnumber = null;
     private String carddate = null;
@@ -20,6 +20,14 @@ public class Product implements Serializable{
     //è§ïiidÇ∆å¬êî
     private String stock = null;
     private String num = null; 
+
+    //ìXï‹èÓïÒ
+    private String  st_id = null;
+    private String  st_name = null;
+    private String  st_address = null;
+    private String  st_phone = null;
+    private String  st_hours = null;
+    
 
 
 
@@ -39,8 +47,8 @@ public class Product implements Serializable{
     public void setTime(String time){
         this.time = time;
     }
-    public void setPrice(String price){
-        this.price = price;
+    public void setType(String type){
+        this.type = type;
     }
     public void setCardname(String cardname){
         this.cardname = cardname;
@@ -66,8 +74,8 @@ public class Product implements Serializable{
     public String getTime(){
         return time;
     }
-    public String getPrice(){
-        return price;
+    public String getType(){
+        return type;
     }
     public String getCardname(){
         return cardname;
@@ -108,6 +116,39 @@ public class Product implements Serializable{
     }
     public String getNum(){
         return num;
+    }
+
+    //ìXï‹èÓïÒ StoreServlet
+    public void setSt_id(String st_id){
+        this.st_id = st_id;
+    }
+    public void setSt_name(String st_name){
+        this.st_name = st_name;
+    }
+    public void setSt_address(String st_address){
+        this.st_address = st_address;
+    }
+    public void setSt_phone(String st_phone){
+        this.st_phone = st_phone;
+    }
+    public void setSt_hours(String st_hours){
+        this.st_hours = st_hours;
+    }
+
+    public String getSt_id(){
+        return st_id;
+    }
+    public String getSt_name(){
+        return st_name;
+    }
+    public String getSt_address(){
+        return st_address;
+    }
+    public String getSt_phone(){
+        return st_phone;
+    }
+    public String getSt_hours(){
+        return st_hours;
     }
     
 }

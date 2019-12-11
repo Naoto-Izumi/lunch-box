@@ -5,12 +5,12 @@
     <title>メニュー</title>
 </head>
     <body>
-            <p>name=${sessionScope.ub.name}</p>
-            <p>tel=${sessionScope.ub.tel}</p>
-            <p>mail=${sessionScope.ub.mail}</p>
-            <p>address=${sessionScope.ub.address}</p>
-            <p>time=${sessionScope.ub.time}</p>
-            <p>price=${sessionScope.ub.price}</p>
+            <p>name=${sessionScope.p.name}</p>
+            <p>tel=${sessionScope.p.tel}</p>
+            <p>mail=${sessionScope.p.mail}</p>
+            <p>address=${sessionScope.p.address}</p>
+            <p>time=${sessionScope.p.time}</p>
+            <p>type=${sessionScope.p.type}</p>
             <p>total=${sessionScope.realTotal}</p>
             <a href="CompleteServlet">完了ページ</a>
     </body>

@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpSession;
-import Bean.UserBean;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.*;
@@ -46,11 +45,15 @@ public class CompleteServlet extends HttpServlet{
 			p.setStock(v);
 
             System.out.println("ÉLÅ["+key+"íl"+v+"êÿÇËéÊÇËå„"+num);
+
+			OrderInDao pi=new OrderInDao();
+			pi.addProduct(p);
         }
 		// pr.addProduct(p);
 
-		OrderInDao pi=new OrderInDao();
-		pi.addProduct(p);
+		// OrderInDao pi=new OrderInDao();
+		// pi.addProduct(p);
+		session.invalidate();
 
 
 

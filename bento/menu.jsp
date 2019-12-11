@@ -51,7 +51,7 @@
 <div>
     <table>
     <tr>
-        <c:forEach var="prof" items="${users}">
+        <c:forEach var="prof" items="${product}">
             <td>
                 <img src="${prof.image}" name="bento alt="" height="10%" width="10%">
                 <form action="MenuServlet" method="post" name="frml" >

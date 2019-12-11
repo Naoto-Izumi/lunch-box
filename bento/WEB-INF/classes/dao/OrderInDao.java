@@ -45,7 +45,7 @@ public class OrderInDao implements ProductsDao{
             //  values(sq_or_id.NEXTVAL,1,?,1,TO_DATE('"+da+" "+p.getTime()+"','yy-MM-dd hh24:mi:ss'))";
             String sql=a1.concat(a2).concat(a3);
            
-            System.out.println("p.getPrice()"+p.getPrice());
+            System.out.println("p.getType()"+p.getType());
             System.out.println("p.getTime()"+p.getTime());
 
             st=cn.prepareStatement(sql);
@@ -53,7 +53,7 @@ public class OrderInDao implements ProductsDao{
             
 
 
-            st.setString(1,p.getPrice());
+            st.setString(1,p.getType());
             // st.setString(2,p.getAddress());
             //st.setString(2,da+" "+p.getTime());
 
