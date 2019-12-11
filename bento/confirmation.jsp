@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
-    <title>メニュー</title>
+    <title>繝｡繝九Η繝ｼ</title>
 </head>
     <body>
             <p>name=${sessionScope.p.name}</p>
@@ -12,6 +12,6 @@
             <p>time=${sessionScope.p.time}</p>
             <p>type=${sessionScope.p.type}</p>
             <p>total=${sessionScope.realTotal}</p>
-            <a href="CompleteServlet">完了ページ</a>
+            <a href="CompleteServlet">螳御ｺ�繝壹�ｼ繧ｸ</a>
     </body>
 </html>

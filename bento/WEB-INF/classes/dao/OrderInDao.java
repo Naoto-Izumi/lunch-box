@@ -1,4 +1,4 @@
-//’•¶‚ğó•t‚ÄorderTable‚Éinsert
+//æ³¨æ–‡ã‚’å—ä»˜ã¦orderTableã«insert
 package dao;
 
 import java.sql.Connection;
@@ -31,7 +31,7 @@ public class OrderInDao implements ProductsDao{
 
             Calendar cl = Calendar.getInstance();
         
-            //SimpleDateFormatƒNƒ‰ƒX‚ÅƒtƒH[ƒ}ƒbƒgƒpƒ^[ƒ“‚ğİ’è‚·‚é
+            //SimpleDateFormatã‚¯ãƒ©ã‚¹ã§ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’è¨­å®šã™ã‚‹
             SimpleDateFormat sdf = new SimpleDateFormat("yy-MM-dd");
             System.out.println(sdf.format(cl.getTime()));
             String da=sdf.format(cl.getTime());
@@ -40,7 +40,7 @@ public class OrderInDao implements ProductsDao{
              String a2=da+" "+p.getTime();
              String a3="','yy-MM-dd hh24:mi:ss'))";
 
-            //or_user_id‚Ì‘}“ü‚·‚é’l‚ğ•Ï‚¦‚é
+            //or_user_idã®æŒ¿å…¥ã™ã‚‹å€¤ã‚’å¤‰ãˆã‚‹
             // String sql="insert into orderTable(or_id,or_user_id,or_type,OR_ADDRESS_ID,OR_DATE)
             //  values(sq_or_id.NEXTVAL,1,?,1,TO_DATE('"+da+" "+p.getTime()+"','yy-MM-dd hh24:mi:ss'))";
             String sql=a1.concat(a2).concat(a3);
@@ -59,9 +59,9 @@ public class OrderInDao implements ProductsDao{
 
             st.executeUpdate();
 
-            //update•¶-----------------------------------------------
+            //updateæ–‡-----------------------------------------------
 
-             //İŒÉŒ¸‚ç‚·
+             //åœ¨åº«æ¸›ã‚‰ã™
             String upsql="UPDATE productTable SET pro_stock=pro_stock-? WHERE pro_id=?";
 
             st=cn.prepareStatement(upsql);
@@ -85,11 +85,11 @@ public class OrderInDao implements ProductsDao{
         }catch(ClassNotFoundException e) {
 			e.printStackTrace();
 
-		//getConnection,createStatement,executeQuery‚Å—áŠO”­¶‚Ìê‡
+		//getConnection,createStatement,executeQueryã§ä¾‹å¤–ç™ºç”Ÿã®å ´åˆ
 		} catch(SQLException e) {
 			e.printStackTrace();
 		} finally {
-			//ƒŠƒ\[ƒX‚Ì‰ğ•úˆ—‚ğs‚¤
+			//ãƒªã‚½ãƒ¼ã‚¹ã®è§£æ”¾å‡¦ç†ã‚’è¡Œã†
 			try {
 				if(rs != null){
 					rs.close();

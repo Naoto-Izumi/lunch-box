@@ -26,7 +26,7 @@ public class CompleteServlet extends HttpServlet{
 		Product p=(Product)session.getAttribute("p");
 		
 		System.out.println(p);
-        //ƒf[ƒ^ƒx[ƒX‚ÉŒÂlî•ñEw“ü‚µ‚½‚à‚Ì‚ğinsert‚·‚é
+        //ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã«å€‹äººæƒ…å ±ãƒ»è³¼å…¥ã—ãŸã‚‚ã®ã‚’insertã™ã‚‹
 
 		// ProductUpDao pr=new ProductUpDao();
 
@@ -36,7 +36,7 @@ public class CompleteServlet extends HttpServlet{
 		while(it.hasNext()){
             String key=(String)it.next();
             String v=(String)m.get(key);
-			System.out.println("ƒL["+key+"’l"+v);
+			System.out.println("ã‚­ãƒ¼"+key+"å€¤"+v);
 			String num=key.substring(2);
 
 
@@ -44,7 +44,7 @@ public class CompleteServlet extends HttpServlet{
             p.setNum(num);
 			p.setStock(v);
 
-            System.out.println("ƒL["+key+"’l"+v+"Ø‚èæ‚èŒã"+num);
+            System.out.println("ã‚­ãƒ¼"+key+"å€¤"+v+"åˆ‡ã‚Šå–ã‚Šå¾Œ"+num);
 
 			OrderInDao pi=new OrderInDao();
 			pi.addProduct(p);

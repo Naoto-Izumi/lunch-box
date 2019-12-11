@@ -2,10 +2,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
-    <title>メニュー</title>
+    <title>繝｡繝九Η繝ｼ</title>
 </head>
     <body>
-            <a href="TopServlet">topページ</a>
-            <a href="StoreServlet">storeページ</a>
+            <a href="TopServlet">top繝壹�ｼ繧ｸ</a>
+            <a href="StoreServlet">store繝壹�ｼ繧ｸ</a>
     </body>
 </html>

@@ -34,7 +34,7 @@ public class CustomBentoBean implements Serializable{
 	
 
 	public CustomBentoBean(){
-		//引数のないコンストラクタ
+		//蠑墓焚縺ｮ縺ｪ縺�繧ｳ繝ｳ繧ｹ繝医Λ繧ｯ繧ｿ
 	}
 	
 	public void setSyusyoku(String syusyoku){

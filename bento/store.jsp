@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
-    <title>ƒƒjƒ…[</title>
+    <title>ãƒ¡ãƒ‹ãƒ¥ãƒ¼</title>
 </head>
     <body>
         <div>

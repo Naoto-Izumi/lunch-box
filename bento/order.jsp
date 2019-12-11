@@ -4,7 +4,7 @@ import="java.util.TreeMap"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
-    <title>ƒƒjƒ…[</title>
+    <title>ãƒ¡ãƒ‹ãƒ¥ãƒ¼</title>
 </head>
 <body>
     <table>
@@ -50,8 +50,8 @@ import="java.util.TreeMap"%>
     <p>${plist.count5}</p>
     <p>${plist.count6}</p> -->
 
-        <p>‡Œv:${realTotal}</p>
-        <a href="TopServlet">‚à‚¤ˆê“x—Š‚Ş</a>
-        <a href="userinformation.jsp">ŒÂlî•ñ“ü—Í</a>
+        <p>åˆè¨ˆ:${realTotal}</p>
+        <a href="TopServlet">ã‚‚ã†ä¸€åº¦é ¼ã‚€</a>
+        <a href="userinformation.jsp">å€‹äººæƒ…å ±å…¥åŠ›</a>
     </body>
 </html>

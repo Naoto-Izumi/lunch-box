@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
-    <title>ƒƒjƒ…[</title>
+    <title>ãƒ¡ãƒ‹ãƒ¥ãƒ¼</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <script>
         function check(e){
@@ -23,21 +23,21 @@
 </head>
 <body>
     <form method="POST" action="UserInformationServlet">
-            –¼‘O<input type="text" name="name"><br>
-            “d˜b<input type="tel" name="tel" onblur="check(this)"><br>
-            ƒ[ƒ‹<input type="email" name="mail" ><br>
-            ZŠ<input type="text" name="address"><br>
-            ŽžŠÔ<input type="time" name="time"><br>
-            Žx•¥‚¢•û–@
-            <input type="radio" name="type" value="0" onchange="showCash();" checked>Œ»‹à
-            <input type="radio" name="type" value="1" onchange="showCard();">ƒJ[ƒh<br>
+            åå‰<input type="text" name="name"><br>
+            é›»è©±<input type="tel" name="tel" onblur="check(this)"><br>
+            ãƒ¡ãƒ¼ãƒ«<input type="email" name="mail" ><br>
+            ä½æ‰€<input type="text" name="address"><br>
+            æ™‚é–“<input type="time" name="time"><br>
+            æ”¯æ‰•ã„æ–¹æ³•
+            <input type="radio" name="type" value="0" onchange="showCash();" checked>ç¾é‡‘
+            <input type="radio" name="type" value="1" onchange="showCard();">ã‚«ãƒ¼ãƒ‰<br>
 
             <ul id="card" class="passive">
-                <li>ƒJ[ƒh–¼‹`l(”¼Špƒ[ƒ}Žš)<input type="text" name="cardname"></li>
-                <li>ƒJ[ƒh”Ô†<input type="text" name="cardnumber"></li>
-                <li>—LŒøŠúŒÀ<input type="text" name="carddate"></li>
+                <li>ã‚«ãƒ¼ãƒ‰åç¾©äºº(åŠè§’ãƒ­ãƒ¼ãƒžå­—)<input type="text" name="cardname"></li>
+                <li>ã‚«ãƒ¼ãƒ‰ç•ªå·<input type="text" name="cardnumber"></li>
+                <li>æœ‰åŠ¹æœŸé™<input type="text" name="carddate"></li>
             </ul>
-            <input type="submit" value="Šm”F">
+            <input type="submit" value="ç¢ºèª">
         </form>
     </body>
 </html>

@@ -1,9 +1,9 @@
 <%@page pageEncoding="Windows-31J" contentType="text/html; charset=Windows-31J"%>
 <html>
 <head>
-    <title>Š®—¹ƒy[ƒW</title>
+    <title>å®Œäº†ãƒšãƒ¼ã‚¸</title>
 </head>
     <body>
-            <p>’•¶Š®—¹‚µ‚Ü‚µ‚½!! </p>
+            <p>æ³¨æ–‡å®Œäº†ã—ã¾ã—ãŸ!! </p>
     </body>
 </html>

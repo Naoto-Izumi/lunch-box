@@ -31,20 +31,20 @@ public  class StoreDao implements ProductsDao{
 
             String sql="select * from storeTable";
 
-            //PreparedStatementƒCƒ“ƒ^[ƒtƒFƒCƒX‚ğÀ‘•‚·‚éƒNƒ‰ƒX‚ğƒCƒ“ƒXƒ^ƒ“ƒX‰»‚·‚é
+            //PreparedStatementã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ã‚¤ã‚¹ã‚’å®Ÿè£…ã™ã‚‹ã‚¯ãƒ©ã‚¹ã‚’ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã™ã‚‹
 			st=cn.prepareStatement(sql);
 
-			//select•¶‚ğÀs‚µ
-			//ResultSetƒCƒ“ƒ^[ƒtƒFƒCƒX‚ğÀ‘•‚µ‚½ƒNƒ‰ƒX‚Ì
-			//ƒCƒ“ƒXƒ^ƒ“ƒX‚ª•Ô‚é
+			//selectæ–‡ã‚’å®Ÿè¡Œã—
+			//ResultSetã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ã‚¤ã‚¹ã‚’å®Ÿè£…ã—ãŸã‚¯ãƒ©ã‚¹ã®
+			//ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ãŒè¿”ã‚‹
 			rs=st.executeQuery();
 
-            //ƒJ[ƒ\ƒ‹‚ğˆês‚¾‚¯ƒXƒNƒ[ƒ‹‚µAƒf[ƒ^‚ğƒtƒFƒbƒ`‚·‚é
+            //ã‚«ãƒ¼ã‚½ãƒ«ã‚’ä¸€è¡Œã ã‘ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ã—ã€ãƒ‡ãƒ¼ã‚¿ã‚’ãƒ•ã‚§ãƒƒãƒã™ã‚‹
 			while(rs.next()){
 
                 Product p = new Product();
-				String st_id = rs.getString(1);	//1—ñ–Ú‚Ìƒf[ƒ^‚ğæ“¾
-				String st_name = rs.getString(2);	//2—ñ–Ú‚Ìƒf[ƒ^‚ğæ“¾
+				String st_id = rs.getString(1);	//1åˆ—ç›®ã®ãƒ‡ãƒ¼ã‚¿ã‚’å–å¾—
+				String st_name = rs.getString(2);	//2åˆ—ç›®ã®ãƒ‡ãƒ¼ã‚¿ã‚’å–å¾—
                 String st_address = rs.getString(3);	
                 String st_phone = rs.getString(4);	
                 String st_hours = rs.getString(5);	
@@ -62,11 +62,11 @@ public  class StoreDao implements ProductsDao{
         }catch(ClassNotFoundException e) {
 			e.printStackTrace();
 
-		//getConnection,createStatement,executeQuery‚Å—áŠO”­¶‚Ìê‡
+		//getConnection,createStatement,executeQueryã§ä¾‹å¤–ç™ºç”Ÿã®å ´åˆ
 		} catch(SQLException e) {
 			e.printStackTrace();
 		} finally {
-			//ƒŠƒ\[ƒX‚Ì‰ğ•úˆ—‚ğs‚¤
+			//ãƒªã‚½ãƒ¼ã‚¹ã®è§£æ”¾å‡¦ç†ã‚’è¡Œã†
 			try {
 				if(rs != null){
 					rs.close();

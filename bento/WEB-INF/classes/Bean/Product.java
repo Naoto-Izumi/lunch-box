@@ -3,7 +3,7 @@ package Bean;
 import java.io.Serializable;
 
 public class Product implements Serializable{
-    //User‚Ì’•¶î•ñ
+    //Userã®æ³¨æ–‡æƒ…å ±
     private String name = null;
     private String tel = null;
     private String mail = null;
@@ -13,15 +13,15 @@ public class Product implements Serializable{
     private String cardname = null;
     private String cardnumber = null;
     private String carddate = null;
-    //¤•iId,¤•i‰æ‘œ 
+    //å•†å“Id,å•†å“ç”»åƒ 
     private String id = null;
     private String image = null; 
 
-    //¤•iid‚ÆŒÂ”
+    //å•†å“idã¨å€‹æ•°
     private String stock = null;
     private String num = null; 
 
-    //“X•Üî•ñ
+    //åº—èˆ—æƒ…å ±
     private String  st_id = null;
     private String  st_name = null;
     private String  st_address = null;
@@ -31,7 +31,7 @@ public class Product implements Serializable{
 
 
 
-    //Œ³UserBean 
+    //å…ƒUserBean 
     public void setName(String name){
         this.name = name;
     }
@@ -87,7 +87,7 @@ public class Product implements Serializable{
         return carddate;
     }
 
-    //Œ³menubean@menuDao,topservlet
+    //å…ƒmenubeanã€€menuDao,topservlet
    
     public void setId(String id){
         this.id = id;
@@ -103,7 +103,7 @@ public class Product implements Serializable{
         return image;
     }
 
-    //¤•iid‚ÆŒÂ”@productUpDao,Complete
+    //å•†å“idã¨å€‹æ•°ã€€productUpDao,Complete
 
     public void setStock(String stock){
         this.stock = stock;
@@ -118,7 +118,7 @@ public class Product implements Serializable{
         return num;
     }
 
-    //“X•Üî•ñ StoreServlet
+    //åº—èˆ—æƒ…å ± StoreServlet
     public void setSt_id(String st_id){
         this.st_id = st_id;
     }

@@ -34,7 +34,7 @@ public class MenuServlet extends HttpServlet{
             String[] v=(String[])m.get(key);
         
             sessionlist.put(key,v[0]);
-            System.out.println("ÉLÅ["+key+"íl"+v[0]);
+            System.out.println("„Ç≠„Éº"+key+"ÂÄ§"+v[0]);
         }
 
         h.setAttribute("list",sessionlist);
