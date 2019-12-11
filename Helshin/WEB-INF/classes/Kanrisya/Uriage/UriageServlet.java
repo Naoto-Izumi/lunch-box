@@ -15,21 +15,21 @@ public class UriageServlet extends HttpServlet{
 	throws ServletException,IOException{
 		req.setCharacterEncoding("UTF-8");
 		
-		String year = req.getParameter("nen");
-		String month = req.getParameter("tuki");
-		System.out.println(year);
-		System.out.println(month);
+		String year = req.getParameter("nen");		//年
+		String month = req.getParameter("tuki");	//月
+		System.out.println(year);					//年を表示
+		System.out.println(month);					//月を表示
 		
-		UriageBox u = new UriageBox();
+		UriageBox u = new UriageBox();				//Beanファイルをインスタンス化
 		
-		u.setYear(year);
-		u.setMonth(month);
+		u.setYear(year);							//年をセット。
+		u.setMonth(month);							//月をセット。
 		
 		//UserDataにある戻り値を受け取る
 		List<UriageBox>ppp = UriageData.OracleUriageData(u);
 		
-		req.setAttribute("result",ppp);
-		RequestDispatcher r = req.getRequestDispatcher("/helshin2");
+		req.setAttribute("result",ppp);	//jspにあるitemsからセット
+		RequestDispatcher r = req.getRequestDispatcher("/helshin2");	//url-patternにあるサーブレットパス
 		r.forward(req,res);
 
 	}
