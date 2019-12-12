@@ -1,0 +1,55 @@
+Helshin
+│  dao.properties       管理者 ユーザー管理専用のプロパティファイル(DAOパターン)
+│  helshin.jsp          店舗追加
+│  helshin.properties   管理者 ユーザー管理専用のプロパティファイル
+│  helshin2.jsp    	 商品削除
+│  style.css     	 トップページのデザイン(にするつもりです。)
+│  top.jsp      	 トップページ(まだ何も使っていない。)
+│  uriage.jsp 		 管理者売り上げ情報
+│  説明.txt	         Helshin内部の説明です。
+│
+└─WEB-INF
+    │  web.xml              わからず？
+    │
+    └─classes
+        │  AuthenticateFilter.class         ログイン情報をもっているか
+        │  AuthenticateFilter.java
+        │  LoginCheckFilter.class           ログイン
+        │  LoginCheckFilter.java
+        │  PDeleteServlet.class             商品　削除
+        │  PDeleteServlet.java
+        │  PQueryServlet.class              商品　表示
+        │  PQueryServlet.java
+        │  PRegistServlet.class             商品　追加
+        │  PRegistServlet.java
+        │  PStockChangeServlet.class        商品　在庫変更
+        │  PStockChangeServlet.java
+        │  PStockServlet.class              商品　在庫表示
+        │  PStockServlet.java
+        │  SDeleteServlet.class             店舗　削除
+        │  SDeleteServlet.java
+        │  SQueryServlet.class              店舗　表示
+        │  SQueryServlet.java
+        │  SRegistServlet.class             店舗　追加
+        │  SRegistServlet.java
+        │
+        ├─Beans
+        │      ProductBean.class            商品　bean
+        │      ProductBean.java
+        │      StoreBean.class              店舗　bean
+        │      StoreBean.java
+        │
+        └─JDBCFiles
+                ChangeJdbc.class            商品　在庫変更
+                ChangeJdbc.java
+                DeleteJdbc.class            商品・店舗　削除
+                DeleteJdbc.java
+                LoginJdbc.class             ログイン　情報があるか検索
+                LoginJdbc.java
+                ProductQuery.class          商品検索
+                ProductQuery.java
+                RegistJdbc.class            商品・店舗　登録
+                RegistJdbc.java
+                StoreQuery.class            店舗検索
+                StoreQuery.java
+                Test.class                  いらない(テスト用だった)

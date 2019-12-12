@@ -7,7 +7,7 @@
 <title>管理者情報</title>
 </head>
 <body>
-	<h1>商品一覧</h1>
+	<h1>売り上げ情報</h1>
 	<form method='get' action='uriage'>
 		<input type='text' name='nen' placeholder='2019'>年<input type='text' name = 'tuki'>月
 		<input type='submit' value='絞り込み'>
