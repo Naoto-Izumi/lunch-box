@@ -8,15 +8,17 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import tera.Product;
-import exp.ResourceAccessException;
-public Product getProduct(String pid){return null;}
-public List getAllProducts(){return null;}
+import Bean.Product;
 
-public class OraProductsDao implements ProductsDao{
-    public void addProduct(Product p){
+public class RefineDao implements ProductsDao{
+    private Product _p;
+    public Product getProduct(String pid){return null;}
+    public void addProduct(Product p){_p=p;}
+    public List getAllProducts(){
         Connection cn=null;
         PreparedStatement st=null;
+        ResultSet rs=null;
+        List products=new ArrayList();
         try{
             Class.forName("oracle.jdbc.driver.OracleDriver");
 
@@ -24,44 +26,65 @@ public class OraProductsDao implements ProductsDao{
 
             cn.setAutoCommit(false);
 
-            String sql="insert into t_products(pid,name,price) values(?,?,?)";
+            String sql="select  pro_id,pro_image from productTable where PRO_WHEAT IN(0,?) AND PRO_EGG IN(0,?) AND PRO_MILK IN(0,?) AND PRO_PEANUTS IN(0,?) AND PRO_BUCKWHEAT IN(0,?) AND PRO_SHRIMP IN(0,?) AND PRO_CLUB IN(0,?)";
 
-            st=cn.prepareStatement(sql);
+            
+            //PreparedStatementインターフェイスを実装するクラスをインスタンス化する
+			st=cn.prepareStatement(sql);
 
-            st.setString(1,p.getPid());
-            st.setString(2,p.getName());
-            st.setString(3,p.getPrice());
+            st.setString(1,_p.getPro_wheat());
+            st.setString(2,_p.getPro_egg());
+            st.setString(3,_p.getPro_milk());
+            st.setString(4,_p.getPro_peanuts());
+            st.setString(5,_p.getPro_buckwheat());
+            st.setString(6,_p.getPro_shrimp());
+            st.setString(7,_p.getPro_club());
 
-            st.executeUpdate();
 
-            cn.commit();
-        }catch(ClassNotFoundException e){
-            throw new ResourceAccessException(e.getMessage(),e);
-        }catch(SQLException e){
-            try{
-                cn.rollback();
-            }catch(SQLException e2){
-                throw new ResourceAccessException(e2.getMessage(),e2);
-            }
 
-            throw new ResourceAccessException(e.getMessage(),e);
-        }finally{
-            try{
-                if(st!=null){
-                    st.close();
-                }
-            }catch(SQLException e2){
-                throw new ResourceAccessException(e2.getMessage(),e2);
-            }finally{
-                try{
-                    if(cn!=null){
-                        cn.close();
-                    }
-                }catch(SQLException e3){
-                    throw new ResourceAccessException(e3.getMessage(),e3);
-                }
-            }
-        }
+
+
+			//select文を実行し
+			//ResultSetインターフェイスを実装したクラスの
+			//インスタンスが返る
+			rs=st.executeQuery();
+
+            //カーソルを一行だけスクロールし、データをフェッチする
+			while(rs.next()){
+                Product p = new Product();
+				System.out.println("no"+rs.getString(1));
+				String id = "no"+rs.getString(1);	//1列目のデータを取得
+				String image = rs.getString(2);	//2列目のデータを取得
+				p.setId(id);
+				p.setImage(image);
+
+                products.add(p);
+				
+			}
+        }catch(ClassNotFoundException e) {
+			e.printStackTrace();
+
+		//getConnection,createStatement,executeQueryで例外発生の場合
+		} catch(SQLException e) {
+			e.printStackTrace();
+		} finally {
+			//リソースの解放処理を行う
+			try {
+				if(rs != null){
+					rs.close();
+				}
+				if(st != null){
+					st.close();
+				}
+				if(cn!=null){
+					cn.close();
+				}
+			} catch(SQLException e2) {
+				e2.printStackTrace();
+			}
+		}
+        return products;
+
     }
 
 }

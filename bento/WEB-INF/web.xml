@@ -1,5 +1,12 @@
 <web-app>
-
+    <servlet>
+        <servlet-name>RefineServlet</servlet-name>
+        <servlet-class>RefineServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RefineServlet</servlet-name>
+        <url-pattern>/RefineServlet</url-pattern>
+    </servlet-mapping>
     <servlet>
         <servlet-name>TopServlet</servlet-name>
         <servlet-class>TopServlet</servlet-class>

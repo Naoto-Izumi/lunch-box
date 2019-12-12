@@ -5,10 +5,8 @@
     <title>メニュー</title>
 </head>
     <body>
-            <a href="TopServlet">topページ</a>
-            <a href="StoreServlet">storeページ</a>
-            <a href="RefineServlet">storeページ</a>
-            
+            <a href="TopServlet">menuページ</a>
+            <a href="StoreServlet">storeページ</a>            
 
     </body>
 </html>
