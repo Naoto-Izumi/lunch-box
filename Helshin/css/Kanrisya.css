@@ -1,6 +1,10 @@
+@charset "utf-8";
 .on{
 	display:block;
 }
 .off{
 	display:none;
+}
+.st{
+	display:block;
 }

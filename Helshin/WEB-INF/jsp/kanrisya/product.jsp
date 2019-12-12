@@ -1,17 +1,18 @@
-<!DOCTYPE html>
-<html lang="ja">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	
+<html>
 <head>
-	<meta charset="utf-8">
-	<title>管理者情報</title>
-	<script src="Kanrisya.js"></script>
-	<link rel="stylesheet" type="text/css" href="Kanrisya.css"></style>
+<title>管理者情報</title>
+<script src="${pageContext.request.contextPath}/js/Product.js"></script>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/Product.css">
 </head>
 <body>
 	<input type="radio" name="target" value="sale" onchange="showSale();" checked>売り上げ
 	<input type="radio" name="target" value="add" onchange="showAdd();" checked>追加
 	<input type="radio" name="target" value="stock" onchange="showStock();" checked>在庫管理
 	
-	<!--管理者・売り上げ-->
 	<div id="sale" class="on">
 		<h1>売り上げ情報</h1>
 		<form method="get" action="uriage">
@@ -26,8 +27,7 @@
 			</c:forEach>
 		</table>
 	</div>
-
-	<!--管理者・追加と削除-->
+	
 	<div id="add" class="off">
 		<h1>管理者 ユーザー管理</h1>
 		<form method='get' action='view'>
@@ -44,9 +44,8 @@
 				<input type='checkbox' name='id' value='${product.id}'></td><td><input type='submit'></form></td></tr>
 			</c:forEach>
 		</table>
-	</div>	
-
-	<!--管理者・在庫管理-->
+	</div>
+	
 	<div id="stock" class="st">
 		<h1>在庫の変更</h1>
 		<table border="1">
@@ -65,7 +64,6 @@
 		<a href="addstore.jsp">店舗登録</a><br>
 		<a href="sqs">店舗削除</a><br>
 	</div>
+	
 </body>
 </html>
-
-	

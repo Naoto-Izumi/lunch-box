@@ -5,8 +5,8 @@
 <html>
 <head>
 <title>管理者情報</title>
-<script src="${pageContext.request.contextPath}/js/Kanrisya.js"></script>
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/Kanrisya.css">
+<script src="${pageContext.request.contextPath}/js/Store.js"></script>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/Store.css">
 </head>
 <body>
 	<input type="radio" name="target" value="sale" onchange="showSale();" checked>売り上げ

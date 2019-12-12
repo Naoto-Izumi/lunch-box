@@ -32,7 +32,7 @@
 	</servlet-mapping>
 	<servlet>
 		<servlet-name>uriage</servlet-name>
-		<jsp-file>/uriage.jsp</jsp-file>
+		<jsp-file>/kanrisya.jsp</jsp-file>
 	</servlet>
 	
 	<servlet>
@@ -47,4 +47,13 @@
 	<welcome-file-list>
 		<welcome-file>/WEB-INF/jsp/kanrisya/kanrisya.jsp</welcome-file>
 	</welcome-file-list>
+	
+	<servlet-mapping>
+  		<servlet-name>default</servlet-name>
+  		<url-pattern>/css/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+  		<servlet-name>default</servlet-name>
+  		<url-pattern>/js/*</url-pattern>
+	</servlet-mapping>
 </web-app>
