@@ -16,7 +16,7 @@ public class WebResponseContext implements ResponseContext{
 	public void setTarget(String transferInfo){
 		
 		//jspを決定する。
-		target="WEB-INF/jsp/"+transferInfo+".jsp";
+		target="WEB-INF/jsp/"+transferInfo+".jsp";	//サーブレットパスを取得
 	}
 	public String getTarget(){
 		return target;

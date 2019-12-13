@@ -1,10 +1,10 @@
 package Kanrisya.Lock;
 
 public abstract class AbstractCommand{
-	//RequestContext‚ðŠi”[‚·‚éƒCƒ“ƒXƒ^ƒ“ƒX•Ï”
+	//RequestContextã‚’æ ¼ç´ã™ã‚‹ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹å¤‰æ•°
 	private RequestContext reqContext;
 	
-	//‚à‚Æ‚à‚Æ‚ÍƒZƒbƒ^[‚Å‚·B
+	//ã‚‚ã¨ã‚‚ã¨ã¯ã‚»ãƒƒã‚¿ãƒ¼ã§ã™ã€‚
 	public void init(RequestContext reqc){
 		reqContext = reqc;
 	}
@@ -12,6 +12,6 @@ public abstract class AbstractCommand{
 		return reqContext;
 	}
 	
-	//‹ïÛƒNƒ‰ƒX‚ÉResponseContextŒ^‚Ìexecute()ƒƒ\ƒbƒh‚ðƒI[ƒo[ƒ‰ƒCƒh‚·‚éB
+	//å…·è±¡ã‚¯ãƒ©ã‚¹ã«ResponseContextåž‹ã®execute()ãƒ¡ã‚½ãƒƒãƒ‰ã‚’ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã™ã‚‹ã€‚
 	public abstract ResponseContext execute(ResponseContext resc);
 }

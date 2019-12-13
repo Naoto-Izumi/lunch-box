@@ -1,7 +1,7 @@
 package Kanrisya.Lock;
 
 public interface RequestContext{
-	//Šeƒƒ\ƒbƒh‚ðƒI[ƒo[ƒ‰ƒCƒh‚·‚éB
+	//å„ãƒ¡ã‚½ãƒƒãƒ‰ã‚’ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã™ã‚‹ã€‚
 	public String getCommandPath();
 	public String[] getParameter(String key);
 	public Object getRequest();

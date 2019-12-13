@@ -28,7 +28,8 @@ public class UriageServlet extends HttpServlet{
 		//UserDataにある戻り値を受け取る
 		List<UriageBox>ppp = UriageData.OracleUriageData(u);
 		
-		req.setAttribute("result",ppp);	//jspにあるitemsからセット
+		req.setAttribute("uriage",ppp);	//jspにあるitemsからセット
+		System.out.println(ppp);
 		RequestDispatcher r = req.getRequestDispatcher("/helshin2");	//url-patternにあるサーブレットパス
 		r.forward(req,res);
 

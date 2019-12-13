@@ -1,7 +1,7 @@
 package Kanrisya.Lock;
 
 public interface ResponseContext{
-	//Šeƒƒ\ƒbƒh‚ðƒI[ƒo[ƒ‰ƒCƒh‚·‚éB
+	//å„ãƒ¡ã‚½ãƒƒãƒ‰ã‚’ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã™ã‚‹ã€‚
 	public Object getResult();
 	public String getTarget();
 	public void setResult(Object bean);

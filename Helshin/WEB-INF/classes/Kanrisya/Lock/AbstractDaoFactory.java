@@ -12,16 +12,16 @@ public abstract class AbstractDaoFactory{
 		Properties prop = new Properties();
 		
 		try{
-			//�v���p�e�B�t�@�C����ǂݍ��ށB
+			//プロパティファイルを読み込む。
 			prop.load(new FileInputStream("c:/Helshin/dao.properties"));
 			
-			//�L�[�ɑΉ�������������擾�B
+			//キーに対応した文字列を取得。
 			String name = prop.getProperty("dao");
 			
-			//�w�肳�ꂽ���O�̃N���X�ɑΉ�����Class�N���X�̃C���X�^���X���擾����B
+			//指定された名前のクラスに対応したClassクラスのインスタンスを取得する。
 			Class c = Class.forName(name);
 			
-			//Class�N���X�̃C���X�^���X�𗘗p���đΉ�����N���X�̃C���X�^���X�����s���B
+			//Classクラスのインスタンスを利用して対応するクラスのインスタンス化を行う。
 			factory = (AbstractDaoFactory) c.newInstance();
 			
 		}catch(FileNotFoundException e){

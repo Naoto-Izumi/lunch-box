@@ -2,7 +2,7 @@ package Kanrisya.Lock;
 import java.util.List;
 
 public interface ProductsDao{
-	//Šeƒƒ\ƒbƒh‚ðƒI[ƒo[ƒ‰ƒCƒh‚·‚éB
+	//å„ãƒ¡ã‚½ãƒƒãƒ‰ã‚’ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã™ã‚‹ã€‚
 	public void addProduct(Product p);
 	public List getProduct(String pid);
 	public List getAllProducts();
