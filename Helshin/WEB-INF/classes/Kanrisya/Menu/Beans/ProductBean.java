@@ -1,4 +1,4 @@
-package Beans;
+package Kanrisya.Menu.Beans;
 
 public class ProductBean {
 	int id;

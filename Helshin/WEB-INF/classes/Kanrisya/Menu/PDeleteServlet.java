@@ -1,6 +1,8 @@
+package Kanrisya.Menu;
+
 //商品の削除
 
-import JDBCFiles.DeleteJdbc;
+import Kanrisya.Menu.JDBCFiles.DeleteJdbc;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

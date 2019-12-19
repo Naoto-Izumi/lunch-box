@@ -1,6 +1,8 @@
+package Kanrisya.Store;
+
 //店舗の削除
 
-import JDBCFiles.DeleteJdbc;
+import Kanrisya.Store.JDBCFiles.DeleteJdbc;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

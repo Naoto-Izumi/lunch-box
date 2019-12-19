@@ -1,6 +1,8 @@
+package Kanrisya.Menu;
+
 //商品の表示
 
-import JDBCFiles.ProductQuery;
+import Kanrisya.Menu.JDBCFiles.ProductQuery;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

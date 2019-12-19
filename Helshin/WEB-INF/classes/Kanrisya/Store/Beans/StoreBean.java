@@ -1,4 +1,5 @@
-package Beans;
+package Kanrisya.Store.Beans;
+
 public class StoreBean{
 	int id;
 	String name;

@@ -1,5 +1,4 @@
-package JDBCFiles;
-
+package Kanrisya.Menu.JDBCFiles;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -10,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-import Beans.ProductBean;
+import Kanrisya.Menu.Beans.ProductBean;
 
 
 class Test{

@@ -1,6 +1,7 @@
-//店舗の追加
+package Kanrisya.Store;
 
-import JDBCFiles.RegistJdbc;
+//店舗の追加
+import Kanrisya.Store.JDBCFiles.RegistJdbc;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

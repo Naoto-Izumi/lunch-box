@@ -1,4 +1,4 @@
-package JDBCFiles;
+package Kanrisya.Stock.JDBCFiles;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

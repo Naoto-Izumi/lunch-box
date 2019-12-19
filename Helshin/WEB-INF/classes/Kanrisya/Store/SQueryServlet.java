@@ -1,6 +1,8 @@
+package Kanrisya.Store;
+
 //店舗の表示
 
-import JDBCFiles.StoreQuery;
+import Kanrisya.Store.JDBCFiles.StoreQuery;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

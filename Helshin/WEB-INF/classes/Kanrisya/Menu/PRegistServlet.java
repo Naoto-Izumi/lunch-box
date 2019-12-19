@@ -1,6 +1,8 @@
+package Kanrisya.Menu;
+
 //商品の登録
 
-import JDBCFiles.RegistJdbc;
+import Kanrisya.Menu.JDBCFiles.RegistJdbc;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
