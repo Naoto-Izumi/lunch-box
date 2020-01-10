@@ -20,7 +20,7 @@ public class PStockServlet extends HttpServlet{
 		req.setCharacterEncoding("UTF-8");
 		List ps = ProductQuery.getAllProducts();
 		req.setAttribute("product",ps);
-		String url = "productstock.jsp";
+		String url = "kanrisya.jsp";
 
 		RequestDispatcher dis=req.getRequestDispatcher(url);
 		dis.forward(req,res);

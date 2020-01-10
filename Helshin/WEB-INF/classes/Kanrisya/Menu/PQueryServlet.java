@@ -20,7 +20,7 @@ public class PQueryServlet extends HttpServlet{
 		req.setCharacterEncoding("UTF-8");
 		List ps = ProductQuery.getAllProducts();
 		req.setAttribute("product",ps);
-		String url = "productdelete.jsp";
+		String url = "product.jsp";
 
 		RequestDispatcher dis=req.getRequestDispatcher(url);
 		dis.forward(req,res);

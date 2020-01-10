@@ -5,8 +5,8 @@
 <html>
 <head>
 <title>管理者情報</title>
-<script src="${pageContext.request.contextPath}/js/Product.js"></script>
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/Product.css">
+<script src="${pageContext.request.contextPath}/Browser/js/Product.js"></script>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/Browser/css/Product.css">
 </head>
 <body>
 	<div id="wraper">

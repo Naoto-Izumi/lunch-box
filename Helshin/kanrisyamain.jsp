@@ -4,26 +4,26 @@
 <html>
 <head>
     <title>管理者情報</title>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/KanrisyaMain.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/Browser/css/KanrisyaMain.css">
 </head>
 <body>
 	<div id="wraper">
 		<div id="header">
     		<h1>管理者情報</h1>
-    		<img src="${pageContext.request.contextPath}/css/img/pc3.jpg">
+    		<img src="${pageContext.request.contextPath}/Browser/img/pc3.jpg">
     		<p>このページは管理者専用のページです。
     		一般の方は立ち入ることは出来ません。</p>
 			<center>
 				<table>
     				<tr><td><a href="kanrisya.jsp">管理者</a></td>
-    				<td><a href="store.jsp">在庫</a></td>
+    				<td><a href="store.jsp">店舗</a></td>
     				<td><a href="product.jsp">商品</a></td></tr>
 				</table>
 			</center>
 		</div>
 		<div id="footer">
 			<address>
-			<center>Copyright 2018 Northwest-2,All rights reserved.</center>
+			<center>Copyright 2020 HelshinBento,All rights reserved.</center>
 			</address>
 		</div>
 	</div>

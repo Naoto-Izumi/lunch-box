@@ -7,6 +7,9 @@ import java.sql.Statement;
 import java.util.List;
 import java.util.ArrayList;
 
+import Kanrisya.Uriage.Beans.PrintWriter;
+import Kanrisya.Uriage.Beans.UriageBox;
+
 public class UriageData{
 	public static void main(String[] args){
 		UriageBox u = new UriageBox();	//UriageBoxクラスを呼び出す。

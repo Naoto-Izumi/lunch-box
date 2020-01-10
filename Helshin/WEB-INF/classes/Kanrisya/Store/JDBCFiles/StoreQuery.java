@@ -29,7 +29,7 @@ public class StoreQuery{
 		ArrayList<StoreBean> store=new ArrayList<StoreBean>();
 		try{
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			cn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","info","pro");
+			cn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","helshin","helshinbox");
 			cn.setAutoCommit(false);
 			String sql="select st_id,st_name,st_address,st_phone,st_hours from storeTable";
 			st=cn.prepareStatement(sql);

@@ -18,7 +18,7 @@ public class DeleteJdbc{
 		try{
 			
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			cn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "info","pro");
+			cn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "helshin","helshinbox");
 			
 			cn.setAutoCommit(false);
 			
@@ -60,7 +60,7 @@ public class DeleteJdbc{
 				e.printStackTrace();
 			}
 		}
-		return "/sqs";
+		return "store.jsp";
 	}
 
 /*------------------------------商品削除--------------------------------*/
@@ -72,7 +72,7 @@ public class DeleteJdbc{
 		try{
 			
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			cn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "info","pro");
+			cn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "helshin","helshinbox");
 			
 			cn.setAutoCommit(false);
 			
@@ -114,6 +114,6 @@ public class DeleteJdbc{
 				e.printStackTrace();
 			}
 		}
-		return "/pqs";
+		return "product.jsp";
 	}
 }

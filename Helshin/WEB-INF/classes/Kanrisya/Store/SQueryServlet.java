@@ -20,7 +20,7 @@ public class SQueryServlet extends HttpServlet{
 		req.setCharacterEncoding("UTF-8");
 		List sd = StoreQuery.getAllStore();
 		req.setAttribute("store",sd);
-		String url = "storedelete.jsp";
+		String url = "store.jsp";
 
 		RequestDispatcher dis=req.getRequestDispatcher(url);
 		dis.forward(req,res);

@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServlet;
 import java.util.List;
 import java.util.ArrayList;
 
+import Kanrisya.Uriage.Beans.PrintWriter;
+import Kanrisya.Uriage.Beans.UriageBox;
+
 public class UriageServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest req,HttpServletResponse res)
 	throws ServletException,IOException{

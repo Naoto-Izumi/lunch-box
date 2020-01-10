@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import Kanrisya.Uriage.Beans.PrintWriter;
+import Kanrisya.Uriage.Beans.UriageBox;
+
 public class OracleConnector{
 	Connection cn;
 	

@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.DriverManager;
 
+import User.Regist.Beans.UserBox;
+
 public class UserData{
 	public static void main(String[] args){
 		

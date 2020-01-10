@@ -37,7 +37,7 @@ public class RegistJdbc{
 		try{
 			
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			cn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "info","pro");
+			cn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "helshin","helshinbox");
 			
 			cn.setAutoCommit(false);
 			
@@ -86,7 +86,7 @@ public class RegistJdbc{
 				e.printStackTrace();
 			}
 		}
-		return "addproduct.jsp";
+		return "product.jsp";
 	}
 
 
@@ -111,7 +111,7 @@ public class RegistJdbc{
 			
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			
-			cn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "info","pro");
+			cn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "helshin","helshinbox");
 			
 			cn.setAutoCommit(false);
 			
@@ -153,6 +153,6 @@ public class RegistJdbc{
 				e.printStackTrace();
 			}
 		}
-		return "storeregist.jsp";
+		return "store.jsp";
 	}
 }

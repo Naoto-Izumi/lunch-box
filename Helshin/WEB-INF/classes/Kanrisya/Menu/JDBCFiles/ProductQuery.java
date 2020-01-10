@@ -28,7 +28,7 @@ public class ProductQuery{
 		ArrayList<ProductBean> products=new ArrayList<ProductBean>();
 		try{
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			cn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","info","pro");
+			cn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","helshin","helshinbox");
 			cn.setAutoCommit(false);
 			String sql="select pro_id,pro_name,pro_price,pro_stock,pro_calorie,pro_release_date,pro_type,pro_image,pro_protein,pro_carbohydrate,pro_lipid,pro_vitamin,pro_inorganic,pro_wheat,pro_egg,pro_milk,pro_peanuts,pro_buckwheat,pro_shrimp,pro_club from producttable";
 			st=cn.prepareStatement(sql);
