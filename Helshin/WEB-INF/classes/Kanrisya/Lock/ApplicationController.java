@@ -1,7 +1,7 @@
 package Kanrisya.Lock;
 
 public interface ApplicationController{
-	//Šeƒƒ\ƒbƒh‚ðƒI[ƒo[ƒ‰ƒCƒh‚·‚éB
+	//å„ãƒ¡ã‚½ãƒƒãƒ‰ã‚’ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã™ã‚‹ã€‚
 	RequestContext getRequest(Object request);
 	ResponseContext handleRequest(RequestContext req);
 	void handleResponse(RequestContext req,ResponseContext res);

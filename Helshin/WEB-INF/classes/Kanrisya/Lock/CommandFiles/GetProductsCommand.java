@@ -1,8 +1,8 @@
 package Kanrisya.Lock.CommandFiles;
 
 import java.util.List;
-import Kanrisya.Lock.Main.ResponseContext;
-import Kanrisya.Lock.Main.RequestContext;
+import Kanrisya.Lock.ResponseContext;
+import Kanrisya.Lock.RequestContext;
 
 import Kanrisya.Lock.Dao.AbstractDaoFactory;
 import Kanrisya.Lock.Dao.ProductsDao;
@@ -29,7 +29,7 @@ public class GetProductsCommand extends AbstractCommand{
 		//ResponseContextの変数でList型の変数をセットする。
 		resc.setResult(products);
 		
-		resc.setTarget("kanrisya");	//kanrisya.jspに転送
+		resc.setTarget("kanrisya/kanrisya");	//kanrisya.jspに転送
 		
 		return resc;
 	}

@@ -1,7 +1,7 @@
 package Kanrisya.Lock.CommandFiles;
 
-import Kanrisya.Lock.Main.RequestContext;
-import Kanrisya.Lock.Main.ResponseContext;
+import Kanrisya.Lock.RequestContext;
+import Kanrisya.Lock.ResponseContext;
 
 public abstract class AbstractCommand{
 	//RequestContextを格納するインスタンス変数

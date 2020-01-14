@@ -6,34 +6,37 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import Kanrisya.Lock.CommandFiles.AbstractCommand;
+import Kanrisya.Lock.CommandFiles.CommandFactory;
+
 public class WebApplicationController implements ApplicationController{
 	public RequestContext getRequest(Object request){
 		
-		//ƒCƒ“ƒXƒ^ƒ“ƒX‰»
+		//ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
 		RequestContext reqc = new WebRequestContext();
 		reqc.setRequest(request);
 		return reqc;
 	}
 	public ResponseContext handleRequest(RequestContext req){
 		
-		/*AbstractCommand‚Ì•Ï”command‚ÅCommandFactoryƒNƒ‰ƒX‚É
-		‚ ‚égetCommand()ƒƒ\ƒbƒh‚ğŒÄ‚Ño‚·B*/
+		/*AbstractCommandã®å¤‰æ•°commandã§CommandFactoryã‚¯ãƒ©ã‚¹ã«
+		ã‚ã‚‹getCommand()ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã³å‡ºã™ã€‚*/
 		AbstractCommand command = CommandFactory.getCommand(req);
 		command.init(req);
 		
-		/*ResponseContextƒNƒ‰ƒX‚Ì•Ï”resc‚Å
-		AbstractCommandƒNƒ‰ƒX‚Ìexecute()ƒƒ\ƒbƒh‚ğŒÄ‚Ño‚·B*/
+		/*ResponseContextã‚¯ãƒ©ã‚¹ã®å¤‰æ•°rescã§
+		AbstractCommandã‚¯ãƒ©ã‚¹ã®execute()ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã³å‡ºã™ã€‚*/
 		ResponseContext resc = command.execute(new WebResponseContext());
 		
 		return resc;
 	}
 	public void handleResponse(RequestContext reqc,ResponseContext resc){
 		
-		//ƒCƒ“ƒXƒ^ƒ“ƒX‰»‚µ‚ÄƒLƒƒƒXƒg‚·‚éB
+		//ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã—ã¦ã‚­ãƒ£ã‚¹ãƒˆã™ã‚‹ã€‚
 		HttpServletRequest req = (HttpServletRequest)reqc.getRequest();
 		HttpServletResponse res = (HttpServletResponse) resc.getResponse();
 		
-		//HttpServletRequestƒNƒ‰ƒX‚Ì•Ï”‚ÅsetAttribute‚·‚éB
+		//HttpServletRequestã‚¯ãƒ©ã‚¹ã®å¤‰æ•°ã§setAttributeã™ã‚‹ã€‚
 		req.setAttribute("result",resc.getResult());
 		
 		RequestDispatcher rd = req.getRequestDispatcher(resc.getTarget());

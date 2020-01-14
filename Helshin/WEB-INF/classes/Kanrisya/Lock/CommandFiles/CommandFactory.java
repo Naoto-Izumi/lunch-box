@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
-import Kanrisya.Lock.Main.RequestContext;
+import Kanrisya.Lock.RequestContext;
 
 public abstract class CommandFactory{
 	public static AbstractCommand getCommand(RequestContext rc){

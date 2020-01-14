@@ -13,7 +13,7 @@ public abstract class AbstractDaoFactory{
 		
 		try{
 			//プロパティファイルを読み込む。
-			prop.load(new FileInputStream("c:/Helshin/dao.properties"));
+			prop.load(new FileInputStream("c:/Helshin/helshin.properties"));
 			
 			//キーに対応した文字列を取得。
 			String name = prop.getProperty("dao");

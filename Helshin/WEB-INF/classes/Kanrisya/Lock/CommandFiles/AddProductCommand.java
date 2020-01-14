@@ -1,9 +1,9 @@
 package Kanrisya.Lock.CommandFiles;
 
-import Kanrisya.Lock.Main.ResponseContext;
+import Kanrisya.Lock.ResponseContext;
 import Kanrisya.Lock.Dao.AbstractDaoFactory;
 import Kanrisya.Lock.Dao.ProductsDao;
-import Kanrisya.Lock.Main.RequestContext;
+import Kanrisya.Lock.RequestContext;
 import Kanrisya.Lock.Beans.LockUserBox;
 
 
@@ -35,7 +35,7 @@ public class AddProductCommand extends AbstractCommand{
 		//ProductsDaoの変数でaddProduct()メソッドを呼び出す。
 		dao.addLockUserBox(p);
 		
-		resc.setTarget("kanrisya");	//kanrisya.jspに転送
+		resc.setTarget("kanrisya/kanrisya");	//kanrisya.jspに転送
 		
 		return resc;
 		

@@ -3,20 +3,20 @@ import javax.servlet.http.HttpServletResponse;
 
 public class WebResponseContext implements ResponseContext{
 	
-	/*ƒtƒB[ƒ‹ƒh*/
-	private Object result;	//Œ‹‰Ê
-	private String target;	//jsp‚ÌêŠ
+	/*ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰*/
+	private Object result;	//çµæœ
+	private String target;	//jspã®å ´æ‰€
 	
-	//ƒCƒ“ƒ^[ƒtƒFƒCƒX‚ÌÀ‘•ƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğŠi”[
+	//ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ã‚¤ã‚¹ã®å®Ÿè£…ã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’æ ¼ç´
 	private HttpServletResponse response;
 	
-	//ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	//ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 	public WebResponseContext(){}		
-	/*ƒZƒbƒ^[EƒQƒbƒ^[*/
+	/*ã‚»ãƒƒã‚¿ãƒ¼ãƒ»ã‚²ãƒƒã‚¿ãƒ¼*/
 	public void setTarget(String transferInfo){
 		
-		//jsp‚ğŒˆ’è‚·‚éB
-		target="WEB-INF/jsp/"+transferInfo+".jsp";	//ƒT[ƒuƒŒƒbƒgƒpƒX‚ğæ“¾
+		//jspã‚’æ±ºå®šã™ã‚‹ã€‚
+		target="WEB-INF/jsp/"+transferInfo+".jsp";	//ã‚µãƒ¼ãƒ–ãƒ¬ãƒƒãƒˆãƒ‘ã‚¹ã‚’å–å¾—
 	}
 	public String getTarget(){
 		return target;

@@ -5,22 +5,22 @@ import javax.servlet.http.HttpServletRequest;
 
 public class WebRequestContext implements RequestContext{
 	
-	/*ƒtƒB[ƒ‹ƒh*/
-	private Map parameters;				//MapƒIƒuƒWƒFƒNƒg‚Ìƒpƒ‰ƒ[ƒ^[
+	/*ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰*/
+	private Map parameters;				//Mapã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãƒ¼
 	
-	//ƒCƒ“ƒ^[ƒtƒFƒCƒX‚ÌÀ‘•ƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğŠi”[
+	//ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ã‚¤ã‚¹ã®å®Ÿè£…ã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’æ ¼ç´
 	private HttpServletRequest req;
 	
-	//ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	//ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 	public WebRequestContext(){}
 	
-	/*ƒZƒbƒ^[EƒQƒbƒ^[*/
+	/*ã‚»ãƒƒã‚¿ãƒ¼ãƒ»ã‚²ãƒƒã‚¿ãƒ¼*/
 	public String getCommandPath(){
 		
-		//ƒT[ƒuƒŒƒbƒgƒpƒX‚ğæ“¾
+		//ã‚µãƒ¼ãƒ–ãƒ¬ãƒƒãƒˆãƒ‘ã‚¹ã‚’å–å¾—
 		String servletPath = req.getServletPath();
 		
-		//2•¶š–ÚˆÈ~‚ÌƒT[ƒuƒŒƒbƒgƒpƒX‚ğæ“¾
+		//2æ–‡å­—ç›®ä»¥é™ã®ã‚µãƒ¼ãƒ–ãƒ¬ãƒƒãƒˆãƒ‘ã‚¹ã‚’å–å¾—
 		String commandPath = servletPath.substring(1);
 		
 		return commandPath;
