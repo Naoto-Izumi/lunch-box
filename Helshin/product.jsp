@@ -6,15 +6,15 @@
 <head>
 <title>管理者情報</title>
 <script src="${pageContext.request.contextPath}/Browser/js/Product.js"></script>
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/Browser/css/Product.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/Browser/css/KanrisyaSabu.css">
 </head>
 <body>
 	<div id="wraper">
 		<div id="header">
 			<ul id="link">
-				<li><a href="product.jsp">商品登録</a></li>
-				<li><a href="store.jsp">店舗登録</a></li>
-				<li><a href="kanrisya.jsp">管理者</a></li>
+				<li><a href="pqs">商品登録</a></li>
+				<li><a href="sqs">店舗登録</a></li>
+				<li><a href="pss">管理者</a></li>
 			</ul>
 		</div>
 		<div id="header2">
@@ -47,7 +47,7 @@
 
 				<h1>商品登録</h1>
 
-				<form method='post' action='prs'>
+				<form name='form1' method='post' action='prs'>
 				商品名<input type='text' name='pname'><br>
 				値段<input type='number' name='price'><br>
 				カロリー<input type='number' name='cal'><br>
@@ -76,10 +76,15 @@
 				含む<input type='radio' name='shrimp' value='1'>含まない<input type='radio' name='shrimp' value='0' checked="checked" ><br>
 				かに<br>
 				含む<input type='radio' name='kani' value='1'>含まない<input type='radio' name='kani' value='0' checked="checked" ><br>
-				<input type='submit' value='登録'>
+				<input type='button' value='登録' onclick="product();">
 				<br><a href="kanrisyamain.jsp">トップに戻る</a>
 			</div>
 			<br>
+		</div>
+		<div id="footer">
+			<address>
+			<center>Copyright 2020 HelshinBento,All rights reserved.</center>
+			</address>
 		</div>
 	</div>
 </body>

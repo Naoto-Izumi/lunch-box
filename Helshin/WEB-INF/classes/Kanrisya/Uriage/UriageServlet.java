@@ -33,7 +33,7 @@ public class UriageServlet extends HttpServlet{
 		
 		req.setAttribute("uriage",ppp);	//jspにあるitemsからセット
 		System.out.println(ppp);
-		RequestDispatcher r = req.getRequestDispatcher("/helshin2");	//url-patternにあるサーブレットパス
+		RequestDispatcher r = req.getRequestDispatcher("/pss");	//url-patternにあるサーブレットパス
 		r.forward(req,res);
 
 	}

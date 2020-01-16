@@ -6,15 +6,15 @@
 <head>
 <title>管理者情報</title>
 <script src="${pageContext.request.contextPath}/Browser/js/Store.js"></script>
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/Browser/css/Store.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/Browser/css/KanrisyaSabu.css">
 </head>
 <body>
 	<div id="wraper">
 		<div id="header">
 			<ul id="link">
-				<li><a href="product.jsp">商品登録</a></li>
-				<li><a href="store.jsp">店舗登録</a></li>
-				<li><a href="kanrisya.jsp">管理者</a></li>
+				<li><a href="pqs">商品登録</a></li>
+				<li><a href="sqs">店舗登録</a></li>
+				<li><a href="pss">管理者</a></li>
 			</ul>
 		</div>
 		<div id="header2">
@@ -40,17 +40,22 @@
 			<div id="add" class="on">
 				<h1>店舗の登録</h1>
 
-				<form method='post' action='srs'>
+				<form name="form1" method='post' action='srs'>
 
 				店舗名<input type='text' name='sname'><br>
 				住所<input type='text' name='saddress'><br>
 				電話番号<input type='number' name='snumber'><br>
 				営業時間<input type='number' name='openhours'>~<input type='number' name='closehours'><br>
 	
-				<input type='submit' value='登録'>
+				<input type='button' value='登録' onclick="store();">
 				<br><a href="kanrisyamain.jsp">トップに戻る</a>
 			</div>
 			<br>
+		</div>
+		<div id="footer">
+			<address>
+			<center>Copyright 2020 HelshinBento,All rights reserved.</center>
+			</address>
 		</div>
 	</div>
 </body>

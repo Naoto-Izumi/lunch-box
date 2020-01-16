@@ -33,7 +33,7 @@
 	</servlet-mapping>
 	<servlet>
 		<servlet-name>uriage</servlet-name>
-		<jsp-file>/kanrisya.jsp</jsp-file>
+		<jsp-file>/pss</jsp-file>
 	</servlet>
 	
 	<servlet>

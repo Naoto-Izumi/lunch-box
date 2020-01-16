@@ -62,6 +62,6 @@ public class ChangeJdbc{
 				e.printStackTrace();
 			}
 		}
-		return "/pss";
+		return "/pqs";
 	}
 }

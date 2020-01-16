@@ -29,7 +29,7 @@ public class GetProductsCommand extends AbstractCommand{
 		//ResponseContextの変数でList型の変数をセットする。
 		resc.setResult(products);
 		
-		resc.setTarget("kanrisya/kanrisya");	//kanrisya.jspに転送
+		resc.setTargetCommand("pss");	//kanrisya.jspに転送
 		
 		return resc;
 	}

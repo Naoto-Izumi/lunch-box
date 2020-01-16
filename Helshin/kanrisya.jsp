@@ -6,20 +6,20 @@
 <head>
 <title>管理者情報</title>
 <script src="${pageContext.request.contextPath}/Browser/js/Kanrisya.js"></script>
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/Browser/css/Kanrisya.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/Browser/css/KanrisyaSabu.css">
 </head>
 <body>
 	<div id="wraper">
 		<div id="header">
 			<ul id="link">
-				<li><a href="product.jsp">商品登録</a></li>
-				<li><a href="store.jsp">店舗登録</a></li>
-				<li><a href="kanrisya.jsp">管理者</a></li>
+				<li><a href="pqs">商品登録</a></li>
+				<li><a href="sqs">店舗登録</a></li>
+				<li><a href="pss">管理者</a></li>
 			</ul>
 		</div>
 		<div id="header2">
 			<ul id="a">
-				<li><a><input type="radio" name="target" value="sale" onchange="showSale();" checked>売り上げ</a></li>
+				<li><a><input type="radio" name="target" value="sale" onchange="showSale();">売り上げ</a></li>
 				<li><a><input type="radio" name="target" value="add" onchange="showAdd();" checked>ユーザー管理</a></li>
 				<li><a><input type="radio" name="target" value="stock" onchange="showStock();" checked>在庫管理</a></li>
 			</ul>
@@ -76,6 +76,11 @@
 				<a href="kanrisyamain.jsp">トップに戻る</a>
 			</div>
 			<br>
+		</div>
+		<div id="footer">
+			<address>
+			<center>Copyright 2020 HelshinBento,All rights reserved.</center>
+			</address>
 		</div>
 	</div>
 </body>
