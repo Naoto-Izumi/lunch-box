@@ -17,9 +17,16 @@ public class PRegistServlet extends HttpServlet{
 	public void doPost(HttpServletRequest req,HttpServletResponse res)throws IOException,ServletException{
 		req.setCharacterEncoding("UTF-8");
 		
-		String url =RegistJdbc.RegistProduct(req.getParameterMap());
+		//String url =RegistJdbc.RegistProduct(req.getParameterMap());
 
-		RequestDispatcher dis=req.getRequestDispatcher(url);
-		dis.forward(req,res);
+		//RequestDispatcher dis=req.getRequestDispatcher(url);
+		//dis.forward(req,res);
+		
+		ApplicationController app = new WebApplicationController();
+		RequestContext reqc = app.getRequest(req);
+		ResponseContext resc = app.handleRequest(reqc);
+		resc.setResponse(res);
+		app.handleResponse(reqc,resc);
+
 		}
 }

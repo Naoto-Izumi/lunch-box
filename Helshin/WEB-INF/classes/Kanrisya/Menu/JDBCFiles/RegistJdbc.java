@@ -6,33 +6,34 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
 import java.util.Map;
+import Kanrisya.Menu.Beans.ProductBean;
 
 /*-----------------------商品登録---------------------*/
 public class RegistJdbc{	
 	public static void main(String[] args){}	//テスト用メソッド
-	public static String RegistProduct(Map m){
+	public static String RegistProduct(ProductBean m){
 		
 		Connection cn=null;
 		Statement st=null;
 
 		//キーを引数にそれぞれの値(アレルゲンや五大栄養素など)を受け取る
-		String name=((String[])m.get("pname"))[0];	
-		String price=((String[])m.get("price"))[0];
-		String cal=((String[])m.get("cal"))[0];
-		String cate=((String[])m.get("cate"))[0];
-		String image=((String[])m.get("image"))[0];
-		String pro=((String[])m.get("pro"))[0];
-		String carbo=((String[])m.get("carbo"))[0];
-		String lip=((String[])m.get("lip"))[0];
-		String vita=((String[])m.get("vita"))[0];
-		String ino=((String[])m.get("ino"))[0];
-		String wheat=((String[])m.get("wheat"))[0];
-		String egg=((String[])m.get("egg"))[0];
-		String milk=((String[])m.get("milk"))[0];
-		String peanut=((String[])m.get("peanut"))[0];
-		String buck=((String[])m.get("buck"))[0];
-		String shrimp=((String[])m.get("shrimp"))[0];
-		String kani=((String[])m.get("kani"))[0];
+		String name= m.getName();	
+		int price=m.getPrice();
+		int cal=m.getCalorie();
+		String cate=m.getType();
+		String image=m.getImage();
+		String pro=m.getPro();
+		String carbo=m.getCarbo();
+		String lip=m.getLip();
+		String vita=m.getVita();
+		String ino=m.getIno();
+		String wheat=m.getWheat();
+		String egg=m.getEgg();
+		String milk=m.getMilk();
+		String peanut=m.getPeanut();
+		String buck=m.getBuck();
+		String shrimp=m.getShrimp();
+		String kani=m.getKani();
 
 		try{
 			

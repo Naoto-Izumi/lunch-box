@@ -1,13 +1,15 @@
-package Kanrisya.Lock.Dao;
+package Kanrisya.Menu.CommandFiles;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
-public abstract class AbstractDaoFactory{
-	public static AbstractDaoFactory getFactory(){
-		AbstractDaoFactory factory = null;
+import Kanrisya.Menu.RequestContext;
+
+public abstract class CommandFactory{
+	public static AbstractCommand getCommand(RequestContext rc){
+		AbstractCommand command = null;
 		
 		Properties prop = new Properties();
 		
@@ -16,13 +18,13 @@ public abstract class AbstractDaoFactory{
 			prop.load(new FileInputStream("c:/Helshin/helshin.properties"));
 			
 			//キーに対応した文字列を取得。
-			String name = prop.getProperty("dao");
+			String name = prop.getProperty(rc.getCommandPath());
 			
 			//指定された名前のクラスに対応したClassクラスのインスタンスを取得する。
 			Class c = Class.forName(name);
 			
 			//Classクラスのインスタンスを利用して対応するクラスのインスタンス化を行う。
-			factory = (AbstractDaoFactory) c.newInstance();
+			command = (AbstractCommand) c.newInstance();
 			
 		}catch(FileNotFoundException e){
 			throw new RuntimeException(e.getMessage(),e);
@@ -35,7 +37,8 @@ public abstract class AbstractDaoFactory{
 		}catch(IllegalAccessException e){
 			throw new RuntimeException(e.getMessage(),e);
 		}
-		return factory;
+		return command;
 	}
-	public abstract LockUsersDao;
 }
+
+		

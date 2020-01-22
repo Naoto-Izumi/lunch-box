@@ -17,9 +17,16 @@ public class PDeleteServlet extends HttpServlet{
 	public void doPost(HttpServletRequest req,HttpServletResponse res)throws IOException,ServletException{
 		req.setCharacterEncoding("UTF-8");
 
-		String url =DeleteJdbc.DeleteProduct(req.getParameterMap());
+		//String url =DeleteJdbc.DeleteProduct(req.getParameterMap());
 
-		RequestDispatcher dis=req.getRequestDispatcher(url);
-		dis.forward(req,res);
+		//RequestDispatcher dis=req.getRequestDispatcher(url);
+		//dis.forward(req,res);
+		
+		ApplicationController app = new WebApplicationController();
+		RequestContext reqc = app.getRequest(req);
+		ResponseContext resc = app.handleRequest(reqc);
+		resc.setResponse(res);
+		app.handleResponse(reqc,resc);
+		
 		}
 }
