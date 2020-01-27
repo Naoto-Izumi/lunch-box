@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.io.Serializable;
 
 public class CartBean implements Serializable{
-	ArrayList<CustomBentoBean> cartList = new ArrayList<CustomBentoBean>();
+	ArrayList<Product> cartList = new ArrayList<Product>();
 	public CartBean(){}
-    public void addBento(CustomBentoBean b){
+    public void addBento(Product b){
 		cartList.add(b);
     }
 	public void setCartList(ArrayList a){

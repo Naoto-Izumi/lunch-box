@@ -29,7 +29,7 @@ public  class MenuDao implements ProductsDao{
 
             cn.setAutoCommit(false);
 
-            String sql="select pro_id,pro_image from productTable";
+            String sql="select pro_id,pro_image,pro_name from productTable";
 
             //PreparedStatementインターフェイスを実装するクラスをインスタンス化する
 			st=cn.prepareStatement(sql);
@@ -46,8 +46,10 @@ public  class MenuDao implements ProductsDao{
 				System.out.println("no"+rs.getString(1));
 				String id = "no"+rs.getString(1);	//1列目のデータを取得
 				String image = rs.getString(2);	//2列目のデータを取得
+				String name = rs.getString(3);	//3列目のデータを取得
 				p.setId(id);
 				p.setImage(image);
+				p.setName(name);
 
                 products.add(p);
 				

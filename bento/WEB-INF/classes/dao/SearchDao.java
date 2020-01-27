@@ -10,7 +10,7 @@ import java.util.List;
 
 import Bean.Product;
 
-public class RefineDao implements ProductsDao{
+public class SearchDao implements ProductsDao{
     private Product _p;
     public Product getProduct(String pid){return null;}
     public void addProduct(Product p){_p=p;}
@@ -26,23 +26,13 @@ public class RefineDao implements ProductsDao{
 
             cn.setAutoCommit(false);
 
-            String sql="select  pro_id,pro_image from productTable where PRO_WHEAT IN(0,?) AND PRO_EGG IN(0,?) AND PRO_MILK IN(0,?) AND PRO_PEANUTS IN(0,?) AND PRO_BUCKWHEAT IN(0,?) AND PRO_SHRIMP IN(0,?) AND PRO_CRAB IN(0,?)";
+            String sql="select  pro_id,pro_image from productTable where pro_name = ?";
 
             
             //PreparedStatementインターフェイスを実装するクラスをインスタンス化する
 			st=cn.prepareStatement(sql);
 
-            st.setString(1,_p.getPro_wheat());
-            st.setString(2,_p.getPro_egg());
-            st.setString(3,_p.getPro_milk());
-            st.setString(4,_p.getPro_peanuts());
-            st.setString(5,_p.getPro_buckwheat());
-            st.setString(6,_p.getPro_shrimp());
-            st.setString(7,_p.getPro_crab());
-
-
-
-
+            st.setString(1,_p.getPro_name());
 
 			//select文を実行し
 			//ResultSetインターフェイスを実装したクラスの

@@ -4,29 +4,7 @@ import java.io.Serializable;
 
 public class CustomBentoBean implements Serializable{
 	
-	// private int count;
-	// private String name;
-	// private String type;
 
-	// public void setCount(int count){
-	// 	this.count=count;
-	// }
-	// public int getCount(){
-	// 	return count;
-	// }
-	// public String getName(){
-	// 	return name;
-	// }
-	// public void setName(String name){
-	// 	this.name=name;
-	// }
-	
-	// public void setType(String Type){
-	// 	this.type=type;
-	// }
-	// public String getType(){
-	// 	return type;
-	// }
 	private String _syusyoku;
 	private String _syusai;
 	private String _huku1;

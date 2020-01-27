@@ -57,6 +57,37 @@
         console.log(id_value); //
         return id_value;
     }
+
+    //customの画像挿入のjs
+    $(function() {
+        var element;
+        $("input[type='text']").on('input', function(event){
+            var value = $(this).val().substr(28);
+            if(value.match(/jpg/)){
+                var id = "#"+$(this).attr("id");
+                var prev = "#"+$(this).prev().attr("id");
+                $(prev).after('<input type=image id="'+($(this).attr("id")+"1")+'" src="'+value+'" value="'+value+'" height=10% width=10% disabled>');     
+                // id=id.slice(0,-1);
+                $(id+"2").val(value);
+                console.log(id);
+                console.log(prev);                 
+                $(id).remove();
+
+            }
+        });
+        // $('img').on("mouseover",function(e) {
+        //     $(this).after("<input type='text>");
+        //     console.log("aaa");
+        // });
+        // $('img').on("mouseout",function(e) {
+        //     $(this).after("<input type='text>");
+        //     console.log("bbb");
+        // });
+    });
+  
+
+
+
  
     
 
@@ -70,6 +101,12 @@
 <body>
 <h1>メニュー</h1>
 <a href="top.jsp">topページ</a>
+<p>商品の検索</p>
+    <form action="SearchServlet" method="post" name="search">
+        <input type="text" name="sname" id="s1">
+        <input type="submit" id="sea" value="検索" >
+    </form>
+<p>アレルギーの絞り込み</p>
 
     <form action="RefineServlet" method="post" name="refine">
         
@@ -93,37 +130,57 @@
 
 
 <div>
-    <form action="CustomMenuServlet" method="post" name="custom">
-        主食：<input type="text" name="syusyoku"><br>
-        主菜：<input type="text" name="syusai" value=""><br>
-        副菜：<input type="text" name="huku1" value=""><br>
-        副菜：<input type="text" name="huku2" ><br>
-        <input type="button" onclick="check();" value="カート">
-    </form>
-    <img src="image/bento1.jpg" alt="image/bento1.jpg" height="10%" width="10%">
-    <img src="image/bento2.jpg" height="10%" width="10%">
-    <img src="image/bento3.jpg" height="10%" width="10%">
-    <img src="image/bento4.jpg" height="10%" width="10%">
-    <img src="image/bento5.jpg" height="10%" width="10%">
-</div>
+        <form action="CustomMenuServlet"" method="POST" name="custom">
+            <span id="one">主食</span><input type="text" id="syusyoku" name="syusyoku" value=""><br>
+            <input type="hidden" id="syusyoku2" name="syusyoku" >
+            <span id="two">主菜</span><input type="text" id="syusai" name="syusai" value=""><br>
+            <input type="hidden" id="syusai2" name="syusai" >
+            <span id="three">副菜</span><input type="text" id="huku1" name="huku1" value=""><br>
+            <input type="hidden" id="huku12" name="huku1" >
+            <span id="four">副菜</span><input type="text" id="huku2" name="huku2" ><br>
+            <input type="hidden" id="huku22" name="huku2" >
+            <!-- このコードは使わない<input type="button" onclick="check();" value="カート"> -->
+             <input type="submit" id="cart" value="カート">
+        </form>
+        <table>
+            <tr>
+                <c:forEach var="prof" items="${product}">
+                    <td>
+                        <form method="post" name="${prof.id}1" action="DetailServlet">
+                            <img src="${prof.image}" name="bento alt="" height="70px" width="70px">
+                            <input type="hidden" name="id" value="${prof.id}">
+                            <a href="javascript:${prof.id}1.submit()">${prof.name}</a>
+                        </form>
+                    </td>
+                </c:forEach>
+            </tr>
+        </table>
+            
+</div> 
+
 
 <div>
     <table>
-    <tr>
-        <c:forEach var="prof" items="${product}">
-            <td>
-                <img src="${prof.image}" name="bento alt="" height="15%" width="40%">
-                <form action="MenuServlet" method="post" name="frml" >
-                    <input type="text" name="${prof.id}" value=0 size=6 MIN="O" MAX="99"><br>
-                    <input type="button" value="＋" onClick="javascript:this.form.${prof.id}.value++;"> 
-                    <input type="button" value="－" onClick="javascript:this.form.${prof.id}.value--;">
-                    <input type="submit" value="カート">
-                </form>
-            </td>
+        <tr>
+            <c:forEach var="prof" items="${product}">
+                <td>
+                    <form method="post" name="${prof.id}" action="DetailServlet">
+                        <img src="${prof.image}" name="bento alt="" height="10%" width="40%">
+                        <input type="hidden" name="id" value="${prof.id}">
+                        <a href="javascript:${prof.id}.submit()">${prof.name}</a>
+                    </form>
+                    <form action="MenuServlet" method="post" name="frml" >
+                        <input type="text" name="${prof.id}" value=0 size=6 MIN="O" MAX="99"><br>
+                        <input type="button" value="＋" onClick="javascript:this.form.${prof.id}.value++;"> 
+                        <input type="button" value="－" onClick="javascript:this.form.${prof.id}.value--;">
+                        <input type="submit" value="カート">
+                    </form>
+                </td>
             </c:forEach>
         </tr>
     </table>
 </div>
+
 
 <!-- <table>
     <tr>

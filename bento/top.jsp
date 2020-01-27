@@ -6,7 +6,8 @@
 </head>
     <body>
             <a href="TopServlet">menuページ</a>
-            <a href="StoreServlet">storeページ</a>            
+            <a href="StoreServlet">storeページ</a>       
+            <a href="NetOrder.jsp">ネット注文</a>            
 
     </body>
 </html>

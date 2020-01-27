@@ -20,6 +20,7 @@ public class UserInformationServlet extends HttpServlet{
         String tel = req.getParameter("tel");
         String mail = req.getParameter("mail");
         String address = req.getParameter("address");
+        String date = req.getParameter("date");
         String time = req.getParameter("time");
         String type = req.getParameter("type");
 
@@ -46,6 +47,7 @@ public class UserInformationServlet extends HttpServlet{
         System.out.println("tel"+tel);
         System.out.println("mail"+mail);
         System.out.println("address"+address);
+        System.out.println("date"+date);
         System.out.println("time"+time);
         System.out.println("type"+type);
 
@@ -57,6 +59,7 @@ public class UserInformationServlet extends HttpServlet{
         p.setTel(tel);
         p.setMail(mail);
         p.setAddress(address);
+        p.setDate(date);
         p.setTime(time);
         p.setType(type);
         HttpSession session = req.getSession();

@@ -53,6 +53,7 @@ public class CompleteServlet extends HttpServlet{
 
 		// OrderInDao pi=new OrderInDao();
 		// pi.addProduct(p);
+		//sessionを消す
 		session.invalidate();
 
 

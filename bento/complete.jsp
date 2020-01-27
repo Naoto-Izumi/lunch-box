@@ -5,5 +5,6 @@
 </head>
     <body>
             <p>注文完了しました!! </p>
+            <a href="TopServlet">menuページ</a>
     </body>
 </html>

@@ -56,7 +56,7 @@ public void doPost(HttpServletRequest req,HttpServletResponse res)
         p.setPro_peanuts(s4);
         p.setPro_buckwheat(s5);
         p.setPro_shrimp(s6);
-        p.setPro_club(s7);
+        p.setPro_crab(s7);
         
         
         

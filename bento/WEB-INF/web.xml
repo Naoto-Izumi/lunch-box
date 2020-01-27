@@ -1,5 +1,37 @@
 <web-app>
     <servlet>
+        <servlet-name>SPUNextServlet</servlet-name>
+        <servlet-class>SPUNextServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SPUNextServlet</servlet-name>
+        <url-pattern>/SPUNextServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>StorePickUpServlet</servlet-name>
+        <servlet-class>StorePickUpServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>StorePickUpServlet</servlet-name>
+        <url-pattern>/StorePickUpServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DetailServlet</servlet-name>
+        <servlet-class>DetailServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DetailServlet</servlet-name>
+        <url-pattern>/DetailServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>SearchServlet</servlet-name>
+        <servlet-class>SearchServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SearchServlet</servlet-name>
+        <url-pattern>/SearchServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>RefineServlet</servlet-name>
         <servlet-class>RefineServlet</servlet-class>
     </servlet>
