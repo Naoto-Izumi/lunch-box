@@ -1,0 +1,43 @@
+@charset "utf-8";
+*{
+	font-style: normal; 
+	margin: 0px;
+	padding: 0px;
+} 
+body{
+	background-image: url(../img/pc.jpg);
+	background-size: cover;
+	
+}
+#wraper {
+	background-color: aliceblue;
+	width: 1075px;
+	margin: 0px auto;
+}
+#header a:link {
+	color: #333333;
+	text-decoration: underline;
+}
+#header a:visited{
+	color: #333333;
+	text-decoration: underline;
+}
+#header a:hover{
+	color: #0000cc;
+	text-decoration: underline;
+}
+
+#footer {
+	clear: both;
+	color: #FFFFFF;
+	background-color: #333333;
+}
+#footer dl{
+	color: #CCCCCC;
+}
+#footer	dt{
+	color: #CCCCCC;
+}
+#footer dd{
+	color: #CCCCCC;
+}
