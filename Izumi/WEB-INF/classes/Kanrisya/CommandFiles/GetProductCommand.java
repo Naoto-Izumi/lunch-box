@@ -6,10 +6,10 @@ import Kanrisya.RequestContext;
 import java.util.Map;
 import Kanrisya.AbstractCommand;
 
-import Kanrisya.JDBCFiles.ProductQuery;
+//import Kanrisya.JDBCFiles.ProductQuery;
 import Kanrisya.Beans.ProductBean;
 import Kanrisya.JDBCFiles.RegistJdbc;
-import Kanrisya.JDBCFiles.ChangeJdbc;
+//import Kanrisya.JDBCFiles.ChangeJdbc;
 
 public class GetProductCommand extends AbstractCommand{
 	public ResponseContext execute(ResponseContext resc){
@@ -72,6 +72,10 @@ public class GetProductCommand extends AbstractCommand{
 		//RegistJdbcをBeanに引数を使う。
 		
 		String menuusers = RegistJdbc.RegistProduct(pb);
+		
+		//ProductQuery.getAllProducts();
+		//ChangeJdbc.ChangeProduct(m);
+		//DeleteJdbc.DeleteProduct(m);
 		
 		//ResponseContextの変数でList型の変数をセットする。
 		resc.setResult(menuusers);

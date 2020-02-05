@@ -37,4 +37,7 @@ public class WebRequestContext implements RequestContext{
 		
 		parameters = req.getParameterMap();
 	}
+	public Map getParameterMap(){
+		return parameters;
+	}
 }
