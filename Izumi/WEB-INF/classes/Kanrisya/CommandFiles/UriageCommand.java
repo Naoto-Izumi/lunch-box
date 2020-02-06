@@ -29,6 +29,7 @@ public class UriageCommand extends AbstractCommand{
 		resc.setResultName("uriage");
 		
 		resc.setTarget("kanrisya/kanrisya");
+		resc.setTargetCommand("ks");
 		return resc;		
 
 	}

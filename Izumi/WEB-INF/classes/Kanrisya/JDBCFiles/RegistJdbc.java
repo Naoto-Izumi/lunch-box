@@ -29,12 +29,14 @@ public class RegistJdbc{
 		String vita=m.getVita();
 		String ino=m.getIno();
 		String wheat=m.getWheat();
-		String egg=m.getEgg();
+		String egg=m.getEgg();	
 		String milk=m.getMilk();
 		String peanut=m.getPeanut();
 		String buck=m.getBuck();
 		String shrimp=m.getShrimp();
 		String kani=m.getKani();
+		
+		//栄養素は何も入力空文字if文で空文字なら0に返る
 
 		try{
 			
@@ -54,7 +56,7 @@ public class RegistJdbc{
 			int id=(rs2.getInt(1) )+ 1;	//主キーにプラス1して次へ
 			/*--------ここまでいらない↑----------*/
 
-			String sql="insert into productTable(pro_id,pro_name,pro_price,pro_calorie,pro_type,pro_image,pro_protein,pro_carbohydrate,pro_lipid,pro_vitamin,pro_inorganic,pro_wheat,pro_egg,pro_milk,pro_peanuts,pro_buckwheat,pro_shrimp,pro_club) values('"+id+"','"+name+"','"+price+"','"+cal+"','"+cate+"','"+image+"','"+pro+"','"+carbo+"','"+lip+"','"+vita+"','"+ino+"','"+wheat+"','"+egg+"','"+milk+"','"+peanut+"','"+buck+"','"+shrimp+"','"+kani+"')";
+			String sql="insert into productTable(pro_id,pro_name,pro_price,pro_calorie,pro_type,pro_image,pro_protein,pro_carbohydrate,pro_lipid,pro_vitamin,pro_inorganic,pro_wheat,pro_egg,pro_milk,pro_peanuts,pro_buckwheat,pro_shrimp,pro_crab) values('"+id+"','"+name+"','"+price+"','"+cal+"','"+cate+"','"+image+"','"+pro+"','"+carbo+"','"+lip+"','"+vita+"','"+ino+"','"+wheat+"','"+egg+"','"+milk+"','"+peanut+"','"+buck+"','"+shrimp+"','"+kani+"')";
 			
 			int count=st.executeUpdate(sql);
 			

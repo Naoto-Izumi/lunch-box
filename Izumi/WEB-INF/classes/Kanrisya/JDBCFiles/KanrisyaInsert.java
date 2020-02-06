@@ -11,7 +11,7 @@ import java.sql.PreparedStatement;
 import Kanrisya.Beans.LockUserBox;
 
 public class KanrisyaInsert{
-	public static void main(String[] args){
+	/*public static void main(String[] args){
 		
 		LockUserBox a = new LockUserBox();	//LockUserBoxクラスをインスタンス化する。
 		a.setLname("b");			//Lname列の値をセットする。
@@ -22,17 +22,13 @@ public class KanrisyaInsert{
 		
 		OracleKanrisyaInsert(a);	//OracleKanrisyaInsert()メソッドを呼び出す。
 		
-	}
+	}*/
 	public static void OracleKanrisyaInsert(LockUserBox b){
 		Connection cn = null;
 		//PreparedStatement st = null;
 		Statement st = null;
 		
-		String lname = b.getLname();
-		String id = b.getId();
-		String mail = b.getMail();
-		String telphone = b.getTelphone();
-		String lid = b.getLid();
+		
 		//ResultSet rs = null;
 		
 		//OracleConnectorでユーザー名とパスワードを指定する。
@@ -52,19 +48,17 @@ public class KanrisyaInsert{
 			
 			//ResultSetの変数でStatementのexecuteQuery()メソッドを呼び出す。
 			//rs = sst.executeQuery(qq);
-			String qq = "SELECT MAX(lo_id+1) FROM lockTable";
 			
-			ResultSet rs= st.executeQuery(qq);
-			rs.next();
-			int qqa = rs.getInt(1);
+			
 			
 			/*この文は1行にしないと動かない。*/
-			String query = 
-				"INSERT INTO lockTable (lo_id,lo_user_id) VALUES( '"+b.getLid()/*updatewhere*/+" ','"+qqa+"')";
+			String update = 
+			"UPDATE userTable SET user_lock = "+b.getLocks()+" WHERE user_id = "+b.getId();
 			
-			st=cn.prepareStatement(query);	//プリコンパイルされ、オブジェクトに格納される。
+			//st=cn.createStatement();	//プリコンパイルされ、オブジェクトに格納される。
 			
-			//st.executeUpdate();	//実行。
+			System.out.println(update);
+			st.executeUpdate(update);
 			
 			cn.commit();	//コミットする。
 			

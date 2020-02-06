@@ -14,7 +14,7 @@
 			<ul id="link">
 				<li><a href="pqs">商品登録</a></li>
 				<li><a href="sqs">店舗登録</a></li>
-				<li><a href="us">管理者</a></li>
+				<li><a href="ks">管理者</a></li>
 			</ul>
 		</div>
 		<div id="header2">

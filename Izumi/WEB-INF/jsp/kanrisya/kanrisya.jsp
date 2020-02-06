@@ -14,7 +14,7 @@
 			<ul id="link">
 				<li><a href="pqs">商品登録</a></li>
 				<li><a href="sqs">店舗登録</a></li>
-				<li><a href="us">管理者</a></li>
+				<li><a href="ks">管理者</a></li>
 			</ul>
 		</div>
 		<div id="header2">
@@ -54,7 +54,10 @@
 						<tr><td>${product.lname}</td><td>${product.id}</td>
 						<td>${product.mail}</td><td>${product.telphone}</td>
 						<td><form method='get' action='lsadd'>
-						<input type='checkbox' name='id' value='${product.id}'></td><td><input type='submit'></form></td></tr>
+						<input type='checkbox' name='lock' value='true' ${product.locks}>
+						<input type='hidden' name='id' value='${product.id}' >
+					
+					</td><td><input type='submit'></form></td></tr>
 					</c:forEach>
 				</table>
 				<a href="kanrisyamain.jsp">トップに戻る</a>

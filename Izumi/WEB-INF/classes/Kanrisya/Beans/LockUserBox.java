@@ -7,6 +7,7 @@ public class LockUserBox implements Serializable{
 	private String mail;		//メールアドレス
 	private String telphone;	//電話番号
 	private String lid;			//名字(ふりがななし)
+	private String locks;		//ユーザーロック
 	
 	/*セッター・ゲッター*/
 	public String getLname(){
@@ -38,5 +39,11 @@ public class LockUserBox implements Serializable{
 	}
 	public void setLid(String lid){
 		this.lid = lid;
+	}
+	public String getLocks(){
+		return locks;
+	}
+	public void setLocks(String locks){
+		this.locks = locks;
 	}
 }
