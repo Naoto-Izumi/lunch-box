@@ -12,13 +12,6 @@ import java.util.List;
 
 import Kanrisya.Beans.StoreBean;
 
-
-class Test{
-	public static void main(String[] args){
-
-		List l =StoreQuery.getAllStore();
-	}
-}
 public class StoreQuery{
 	
 	public static List getAllStore(){
