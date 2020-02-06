@@ -16,7 +16,7 @@
 			</center>
 			<center>
 				<table>
-    				<tr><td><a href="us">管理者</a></td>
+    				<tr><td><a href="ks">管理者</a></td>
     				<td><a href="sqs">店舗</a></td>
     				<td><a href="pqs">商品</a></td></tr>
 				</table>

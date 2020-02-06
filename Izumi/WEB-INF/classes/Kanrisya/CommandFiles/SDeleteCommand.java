@@ -14,10 +14,9 @@ public class SDeleteCommand extends AbstractCommand{
 		RequestContext reqc = getRequestContext();
 		
 		Map m = reqc.getParameterMap();
-		String url =DeleteJdbc.DeleteStore(m);
-		resc.setResult(url);
+		DeleteJdbc.DeleteStore(m);
 
-		resc.setTargetCommand("sde");
+		resc.setTargetCommand("sqs");
 		
 		return resc;
 		

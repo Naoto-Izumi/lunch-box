@@ -14,11 +14,11 @@ public class SQueryCommand extends AbstractCommand{
 	public ResponseContext execute(ResponseContext resc){
 		RequestContext reqc = getRequestContext();
 		
-		List sd = StoreQuery.getAllStore();
-		//req.setAttribute("store",sd);
-		String url = "WEB-INF/jsp/kanrisya/store.jsp";
+		List store = StoreQuery.getAllStore();
 
-		resc.setResult(url);
+		resc.setResult(store);
+		resc.setResultName("store");
+		
 		resc.setTarget("kanrisya/store");
 		return resc;
 		}

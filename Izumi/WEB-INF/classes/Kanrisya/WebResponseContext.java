@@ -6,6 +6,7 @@ public class WebResponseContext implements ResponseContext{
 	/*フィールド*/
 	private Object result;	//結果
 	private String target;	//jspの場所
+	private String resultname = "result";
 	
 	//インターフェイスの実装クラスのインスタンスを格納
 	private HttpServletResponse response;
@@ -32,6 +33,12 @@ public class WebResponseContext implements ResponseContext{
 	}
 	public Object getResult(){
 		return result;
+	}
+	public void setResultName(String name){
+		resultname = name;
+	}
+	public String getResultName(){
+		return resultname;
 	}
 	public Object getResponse(){
 		return response;

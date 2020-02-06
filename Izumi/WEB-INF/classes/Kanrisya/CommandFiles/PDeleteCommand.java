@@ -14,10 +14,10 @@ public class PDeleteCommand extends AbstractCommand{
 		RequestContext reqc = getRequestContext();
 		
 		Map m = reqc.getParameterMap();
-		String url =DeleteJdbc.DeleteProduct(m);
-		resc.setResult(url);
+		DeleteJdbc.DeleteProduct(m);
+		//resc.setResult(url);
 
-		resc.setTargetCommand("pde");
+		resc.setTargetCommand("pqs");
 		
 		return resc;
 	}

@@ -9,20 +9,20 @@ window.onload = function(){
 
     if(patharray[2]=="pde"){
         boxes.item(0).checked = true;
-        showDelete();
+        showAdd();
     } 
     if(patharray[2]=="prs"){
         boxes.item(1).checked = true;
-        showAdd();
+        showDelete();
     } 
 }
 
-function showDelete(){
+function showAdd(){
     document.getElementById("delete").className="off";
     document.getElementById("add").className="on";
     document.getElementById("stock").className="off";
 }
-function showAdd(){
+function showDelete(){
     document.getElementById("delete").className="on";
     document.getElementById("add").className="off";
     document.getElementById("stock").className="off";

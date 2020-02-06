@@ -9,6 +9,8 @@ public interface ResponseContext{
 	public void setTarget(String transferInfo);
 	public void setResponse(Object obj);
 	public Object getResponse();
+	public String getResultName();
+	public void setResultName(String name);
 }
 
 

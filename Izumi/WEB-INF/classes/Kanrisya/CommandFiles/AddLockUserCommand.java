@@ -37,7 +37,7 @@ public class AddLockUserCommand extends AbstractCommand{
 		//LockUsersDaoの変数でaddLockUser()メソッドを呼び出す。
 		KanrisyaInsert.OracleKanrisyaInsert(p);
 		
-		resc.setTargetCommand("ls");	//kanrisya.jspに転送
+		resc.setTargetCommand("ks");	//kanrisya.jspに転送
 		
 		return resc;
 		

@@ -12,11 +12,11 @@ public class PQueryCommand extends AbstractCommand{
 	public ResponseContext execute(ResponseContext resc){
 		RequestContext reqc = getRequestContext();
 		
-		List ps = ProductQuery.getAllProducts();
+		List product = ProductQuery.getAllProducts();
 		//reqc.setAttribute("product",ps);
-		String url = "WEB-INF/jsp/kanrisya/product.jsp";
 		
-		resc.setResult(url);
+		resc.setResult(product);
+		resc.setResultName("product");
 		resc.setTarget("kanrisya/product");
 		return resc;
 		}

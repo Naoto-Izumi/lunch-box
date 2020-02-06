@@ -60,7 +60,7 @@ public class KanrisyaInsert{
 			
 			/*この文は1行にしないと動かない。*/
 			String query = 
-				"INSERT INTO lockTable (lo_id,lo_user_id) VALUES( '"+b.getLid()+" ','"+qqa+"')";
+				"INSERT INTO lockTable (lo_id,lo_user_id) VALUES( '"+b.getLid()/*updatewhere*/+" ','"+qqa+"')";
 			
 			st=cn.prepareStatement(query);	//プリコンパイルされ、オブジェクトに格納される。
 			

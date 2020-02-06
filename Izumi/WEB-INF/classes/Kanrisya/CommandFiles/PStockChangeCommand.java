@@ -13,10 +13,10 @@ public class PStockChangeCommand extends AbstractCommand{
 		RequestContext reqc = getRequestContext();
 		
 		Map m = reqc.getParameterMap();
-		String url = ChangeJdbc.ChangeProduct(m);
-		resc.setResult(url);
+		ChangeJdbc.ChangeProduct(m);
+		//resc.setResult(url);
 		
-		resc.setTargetCommand("pscs");
+		resc.setTargetCommand("pqs");
 		
 		return resc;
 	}

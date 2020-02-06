@@ -34,7 +34,10 @@ public class WebApplicationController implements ApplicationController{
 		HttpServletResponse res = (HttpServletResponse) resc.getResponse();
 		
 		//HttpServletRequestクラスの変数でsetAttributeする。
-		req.setAttribute("result",resc.getResult());
+		req.setAttribute(resc.getResultName(),resc.getResult());
+		System.out.println(resc.getResultName());
+		System.out.println(resc.getResult());
+		System.out.println(resc.getTarget());
 		
 		RequestDispatcher rd = req.getRequestDispatcher(resc.getTarget());
 		
