@@ -4,10 +4,7 @@ import java.util.List;
 import Kanrisya.ResponseContext;
 import Kanrisya.RequestContext;
 import Kanrisya.AbstractCommand;
-import Kanrisya.JDBCFiles.KanrisyaData;
-
-//import Kanrisya.Lock.Dao.AbstractDaoFactory;
-//import Kanrisya.Lock.Dao.LockUsersDao;
+import Kanrisya.JDBCFiles.LockUserData;
 
 public class GetLockUserCommand extends AbstractCommand{
 	public ResponseContext execute(ResponseContext resc){
@@ -21,17 +18,13 @@ public class GetLockUserCommand extends AbstractCommand{
 		//パラメータで値を入れたlastname変数でao変数の配列をセット。
 		String lastname = ao[0];
 		
-		//Daoパターンのクラスの変数でそれぞれのgetメソッドを呼び出す。
-		//AbstractDaoFactory factory = AbstractDaoFactory.getFactory();
-		//LockUsersDao dao = factory.getLockUsersDao();
-		
 		//List型の変数LockUsersでLockUsersDaoクラスのgetLockUserBox()メソッドを呼び出す。
-		List lockusers = KanrisyaData.OracleKanrisyaData(lastname);
+		List lockusers = LockUserData.OracleLockUserData(lastname);
 		
 		//ResponseContextの変数でList型の変数をセットする。
 		resc.setResult(lockusers);
 		
-		resc.setTarget("kanrisya/kanrisya");	//kanrisya.jspに転送
+		resc.setTarget("kanrisya/user");	//kanrisya.jspに転送
 		
 		return resc;
 	}

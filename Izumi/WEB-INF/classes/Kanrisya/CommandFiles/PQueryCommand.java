@@ -13,7 +13,6 @@ public class PQueryCommand extends AbstractCommand{
 		RequestContext reqc = getRequestContext();
 		
 		List product = ProductQuery.getAllProducts();
-		//reqc.setAttribute("product",ps);
 		
 		resc.setResult(product);
 		resc.setResultName("product");

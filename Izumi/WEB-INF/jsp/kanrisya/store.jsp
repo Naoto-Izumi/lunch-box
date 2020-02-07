@@ -14,7 +14,7 @@
 			<ul id="link">
 				<li><a href="pqs">商品登録</a></li>
 				<li><a href="sqs">店舗登録</a></li>
-				<li><a href="ks">管理者</a></li>
+				<li><a href="ks">ユーザー情報</a></li>
 			</ul>
 		</div>
 		<div id="header2">
@@ -33,7 +33,7 @@
 						<td><form method='post' action='sde'><input type="hidden" name ="id" value="${s.id}"><input type="submit" value="削除"></form></td></tr>
 					</c:forEach>
 				</table>
-				<a href="kanrisyamain.jsp">トップに戻る</a>
+				<a href="main">トップに戻る</a>
 
 			</div>
 	
@@ -44,13 +44,12 @@
 
 				店舗名<input type='text' name='sname'><br>
 				住所<input type='text' name='saddress'><br>
-				電話番号<input type='number' name='snumber'><br>
-				営業時間<input type='number' name='openhours'>~<input type='number' name='closehours'><br>
+				電話番号<input type='text' name='snumber' pattern="^[0-9]+$" maxlength='11'><!--ハイフンなし11桁--><br>
+				営業時間<input type='time' name='openhours'>~<input type='time' name='closehours'><br>
 	
 				<input type='button' value='登録' onclick="store();">
-				<br><a href="kanrisyamain.jsp">トップに戻る</a>
+				<br><a href="main">トップに戻る</a>
 			</div>
-			<br>
 		</div>
 		<div id="footer">
 			<address>

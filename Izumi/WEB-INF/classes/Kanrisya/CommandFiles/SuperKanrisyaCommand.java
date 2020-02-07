@@ -4,10 +4,10 @@ import java.util.Map;
 import Kanrisya.ResponseContext;
 import Kanrisya.AbstractCommand;
 
-public class InputLockUserCommand extends AbstractCommand{
+public class SuperKanrisyaCommand extends AbstractCommand{
 	public ResponseContext execute(ResponseContext resc){
 	
-		resc.setTarget("kanrisya/user");	//jspを転送
+		resc.setTarget("kanrisya/kanrisya");	//jspを転送
 		
 		return resc;
 	}

@@ -24,11 +24,10 @@ public class UriageCommand extends AbstractCommand{
 		
 		List uriage = UriageData.OracleUriageData(ub);
 		
-		//String url = "WEB-INF/jsp/kanrisya/store.jsp";
 		resc.setResult(uriage);
 		resc.setResultName("uriage");
 		
-		resc.setTarget("kanrisya/kanrisya");
+		resc.setTarget("kanrisya/user");
 		resc.setTargetCommand("ks");
 		return resc;		
 

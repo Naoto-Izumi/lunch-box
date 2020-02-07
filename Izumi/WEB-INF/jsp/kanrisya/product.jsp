@@ -14,7 +14,7 @@
 			<ul id="link">
 				<li><a href="pqs">商品登録</a></li>
 				<li><a href="sqs">店舗登録</a></li>
-				<li><a href="ks">管理者</a></li>
+				<li><a href="ks">ユーザー情報</a></li>
 			</ul>
 		</div>
 		<div id="header2">
@@ -41,7 +41,7 @@
 							<td><form method='post' action='pde'><input type="hidden" name ="id" value="${p.id}"><input type="submit" value="削除"></form></td>
 						</c:forEach>
 				</table>
-				<a href="kanrisyamain.jsp">トップに戻る</a>
+				<a href="main">トップに戻る</a>
 			</div>
 	
 			<div id="delete" class="off">
@@ -51,16 +51,16 @@
 				<form name='form1' method='post' action='prs'>
 				商品名<input type='text' name='pname'><br>
 				値段<input type='number' name='price'><br>
-				カロリー<input type='number' name='cal'><br>
+				カロリー<input type='number' name='cal' value='0' min='0'><br>
 				商品の種類<input type='text' name='cate'>※必須ではない<br>
 				商品画像<input type='text' name='image'><br>
 
 				<h3>5大栄養素</h3>
-				タンパク質<input type='number' name='pro'><br>
-				糖質<input type='number' name='carbo'><br>
-				脂質<input type='number' name='lip'><br>
-				ビタミン<input type='number' name='vita'><br>
-				無機質<input type='number' name='ino'><br>
+				タンパク質<input type='number' name='pro' value='0' min='0' ><br>
+				糖質<input type='number' name='carbo' value='0' min='0' ><br>
+				脂質<input type='number' name='lip' value='0' min='0' ><br>
+				ビタミン<input type='number' name='vita' value='0' min='0' ><br>
+				無機質<input type='number' name='ino' value='0' min='0' ><br>
 		
 				<h3>アレルギー</h3>
 				小麦<br>
@@ -92,9 +92,9 @@
 						</form>
 					</c:forEach>
 				</table>
-				<a href="kanrisyamain.jsp">トップに戻る</a>
+				<a href="main">トップに戻る</a>
 			</div>
-			<br>
+			
 		</div>
 		<div id="footer">
 			<address>

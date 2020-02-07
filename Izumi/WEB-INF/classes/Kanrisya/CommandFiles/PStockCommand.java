@@ -13,7 +13,6 @@ public class PStockCommand extends AbstractCommand{
 		RequestContext reqc = getRequestContext();
 		
 		List product = ProductQuery.getAllProducts();
-		//req.setAttribute("product",ps);
 		String url = "WEB-INF/jsp/kanrisya/product.jsp";
 
 		resc.setResult(url);

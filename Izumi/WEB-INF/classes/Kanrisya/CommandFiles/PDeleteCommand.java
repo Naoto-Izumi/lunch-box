@@ -15,8 +15,6 @@ public class PDeleteCommand extends AbstractCommand{
 		
 		Map m = reqc.getParameterMap();
 		DeleteJdbc.DeleteProduct(m);
-		//resc.setResult(url);
-
 		resc.setTargetCommand("pqs");
 		
 		return resc;

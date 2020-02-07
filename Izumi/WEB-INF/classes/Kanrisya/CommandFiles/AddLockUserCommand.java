@@ -1,12 +1,10 @@
 package Kanrisya.CommandFiles;
 
 import Kanrisya.ResponseContext;
-//import Kanrisya.Lock.Dao.AbstractDaoFactory;
-//import Kanrisya.Lock.Dao.LockUsersDao;
 import Kanrisya.RequestContext;
 import Kanrisya.Beans.LockUserBox;
 import Kanrisya.AbstractCommand;
-import Kanrisya.JDBCFiles.KanrisyaInsert;
+import Kanrisya.JDBCFiles.LockUserInsert;
 
 
 public class AddLockUserCommand extends AbstractCommand{
@@ -38,13 +36,8 @@ public class AddLockUserCommand extends AbstractCommand{
 			p.setLocks(locks);
 		}
 		
-		
-		
-		
-		
-		
 		//LockUsersDaoの変数でaddLockUser()メソッドを呼び出す。
-		KanrisyaInsert.OracleKanrisyaInsert(p);
+		LockUserInsert.OracleLockUserInsert(p);
 		
 		resc.setTargetCommand("ks");	//kanrisya.jspに転送
 		

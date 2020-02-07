@@ -18,25 +18,25 @@ public class RegistJdbc{
 		Statement st=null;
 
 		//キーを引数にそれぞれの値(アレルゲンや五大栄養素など)を受け取る
-		String name= m.getName();	
-		int price=m.getPrice();
-		int cal=m.getCalorie();
-		String cate=m.getType();
-		String image=m.getImage();
-		String pro=m.getPro();
-		String carbo=m.getCarbo();
-		String lip=m.getLip();
-		String vita=m.getVita();
-		String ino=m.getIno();
-		String wheat=m.getWheat();
-		String egg=m.getEgg();	
-		String milk=m.getMilk();
-		String peanut=m.getPeanut();
-		String buck=m.getBuck();
-		String shrimp=m.getShrimp();
-		String kani=m.getKani();
+		String name= m.getName();		//商品名
+		int price=m.getPrice();			//値段
+		int cal=m.getCalorie();			//カロリー
+		String cate=m.getType();		//商品の種類
+		String image=m.getImage();		//商品画像
+		String pro=m.getPro();			//タンパク質(五大栄養素)
+		String carbo=m.getCarbo();		//糖質(五大栄養素)
+		String lip=m.getLip();			//脂質(五大栄養素)
+		String vita=m.getVita();		//ビタミン(五大栄養素)
+		String ino=m.getIno();			//無機質(五大栄養素)
+		String wheat=m.getWheat();		//小麦(アレルギー)
+		String egg=m.getEgg();			//卵(アレルギー)
+		String milk=m.getMilk();		//牛乳(アレルギー)
+		String peanut=m.getPeanut();	//落花生(アレルギー)
+		String buck=m.getBuck();		//そば(アレルギー)
+		String shrimp=m.getShrimp();	//えび(アレルギー)
+		String kani=m.getKani();		//かに(アレルギー)
 		
-		//栄養素は何も入力空文字if文で空文字なら0に返る
+		//栄養素は何も空文字入力if文で空文字なら0に返る
 
 		try{
 			
@@ -101,9 +101,7 @@ public class RegistJdbc{
 		String name= m.getName();
 		String address= m.getAddress();
 		String number= m.getPhone();
-		String openhours= m.getHours();
-		String closehours= m.getHours();
-		String hours = openhours+"~"+closehours;
+		String hours= m.getHours();
 
 
 		try{

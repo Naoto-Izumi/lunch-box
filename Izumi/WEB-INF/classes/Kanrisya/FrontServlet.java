@@ -1,6 +1,5 @@
 package Kanrisya;
 
-//店舗の追加
 import Kanrisya.JDBCFiles.RegistJdbc;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;

@@ -14,7 +14,6 @@ public class PStockChangeCommand extends AbstractCommand{
 		
 		Map m = reqc.getParameterMap();
 		ChangeJdbc.ChangeProduct(m);
-		//resc.setResult(url);
 		
 		resc.setTargetCommand("pqs");
 		

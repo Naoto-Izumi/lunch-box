@@ -26,7 +26,7 @@
 	</servlet-mapping>
 
 	<welcome-file-list>
-		<welcome-file>/WEB-INF/jsp/kanrisya/kanrisyamain.jsp</welcome-file>
+		<welcome-file>/WEB-INF/jsp/kanrisya/kanrisya.jsp</welcome-file>
 	</welcome-file-list>
 	
 	<servlet-mapping>
