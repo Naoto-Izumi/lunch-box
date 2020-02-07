@@ -65,7 +65,12 @@ public class MenuServlet extends HttpServlet{
         Iterator sessionit=sessionset.iterator();
         while(sessionit.hasNext()){
             String key1=(String)sessionit.next();
-            String id1 = key1.substring(2);
+            String id1 = null;
+            if(key1.length()==3){
+                id1 = key1.substring(2);
+            }else{
+				id1=key1;
+			}
             MenuPriceDao mp = new MenuPriceDao();
             System.out.println(id1);
             al.add(mp.getProduct(id1));
@@ -89,6 +94,7 @@ public class MenuServlet extends HttpServlet{
         Iterator ite = al.iterator();
         int total = 0;
         Product pro = (Product)ite.next();
+        System.out.println("al"+al+"pro"+pro);
         total = Integer.parseInt(pro.getTotal());
         
         total = total*Integer.parseInt(vals[0]);

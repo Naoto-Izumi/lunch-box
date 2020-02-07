@@ -35,9 +35,21 @@ public class CompleteServlet extends HttpServlet{
         Iterator it=s.iterator();
 		while(it.hasNext()){
             String key=(String)it.next();
-            String v=(String)m.get(key);
+			String v = null;
+			if(m.get(key) instanceof Integer){
+				Integer integer = (Integer)m.get(key);
+				v = Integer.toString(integer);
+			}else{
+				v = (String)m.get(key);
+			}
+            
 			System.out.println("キー"+key+"値"+v);
-			String num=key.substring(2);
+			String num = null;
+			if(key.length()==3){
+				num=key.substring(2);
+			}else{
+				num=key;
+			}
 
 
         

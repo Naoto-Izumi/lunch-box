@@ -58,15 +58,16 @@
         return id_value;
     }
 
-    //customの画像挿入のjs
-    $(function() {
+    function gazou(){
         var element;
-        $("input[type='text']").on('input', function(event){
+        $(document).on('input',"input[type='text']", function(event){
+            console.log("あああああああああああああ");
+            console.log($(this).val());
             var value = $(this).val().substr(28);
             if(value.match(/jpg/)){
                 var id = "#"+$(this).attr("id");
                 var prev = "#"+$(this).prev().attr("id");
-                $(prev).after('<input type=image id="'+($(this).attr("id")+"1")+'" src="'+value+'" value="'+value+'" height=10% width=10% disabled>');     
+                $(prev).after('<input type="image" id="'+($(this).attr("id")+"1")+'" src="'+value+'" value="'+value+'" height=10% width=10% disabled>');     
                 // id=id.slice(0,-1);
                 $(id+"2").val(value);
                 console.log(id);
@@ -75,15 +76,70 @@
 
             }
         });
-        // $('img').on("mouseover",function(e) {
-        //     $(this).after("<input type='text>");
-        //     console.log("aaa");
-        // });
-        // $('img').on("mouseout",function(e) {
-        //     $(this).after("<input type='text>");
-        //     console.log("bbb");
-        // });
+    }
+
+    function deleteText(){
+        
+    }
+
+    //customの画像挿入のjs
+    $(function() {
+        $("#reset").on({
+            'click': function() {
+                
+                 $('#syusyoku1').get(0).type = 'text';
+                
+                var syusyoku = $("input[id='syusyoku1']");
+                syusyoku.removeAttr("src");
+                syusyoku.removeAttr("value");
+                syusyoku.removeAttr("height");
+                syusyoku.removeAttr("width");
+                syusyoku.removeAttr("disabled");
+                syusyoku.attr('name','syusyoku');
+                syusyoku.attr('value','');
+                syusyoku.attr('onchange','gazou()');
+                syusyoku.attr('id','syusyoku');
+                var a = $("input[type='hidden']");
+                a.removeAttr("value");
+            
+            }
+        });
+
+
     });
+
+    //  //customの画像挿入のjs
+    // $(function() {
+    //     $("#reset").on({
+    //         'click': function() {
+    //             var list = new Array("syusyoku","syusai","huku1","huku2");
+    //             for(var i=0;i<4;i++){
+
+                
+    //                 $('#'+list[i]+'1').get(0).type = 'text';
+                    
+    //                 var syusyoku = $("input[id=list[i]+'1']");
+    //                 syusyoku.removeAttr("src");
+    //                 syusyoku.removeAttr("value");
+    //                 syusyoku.removeAttr("height");
+    //                 syusyoku.removeAttr("width");
+    //                 syusyoku.removeAttr("disabled");
+    //                 syusyoku.attr('name',list[i]);
+    //                 syusyoku.attr('value','');
+    //                 syusyoku.attr('onchange','gazou()');
+    //                 syusyoku.attr('id',list[i]);
+    //                 var a = $("input[type='hidden']");
+    //                 a.removeAttr("value");
+    //             }
+            
+    //         }
+    //     });
+
+
+    // });
+
+
+
   
 
 
@@ -124,30 +180,34 @@
         <input type="hidden" name="check6" id="p6" value="1">
         <label><input type="checkbox" name="check7" id="p7" value="0" >かに</label>
         <input type="hidden" name="check7" id="p7" value="1">
-        <input type="submit" id="ref" value="絞り込みページ" onclick="onButtonClick();">
+        <input type="submit" id="ref" value="絞り込みページ" onclick="onButtonClick()">
     </form>
 
 
 
 <div>
-        <form action="CustomMenuServlet"" method="POST" name="custom">
-            <span id="one">主食</span><input type="text" id="syusyoku" name="syusyoku" value=""><br>
+        <form action="CustomMenuServlet" method="POST" name="custom">
+            <div id="">
+            <span id="one">主食</span><input type="text" id="syusyoku" name="syusyoku" value="" oninput="gazou()"><br>
             <input type="hidden" id="syusyoku2" name="syusyoku" >
-            <span id="two">主菜</span><input type="text" id="syusai" name="syusai" value=""><br>
+            <span id="two">主菜</span><input type="text" id="syusai" name="syusai" value="" oninput="gazou()"><br>
             <input type="hidden" id="syusai2" name="syusai" >
-            <span id="three">副菜</span><input type="text" id="huku1" name="huku1" value=""><br>
+            <span id="three">副菜</span><input type="text" id="huku1" name="huku1" value="" oninput="gazou()"><br>
             <input type="hidden" id="huku12" name="huku1" >
-            <span id="four">副菜</span><input type="text" id="huku2" name="huku2" ><br>
+            <span id="four">副菜</span><input type="text" id="huku2" name="huku2" oninput="gazou()"><br>
             <input type="hidden" id="huku22" name="huku2" >
+            </div>
             <!-- このコードは使わない<input type="button" onclick="check();" value="カート"> -->
              <input type="submit" id="cart" value="カート">
+             
         </form>
+        <button id="reset" >reset</button>
         <table>
             <tr>
                 <c:forEach var="prof" items="${product}">
                     <td>
                         <form method="post" name="${prof.id}1" action="DetailServlet">
-                            <img src="${prof.image}" name="bento alt="" height="70px" width="70px">
+                            <img src="${prof.image}" name="bento" height="70px" width="70px">
                             <input type="hidden" name="id" value="${prof.id}">
                             <a href="javascript:${prof.id}1.submit()">${prof.name}</a>
                         </form>
@@ -165,7 +225,7 @@
             <c:forEach var="prof" items="${product}">
                 <td>
                     <form method="post" name="${prof.id}" action="DetailServlet">
-                        <img src="${prof.image}" name="bento alt="" height="10%" width="40%">
+                        <img src="${prof.image}" name="bento" height="10%" width="40%">
                         <input type="hidden" name="id" value="${prof.id}">
                         <a href="javascript:${prof.id}.submit()">${prof.name}</a>
                     </form>
@@ -180,6 +240,8 @@
         </tr>
     </table>
 </div>
+
+<a href="order.jsp">カートを見る</a>
 
 
 <!-- <table>

@@ -26,13 +26,15 @@ public class SearchDao implements ProductsDao{
 
             cn.setAutoCommit(false);
 
-            String sql="select  pro_id,pro_image from productTable where pro_name = ?";
+			String pro_name = _p.getPro_name();
+
+            String sql="select  pro_id,pro_image,pro_name from productTable where pro_name LIKE '%"+pro_name+"%'";
 
             
             //PreparedStatementインターフェイスを実装するクラスをインスタンス化する
 			st=cn.prepareStatement(sql);
 
-            st.setString(1,_p.getPro_name());
+            //st.setString(1,_p.getPro_name());
 
 			//select文を実行し
 			//ResultSetインターフェイスを実装したクラスの
@@ -45,8 +47,10 @@ public class SearchDao implements ProductsDao{
 				System.out.println("no"+rs.getString(1));
 				String id = "no"+rs.getString(1);	//1列目のデータを取得
 				String image = rs.getString(2);	//2列目のデータを取得
+				String name = rs.getString(3);
 				p.setId(id);
 				p.setImage(image);
+				p.setName(name);
 
                 products.add(p);
 				

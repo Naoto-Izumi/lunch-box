@@ -90,15 +90,21 @@ public class CustomMenuServlet extends HttpServlet{
             Integer i = (Integer)session.getAttribute("totalPrice");
             total += i;
         }
+        ArrayList ii = new ArrayList();
         if(session.getAttribute("cart") != null){
-            ArrayList i = (ArrayList)session.getAttribute("cart");
-            i.add(data.get(0));
+            ii = (ArrayList)session.getAttribute("cart");
+        }
+        for(int k=0;k<4;k++){
+           // System.out.println("ppppppppppppppppppppppppp"+data.get(k));
+            ii.add(data.get(k));
+            
         }
 
-        
+
+    
         //session.setAttribute("a",data);
-        req.setAttribute("product",data);
-        session.setAttribute("cart",data);
+        req.setAttribute("product",ii);
+        session.setAttribute("cart",ii);
         req.setAttribute("total",total);
         session.setAttribute("totalPrice",total);
 
@@ -132,13 +138,28 @@ public class CustomMenuServlet extends HttpServlet{
         // session.setAttribute("cb",cb);
 
         Map sessionlist;
+
+        
         
         if(null==session.getAttribute("list")){
             sessionlist=new TreeMap();
         }else{
             sessionlist=(Map)session.getAttribute("list");
         }
-        req.setAttribute("plist",sessionlist);
+
+        sessionlist.put(syusyoku, 1);
+        sessionlist.put(syusai, 1);
+        sessionlist.put(huku1, 1);
+        sessionlist.put(huku2, 1);
+
+        System.out.println("kkkkkkkkkkkk1"+sessionlist.get("1"));
+        System.out.println("kkkkkkkkkkkk2"+sessionlist.get("2"));
+        System.out.println("kkkkkkkkkkkk3"+sessionlist.get("3"));
+        System.out.println("kkkkkkkkkkkk4"+sessionlist.get("4"));
+
+        session.setAttribute("list",sessionlist);
+
+        req.setAttribute("plist", sessionlist);
 			
 
 

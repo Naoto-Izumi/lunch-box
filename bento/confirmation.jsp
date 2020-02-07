@@ -18,6 +18,15 @@
                 $("div[id='target']").attr('class', 'inactive');
             }
         });
+        $(function(){
+            var element = document.getElementById("pay");
+            var a = element.className ;
+            if(a==0){
+                document.getElementById("pay").innerText = "現金払い";
+            }else{
+                document.getElementById("pay").innerText = "カード払い";
+            }
+        });
     </script>
     <style>
         .active{
@@ -36,7 +45,7 @@
             <div  class="${sessionScope.spuData.store}" id="target"><P>店舗${sessionScope.spuData.st_name}</P></div>
             <p>日付${sessionScope.p.date}</p>
             <p>時間${sessionScope.p.time}</p>
-            <p>支払い方法=${sessionScope.p.type}</p>
+            <div class="${sessionScope.p.type}" id="pay"><p>支払い方法=${sessionScope.p.type}</p></div>
             <p>合計金額${sessionScope.totalPrice}</p>
             <a href="CompleteServlet">完了ページ</a>
     </body>

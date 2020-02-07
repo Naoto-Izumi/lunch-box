@@ -16,11 +16,10 @@ import="java.util.ArrayList"%>
             $("li[name='0']").attr('class', 'inactive');
         });
 
+        $(function(){
+            if()
 
-   
- 
-
-    
+        });
     </script>
     <style>
         .active{
@@ -53,7 +52,7 @@ import="java.util.ArrayList"%>
         </c:forEach>
     </table> -->
 
-    <c:forEach var="prof" items="${cart}">  
+    <c:forEach var="prof" items="${cart}">
         <table>
             <tr>
             <td>${prof.pro_id}</td>
@@ -85,15 +84,32 @@ import="java.util.ArrayList"%>
 
 
     <%
-        Map map = (TreeMap)request.getAttribute("plist");
 
-        for (Object val : map.values()) {
+        Map map = (TreeMap)session.getAttribute("list");
+        if(map==null){
+
+    %>
+    <p>カートに商品が入っておりません。</p>
+    <a href="TopServlet">TOPページへ</a>
+    <%
+            
+            
+        }else{
+        
+            for (Object val : map.values()) {
 
     %>
     <p><%=val%></p>
     <%
+            }
+    %>
+    <p>合計:${totalPrice}</p>
+    <a href="TopServlet">もう一度頼む</a>
+    <a href="userinformation.jsp">個人情報入力</a>
+    <%
         }
     %>
+
 <!-- 
     <table>
             <c:forEach var="list" items="${sessionScope.plist}">
@@ -109,8 +125,6 @@ import="java.util.ArrayList"%>
     <p>${plist.count5}</p>
     <p>${plist.count6}</p> -->
 
-        <p>合計:${total}</p>
-        <a href="TopServlet">もう一度頼む</a>
-        <a href="userinformation.jsp">個人情報入力</a>
+
     </body>
 </html>
