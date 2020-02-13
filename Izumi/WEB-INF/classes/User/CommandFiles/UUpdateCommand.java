@@ -16,7 +16,7 @@ public class UUpdateCommand extends AbstractCommand{
 		RequestContext reqc = getRequestContext();
 		ProductBean pb = new ProductBean();
 		//JDBCにユーザ情報を要求
-		System.out.println("ProductBean"+reqc.getId());
+		System.out.println("UUpdateCommand"+reqc.getId());
 		
 		UserBean ub = new UserBean();
 		//ProductBean pb = new ProductBean();
@@ -103,11 +103,11 @@ public class UUpdateCommand extends AbstractCommand{
 
 		
 
-		System.out.println(pb.getId()+","+seik+","+meik+","+seih+","+meih+","+sex+","+mail+","+pass+","+phone);
-		String url = ChangeUser.updateUser(pb.getId(),seik,meik,seih,meih,sex,mail,pass,phone);
+		System.out.println(reqc.getId()+","+seik+","+meik+","+seih+","+meih+","+sex+","+mail+","+pass+","+phone);
+		String url = ChangeUser.updateUser(reqc.getId(),seik,meik,seih,meih,sex,mail,pass,phone);
 		//List ps = UserQuery.getUser(reqc.getId());
 		//resc.setResult(ps);
-		resc.setTarget("userinfo");
+		resc.setTargetCommand("uuc");
 		return resc;
 		
 	}

@@ -16,7 +16,7 @@ public class UQueryCommand extends AbstractCommand{
 		System.out.println("UQueryCommand"+reqc.getId());
 		List ps = UserQuery.getUser(reqc.getId());
 		resc.setResult(ps);
-		resc.setTarget("userinfo");
+		resc.setTarget("user/userinfo");
 		return resc;
 		
 	}

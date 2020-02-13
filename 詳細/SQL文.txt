@@ -57,7 +57,7 @@ create table userTable
 ,user_mail VARCHAR2(256)							
 ,user_phone VARCHAR2(11)							
 ,user_address_id number(8)							
-,user_pass VARCHAR2(16)							
+,user_pass VARCHAR2(16) not null							
 ,user_birthday VARCHAR2(4)							
 ,user_admin number(1) default 0 not null							
 ,user_lock number(1) default 0 not null							
@@ -68,11 +68,11 @@ CREATE SEQUENCE sq_user_id;
 							
 							
 							
-INSERT INTO userTable(user_id,user_lastname,user_firstname,user_lastname_hira,user_firstname_hira,user_sex,user_address_id)					VALUES(sq_user_id.NEXTVAL,'高橋','春斗','たかはし','はると','男',sq_address_id.CURRVAL);
+INSERT INTO userTable(user_id,user_lastname,user_firstname,user_lastname_hira,user_firstname_hira,user_sex,user_address_id,user_pass)				VALUES(sq_user_id.NEXTVAL,'高橋','春斗','たかはし','はると','男',sq_address_id.CURRVAL,'haruto');
 
 //ユーザー管理でメアドと電話番号を入れるときに必要。
-INSERT INTO userTable(user_id,user_lastname,user_firstname,user_lastname_hira,user_firstname_hira,user_sex,user_mail,user_phone,user_address_id)	
-VALUES(sq_user_id.NEXTVAL,'泉','奈央人','いずみ','なおと','男','ni18304003@ga.tera-house.ac.jp','08058889513',sq_address_id.CURRVAL);														
+INSERT INTO userTable(user_id,user_lastname,user_firstname,user_lastname_hira,user_firstname_hira,user_sex,user_mail,user_phone,user_address_id,user_pass)	
+VALUES(sq_user_id.NEXTVAL,'泉','奈央人','いずみ','なおと','男','ni18304003@ga.tera-house.ac.jp','08058889513',sq_address_id.CURRVAL,'notizm0812');														
 col user_lastname format A10							
 col user_firstname format A10							
 col user_lastname_hira format A10							

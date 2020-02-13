@@ -8,4 +8,5 @@ public interface RequestContext{
 	public Object getRequest();
 	public void setRequest(Object request);
 	public Map getParameterMap();
+	public String getId();
 }

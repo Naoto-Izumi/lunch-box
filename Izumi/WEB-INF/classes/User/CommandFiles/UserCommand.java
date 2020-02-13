@@ -16,10 +16,10 @@ public class UserCommand extends AbstractCommand{
 		RequestContext reqc = getRequestContext();
 		
 		UserBox ubox = new UserBox();
-		String lname = ((String[])reqc.getParameter("lastname"))[0];	//名前(上の名前)
+		String lname = ((String[])reqc.getParameter("lastname"))[0];			//名前(上の名前)
 		ubox.setLname(lname);
 		
-		String fname = ((String[])reqc.getParameter("firstname"))[0];	//名前(下の名前)
+		String fname = ((String[])reqc.getParameter("firstname"))[0];			//名前(下の名前)
 		ubox.setFname(fname);			
 		
 		String lhname = ((String[])reqc.getParameter("lastname_hira"))[0];		//名前(上の名前(ふりがな))
@@ -49,7 +49,7 @@ public class UserCommand extends AbstractCommand{
 		List udata = UserData.OracleUserData(ubox);
 		
 		resc.setResult(udata);
-		resc.setTargetCommand("uc");
+		resc.setTargetCommand("user");
 		
 		return resc;
 	}

@@ -2,6 +2,7 @@ package Kanrisya;
 
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import Kanrisya.JDBCFiles.ProductQuery;
 
 public class WebRequestContext implements RequestContext{
@@ -39,5 +40,10 @@ public class WebRequestContext implements RequestContext{
 	}
 	public Map getParameterMap(){
 		return parameters;
+	}
+	
+	public String getId(){
+		HttpSession session=((HttpServletRequest)req).getSession();
+		return (String)session.getAttribute("token");
 	}
 }

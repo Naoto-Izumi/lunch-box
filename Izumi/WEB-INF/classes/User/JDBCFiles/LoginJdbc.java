@@ -6,15 +6,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
 
-
-class Test{
-	public static void main(String[] args){
-		//System.out.println("/"+args[0]+"/");
-		//System.out.println("/"+args[1]+"/");
-		LoginJdbc.login("aaa@gmail.com","aiudao");
-	}
-}
-
 public class LoginJdbc{
 	
 	
@@ -25,13 +16,9 @@ public class LoginJdbc{
 		String id = null;
 		
 		try{
-			//System.out.println("s");
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			//System.out.println("t");
-			cn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "info","pro");
-			//System.out.println("a");
+			cn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "helshin","helshinbox");
 			cn.setAutoCommit(false);
-			//System.out.println("r");
 			System.out.println("接続完了");
 			
 			//select文
@@ -45,7 +32,6 @@ public class LoginJdbc{
 			//インスタンスが返る
 			ResultSet rs=st.executeQuery(sql);
 
-			//System.out.println("t");
 			//カーソルを一行だけスクロールし、データをフェッチする
 			while(rs.next()){
 				id=rs.getString (1);	//1列目のデータを取得

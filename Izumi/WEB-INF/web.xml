@@ -1,7 +1,7 @@
 <web-app>
 	<filter>
 		<filter-name>logincheckfilter</filter-name>
-		<filter-class>User.Login.LoginCheckFilter</filter-class>
+		<filter-class>User.LoginCheckFilter</filter-class>
 	</filter>
 	<filter-mapping>
 		<filter-name>logincheckfilter</filter-name>
@@ -11,12 +11,16 @@
 	<filter-mapping>
 		<filter-name>logincheckfilter</filter-name>
 		<url-pattern>/productorder</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>logincheckfilter</filter-name>
+		<url-pattern>/uqc</url-pattern>
 		<dispatcher>REQUEST</dispatcher>
 	</filter-mapping>
 	<filter>
-		
 		<filter-name>authenticatefilter</filter-name>
-		<filter-class>User.Login.AuthenticateFilter</filter-class>
+		<filter-class>User.AuthenticateFilter</filter-class>
 	</filter>
 	<filter-mapping>
 		<filter-name>authenticatefilter</filter-name>
@@ -25,9 +29,23 @@
 	</filter-mapping>
 	<filter-mapping>
 		<filter-name>authenticatefilter</filter-name>
-		<url-pattern>/productorder</url-pattern>
+		<url-pattern>/orderlogin</url-pattern>
 		<dispatcher>REQUEST</dispatcher>
 	</filter-mapping>
+	<filter-mapping>
+		<filter-name>authenticatefilter</filter-name>
+		<url-pattern>/uqc</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+	</filter-mapping>
+	
+	<servlet>
+		<servlet-name>orderlogin</servlet-name>
+		<jsp-file>/WEB-INF/jsp/user/orderlogin.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>orderlogin</servlet-name>
+		<url-pattern>/orderlogin</url-pattern>
+	</servlet-mapping>
 
 	<servlet>
 		<servlet-name>UserServlet</servlet-name>

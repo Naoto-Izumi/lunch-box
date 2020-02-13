@@ -13,23 +13,6 @@ import java.util.List;
 import User.Beans.UserBox;
 
 public class UserData{
-	public static void main(String[] args){
-		
-		UserBox a = new UserBox();	//Beanクラスのインスタンス化
-		a.setLname("a");	//名前(上の名前)
-		a.setFname("b");	//名前(下の名前)
-		a.setLhname("c");	//名前(上の名前(ふりがな))
-		a.setFhname("d");	//名前(下の名前(ふりがな))
-		a.setTelphone("e");	//電話番号
-		a.setMail("f");		//メールアドレス
-		a.setPass("g");		//パスワード
-		a.setAddress("h");	//住所
-		a.setSex("男");		//性別
-		a.setBirth("j");	//誕生日
-		
-		OracleUserData(a);	//OracleUserData()メソッドを転送
-		
-	}
 	public static List OracleUserData(UserBox b){
 		Statement st = null;
 		ResultSet rs = null;

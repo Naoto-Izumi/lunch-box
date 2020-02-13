@@ -7,14 +7,6 @@ import java.sql.Statement;
 import java.sql.ResultSet;
 import java.util.Map;
 
-class Test{
-		public static void main(String[] args){
-		ChangeUser.updateUser("2","亜","以","あ","い","男","test@sample.jp","00000000000","shine");
-
-
-	}
-}
-
 public class ChangeUser{
 
 /*------------------------------ユーザ情報変更-------------------------------*/
