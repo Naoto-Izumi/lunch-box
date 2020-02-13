@@ -1,9 +1,11 @@
+package User.CommandFiles;
+
 import java.util.List;
-import JDBCFiles.UserQuery;
-import Basic.AbstractCommand;
-import Basic.ResponseContext;
-import Basic.RequestContext;
-import Beans.ProductBean;
+import User.JDBCFiles.UserQuery;
+import Kanrisya.AbstractCommand;
+import Kanrisya.ResponseContext;
+import Kanrisya.RequestContext;
+import Kanrisya.Beans.ProductBean;
 
 //ユーザ情報を表示
 public class UQueryCommand extends AbstractCommand{

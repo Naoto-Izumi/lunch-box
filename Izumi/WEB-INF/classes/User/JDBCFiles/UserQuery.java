@@ -1,4 +1,4 @@
-package JDBCFiles;
+package User.JDBCFiles;
 
 
 import java.sql.Connection;
@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-import Beans.UserBean;
+import User.Beans.UserBean;
 
 
 class Test{

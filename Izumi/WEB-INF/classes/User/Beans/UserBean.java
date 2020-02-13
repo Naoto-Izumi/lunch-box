@@ -1,4 +1,4 @@
-package Beans;
+package User.Beans;
 
 public class UserBean{
 	private String seik;	//姓漢字
