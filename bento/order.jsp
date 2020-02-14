@@ -17,7 +17,8 @@ import="java.util.ArrayList"%>
         });
 
         $(function(){
-            if()
+            elements = document.getElementsByTagName("li");
+   
 
         });
     </script>
@@ -53,7 +54,7 @@ import="java.util.ArrayList"%>
     </table> -->
 
     <c:forEach var="prof" items="${cart}">
-        <table>
+        <table id="${prof.pro_id}">
             <tr>
             <td>${prof.pro_id}</td>
             <td>${prof.pro_name}</td>
@@ -76,36 +77,40 @@ import="java.util.ArrayList"%>
             <td>${prof.pro_buckwheat}</td>
             <td>${prof.pro_shrimp}</td>
             <td>${prof.pro_crab}</td>
+            <td>${sessionScope.list}個</td>
             </tr>
         </table>
-          
+        <p>合計:${totalPrice}</p>
+        <a href="TopServlet">もう一度頼む</a>
+        <a href="userinformation.jsp">個人情報入力</a>
+        <input type="number" name="${prof.id}" value=0 size=6 MIN="O" MAX="99"><br>
+        <input type="button" value="＋" onClick="javascript:this.form.${prof.id}.value++;"> 
+        <input type="button" value="－" onClick="javascript:this.form.${prof.id}.value--;">
     </c:forEach>    
 
+    <%! Map map = null; %>
+    <%
+        map = (TreeMap)session.getAttribute("list");
+        
+        if(map!=null){
+    
+            for (Object val : map.values()) {
 
+    %>
+    <li><%=val%>個</li>
+    <%
+            }
+        }
+    %>
 
     <%
 
-        Map map = (TreeMap)session.getAttribute("list");
+
         if(map==null){
 
     %>
     <p>カートに商品が入っておりません。</p>
     <a href="TopServlet">TOPページへ</a>
-    <%
-            
-            
-        }else{
-        
-            for (Object val : map.values()) {
-
-    %>
-    <p><%=val%></p>
-    <%
-            }
-    %>
-    <p>合計:${totalPrice}</p>
-    <a href="TopServlet">もう一度頼む</a>
-    <a href="userinformation.jsp">個人情報入力</a>
     <%
         }
     %>
