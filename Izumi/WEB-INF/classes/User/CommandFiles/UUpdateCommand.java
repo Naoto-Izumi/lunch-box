@@ -107,7 +107,7 @@ public class UUpdateCommand extends AbstractCommand{
 		String url = ChangeUser.updateUser(reqc.getId(),seik,meik,seih,meih,sex,mail,pass,phone);
 		//List ps = UserQuery.getUser(reqc.getId());
 		//resc.setResult(ps);
-		resc.setTargetCommand("uuc");
+		resc.setTargetCommand("uqc");
 		return resc;
 		
 	}

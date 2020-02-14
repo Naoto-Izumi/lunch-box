@@ -29,11 +29,12 @@ public class UserQuery{
 		ArrayList<UserBean> user=new ArrayList<UserBean>();
 		try{
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			cn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","info","pro");
+			cn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","helshin","helshinbox");
 			cn.setAutoCommit(false);
-			String sql="select user_lastname,user_firstname,user_lastname_hira,user_firstname_hira,user_sex,user_mail,user_pass,user_phone,user_birthday from userTable where user_id = "+id+" ";
+			String sql="select user_lastname,user_firstname,user_lastname_hira,user_firstname_hira,user_sex,user_mail,user_pass,user_phone,user_birthday from userTable where user_id = '"+id+"'";
 			st=cn.prepareStatement(sql);
 			rs=st.executeQuery();
+			System.out.println("resultSet"+rs);
 			while(rs.next()){
 				UserBean s=new UserBean();
 
@@ -45,6 +46,7 @@ public class UserQuery{
 				s.setMail(rs.getString(6));
 				s.setPass(rs.getString(7));
 				s.setPhone(rs.getString(8));
+				System.out.println("UserQuery姓漢字"+rs.getString(1));
 				//s.setBirth(rs.getInt(9));
 
 
@@ -52,11 +54,14 @@ public class UserQuery{
 			}
 			cn.commit();
 		}catch(ClassNotFoundException e){
+			System.out.println("ClassNotFoundex");
 			e.printStackTrace();	
 		}catch(SQLException e){
+			System.out.println("SQLex");
 			try{
 				cn.rollback();
 			}catch(SQLException e2){
+				System.out.println("SQLex");
 				e2.printStackTrace();
 			}
 			e.printStackTrace();		
@@ -69,6 +74,7 @@ public class UserQuery{
 					st.close();
 				}
 			}catch(SQLException e2){
+				System.out.println("SQLex");
 				e2.printStackTrace();
 			}finally{
 				try{
@@ -76,6 +82,7 @@ public class UserQuery{
 						cn.close();
 					}
 				}catch(SQLException e3){
+					System.out.println("SQLex");
 					e3.printStackTrace();
 				}
 			}
