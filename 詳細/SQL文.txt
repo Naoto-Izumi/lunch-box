@@ -19,11 +19,20 @@ create table productTable
 												
 CREATE SEQUENCE sq_pro_id;											
 												
-INSERT INTO productTable (pro_id,pro_name,pro_price,pro_calorie,pro_type,pro_image,pro_description)							VALUES(sq_pro_id.NEXTVAL,'チキン',300,400,'主菜','image/bento1.jpg','商品説明');																								
-INSERT INTO productTable (pro_id,pro_name,pro_price,pro_calorie,pro_type,pro_image,pro_description,pro_egg)							VALUES(sq_pro_id.NEXTVAL,'卵焼き',350,400,'副菜','image/bento2.jpg','商品説明',1);																								
-INSERT INTO productTable (pro_id,pro_name,pro_price,pro_calorie,pro_type,pro_image,pro_description)								VALUES(sq_pro_id.NEXTVAL,'とんかつ',400,400,'主食','image/bento3.jpg','商品説明');																								
-INSERT INTO productTable (pro_id,pro_name,pro_price,pro_calorie,pro_type,pro_image,pro_description)							VALUES(sq_pro_id.NEXTVAL,'ハンバーグ',600,400,'副菜','image/bento4.jpg','商品説明');																								
-INSERT INTO productTable (pro_id,pro_name,pro_price,pro_calorie,pro_type,pro_image,pro_description)							VALUES(sq_pro_id.NEXTVAL,'揚げ物',450,400,'主菜','image/bento5.jpg','商品説明');																								
+INSERT INTO productTable (pro_id,pro_name,pro_price,pro_calorie,pro_type,pro_image,pro_description)						
+VALUES(sq_pro_id.NEXTVAL,'チキン',300,400,'主菜','/helshin/Browser/img/bento1.jpg','商品説明');						
+						
+INSERT INTO productTable (pro_id,pro_name,pro_price,pro_calorie,pro_type,pro_image,pro_description,pro_egg)						
+VALUES(sq_pro_id.NEXTVAL,'卵焼き',350,400,'副菜',/helshin/Browser/img/bento2.jpg','商品説明',1);						
+						
+INSERT INTO productTable (pro_id,pro_name,pro_price,pro_calorie,pro_type,pro_image,pro_description)						
+VALUES(sq_pro_id.NEXTVAL,'とんかつ',400,400,'主食','/helshin/Browser/img/bento3.jpg','商品説明');						
+						
+INSERT INTO productTable (pro_id,pro_name,pro_price,pro_calorie,pro_type,pro_image,pro_description)						
+VALUES(sq_pro_id.NEXTVAL,'ハンバーグ',600,400,'副菜','/helshin/Browser/img/bento4.jpg','商品説明');						
+						
+INSERT INTO productTable (pro_id,pro_name,pro_price,pro_calorie,pro_type,pro_image,pro_description)						
+VALUES(sq_pro_id.NEXTVAL,'揚げ物',450,400,'主菜','/helshin/Browser/img/bento5.jpg','商品説明');																													
 col pro_name format A10												
 col pro_image format A10												
 col pro_type format A10
@@ -77,7 +86,7 @@ col user_lastname format A10
 col user_firstname format A10							
 col user_lastname_hira format A10							
 col user_firstname_hira format A10							
-col user_mail format A10							
+col user_mail format A30							
 col user_pass format A10							
 select * from userTable;
 
