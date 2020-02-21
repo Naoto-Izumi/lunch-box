@@ -25,6 +25,15 @@ function store(){
     if(document.form1.sname.value==""){
         alert("店舗名を入力してください。"); 
     }
+    else if(document.form1.saddress.value==""){
+        alert("店舗住所を入力してください。");
+    }
+    else if(document.form1.openhours.value==""){
+        alert("開店時間を入力してください。");
+    }
+    else if(document.form1.closehours.value==""){
+        alert("閉店時間を入力してください。");
+    }
     else{   
         alert("店舗を登録しました。"); 
         document.form1.submit();

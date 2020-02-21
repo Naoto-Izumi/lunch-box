@@ -2,15 +2,12 @@ package Menu.CommandFiles;
 
 import Main.ResponseContext;
 import Main.RequestContext;
-//import harutoya.Beans.LockUserBox;
 import Main.AbstractCommand;
-//import Menu.JDBCFiles.LockUserInsert;
 
 import javax.servlet.http.HttpSession;
 import java.util.*;
 import Menu.JDBCFiles.MenuPriceDao;
 import Menu.Beans.Product;
-//import Menu.JDBCFiles.AbstractFactory;
 import Menu.JDBCFiles.ProductsDao;
 
 public class MenuCommand extends AbstractCommand{

@@ -12,13 +12,6 @@ import java.util.List;
 
 import User.Beans.UserBean;
 
-
-class Test{
-	public static void main(String[] args){
-
-		List l =UserQuery.getUser("1");
-	}
-}
 public class UserQuery{
 	
 	public static List getUser(String id){

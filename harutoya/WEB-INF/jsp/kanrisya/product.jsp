@@ -19,8 +19,8 @@
 		</div>
 		<div id="header2">
 			<ul id="a">
-				<li><a><input type="radio" name="target" value="delete" onchange="showDelete();" checked>商品削除</a></li>
-				<li><a><input type="radio" name="target" value="add" onchange="showAdd();" checked>商品登録</a></li>
+				<li><a><input type="radio" name="target" value="delete" onchange="showDelete();" checked>商品登録</a></li>
+				<li><a><input type="radio" name="target" value="add" onchange="showAdd();" checked>商品削除</a></li>
 				<li><a><input type="radio" name="target" value="stock" onchange="showStock();" checked>在庫管理</a></li>
 			</ul>
 		</div>
@@ -33,7 +33,7 @@
 						<c:forEach var="p" items="${product}">
 							<tr><td>${p.id}</td><td>${p.name}</td><td>${p.price}</td><td>${p.stock}</td>
 							<td>${p.calorie}</td><td>${p.date}</td><td>${p.type}</td>
-							<td><img src="${p.image}"></td></td><td>${p.pro}</td><td>${p.carbo}</td>
+							<td><img src="${p.image}" width="90" height="60"></td></td><td>${p.pro}</td><td>${p.carbo}</td>
 							<td>${p.lip}</td><td>${p.vita}</td><td>${p.ino}</td>
 							<td>${p.wheat}</td><td>${p.egg}</td><td>${p.milk}</td>
 							<td>${p.peanut}</td><td>${p.buck}</td><td>${p.shrimp}</td>
@@ -52,7 +52,15 @@
 				商品名<input type='text' name='pname'><br>
 				値段<input type='number' name='price'><br>
 				カロリー<input type='number' name='cal' value='0' min='0'><br>
-				商品の種類<input type='text' name='cate'>※必須ではない<br>
+				<label>
+					商品の種類<input list='cate' name='cate' ><br>
+				</label>
+				<datalist id='cate'>
+					<option value="主食"></option>
+					<option value="主菜"></option>
+					<option value="副菜"></option>
+					<option value="その他"></option>
+				</datalist>
 				商品画像<input type='text' name='image'><br>
 
 				<h3>5大栄養素</h3>
@@ -87,7 +95,7 @@
 					<tr><th>商品名</th><th>価格</th><th>在庫</th></tr>
 					<c:forEach var="p" items="${product}">
 						<form method='post' action='pscs'>
-							<tr><td>${p.name}</td><td>${p.price}</td><td><input type="number" name="stock" value="${p.stock}"></td><td>
+							<tr><td>${p.name}</td><td>${p.price}</td><td><input type="number" name="stock" value="${p.stock}" min='0'></td><td>
 							<input type="hidden" name ="id" value="${p.id}"><input type="submit" value="変更"></td></tr>
 						</form>
 					</c:forEach>

@@ -16,17 +16,6 @@ public ResponseContext execute(ResponseContext resc){
 
         Product p = new Product();
 
-        // String[] s=req.getParameterValues("check");
-
-
-
-        // p.setPro_wheat(s[0]);
-        // p.setPro_egg(s[1]);
-        // p.setPro_milk(s[2]);
-        // p.setPro_peanuts(s[3]);
-        // p.setPro_buckwheat(s[4]);
-        // p.setPro_shrimp(s[5]);
-        // p.setPro_club(s[6]);
         String s1=((String[])reqc.getParameter("check1"))[0];
         String s2=((String[])reqc.getParameter("check2"))[0];
         String s3=((String[])reqc.getParameter("check3"))[0];

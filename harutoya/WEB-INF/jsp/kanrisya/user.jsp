@@ -27,7 +27,32 @@
 			<div id="sale" class="off">
 				<h1>売り上げ情報</h1>
 				<form method="get" action="us">
-					<input type="text" name="nen">年<input type="text" name="tuki">月
+					<label>
+						<input list="nen" name="nen">
+					</label>
+					<datalist id="nen">
+						<option value="2019"></option>
+						<option value="2020"></option>
+					</datalist>
+					年
+					<label>
+						<input list="tuki" name="tuki">
+					</label>
+					<datalist id="tuki">
+						<option value="01"></option>
+						<option value="02"></option>						
+						<option value="03"></option>
+						<option value="04"></option>						
+						<option value="05"></option>
+						<option value="06"></option>						
+						<option value="07"></option>
+						<option value="08"></option>						
+						<option value="09"></option>
+						<option value="10"></option>
+						<option value="11"></option>
+						<option value="12"></option>
+					</datalist>
+					月
 					<input type="submit" value="絞り込み">
 				</form>
 	
@@ -44,7 +69,7 @@
 				<h1>ユーザー管理</h1>
 				<form method='get' action='ls'>
 					ユーザー名<input type='text' name = 'lastname'><br>
-					<input type='submit' value='登録'>
+					<input type='submit' value='検索'>
 				</form>
 		
 			
@@ -57,7 +82,7 @@
 						<input type='checkbox' name='lock' value='true' ${product.locks}>
 						<input type='hidden' name='id' value='${product.id}' >
 					
-					</td><td><input type='submit'></form></td></tr>
+					</td><td><input type='submit' value='更新'></form></td></tr>
 					</c:forEach>
 				</table>
 				<a href="main">トップに戻る</a>

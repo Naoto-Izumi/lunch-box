@@ -8,51 +8,20 @@ import="java.util.ArrayList"%>
     <title>メニュー</title>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script src="js/lightbox.js"></script>  
+    <script src="js/lightbox.js"></script> 
+    <script src="${pageContext.request.contextPath}/Browser/js/Menu.js"></script> 
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/Browser/css/Menu.css">
     <script>
 
-
-        $(function(){
-            $("li[name='0']").attr('class', 'inactive');
-        });
-
-        $(function(){
-            elements = document.getElementsByTagName("li");
-   
-
-        });
     </script>
     <style>
-        .active{
-            display:block;
-        }
-        .inactive{
-            display:none;
-        }
+
     </style>
 
 
 </head>
 <body>
-    <!-- <table>
-    <c:forEach var="list" items="${sessionScope.cb.cartList}">
-    <tr><td>${list.syusyoku}</td>
-            <td>${list.syusai}</td>
-            <td>${list.huku1}</td>
-            <td>${list.huku2}</td></tr>
-        </c:forEach>
-    </table>    
-    <table>
-        <p>注文個数(仮)</p>
-    <c:forEach var="list" items="${sessionScope.tpb.priceList}">
-            <tr><td>${list.syusyoku}</td>
-            <td>${list.syusai}</td>
-            <td>${list.huku1}</td>
-            <td>${list.huku2}</td>
-            <td>${list.total}</td></tr>
-        </c:forEach>
-    </table> -->
-
+    
     <c:forEach var="prof" items="${cart}">
         <table id="${prof.pro_id}">
             <tr>

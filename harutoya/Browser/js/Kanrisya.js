@@ -7,11 +7,11 @@ window.onload = function(){
     console.log(patharray[2]);
     var boxes = document.getElementsByName("target");
 
-    if(patharray[2]=="uriage"){
+    if(patharray[2].substr(0,2)=="us"){
         boxes.item(0).checked = true;
         showSale();
     }
-    if(patharray[2]=="view"){
+    if(patharray[2].substr(0,2)=="ks"){
         boxes.item(1).checked = true;
         showAdd();
     } 

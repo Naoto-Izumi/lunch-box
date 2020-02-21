@@ -37,6 +37,12 @@ function product(){
     if(document.form1.pname.value==""){
         alert("商品名を入力してください。"); 
     }
+    else if(document.form1.price.value==""){
+        alert("金額を入力してください。"); 
+    }
+    else if(document.form1.cate.value==""){
+        alert("商品の種類を入力してください。"); 
+    }
     else{   
         alert("商品を登録しました。"); 
         document.form1.submit();
