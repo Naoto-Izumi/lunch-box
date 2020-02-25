@@ -80,6 +80,22 @@ public class OrderInDao implements ProductsDao{
 
             st.executeUpdate();
 
+
+        //明細書insert-------------------------------------------------------------
+
+            String meisaisql="INSERT  INTO  specificationTable(sp_or_id,sp_count,sp_pro_id) values(sq_or_id.CURRVAL,?,?)";
+
+            st=cn.prepareStatement(meisaisql);
+
+
+            st.setInt(1,Integer.parseInt(stock));
+            st.setInt(2,Integer.parseInt(id));
+
+
+
+
+            st.executeUpdate();
+
             cn.commit();
 
         }catch(ClassNotFoundException e) {

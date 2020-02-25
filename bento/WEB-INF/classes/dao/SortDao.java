@@ -5,34 +5,41 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 import Bean.Product;
 
-public  class MenuDao implements ProductsDao{
+public class SortDao implements ProductsDao{
+    private Product _p;
     public Product getProduct(String pid){return null;}
-    public void addProduct(Product p){}
+    public void addProduct(Product p){_p=p;}
     public List getAllProducts(){
         Connection cn=null;
         PreparedStatement st=null;
         ResultSet rs=null;
-
         List products=new ArrayList();
-
         try{
             Class.forName("oracle.jdbc.driver.OracleDriver");
 
-            cn=DriverManager.getConnection(
-                "jdbc:oracle:thin:@localhost:1521:orcl","info","pro"
-            );
+            cn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","info","pro");
 
             cn.setAutoCommit(false);
 
-            String sql="select pro_id,pro_image,pro_name from productTable　where pro_type='弁当' ";
+            String sql="select  pro_id,pro_image,pro_name from productTable ORDER BY ? ,? ";
 
+            
             //PreparedStatementインターフェイスを実装するクラスをインスタンス化する
 			st=cn.prepareStatement(sql);
+
+            st.setString(1,_p.getSortVal());
+
+            st.setString(2,_p.getSortKind());
+
+
+
+
+
 
 			//select文を実行し
 			//ResultSetインターフェイスを実装したクラスの
@@ -41,12 +48,10 @@ public  class MenuDao implements ProductsDao{
 
             //カーソルを一行だけスクロールし、データをフェッチする
 			while(rs.next()){
-
                 Product p = new Product();
-				System.out.println("no"+rs.getString(1));
 				String id = "no"+rs.getString(1);	//1列目のデータを取得
 				String image = rs.getString(2);	//2列目のデータを取得
-				String name = rs.getString(3);	//3列目のデータを取得
+				String name = rs.getString(3);
 				p.setId(id);
 				p.setImage(image);
 				p.setName(name);
@@ -54,8 +59,6 @@ public  class MenuDao implements ProductsDao{
                 products.add(p);
 				
 			}
-
-
         }catch(ClassNotFoundException e) {
 			e.printStackTrace();
 
@@ -79,6 +82,7 @@ public  class MenuDao implements ProductsDao{
 			}
 		}
         return products;
+
     }
 
 }

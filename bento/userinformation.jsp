@@ -17,9 +17,11 @@
             }
         }
         function showCash(){
+            $(".cardinfo").removeAttr('required');
             document.getElementById("card").className = "passive";
         }
         function showCard(){
+            $(".cardinfo").attr('required','');
             document.getElementById("card").className = "active";
             
         }
@@ -35,7 +37,10 @@
             if(a==1){
                 if (info.cardname.value == ""||info.cardnumber.value == ""||info.carddate.value == ""){
                     //条件に一致する場合(メールアドレスが空の場合)
-                    alert("カード情報を入力してください");    //エラーメッセージを出力
+                    // ダイアログの呼び出し処理
+                    $("#mydialog2").dialog("open");
+                    //documentからイベントを削除
+                    $(document).off("click",".dialog");
                     return false;    //送信ボタン本来の動作をキャンセルします
                 }else{
                     //条件に一致しない場合(メールアドレスが入力されている場合)
@@ -47,6 +52,60 @@
         });
 
 
+            
+        $(function(){
+        // ダイアログの初期設定
+            $("#mydialog2").dialog({
+                autoOpen: false,  // 自動的に開かないように設定
+                width: 500,       // 横幅のサイズを設定
+                modal: true,      // モーダルダイアログにする
+                buttons: [        // ボタン名 : 処理 を設定
+                {
+                    text: '閉じる',
+                    click: function(){
+                        console.log("jquery");
+                        $(this).dialog("close");
+                    }
+                }
+                ]
+            });
+        });
+    
+    function test(count){
+        $(document).on("click", ".dialog", function(){
+            var product = document.getElementById(count).value;
+            if(product <= 0){
+                // ダイアログの呼び出し処理
+                $("#mydialog2").dialog("open");
+                //documentからイベントを削除
+                $(document).off("click",".dialog");
+                //データの送信をリセット
+                return false;
+            }
+        });
+    }
+
+
+
+    $(function() {
+      // For the gray theme
+      var grayThemeCreditly = Creditly.initialize(
+          '.creditly-wrapper.gray-theme .expiration-month-and-year',
+          '.creditly-wrapper.gray-theme .credit-card-number',
+          '.creditly-wrapper.gray-theme .security-code',
+          '.creditly-wrapper.gray-theme .card-type');
+
+      $(".creditly-gray-theme-submit").click(function(e) {
+        e.preventDefault();
+        var output = grayThemeCreditly.validate();
+        if (output) {
+          // Your validated credit card output
+          console.log(output);
+        }
+      });
+    });
+
+
 
         
     </script>
@@ -55,7 +114,7 @@
 <body>
     <form method="POST" action="UserInformationServlet" name="info">
             名前<input type="text" name="name" required><br>
-            電話<input type="tel" name="tel" oninput="check(this)" required><br>
+            電話<input type="tel" name="tel" oninput="check(this)"  required><br>
             メール<input type="email" name="mail" required><br>
             住所<input type="text" name="address" required><br>
             日付<input type="text" name="date" id="datepicker" required><br>
@@ -65,11 +124,17 @@
             <input type="radio" name="type" value="1" onchange="showCard();" >カード<br>
 
             <ul id="card" class="passive">
-                <li>カード名義人(半角ローマ字)<input type="text" name="cardname" ></li>
-                <li>カード番号<input type="password" name="cardnumber" ></li>
-                <li>有効期限<input type="password" name="carddate" ></li>
+                <li>カード名義人(半角ローマ字)<input type="text" name="cardname" class="cardinfo"　maxlength="50" pattern="/d*"></li>
+                <li>カード番号<input type="password" name="cardnumber" class="cardinfo" pattern="/d*"></li>
+                <li>有効期限<input type="password" name="carddate" class="cardinfo" pattern="/d*"></li>
             </ul>
             <input type="submit" value="確認" id="awawa" >
         </form>
+
+        <!--ダイアログの内容-->
+        <div id="mydialog2" title="入力欄が空白です">
+            カード情報を入力してください<br />
+        </div>
+
     </body>
 </html>

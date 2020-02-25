@@ -82,82 +82,61 @@ public class CustomMenuServlet extends HttpServlet{
         int total = 0;
         while(it.hasNext()){
             Product pro = (Product)it.next();
-            total = Integer.parseInt(pro.getTotal());
+            total += Integer.parseInt(pro.getTotal());
         }
 
         HttpSession session = req.getSession();
-        if(session.getAttribute("totalPrice") != null){
-            Integer i = (Integer)session.getAttribute("totalPrice");
+        if(session.getAttribute("customTotalPrice") != null){
+            Integer i = (Integer)session.getAttribute("customTotalPrice");
             total += i;
         }
         ArrayList ii = new ArrayList();
-        if(session.getAttribute("cart") != null){
-            ii = (ArrayList)session.getAttribute("cart");
+        if(session.getAttribute("customCart") != null){
+            ii = (ArrayList)session.getAttribute("customCart");
         }
         for(int k=0;k<4;k++){
            // System.out.println("ppppppppppppppppppppppppp"+data.get(k));
             ii.add(data.get(k));
+
             
         }
+
+        
+
+
+
 
 
     
         //session.setAttribute("a",data);
         req.setAttribute("product",ii);
-        session.setAttribute("cart",ii);
+        session.setAttribute("customCart",ii);
         req.setAttribute("total",total);
-        session.setAttribute("totalPrice",total);
+        session.setAttribute("customTotalPrice",total);
 
 
-
-        // PriceBean pb = new PriceBean();
-        // pb.setSyusyoku(Syusyoku);
-        // pb.setSyusai(Syusai);
-        // pb.setHuku1(Huku1);
-        // pb.setHuku2(Huku2);
-        // pb.setTotal(total);
-
-        
-
-        // tpb.addPrice(pb);
-        // int realTotal = 0;
-        // ArrayList list = tpb.getPriceList();
-        // Iterator it = list.iterator();
-        // while(it.hasNext()){
-        //     PriceBean priceb = (PriceBean)it.next();
-        //     realTotal += priceb.getTotal();
-        // }
-     
-
-        // //商品IDのみ（Product）の登録
-        // cb.addBento(p);
-        
-     
-        // // session.setAttribute("tpb",tpb);
-        // session.setAttribute("allInfo",price);
-        // session.setAttribute("cb",cb);
 
         Map sessionlist;
 
         
         
-        if(null==session.getAttribute("list")){
+        if(null==session.getAttribute("customList")){
             sessionlist=new TreeMap();
         }else{
-            sessionlist=(Map)session.getAttribute("list");
+            sessionlist=(Map)session.getAttribute("customList");
         }
 
-        sessionlist.put(syusyoku, 1);
-        sessionlist.put(syusai, 1);
-        sessionlist.put(huku1, 1);
-        sessionlist.put(huku2, 1);
+        sessionlist.put("no"+syusyoku, 1);
+        sessionlist.put("no"+syusai, 1);
+        sessionlist.put("no"+huku1, 1);
+        sessionlist.put("no"+huku2, 1);
 
-        System.out.println("kkkkkkkkkkkk1"+sessionlist.get("1"));
-        System.out.println("kkkkkkkkkkkk2"+sessionlist.get("2"));
-        System.out.println("kkkkkkkkkkkk3"+sessionlist.get("3"));
-        System.out.println("kkkkkkkkkkkk4"+sessionlist.get("4"));
+        System.out.println("kkkkkkkkkkkk1"+sessionlist.get("no1"));
+        System.out.println("kkkkkkkkkkkk2"+sessionlist.get("no2"));
+        System.out.println("kkkkkkkkkkkk3"+sessionlist.get("no3"));
+        System.out.println("kkkkkkkkkkkk4"+sessionlist.get("no4"));
 
-        session.setAttribute("list",sessionlist);
+        session.setAttribute("customList",sessionlist);
 
         req.setAttribute("plist", sessionlist);
 			

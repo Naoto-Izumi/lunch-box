@@ -46,7 +46,7 @@
             <p>日付${sessionScope.p.date}</p>
             <p>時間${sessionScope.p.time}</p>
             <div class="${sessionScope.p.type}" id="pay"><p>支払い方法=${sessionScope.p.type}</p></div>
-            <p>合計金額${sessionScope.totalPrice}</p>
+            <p>合計金額${sessionScope.totalPrice + sessionScope.customTotalPrice}</p>
             <a href="CompleteServlet">完了ページ</a>
     </body>
 </html>

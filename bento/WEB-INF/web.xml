@@ -1,4 +1,28 @@
 <web-app>
+  <servlet>
+        <servlet-name>TopCusServlet</servlet-name>
+        <servlet-class>TopCusServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TopCusServlet</servlet-name>
+        <url-pattern>/TopCusServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>SortServlet</servlet-name>
+        <servlet-class>SortServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SortServlet</servlet-name>
+        <url-pattern>/SortServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>RemoveServlet</servlet-name>
+        <servlet-class>RemoveServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RemoveServlet</servlet-name>
+        <url-pattern>/RemoveServlet</url-pattern>
+    </servlet-mapping>
     <servlet>
         <servlet-name>SPUNextServlet</servlet-name>
         <servlet-class>SPUNextServlet</servlet-class>

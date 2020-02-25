@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 import Bean.Product;
 
-public  class MenuDao implements ProductsDao{
+public  class CusSyusyokuDao implements ProductsDao{
     public Product getProduct(String pid){return null;}
     public void addProduct(Product p){}
     public List getAllProducts(){
@@ -29,7 +29,7 @@ public  class MenuDao implements ProductsDao{
 
             cn.setAutoCommit(false);
 
-            String sql="select pro_id,pro_image,pro_name from productTable　where pro_type='弁当' ";
+            String sql="select pro_id,pro_image,pro_name from productTable　where pro_type = '主食'  ";
 
             //PreparedStatementインターフェイスを実装するクラスをインスタンス化する
 			st=cn.prepareStatement(sql);

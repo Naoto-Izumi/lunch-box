@@ -9,7 +9,7 @@
 
         <script src="js/lightbox.js"></script>  
 
-<title>メニュー</title>
+<title>カスタムメニュー</title>
 <script>
     // function check(){
     //     if(document.custom.syusyoku.value==""){
@@ -416,7 +416,7 @@ input[name="tab_item"] {
                 </a>
             </li>
             <li>
-                <a href="TopCusServlet" class="fade_btn">
+                <a href="TopServlet" class="fade_btn">
                     <img src="image/nav_05.png" alt="スタッフ募集" title="">
                         <span>マイページ</span>
                 </a>
@@ -504,7 +504,7 @@ input[name="tab_item"] {
         
 
 
-<!-- 
+
 <div>
         <form action="CustomMenuServlet" method="POST" name="custom">
             <div >
@@ -516,9 +516,9 @@ input[name="tab_item"] {
             <input type="hidden" id="huku12" name="huku1" >
             <span id="four"></span><input type="text" id="huku2" name="huku2" oninput="gazou()" class="customtext4"　placeholder="副菜">
             <input type="hidden" id="huku22" name="huku2" >
-            </div> -->
+            </div>
             <!-- このコードは使わない<input type="button" onclick="check();" value="カート"> -->
-             <!-- <input type="submit" id="cart" value="カート">
+             <input type="submit" id="cart" value="カート">
              
         </form>
         <button id="reset" >reset</button>
@@ -536,19 +536,18 @@ input[name="tab_item"] {
             </tr>
         </table>
             
-</div>  -->
+</div> 
 
 
 <a href="order.jsp">カートを見る</a>
 
-
 <div class="tabs">
     <input id="all" type="radio" name="tab_item" checked>
-    <label class="tab_item" for="all">弁当</label>
+    <label class="tab_item" for="all">主食</label>
     <input id="programming" type="radio" name="tab_item">
-    <label class="tab_item" for="programming">単品</label>
+    <label class="tab_item" for="programming">主菜</label>
     <input id="design" type="radio" name="tab_item">
-    <label class="tab_item" for="design">飲み物</label>
+    <label class="tab_item" for="design">副菜</label>
     <div class="tab_content" id="all_content">
         
 
@@ -557,19 +556,14 @@ input[name="tab_item"] {
         <div>
             <table>
                 <tr>
-                    <c:forEach var="prof" items="${product}" varStatus="st">
+                    <c:forEach var="prof" items="${syusyokuProduct}" varStatus="st">
                         <td>
                             <form method="post" name="${prof.id}" action="DetailServlet">
                                 <img src="${prof.image}" name="bento" height="70px" width="70px">
                                 <input type="hidden" name="id" value="${prof.id}">
                                 <a href="javascript:${prof.id}.submit()">${prof.name}</a>
                             </form>
-                            <form action="MenuServlet" method="post" name="frml" >
-                                <input type="number" name="${prof.id}" id="${prof.id}" value=0 size=6 MIN="O" MAX="99"><br>
-                                <input type="button" value="＋" onClick="javascript:this.form.${prof.id}.value++;"> 
-                                <input type="button" value="－" onClick="javascript:this.form.${prof.id}.value--;">
-                                <input type="submit" value="カート" id="${st.count}" class="dialog" onclick="test('${prof.id}')">
-                            </form>
+                     
                         </td>
                     </c:forEach>
                 </tr>
@@ -580,11 +574,42 @@ input[name="tab_item"] {
 
     </div>
     <div class="tab_content" id="programming_content">
-        プログラミングの内容がここに入ります
+        <div>
+            <table>
+                <tr>
+                    <c:forEach var="prof" items="${syusaiProduct}" varStatus="st">
+                        <td>
+                            <form method="post" name="${prof.id}" action="DetailServlet">
+                                <img src="${prof.image}" name="bento" height="70px" width="70px">
+                                <input type="hidden" name="id" value="${prof.id}">
+                                <a href="javascript:${prof.id}.submit()">${prof.name}</a>
+                            </form>
+                         
+                        </td>
+                    </c:forEach>
+                </tr>
+            </table>
+        </div>
 </div>
     <div class="tab_content" id="design_content">
-        デザインの内容がここに入ります
+        <div>
+            <table>
+                <tr>
+                    <c:forEach var="prof" items="${hukuProduct}" varStatus="st">
+                        <td>
+                            <form method="post" name="${prof.id}" action="DetailServlet">
+                                <img src="${prof.image}" name="bento" height="70px" width="70px">
+                                <input type="hidden" name="id" value="${prof.id}">
+                                <a href="javascript:${prof.id}.submit()">${prof.name}</a>
+                            </form>
+                           
+                        </td>
+                    </c:forEach>
+                </tr>
+            </table>
+        </div>
 </div>
+
 
 
 <!--ダイアログの内容-->
