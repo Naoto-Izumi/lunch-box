@@ -21,11 +21,13 @@ public class MenuAuthenticateFilter implements Filter{
 	public void doFilter(ServletRequest req,ServletResponse res,FilterChain chain)throws IOException,ServletException{
 		HttpSession session=((HttpServletRequest) req).getSession();
 		String flag=(String)session.getAttribute("menutoken");
-
+		System.out.println("MenuAuthenticatefilter24");
 		if(flag==null){
+			System.out.println("MenuAuthenticatefilter26");
 			RequestDispatcher dis=req.getRequestDispatcher("/WEB-INF/jsp/menu/menuorderlogin.jsp");
 			dis.forward(req,res);
 		}else{
+			System.out.println("MenuAuthenticatefilter28");
 			chain.doFilter(req,res);
 		}
 	}

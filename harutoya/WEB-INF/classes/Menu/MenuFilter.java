@@ -19,9 +19,9 @@ public class MenuFilter implements Filter{
 
 		String name=req.getParameter("name");
 		String pass=req.getParameter("pass");
-
+		System.out.println("Menufilter22");
 		if(name!=null&&pass!=null){
-			
+			System.out.println("Menufilter24");
 			String id = LoginJdbc.mlogin(name,pass);
 			if(id!=null){
 			HttpSession session=((HttpServletRequest)req).getSession();

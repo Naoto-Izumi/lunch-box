@@ -152,6 +152,7 @@ public class LoginJdbc{
 			
 			//select文
 			String sql="SELECT user_id FROM userTable WHERE user_admin = 0 AND user_mail = '"+mail+"' AND user_pass = '"+pass+"'";
+			System.out.println(sql);
 
 			//Statementインターフェイスを実装するクラスをインスタンス化する
 			st=cn.createStatement();

@@ -3,11 +3,11 @@ package User.CommandFiles;
 import java.util.List;
 import User.JDBCFiles.UserQuery;
 import User.JDBCFiles.ChangeUser;
-import Kanrisya.AbstractCommand;
-import Kanrisya.ResponseContext;
-import Kanrisya.RequestContext;
+import Main.AbstractCommand;
+import Main.ResponseContext;
+import Main.RequestContext;
 import User.Beans.UserBean;
-import Kanrisya.Beans.ProductBean;
+import Menu.Beans.ProductBean;
 
 //ユーザ情報を	更新
 public class UUpdateCommand extends AbstractCommand{

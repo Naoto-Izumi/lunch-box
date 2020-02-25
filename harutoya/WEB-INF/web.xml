@@ -229,12 +229,12 @@
 	</servlet-mapping>
 
 	<servlet>
-		<servlet-name>menu</servlet-name>
+		<servlet-name>mmenu</servlet-name>
 		<jsp-file>/WEB-INF/jsp/kanrisya/menuorderlogin.jsp</jsp-file>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>menu</servlet-name>
-		<url-pattern>/menu</url-pattern>
+		<servlet-name>mmenu</servlet-name>
+		<url-pattern>/menulogin</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>

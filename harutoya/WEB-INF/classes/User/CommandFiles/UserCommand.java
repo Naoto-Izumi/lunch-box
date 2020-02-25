@@ -1,11 +1,11 @@
 package User.CommandFiles;
 
 import java.util.List;
-import Kanrisya.ApplicationController;
-import Kanrisya.RequestContext;
-import Kanrisya.ResponseContext;
+import Main.ApplicationController;
+import Main.RequestContext;
+import Main.ResponseContext;
 import java.util.Map;
-import Kanrisya.AbstractCommand;
+import Main.AbstractCommand;
 
 import User.Beans.UserBox;
 import User.JDBCFiles.UserData;
@@ -50,6 +50,7 @@ public class UserCommand extends AbstractCommand{
 		
 		resc.setResult(udata);
 		resc.setTargetCommand("user");
+		resc.setTarget("user/registuser");
 		
 		return resc;
 	}

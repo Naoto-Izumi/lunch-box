@@ -7,7 +7,7 @@ public class StartCommand extends AbstractCommand{
 	public ResponseContext execute(ResponseContext resc){
 		RequestContext reqc = getRequestContext();
 
-		resc.setTarget("kanrisya/kanrisya");
+		resc.setTarget("menu/top");
 
 		return resc;
 	}

@@ -52,10 +52,6 @@
 		</c:forEach>
 	</table>
 <br>	
-<a href="prc">商品登録</a><br>
-<a href="psc">在庫変更</a><br>
-<a href="pqc">商品削除</a><br>
-<a href="jsp/addstore.jsp">店舗登録</a><br>
-<a href="sqc">店舗削除</a><br>
+
 </body>
 </html>

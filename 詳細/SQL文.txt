@@ -84,7 +84,10 @@ INSERT INTO userTable(user_id,user_lastname,user_firstname,user_lastname_hira,us
 VALUES(sq_user_id.NEXTVAL,'川口','剛司','かわぐち','つよし','男','tk18304008@ga.tera-house.ac.jp','0000000',sq_address_id.CURRVAL,'kkk',1);
 
 INSERT INTO userTable(user_id,user_lastname,user_firstname,user_lastname_hira,user_firstname_hira,user_sex,user_mail,user_phone,user_address_id,user_pass)	
-VALUES(sq_user_id.NEXTVAL,'泉','奈央人','いずみ','なおと','男','ni18304003@ga.tera-house.ac.jp','08058889513',sq_address_id.CURRVAL,'notizm0812');														
+VALUES(sq_user_id.NEXTVAL,'泉','奈央人','いずみ','なおと','男','ni18304003@ga.tera-house.ac.jp','08058889513',sq_address_id.CURRVAL,'notizm0812');
+
+INSERT INTO userTable(user_id,user_lastname,user_firstname,user_lastname_hira,user_firstname_hira,user_sex,user_mail,user_phone,user_address_id,user_pass,user_admin)	
+VALUES(sq_user_id.NEXTVAL,'本城','早友里','ほんじょう','さゆり','女','sh18304023@ga.tera-house.ac.jp','0000000',sq_address_id.CURRVAL,'honjo',0);														
 col user_lastname format A10							
 col user_firstname format A10							
 col user_lastname_hira format A10							
