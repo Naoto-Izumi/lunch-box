@@ -13,7 +13,7 @@ import Kanrisya.Beans.ProductBean;
 import User.Beans.OrderBean;
 
 public class PHistoryJdbc{
-	public static List getPhistory(){
+	public static List getPhistory(OrderBean oo){
 	
 		Connection cn = null;
 		PreparedStatement st = null;
@@ -25,7 +25,8 @@ public class PHistoryJdbc{
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			cn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","helshin","helshinbox");
 			cn.setAutoCommit(false);
-			String sql = "SELECT s.sp_pro_id,p.pro_name,o.or_date,s.sp_count FROM specificationTable s JOIN productTable p ON s.sp_pro_id = p.pro_id JOIN orderTable o ON s.sp_or_id = o.or_id";
+			String d = oo.getPid();
+			String sql = "SELECT s.sp_pro_id,p.pro_name,o.or_date,s.sp_count FROM specificationTable s JOIN productTable p ON s.sp_pro_id = p.pro_id JOIN orderTable o ON s.sp_or_id = o.or_id JOIN userTable u ON u.user_id = o.or_user_id WHERE u.user_id = "+d+"";
 			st=cn.prepareStatement(sql);
 			rs=st.executeQuery();
 			while(rs.next()){

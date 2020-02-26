@@ -7,10 +7,11 @@
     <body>
         <h1>購入履歴</h1>
 
-            <c:forEach var="a" items="${result}">
+            <c:forEach var="a" items="${ph}">
                 <form method="post" action="uuc">
                 <table>
-                    <tr><td>${sessionScope.a.odate}</td><td>${sessionScope.a.sproid}</td><td>${sessionScope.a.scount}</td><td>${sessionScope.a.pid}</td></tr>
+
+                    <tr><td>${a.odate}</td><td>${a.sproid}</td><td>${a.scount}</td><td>${a.pid}</td></tr>
                 </table>
             </form>
             </c:forEach>

@@ -17,7 +17,7 @@ import Menu.Beans.Product;
 public class OrderInDao implements ProductsDao{
     public Product getProduct(String pid){return null;}
     public List getAllProducts(){return null;}
-    public void addProduct(Product p){
+    public void addProduct(Product p,String okey){
         Connection cn=null;
         PreparedStatement st=null;
         ResultSet rs=null;
@@ -36,7 +36,7 @@ public class OrderInDao implements ProductsDao{
             System.out.println(sdf.format(cl.getTime()));
             String da=sdf.format(cl.getTime());
             System.out.println(da+" "+p.getTime());
-            String a1="insert into orderTable(or_id,or_user_id,or_type,OR_ADDRESS_ID,OR_DATE) values(sq_or_id.NEXTVAL,1,?,1,TO_DATE('";
+            String a1="insert into orderTable(or_id,or_user_id,or_type,OR_ADDRESS_ID,OR_DATE) values(sq_or_id.NEXTVAL,"+okey+",?,1,TO_DATE('";
              String a2=da+" "+p.getTime();
              String a3="','yy-MM-dd hh24:mi:ss'))";
 
@@ -47,7 +47,7 @@ public class OrderInDao implements ProductsDao{
            
             System.out.println("p.getType()"+p.getType());
             System.out.println("p.getTime()"+p.getTime());
-
+			System.out.println(sql);
             st=cn.prepareStatement(sql);
 
             
@@ -71,6 +71,21 @@ public class OrderInDao implements ProductsDao{
 
             String stock=p.getStock();
             String id=p.getNum();
+
+            st.setInt(1,Integer.parseInt(stock));
+            st.setInt(2,Integer.parseInt(id));
+
+
+
+
+            st.executeUpdate();
+        	
+        	//明細書insert-------------------------------------------------------------
+
+            String meisaisql="INSERT  INTO  specificationTable(sp_or_id,sp_count,sp_pro_id) values(sq_or_id.CURRVAL,?,?)";
+
+            st=cn.prepareStatement(meisaisql);
+
 
             st.setInt(1,Integer.parseInt(stock));
             st.setInt(2,Integer.parseInt(id));

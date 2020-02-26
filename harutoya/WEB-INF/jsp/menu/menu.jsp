@@ -257,10 +257,12 @@ function test(count){
         </tr>
     </table>
 </div>
-<h1 id="userid">${menutoken}</h1>
+<h1 id="userid">${result}</h1>
 <a href="look">カートを見る</a>
+<!--<h1>${result}</h1>-->
 <a id="login" href="infomation">ログイン</a>
 <a id="logout" href="vmenu" style="display:none;">ログアウト</a>
+<!--</div>-->
 
 <!--ダイアログの内容-->
 <div id="mydialog2" title="個数を入力して下さい">

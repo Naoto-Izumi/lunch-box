@@ -8,5 +8,7 @@
         <h1>マイページ</h1>
         <a href="uqc">個人情報</a>
         <a href="huser">購入履歴</a>
+        <br><br>
+        <a href="start">TOPに戻る</a>
     </body>
 </html>

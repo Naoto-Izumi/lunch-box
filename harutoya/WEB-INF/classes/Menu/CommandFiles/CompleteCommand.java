@@ -19,8 +19,11 @@ public class CompleteCommand extends AbstractCommand{
         //HttpSession session = req.getSession();
         // UserBean ub = (UserBean)session.getAttribute("ub");
 		Product p=(Product)reqc.getSessionObject("p");
+		String po = (String)reqc.getSessionObject("okey");
 		
+		String id = (String)reqc.getSessionObject("menutoken");
 		System.out.println(p);
+		System.out.println(po);
         //データベースに個人情報・購入したものをinsertする
 
 		// ProductUpDao pr=new ProductUpDao();
@@ -54,7 +57,9 @@ public class CompleteCommand extends AbstractCommand{
             System.out.println("キー"+key+"値"+v+"切り取り後"+num);
 
 			OrderInDao pi=new OrderInDao();
-			pi.addProduct(p);
+			
+			pi.addProduct(p,id);
+			//pi.addProduct(okey);
         }
 		// pr.addProduct(p);
 
@@ -62,6 +67,7 @@ public class CompleteCommand extends AbstractCommand{
 		// pi.addProduct(p);
 		//sessionを消す
 		reqc.DeleteSession();
+		reqc.setSessionObject("menutoken",id);
 
 
 

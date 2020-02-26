@@ -140,7 +140,7 @@
 	</filter-mapping>
 	<filter-mapping>
 		<filter-name>menufilter</filter-name>
-		<url-pattern>/menu</url-pattern>
+		<url-pattern>/mmenu</url-pattern>
 		<dispatcher>REQUEST</dispatcher>
 	</filter-mapping>
 	<filter-mapping>
@@ -158,6 +158,11 @@
 		<url-pattern>/orderin</url-pattern>
 		<dispatcher>REQUEST</dispatcher>
 	</filter-mapping>
+	<filter-mapping>
+		<filter-name>menufilter</filter-name>
+		<url-pattern>/page</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+	</filter-mapping>
 	
 	<filter>
 		<filter-name>menuauthenticatefilter</filter-name>
@@ -170,7 +175,7 @@
 	</filter-mapping>
 	<filter-mapping>
 		<filter-name>menuauthenticatefilter</filter-name>
-		<url-pattern>/menu</url-pattern>
+		<url-pattern>/mmenu</url-pattern>
 		<dispatcher>REQUEST</dispatcher>
 	</filter-mapping>
 	<filter-mapping>
@@ -206,6 +211,11 @@
 	<filter-mapping>
 		<filter-name>menuauthenticatefilter</filter-name>
 		<url-pattern>/orderin</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>menuauthenticatefilter</filter-name>
+		<url-pattern>/page</url-pattern>
 		<dispatcher>REQUEST</dispatcher>
 	</filter-mapping>
 	
@@ -247,7 +257,7 @@
 	</servlet-mapping>
 
 	<welcome-file-list>
-		<welcome-file>/WEB-INF/jsp/menu/top.jsp</welcome-file>
+		<welcome-file>/WEB-INF/jsp/test.jsp</welcome-file>
 	</welcome-file-list>
 	
 	<servlet-mapping>

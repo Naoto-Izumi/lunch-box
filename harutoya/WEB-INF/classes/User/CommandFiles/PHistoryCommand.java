@@ -13,11 +13,18 @@ public class PHistoryCommand extends AbstractCommand{
 	public ResponseContext execute(ResponseContext resc){
 		RequestContext reqc = getRequestContext();
 		
-		List ph = PHistoryJdbc.getPhistory();
+		String id = (String)reqc.getSessionObject("menutoken");
+		
+		//String[] aid = reqc.getParameter("id");
+		//String id = aid[0];
+		OrderBean o = new OrderBean();
+		o.setPid(id);
+		List ph = PHistoryJdbc.getPhistory(o);
 		resc.setResult(ph);
 		resc.setResultName("ph");
 		resc.setTarget("user/phistory");
 		return resc;
+		//sessionのメニュートークンを持ってくる
 		
 	}
 }

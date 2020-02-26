@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <title>ぶるまてすと</title>
-    <link rel="shortcut icon" href="../../Browser/favicon/favicon.ico">
-    <link rel="stylesheet" href="../../Browser/css/bulma.css">
-    <link rel="stylesheet" href="../../Browser/css/all.min.css">
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/Browser/favicon/favicon.ico">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/Browser/css/bulma.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/Browser/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   </head>
 
@@ -27,21 +27,21 @@
     </span>
     <!--------------------------------------------保留---------------------------------------------->
     <span class="nav-item">
-      <a class="regist" href="#">新規会員登録</a>
-      <a class="login" href="#">ログイン</a>
+      <a class="regist" href="ruser">新規会員登録</a>
+      <a class="login" href="infomation">ログイン</a>
     </span>
   </div>
  
   <div class="hero is-bold">
    <div class="hero-body">
        <div class="container">
-          <img src="../../Browser/img/logo3.jpg"> </a>
+          <img src="${pageContext.request.contextPath}/Browser/img/logo3.jpg"> </a>
            <nav>
             <ul>
               <li class=”current”><a href="top">メニュー</a></li>
-              <li><a href="../../store">店舗検索</a></li>
-              <li><a href=”norder”>カート</a></li>
-              <li><a href=”page”>マイページ</a></li>
+              <li><a href="store">店舗検索</a></li>
+              <li><a href="norder">カート</a></li>
+              <li><a href="page">マイページ</a></li>
  
             </ul>
           </nav>
@@ -79,7 +79,7 @@
 
     <aside class="box menu">
     <ul class="menu-list">
-        <li><a href="../../jsp/Menu/top" class="fas fa-book-open">　メニュー</a></li>
+        <li><a href="top" class="fas fa-book-open">　メニュー</a></li>
         <li><a href="store" class="fas fa-home">　店舗</a></li>
         <li><a href="norder" class="fas fa-mobile-alt">　ネット注文</a></li>
     <ul class="gnav">
@@ -96,11 +96,11 @@
    </aside>
   </div>
   <div class="slide">
-         <img src="../../Browser/img/ben2.jpg">
-         <img src="../../Browser/img/ben4.jpg">
-         <img src="../../Browser/img/ben5.jpg">
-         <img src="../../Browser/img/ben3.jpg">
-         <img src="../../Browser/img/ben.jpg">
+         <img src="${pageContext.request.contextPath}/Browser/img/ben2.jpg">
+         <img src="${pageContext.request.contextPath}/Browser/img/ben4.jpg">
+         <img src="${pageContext.request.contextPath}/Browser/img/ben5.jpg">
+         <img src="${pageContext.request.contextPath}/Browser/img/ben3.jpg">
+         <img src="${pageContext.request.contextPath}/Browser/img/ben.jpg">
   </div>
 </main>
 
