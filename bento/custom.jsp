@@ -319,10 +319,15 @@ input[name="tab_item"] {
 
 }
 
+body{
+    margin:0;
+    padding:0;
+}
 
 
 
 .grovalNavigation{
+    z-index: 9999;
     width: 100%;
     height: 100px;
     text-align: center;
@@ -381,6 +386,9 @@ input[name="tab_item"] {
     position:absolute;
     right: 80px;
     bottom:26px;
+}
+.allergy{
+    padding:100px 0 0 0;
 }
 
 
@@ -447,14 +455,16 @@ input[name="tab_item"] {
     
     
      </header>
-
+<!-- 
 <a href="top.jsp">topページ</a>
 <p>商品の検索</p>
     <form action="SearchServlet" method="post" name="search">
         <input type="text" name="sname" id="s1">
         <input type="submit" id="sea" value="検索" >
-    </form>
-<p>アレルギーの絞り込み</p>
+    </form> -->
+    <div class="allergy">
+        <p>アレルギーの絞り込み</p>
+    </div>
 
     <form action="RefineServlet" method="post" name="refine">
         

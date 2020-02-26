@@ -12,12 +12,11 @@ import Bean.TotalPriceBean;
 import Bean.PriceBean;
 import function.price;
 import function.CutURL;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Map;
 import java.util.*;
-import dao.PriceDao;
-import Bean.Product;
+import dao.CusSyusyokuDao;
+import Bean.CustomBean;
+import Bean.ElementBean;
+import Bean.CustomCartBean;
 
 public class CustomMenuServlet extends HttpServlet{
     
@@ -31,117 +30,32 @@ public class CustomMenuServlet extends HttpServlet{
 
 	public void doPost(HttpServletRequest req,HttpServletResponse res)
 	throws IOException,ServletException{
+        HttpSession session = req.getSession();
 		
 		req.setCharacterEncoding("UTF-8");
-		
-		String syusyoku=req.getParameter("syusyoku");
-		String syusai=req.getParameter("syusai");
-        String huku1=req.getParameter("huku1");
-		String huku2=req.getParameter("huku2");
 
-        System.out.println(syusyoku);
-        System.out.println(syusai);
-        System.out.println(huku1);
-        System.out.println(huku2);
-
-
-        //pathを切り取って数字だけにして、product表のidと一致させたい
-        syusyoku = syusyoku.substring(11);
-        syusyoku = syusyoku.replace(".jpg","");
-        syusai = syusai.substring(11);
-        syusai = syusai.replace(".jpg","");
-        huku1 = huku1.substring(11);
-        huku1 = huku1.replace(".jpg","");
-        huku2 = huku2.substring(11);
-        huku2 = huku2.replace(".jpg","");
-        
-        System.out.println(syusyoku);
-        System.out.println(syusai);
-        System.out.println(huku1);
-        System.out.println(huku2);
-        
-        Product p = new Product();
-        p.setSyusyokuId(syusyoku);
-        p.setSyusaiId(syusai);
-        p.setHuku1Id(huku1);
-        p.setHuku2Id(huku2);
-
-        // price p = new price();
-        // int Syusyoku = p.priceIf(syusyoku);
-        // int Syusai = p.priceIf(syusai);
-        // int Huku1 = p.priceIf(huku1);
-        // int Huku2 = p.priceIf(huku2);
-        // int total = Syusyoku+Syusai+Huku1+Huku2;
-
-        //daoで4つの商品IDを使いたいからdaoのフィールドにProductを登録
-        PriceDao pd = new PriceDao();
-        pd.addProduct(p);
-        //daoからselectでデータをとってくる、
-        ArrayList data=(ArrayList)pd.getAllProducts();
-        Iterator it = data.iterator();
-        int total = 0;
-        while(it.hasNext()){
-            Product pro = (Product)it.next();
-            total += Integer.parseInt(pro.getTotal());
+        CustomCartBean ccb = (CustomCartBean)session.getAttribute("ccb");
+        if(ccb == null){
+            ccb = new CustomCartBean();
         }
-
-        HttpSession session = req.getSession();
-        if(session.getAttribute("customTotalPrice") != null){
-            Integer i = (Integer)session.getAttribute("customTotalPrice");
-            total += i;
-        }
-        ArrayList ii = new ArrayList();
-        if(session.getAttribute("customCart") != null){
-            ii = (ArrayList)session.getAttribute("customCart");
-        }
-        for(int k=0;k<4;k++){
-           // System.out.println("ppppppppppppppppppppppppp"+data.get(k));
-            ii.add(data.get(k));
-
-            
-        }
-
-        
-
-
-
-
-
-    
-        //session.setAttribute("a",data);
-        req.setAttribute("product",ii);
-        session.setAttribute("customCart",ii);
-        req.setAttribute("total",total);
-        session.setAttribute("customTotalPrice",total);
-
-
-
-        Map sessionlist;
-
-        
-        
-        if(null==session.getAttribute("customList")){
-            sessionlist=new TreeMap();
-        }else{
-            sessionlist=(Map)session.getAttribute("customList");
-        }
-
-        sessionlist.put("no"+syusyoku, 1);
-        sessionlist.put("no"+syusai, 1);
-        sessionlist.put("no"+huku1, 1);
-        sessionlist.put("no"+huku2, 1);
-
-        System.out.println("kkkkkkkkkkkk1"+sessionlist.get("no1"));
-        System.out.println("kkkkkkkkkkkk2"+sessionlist.get("no2"));
-        System.out.println("kkkkkkkkkkkk3"+sessionlist.get("no3"));
-        System.out.println("kkkkkkkkkkkk4"+sessionlist.get("no4"));
-
-        session.setAttribute("customList",sessionlist);
-
-        req.setAttribute("plist", sessionlist);
-			
-
-
+		String syusyoku=req.getParameter("syusyoku").substring(11).replace(".jpg","");
+		String syusai=req.getParameter("syusai").substring(11).replace(".jpg","");
+        String huku1=req.getParameter("huku1").substring(11).replace(".jpg","");
+		String huku2=req.getParameter("huku2").substring(11).replace(".jpg","");
+        CusSyusyokuDao cd = new CusSyusyokuDao();
+        CustomBean cb = new CustomBean();
+        ElementBean eb = cd.getProduct(syusyoku); 
+        ElementBean eb1 = cd.getProduct(syusai); 
+        ElementBean eb2 = cd.getProduct(huku1); 
+        ElementBean eb3 = cd.getProduct(huku2); 
+        cb.setTotal_money(eb.getMoney()+eb1.getMoney()+eb2.getMoney()+eb3.getMoney());
+        cb.elementAdd(eb);
+        cb.elementAdd(eb1);
+        cb.elementAdd(eb2);
+        cb.elementAdd(eb3);
+        ccb.customAdd(cb); 
+        ccb.setCustom_total_money(ccb.getCustom_total_money()+cb.getTotal_money()); 
+        session.setAttribute("ccb",ccb);
         RequestDispatcher dispatcher=req.getRequestDispatcher("/order.jsp");
 		
 		dispatcher.forward(req,res);

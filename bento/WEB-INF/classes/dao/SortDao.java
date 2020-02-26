@@ -26,15 +26,35 @@ public class SortDao implements ProductsDao{
 
             cn.setAutoCommit(false);
 
-            String sql="select  pro_id,pro_image,pro_name from productTable ORDER BY ? ,? ";
+            
+
+            // String kind = _p.getSortKind();
+
+            // System.out.println(" _p.getSortKind()"+kind);
+
+            // String sql=null;
+
+            // if(kind.equals("ASC")){
+
+            //     sql="select  pro_id,pro_image,pro_name from productTable where pro_type='弁当' ORDER BY ? ASC";
+            //     System.out.println("ascSQL"+sql);
+
+            // }else if(kind.equals("DESC")){
+
+            //     sql="select  pro_id,pro_image,pro_name from productTable where pro_type='弁当' ORDER BY ?  DESC";
+            //     System.out.println("descSQL"+sql);
+
+            // }else{
+            //     System.out.println("スルー");
+            // }
+            String reSql = _p.getSortVal();
+            String preSql="select  pro_id,pro_image,pro_name from productTable where pro_type='弁当' ORDER BY ";
+            String sql=preSql + reSql;
 
             
             //PreparedStatementインターフェイスを実装するクラスをインスタンス化する
 			st=cn.prepareStatement(sql);
 
-            st.setString(1,_p.getSortVal());
-
-            st.setString(2,_p.getSortKind());
 
 
 

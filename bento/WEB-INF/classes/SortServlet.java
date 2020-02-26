@@ -27,31 +27,36 @@ public void doPost(HttpServletRequest req,HttpServletResponse res)
 
         System.out.println(s1);
 
-        String s2 = null;
         
-        if(s1=="prHigh"){
-            s1="pro_price";
-            s2="DESC";
+        if(s1.equals("prHigh")){
+            s1="pro_price DESC";
+            System.out.println(s1);
 
-        }else if(s1=="prLow"){
-            s1="pro_price";
-            s2="ASC";
 
-        }else if(s1=="caHigh"){
-            s1="pro_calorie";
-            s2="DESC";
+        }else if(s1.equals("prLow")){
+            s1="pro_price ASC";
+            System.out.println(s1);
+
+
+        }else if(s1.equals("caHigh")){
+            s1="pro_calorie DESC";
+            System.out.println(s1);
+
             
-        }else if(s1=="caLow"){
-            s1="pro_calorie";
-            s2="ASC";
+        }else if(s1.equals("caLow")){
+            s1="pro_calorie ASC";
+            System.out.println(s1);
+
             
+        }else{
+            System.out.println("当てはまらない");
         }
 
         System.out.println(s1);
-        System.out.println(s2);
+
 
         p.setSortVal(s1);
-        p.setSortKind(s2);
+
         
         SortDao rd=new SortDao();
         rd.addProduct(p);

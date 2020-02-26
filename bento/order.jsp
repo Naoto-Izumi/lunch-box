@@ -1,5 +1,6 @@
 <%@page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"
-import="java.util.ArrayList"%>
+import="java.util.ArrayList"
+import="Bean.CustomCartBean"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
@@ -123,12 +124,12 @@ import="java.util.ArrayList"%>
     </c:forEach>
 
 
-
-    <c:forEach var="prof" items="${customCart}" varStatus="st">
+    
+    <!-- <c:forEach var="prof" items="${customCart}" varStatus="st">
         <c:set var="data" value="${prof.pro_id}" />
         <c:set var="calorie" value="${prof.pro_calorie}" />
 
-        <table>
+        <table class="${st.count}">
             <tr>
             <td>${prof.pro_id}</td>
             <td>${prof.pro_name}</td>
@@ -155,18 +156,108 @@ import="java.util.ArrayList"%>
             <td>${prof.total}円</td>
             </tr>
         </table>
-    </c:forEach>
+    </c:forEach> -->
+    <table>
+        <c:forEach var="elements" items="${sessionScope.ccb.customList}" varStatus="el">
+        <tr>
+            <table>
+                <tr>
+                <th>id</th>
+                <th>img</th>
+                <th>name</th>
+                <th>money</th>
+                <th>calory</th>
+                <th>type</th>
+                <th>count</th>
+                <th>タンパク質</th>
+                <th>糖質</th>
+                <th>脂質</th>
+                <th>ビタミン</th>
+                <th>無機質</th>
+                <!-- <th>小麦</th>
+                <th>卵</th>
+                <th>乳</th>
+                <th>落花生</th>
+                <th>そば</th>
+                <th>えび</th>
+                <th>かに</th> -->
+            </tr>
+        <c:forEach var="element" items="${elements.elementList}">                   
+            <tr>
+                <td>${element.id}</td>
+                <td><img src="${element.image}" width="50px" height="50px"></td>
+                <td>${element.name}</td>
+                <td>${element.money}</td>
+                <td>${element.calory}</td>
+                <td>${element.type}</td>
+                <td>${element.count}</td>
+                <td>${element.nb.pro_protein}</td>
+                <td>${element.nb.pro_carbohydrate}</td>
+                <td>${element.nb.pro_lipid}</td>
+                <td>${element.nb.pro_vitamin}</td>
+                <td>${element.nb.pro_inorganic}</td>
+                <c:if test="${element.ab.pro_wheat != 0}">
+                    <td><img src="image/a1.png" name="are" height="25px" width="25px" id="a1"></td>
+                </c:if>
+                <!-- <td>${element.ab.pro_wheat}</td> -->
+                <c:if test="${element.ab.pro_egg == 1}">
+                    <td><img src="image/a2.png" name="are" height="25px" width="25px" id="a1"></td>
+                </c:if>
+                <!-- <td>${element.ab.pro_egg}</td> -->
+                <c:if test="${element.ab.pro_milk == 1}">
+                    <td><img src="image/a3.png" name="are" height="25px" width="25px" id="a1"></td>
+                </c:if>
+                <!-- <td>${element.ab.pro_milk}</td> -->
+                <c:if test="${element.ab.pro_peanuts == 1}">
+                    <td><img src="image/a4.png" name="are" height="25px" width="25px" id="a1"></td>
+                </c:if>
+                <!-- <td>${element.ab.pro_peanuts}</td> -->
+                <c:if test="${element.ab.pro_buckwheat == 1}">
+                    <td><img src="image/a5.png" name="are" height="25px" width="25px" id="a1"></td>
+                </c:if>
+                <!-- <td>${element.ab.pro_buckwheat}</td> -->
+                <c:if test="${element.ab.pro_shrimp == 1}">
+                    <td><img src="image/a6.png" name="are" height="25px" width="25px" id="a1"></td>
+                </c:if>
+                <!-- <td>${element.ab.pro_shrimp}</td> -->
+                <c:if test="${element.ab.pro_crab == 1}">
+                    <td><img src="image/a7.png" name="are" height="25px" width="25px" id="a1"></td>
+                </c:if>
+                <!-- <td>${element.ab.pro_crab}</td> -->
+                </tr>
+            </c:forEach>
+            <td>カロリー合計：${elements.elementList[0].calory+elements.elementList[1].calory+elements.elementList[2].calory+elements.elementList[3].calory}</td>
+            <td>タンパク質：${elements.elementList[0].nb.pro_protein+elements.elementList[1].nb.pro_protein+elements.elementList[2].nb.pro_protein+elements.elementList[3].nb.pro_protein}</td>
+            <td>糖質：${elements.elementList[0].nb.pro_carbohydrate+elements.elementList[1].nb.pro_carbohydrate+elements.elementList[2].nb.pro_carbohydrate+elements.elementList[3].nb.pro_carbohydrate}</td>
+            <td>脂質：${elements.elementList[0].nb.pro_lipid+elements.elementList[1].nb.pro_lipid+elements.elementList[2].nb.pro_lipid+elements.elementList[3].nb.pro_lipid}</td>
+            <td>ビタミン：${elements.elementList[0].nb.pro_vitamin+elements.elementList[1].nb.pro_vitamin+elements.elementList[2].nb.pro_vitamin+elements.elementList[3].nb.pro_vitamin}</td>
+            <td>無機質：${elements.elementList[0].nb.pro_inorganic+elements.elementList[1].nb.pro_inorganic+elements.elementList[2].nb.pro_inorganic+elements.elementList[3].nb.pro_inorganic}</td>
+            <td>${elements.total_money}円</td>
+            <td><form action="RemoveServlet" method="post" name="remove">
+                <input type="hidden" value="${prof.pro_id}" name="id">
+                <input type="hidden" value="1" name="judge">
+                <input type="hidden" value="${el.count}" name="remove">
+                <input type="submit" value="削除" id="">
+            </form></td>
+        </table></tr>
+        </c:forEach>
+        <!-- <p>${sessionScope.ccb.custom_total_money}</P> -->
+    </table>
     <%! ArrayList list = null;
-        ArrayList customCart = null;
+        CustomCartBean customCart = null;
      %>
     <%
         list = (ArrayList)session.getAttribute("cart");
-        customCart = (ArrayList)session.getAttribute("customCart");
+        customCart = (CustomCartBean)session.getAttribute("ccb");
         if(!(list==null && customCart==null)){
     %>
-    <p>合計：${sessionScope.totalPrice + sessionScope.customTotalPrice}円</p>
+    <p>合計：${sessionScope.totalPrice + sessionScope.ccb.custom_total_money}円</p>
     <a href="TopServlet">もう一度頼む</a>
     <a href="userinformation.jsp">個人情報入力</a>
+    <td><form action="RemoveServlet" method="post" name="remove">
+        <input type="hidden" value="2" name="judge">
+        <input type="submit" value="カートの中身をすべて削除" id="">
+    </form>
 
     <%
         }
