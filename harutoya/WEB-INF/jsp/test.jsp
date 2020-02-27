@@ -40,7 +40,7 @@
             <ul>
               <li class=”current”><a href="top">メニュー</a></li>
               <li><a href="store">店舗検索</a></li>
-              <li><a href="norder">カート</a></li>
+              <li><a href="look">カート</a></li>
               <li><a href="page">マイページ</a></li>
  
             </ul>

@@ -7,16 +7,75 @@
     <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
     <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
+    <script src="${pageContext.request.contextPath}/Browser/js/UserInfomation.js"></script>
     <script src="${pageContext.request.contextPath}/Browser/js/Menu.js"></script>
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/Browser/css/Menu2.css">
   
-    <script>
-
-    </script>
+    
     
 </head>
 <body>
-    <form method="POST" action="uinfo" name="info">
+    <header class="grovalNavigation">
+        <div class="logo" title="春戸弁当">
+            <a href="st" class="fade_btn"><img src="${pageContext.request.contextPath}/Browser/img/harutoya.png" title="" height="90px" width="375px"></a>
+        </div>
+    
+        <ul id="navi" class="icon_nav">
+            <li>
+                <a href="top" class="fade_btn">
+                    <img src="${pageContext.request.contextPath}/Browser/img/nav_01.png" alt="メニュー" title="">
+                    <span>メニュー</span>
+                </a>
+            </li>
+    
+            <li>
+                <a href="store" target="_blank" class="fade_btn">
+                    <img src="${pageContext.request.contextPath}/Browser/img/nav_02.png" alt="店舗検索" title="">
+                    <span>店舗検索</span>
+                </a>
+            </li>
+    
+            <li>
+                <a href="norder" class="fade_btn">
+                    <img src="${pageContext.request.contextPath}/Browser/img/nav_03.png" alt="お知らせ" title="">
+                    <span>ネット注文</span>
+                </a>
+            </li>
+            <li>
+                <a href="page" class="fade_btn">
+                    <img src="${pageContext.request.contextPath}/Browser/img/nav_05.png" alt="スタッフ募集" title="">
+                        <span>マイページ</span>
+                </a>
+            </li>
+            <li>
+                <a href="custom" class="fade_btn">
+                    <img src="${pageContext.request.contextPath}/Browser/img/nav_05.png" alt="カート" title="">
+                        <span>カート</span>
+                </a>
+            </li>
+        </ul>
+        <div class="kensaku">
+            <form action="SearchServlet" method="post" name="search">
+                <input type="text" name="sname" id="s1" placeholder="商品検索">
+                <input type="submit" id="sea" value="検索" >
+            </form>
+        </div>
+        <div>
+            <ul class="headinfo">
+                <li>
+                     <a href="" >新規会員登録</a>
+                </li>
+                <li>
+                    <a href="infomation" >ログイン</a>
+                </li>
+            </ul>
+        </div>
+    
+    
+     </header>
+     <div class="allergy">
+        <form method="POST" action="uinfo" name="info">
             名前<input type="text" name="name" required><br>
             電話<input type="tel" name="tel" oninput="check(this)" required><br>
             メール<input type="email" name="mail" required><br>
@@ -34,6 +93,10 @@
             </ul>
             <input type="submit" value="確認" id="awawa" >
         </form>
-        <a href="top">ト＠＠う</a>
+
+        <div id="mydialog2" title="入力欄が空白です">
+            カード情報を入力してください<br />
+        </div>
+    </div>
     </body>
 </html>

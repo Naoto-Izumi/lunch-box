@@ -10,259 +10,172 @@
         <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 
         <script src="${pageContext.request.contextPath}/Browser/js/lightbox.js"></script>  
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/Browser/css/Menu2.css">
 
 <title>メニュー</title>
-<script>
-    function amount(){
-    document.frml.count.value++;
-}
 
-//アレルギー絞り込み
-function onButtonClick() {
-    pro1 = document.refine.p1;
-    pro2 = document.refine.p2;
-    pro3 = document.refine.p3;
-    pro4 = document.refine.p4;
-    pro5 = document.refine.p5;
-    pro6 = document.refine.p6;
-    pro7 = document.refine.p7;
-    judgment(pro1);
-    judgment(pro2);
-    judgment(pro3);
-    judgment(pro4);
-    judgment(pro5);
-    judgment(pro6);
-    judgment(pro7);
-}
-function judgment(pro){
-    var proId=getId(pro);
-    if (pro.checked == true) {
-        $("#"+proId).val("0");
-    } else {
-        $("#"+proId).val("1");
-    }
-}
-function getId(ele){
-    var id_value = ele.id; // eleのプロパティとしてidを取得
-    console.log(id_value); //
-    return id_value;
-}
-
-//画像挿入
-function gazou(){
-    var element;
-    $(document).on('input',"input[type='text']", function(event){
-        console.log("あああああああああああああ");
-        console.log($(this).val());
-        var value = $(this).val().substr(28);
-        if(value.match(/jpg/)){
-            var id = "#"+$(this).attr("id");
-            var prev = "#"+$(this).prev().attr("id");
-            $(prev).after('<input type="{pageContext.request.contextPath}/Browser/img" id="'+($(this).attr("id")+"1")+'" src="'+value+'" value="'+value+'" height=10% width=10% disabled>');     
-            // id=id.slice(0,-1);
-            $(id+"2").val(value);
-            console.log(id);
-            console.log(prev);                 
-            $(id).remove();
-
-        }
-    });
-}
- //customの画像削除のjs
- $(function() {
-    $("#reset").on({
-        'click': function() {
-            var list = new Array("syusyoku","syusai","huku1","huku2");
-            for(var i=0;i<4;i++){
-
-            
-                $('#'+list[i]+'1').get(0).type = 'text';
-                
-                var syusyoku = $('input[id='+list[i]+'1]');
-                syusyoku.removeAttr("src");
-                syusyoku.removeAttr("value");
-                syusyoku.removeAttr("height");
-                syusyoku.removeAttr("width");
-                syusyoku.removeAttr("disabled");
-                syusyoku.attr('name',list[i]);
-                syusyoku.attr('value','');
-                syusyoku.attr('onchange','gazou()');
-                syusyoku.attr('id',list[i]);
-                var a = $("input[type='hidden']");
-                a.removeAttr("value");
-            }
-        
-        }
-    });
-
-
-});
-
-
-//アレルギーの画像切り替え
-function myfunc(value) {
-    var obj=value;
-    console.log(obj);
-    var imgId=obj.substr( 7, 1 );
-    console.log(imgId);
-    var onImg='${pageContext.request.contextPath}/Browser/img/a'+imgId+'on.png';
-    console.log(onImg);
-    var offImg='${pageContext.request.contextPath}/Browser/img/a'+imgId+'.png';
-    console.log(offImg);
-    var abc=document.refine.check[imgId-1];
-    console.log(abc);
-    console.log(abc.checked);
-    if(abc.checked){
-        $('#a'+imgId).attr('src', onImg);
-        console.log('on');
-    }else{
-        $('#a'+imgId).attr('src', offImg);
-        console.log('off');
-    }
-
-
-}
-
-$(function(){
-// ダイアログの初期設定
-    $("#mydialog2").dialog({
-        autoOpen: false,  // 自動的に開かないように設定
-        width: 500,       // 横幅のサイズを設定
-        modal: true,      // モーダルダイアログにする
-        buttons: [        // ボタン名 : 処理 を設定
-        {
-            text: '閉じる',
-            click: function(){
-                console.log("jquery");
-                $(this).dialog("close");
-            }
-        }
-        ]
-    });
-});
-
-function test(count){
-    $(document).on("click", ".dialog", function(){
-        var product = document.getElementById(count).value;
-        if(product <= 0){
-            // ダイアログの呼び出し処理
-            $("#mydialog2").dialog("open");
-            //documentからイベントを削除
-            $(document).off("click",".dialog");
-            //データの送信をリセット
-            return false;
-        }
-    });
-    
-}
-</script>
 </head>
 <body>
-<h1>メニュー</h1>
-<a href="start">topページ</a>
-<p>商品の検索</p>
-    <form action="search" method="post" name="search">
-        <input type="text" name="sname" id="s1">
-        <input type="submit" id="sea" value="検索" >
-    </form>
-<p>アレルギーの絞り込み</p>
+    <header class="grovalNavigation">
+        <div class="logo" title="春戸弁当">
+            <a href="st" class="fade_btn"><img src="${pageContext.request.contextPath}/Browser/img/harutoya.png" title="" height="90px" width="375px"></a>
+        </div>
+    
+        <ul id="navi" class="icon_nav">
+            <li>
+                <a href="top" class="fade_btn">
+                    <img src="${pageContext.request.contextPath}/Browser/img/nav_01.png" alt="メニュー" title="">
+                    <span>メニュー</span>
+                </a>
+            </li>
+    
+            <li>
+                <a href="store" target="_blank" class="fade_btn">
+                    <img src="${pageContext.request.contextPath}/Browser/img/nav_02.png" alt="店舗検索" title="">
+                    <span>店舗検索</span>
+                </a>
+            </li>
+    
+            <li>
+                <a href="norder" class="fade_btn">
+                    <img src="${pageContext.request.contextPath}/Browser/img/nav_03.png" alt="お知らせ" title="">
+                    <span>ネット注文</span>
+                </a>
+            </li>
+            <li>
+                <a href="page" class="fade_btn">
+                    <img src="${pageContext.request.contextPath}/Browser/img/nav_05.png" alt="スタッフ募集" title="">
+                        <span>マイページ</span>
+                </a>
+            </li>
+            <li>
+                <a href="custom" class="fade_btn">
+                    <img src="${pageContext.request.contextPath}/Browser/img/nav_05.png" alt="カート" title="">
+                        <span>カート</span>
+                </a>
+            </li>
+        </ul>
+        <div class="kensaku">
+            <form action="SearchServlet" method="post" name="search">
+                <input type="text" name="sname" id="s1" placeholder="商品検索">
+                <input type="submit" id="sea" value="検索" >
+            </form>
+        </div>
+        <div>
+            <ul class="headinfo">
+                <li>
+                     <a href="" >新規会員登録</a>
+                </li>
+                <li>
+                    <a href="infomation" >ログイン</a>
+                </li>
+            </ul>
+        </div>
+    
+    
+     </header>
+     <div class="allergy">
+        <h1>メニュー</h1>
+        <a href="start">topページ</a>
+        <p>商品の検索</p>
+            <form action="search" method="post" name="search">
+                <input type="text" name="sname" id="s1">
+                <input type="submit" id="sea" value="検索" >
+            </form>
+        <p>アレルギーの絞り込み</p>
 
-    <form action="refine" method="post" name="refine">
-        
-        <label>
-            <img src="${pageContext.request.contextPath}/Browser/img/a1.png" name="are" height="40px" width="40px" id="a1">
-            <input type="checkbox" name="check" id="p1" value="0" onchange="myfunc('${pageContext.request.contextPath}/Browser/img/a1.png')">小麦</label>
-            <input type="hidden" name="check1" id="p1" value="1">
-        <label>
-            <img src="${pageContext.request.contextPath}/Browser/img/a2.png" name="are" height="40px" width="40px" id="a2">
-            <input type="checkbox" name="check" id="p2" value="0" onchange="myfunc('${pageContext.request.contextPath}/Browser/img/a2.png')">卵</label>
-            <input type="hidden" name="check2" id="p2" value="1">
-        <label>
-            <img src="${pageContext.request.contextPath}/Browser/img/a3.png" name="are" height="40px" width="40px" id="a3">
-            <input type="checkbox" name="check" id="p3" value="0" onchange="myfunc('${pageContext.request.contextPath}/Browser/img/a3.png')">乳</label>
-            <input type="hidden" name="check3" id="p3" value="1">
-        <label>
-            <img src="${pageContext.request.contextPath}/Browser/img/a4.png" name="are" height="40px" width="40px" id="a4">
-            <input type="checkbox" name="check" id="p4" value="0" onchange="myfunc('${pageContext.request.contextPath}/Browser/img/a4.png')">落花生</label>
-            <input type="hidden" name="check4" id="p4" value="1">
-        <label>
-            <img src="${pageContext.request.contextPath}/Browser/img/a5.png" name="are" height="40px" width="40px" id="a5">
-            <input type="checkbox" name="check" id="p5" value="0" onchange="myfunc('${pageContext.request.contextPath}/Browser/img/a5.png')">そば</label>
-            <input type="hidden" name="check5" id="p5" value="1">
-        <label>
-            <img src="${pageContext.request.contextPath}/Browser/img/a6.png" name="are" height="40px" width="40px" id="a6">
-            <input type="checkbox" name="check" id="p6" value="0" onchange="myfunc('${pageContext.request.contextPath}/Browser/img/a6.png')">えび</label>
-            <input type="hidden" name="check6" id="p6" value="1">
-        <label>
-            <img src="${pageContext.request.contextPath}/Browser/img/a7.png" name="are" height="40px" width="40px" id="a7">
-            <input type="checkbox" name="check" id="p7" value="0" onchange="myfunc('${pageContext.request.contextPath}/Browser/img/a7.png')">かに</label>
-            <input type="hidden" name="check7" id="p7" value="1">
-        <input type="submit" id="ref" value="絞り込みページ" onclick="onButtonClick()">
-    </form>
+            <form action="refine" method="post" name="refine">
+                
+                <label>
+                    <img src="${pageContext.request.contextPath}/Browser/img/a1.png" name="are" height="40px" width="40px" id="a1">
+                    <input type="checkbox" name="check" id="p1" value="0" onchange="myfunc('${pageContext.request.contextPath}/Browser/img/a1.png')">小麦</label>
+                    <input type="hidden" name="check1" id="p1" value="1">
+                <label>
+                    <img src="${pageContext.request.contextPath}/Browser/img/a2.png" name="are" height="40px" width="40px" id="a2">
+                    <input type="checkbox" name="check" id="p2" value="0" onchange="myfunc('${pageContext.request.contextPath}/Browser/img/a2.png')">卵</label>
+                    <input type="hidden" name="check2" id="p2" value="1">
+                <label>
+                    <img src="${pageContext.request.contextPath}/Browser/img/a3.png" name="are" height="40px" width="40px" id="a3">
+                    <input type="checkbox" name="check" id="p3" value="0" onchange="myfunc('${pageContext.request.contextPath}/Browser/img/a3.png')">乳</label>
+                    <input type="hidden" name="check3" id="p3" value="1">
+                <label>
+                    <img src="${pageContext.request.contextPath}/Browser/img/a4.png" name="are" height="40px" width="40px" id="a4">
+                    <input type="checkbox" name="check" id="p4" value="0" onchange="myfunc('${pageContext.request.contextPath}/Browser/img/a4.png')">落花生</label>
+                    <input type="hidden" name="check4" id="p4" value="1">
+                <label>
+                    <img src="${pageContext.request.contextPath}/Browser/img/a5.png" name="are" height="40px" width="40px" id="a5">
+                    <input type="checkbox" name="check" id="p5" value="0" onchange="myfunc('${pageContext.request.contextPath}/Browser/img/a5.png')">そば</label>
+                    <input type="hidden" name="check5" id="p5" value="1">
+                <label>
+                    <img src="${pageContext.request.contextPath}/Browser/img/a6.png" name="are" height="40px" width="40px" id="a6">
+                    <input type="checkbox" name="check" id="p6" value="0" onchange="myfunc('${pageContext.request.contextPath}/Browser/img/a6.png')">えび</label>
+                    <input type="hidden" name="check6" id="p6" value="1">
+                <label>
+                    <img src="${pageContext.request.contextPath}/Browser/img/a7.png" name="are" height="40px" width="40px" id="a7">
+                    <input type="checkbox" name="check" id="p7" value="0" onchange="myfunc('${pageContext.request.contextPath}/Browser/img/a7.png')">かに</label>
+                    <input type="hidden" name="check7" id="p7" value="1">
+                <input type="submit" id="ref" value="絞り込みページ" onclick="onButtonClick()">
+            </form>
+
+            <form action="SortServlet" method="post">
+                <p>並び替え<br>
+                    <select size="1" name="sort">
+                        <option value="prHigh">値段高い</option>
+                        <option value="prLow">値段低い</option>
+                        <option value="caHigh">カロリー高い</option>
+                        <option value="caLow">カロリー低い</option>
+                    </select>
+                    <input type="submit" value="並び替え">
+                </p>
+            </form>
+
+        <h1 id="userid">${result}</h1>
+        <a href="look">カートを見る</a>
+        <!--<h1>${result}</h1>-->
+        <a id="login" href="infomation">ログイン</a>
+        <a id="logout" href="vmenu" style="display:none;">ログアウト</a>
+        <!--</div>-->
+        <div class="tabs">
+            <input id="all" type="radio" name="tab_item" checked>
+            <label class="tab_item" for="all">弁当</label>
+            <input id="programming" type="radio" name="tab_item">
+            <label class="tab_item" for="programming">単品</label>
+            <input id="design" type="radio" name="tab_item">
+            <label class="tab_item" for="design">飲み物</label>
+            <div class="tab_content" id="all_content">
+                
 
 
 
-<div>
-        <form action="cmenu" method="POST" name="custom">
-            <div id="">
-            <span id="one">主食</span><input type="text" id="syusyoku" name="syusyoku" value="" oninput="gazou()" ><br>
-            <input type="hidden" id="syusyoku2" name="syusyoku" >
-            <span id="two">主菜</span><input type="text" id="syusai" name="syusai" value="" oninput="gazou()"><br>
-            <input type="hidden" id="syusai2" name="syusai" >
-            <span id="three">副菜</span><input type="text" id="huku1" name="huku1" value="" oninput="gazou()"><br>
-            <input type="hidden" id="huku12" name="huku1" >
-            <span id="four">副菜</span><input type="text" id="huku2" name="huku2" oninput="gazou()"><br>
-            <input type="hidden" id="huku22" name="huku2" >
+            <div>
+                <table>
+                    <tr>
+                        <c:forEach var="prof" items="${product}" varStatus="st">
+                            <td>
+                                <form method="post" name="${prof.id}" action="DetailServlet">                                        <img src="${prof.image}" name="bento" height="70px" width="70px">                                        <input type="hidden" name="id" value="${prof.id}">
+                                    <a href="javascript:${prof.id}.submit()">${prof.name}</a>
+                                </form>
+                                <form action="mmenu" method="post" name="frml" >
+                                    <input type="number" name="${prof.id}" id="${prof.id}" value=0 size=6 MIN="O" MAX="99"><br>
+                                    <input type="button" value="＋" onClick="javascript:this.form.${prof.id}.value++;"> 
+                                    <input type="button" value="－" onClick="javascript:this.form.${prof.id}.value--;">
+                                    <input type="submit" value="カート" id="${st.count}" class="dialog" onclick="test('${prof.id}')">
+                                </form>
+                            </td>
+                        </c:forEach>
+                    </tr>
+                </table>
             </div>
-            <!-- このコードは使わない<input type="button" onclick="check();" value="カート"> -->
-             <input type="submit" id="cart" value="カート">
-             
-        </form>
-        <button id="reset" >reset</button>
-        <table>
-            <tr>
-                <c:forEach var="prof" items="${product}">
-                    <td>
-                        <form method="post" name="${prof.id}1" action="detail">
-                            <img src="${prof.image}" name="bento" height="70px" width="70px">
-                            <input type="hidden" name="id" value="${prof.id}">
-                            <a href="javascript:${prof.id}1.submit()">${prof.name}</a>
-                        </form>
-                    </td>
-                </c:forEach>
-            </tr>
-        </table>
-            
-</div> 
+        </div>
 
 
-<div>
-    <table>
-        <tr>
-            <c:forEach var="prof" items="${product}" varStatus="st">
-                <td>
-                    <form method="post" name="${prof.id}" action="detail">
-                        <img src="${prof.image}" name="bento" height="70px" width="70px">
-                        <input type="hidden" name="id" value="${prof.id}">
-                        <a href="javascript:${prof.id}1.submit()">${prof.name}</a>
-                    </form>
-                    <form action="mmenu" method="post" name="frml" >
-                        <input type="number" name="${prof.id}" id="${prof.id}" value=0 size=6 MIN="O" MAX="99"><br>
-                        <input type="button" value="＋" onClick="javascript:this.form.${prof.id}.value++;"> 
-                        <input type="button" value="－" onClick="javascript:this.form.${prof.id}.value--;">
-                        <input type="submit" value="カート" id="${st.count}" class="dialog" onclick="test('${prof.id}')">
-                    </form>
-                </td>
-            </c:forEach>
-        </tr>
-    </table>
-</div>
-<h1 id="userid">${result}</h1>
-<a href="look">カートを見る</a>
-<!--<h1>${result}</h1>-->
-<a id="login" href="infomation">ログイン</a>
-<a id="logout" href="vmenu" style="display:none;">ログアウト</a>
-<!--</div>-->
+    </div>
+     <div class="tab_content" id="programming_content">
+        プログラミングの内容がここに入ります
+    </div>
+    <div class="tab_content" id="design_content">
+        デザインの内容がここに入ります
+    </div>
 
 <!--ダイアログの内容-->
 <div id="mydialog2" title="個数を入力して下さい">
