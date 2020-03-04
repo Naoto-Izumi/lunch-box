@@ -40,7 +40,7 @@
             <ul>
               <li class=”current”><a href="top">メニュー</a></li>
               <li><a href="store">店舗検索</a></li>
-              <li><a href="look">カート</a></li>
+              <li><a href="custom">カート</a></li>
               <li><a href="page">マイページ</a></li>
  
             </ul>
@@ -79,7 +79,7 @@
 
     <aside class="box menu">
     <ul class="menu-list">
-        <li><a href="top" class="fas fa-book-open">　メニュー</a></li>
+        <li><a href="TopServlet" class="fas fa-book-open">　メニュー</a></li>
         <li><a href="store" class="fas fa-home">　店舗</a></li>
         <li><a href="norder" class="fas fa-mobile-alt">　ネット注文</a></li>
     <ul class="gnav">

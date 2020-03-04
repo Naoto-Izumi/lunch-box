@@ -17,7 +17,7 @@ import Menu.Beans.Product;
 public class OrderInDao implements ProductsDao{
     public Product getProduct(String pid){return null;}
     public List getAllProducts(){return null;}
-    public void addProduct(Product p,String okey){
+    public void addProduct(Product p){
         Connection cn=null;
         PreparedStatement st=null;
         ResultSet rs=null;
@@ -35,6 +35,7 @@ public class OrderInDao implements ProductsDao{
             SimpleDateFormat sdf = new SimpleDateFormat("yy-MM-dd");
             System.out.println(sdf.format(cl.getTime()));
             String da=sdf.format(cl.getTime());
+        	String okey = p.getUser_id();
             System.out.println(da+" "+p.getTime());
             String a1="insert into orderTable(or_id,or_user_id,or_type,OR_ADDRESS_ID,OR_DATE) values(sq_or_id.NEXTVAL,"+okey+",?,1,TO_DATE('";
              String a2=da+" "+p.getTime();

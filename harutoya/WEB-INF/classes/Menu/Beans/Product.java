@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class Product implements Serializable{
     //Userの注文情報
+	private String user_id = null;
     private String name = null;
     private String tel = null;
     private String mail = null;
@@ -60,12 +61,17 @@ public class Product implements Serializable{
     private String huku1Id = null;
     private String huku2Id = null;
 
-    //合計金額 custommenuservet pricedao
+    //合計金額と注文個数 custommenuservet pricedao
     private String total = null;
+    private String count = null;
 
     //店舗受け取り用＋time
     private String store = null;
     private String date = null;
+
+    //並び替え用　sort
+    private String sortVal = null;
+    private String sortKind = null;
 
 
     
@@ -73,6 +79,12 @@ public class Product implements Serializable{
 
 
     //元UserBean 
+	public void setUser_id(String user_id){
+        this.user_id = user_id;
+    }
+	public String getUser_id(){
+        return user_id;
+    }
     public void setName(String name){
         this.name = name;
     }
@@ -349,12 +361,18 @@ public class Product implements Serializable{
         return huku2Id;
     }
 
-    //合計金額
+    //合計金額と注文個数
     public void setTotal(String total){
         this.total = total;
     }
+    public void setCount(String count){
+        this.count = count;
+    }
     public String getTotal(){
         return total;
+    }
+    public String getCount(){
+        return count;
     }
 
     //合計金額
@@ -370,6 +388,22 @@ public class Product implements Serializable{
     public String getDate(){
         return date;
     }
+
+    //合計金額
+    public void setSortVal(String sortVal){
+        this.sortVal = sortVal;
+    }
+    public void setSortKind(String sortKind){
+        this.sortKind = sortKind;
+    }
+    public String getSortVal(){
+        return sortVal;
+    }
+    public String getSortKind(){
+        return sortKind;
+    }
+    
+    
     
 
     
