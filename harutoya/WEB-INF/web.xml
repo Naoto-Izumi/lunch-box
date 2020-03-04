@@ -1,42 +1,4 @@
 <web-app>
-	<filter>
-		<filter-name>logincheckfilter</filter-name>
-		<filter-class>User.LoginCheckFilter</filter-class>
-	</filter>
-	<filter-mapping>
-		<filter-name>logincheckfilter</filter-name>
-		<url-pattern>/productinput</url-pattern>
-		<dispatcher>REQUEST</dispatcher>
-	</filter-mapping>
-	<filter-mapping>
-		<filter-name>logincheckfilter</filter-name>
-		<url-pattern>/productorder</url-pattern>
-		<dispatcher>REQUEST</dispatcher>
-	</filter-mapping>
-	<filter-mapping>
-		<filter-name>logincheckfilter</filter-name>
-		<url-pattern>/uqc</url-pattern>
-		<dispatcher>REQUEST</dispatcher>
-	</filter-mapping>
-	<filter>
-		<filter-name>authenticatefilter</filter-name>
-		<filter-class>User.AuthenticateFilter</filter-class>
-	</filter>
-	<filter-mapping>
-		<filter-name>authenticatefilter</filter-name>
-		<url-pattern>/productinput</url-pattern>
-		<dispatcher>REQUEST</dispatcher>
-	</filter-mapping>
-	<filter-mapping>
-		<filter-name>authenticatefilter</filter-name>
-		<url-pattern>/orderlogin</url-pattern>
-		<dispatcher>REQUEST</dispatcher>
-	</filter-mapping>
-	<filter-mapping>
-		<filter-name>authenticatefilter</filter-name>
-		<url-pattern>/uqc</url-pattern>
-		<dispatcher>REQUEST</dispatcher>
-	</filter-mapping>
 	
 	
 	<filter>
@@ -221,15 +183,6 @@
 	
 	
 	<servlet>
-		<servlet-name>orderlogin</servlet-name>
-		<jsp-file>/WEB-INF/jsp/user/orderlogin.jsp</jsp-file>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>orderlogin</servlet-name>
-		<url-pattern>/orderlogin</url-pattern>
-	</servlet-mapping>
-	
-	<servlet>
 		<servlet-name>kanrisya</servlet-name>
 		<jsp-file>/WEB-INF/jsp/kanrisya/kanrisyaorderlogin.jsp</jsp-file>
 	</servlet>
@@ -245,6 +198,146 @@
 	<servlet-mapping>
 		<servlet-name>mmenu</servlet-name>
 		<url-pattern>/menulogin</url-pattern>
+	</servlet-mapping>
+
+	<error-page>
+        <exception-type>exception.ReturnHomeException</exception-type>
+        <location>/TopCusServlet</location>
+    </error-page>
+	
+	<servlet>
+		<servlet-name>TopServlet</servlet-name>
+		<servlet-class>Menu.TopServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TopServlet</servlet-name>
+		<url-pattern>/TopServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>CompleteServlet</servlet-name>
+		<servlet-class>Menu.CompleteServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CompleteServlet</servlet-name>
+		<url-pattern>/CompleteServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>CustomMenuServlet</servlet-name>
+		<servlet-class>Menu.CustomMenuServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CustomMenuServlet</servlet-name>
+		<url-pattern>/CustomMenuServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>DetailServlet</servlet-name>
+		<servlet-class>Menu.DetailServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DetailServlet</servlet-name>
+		<url-pattern>/DetailServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>MenuServlet</servlet-name>
+		<servlet-class>Menu.MenuServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MenuServlet</servlet-name>
+		<url-pattern>/MenuServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>RefineCusServlet</servlet-name>
+		<servlet-class>Menu.RefineCusServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RefineCusServlet</servlet-name>
+		<url-pattern>/RefineCusServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>RefineServlet</servlet-name>
+		<servlet-class>Menu.RefineServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RefineServlet</servlet-name>
+		<url-pattern>/RefineServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>RemoveServlet</servlet-name>
+		<servlet-class>Menu.RemoveServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RemoveServlet</servlet-name>
+		<url-pattern>/RemoveServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>SearchServlet</servlet-name>
+		<servlet-class>Menu.SearchServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SearchServlet</servlet-name>
+		<url-pattern>/SearchServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>SortServlet</servlet-name>
+		<servlet-class>Menu.SortServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SortServlet</servlet-name>
+		<url-pattern>/SortServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>SPUNextServlet</servlet-name>
+		<servlet-class>Menu.SPUNextServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SPUNextServlet</servlet-name>
+		<url-pattern>/SPUNextServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>StorePickUpServlet</servlet-name>
+		<servlet-class>Menu.StorePickUpServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>StorePickUpServlet</servlet-name>
+		<url-pattern>/StorePickUpServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>StoreServlet</servlet-name>
+		<servlet-class>Menu.StoreServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>StoreServlet</servlet-name>
+		<url-pattern>/StoreServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>TopCusServlet</servlet-name>
+		<servlet-class>Menu.TopCusServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TopCusServlet</servlet-name>
+		<url-pattern>/TopCusServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>UserInformationServlet</servlet-name>
+		<servlet-class>Menu.UserInformationServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UserInformationServlet</servlet-name>
+		<url-pattern>/UserInformationServlet</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>

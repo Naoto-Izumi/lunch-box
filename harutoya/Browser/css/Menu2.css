@@ -1,4 +1,9 @@
 @charset "utf-8";
+*{
+  margin: 0;
+  padding: 0;
+}
+
 .tabs {
     margin-top: 50px;
     padding-bottom: 40px;
@@ -169,4 +174,5 @@
   }
   .allergy{
       padding:100px 0 0 0;
+      margin: 0;
   }

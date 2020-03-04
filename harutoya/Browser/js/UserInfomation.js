@@ -5,9 +5,11 @@ function check(e){
     }
 }
 function showCash(){
+    $(".cardinfo").removeAttr('required');
     document.getElementById("card").className = "passive";
 }
 function showCard(){
+    $(".cardinfo").attr('required','');
     document.getElementById("card").className = "active";
     
 }
@@ -23,7 +25,10 @@ $(document).on("click", "#awawa", function(){
     if(a==1){
         if (info.cardname.value == ""||info.cardnumber.value == ""||info.carddate.value == ""){
             //条件に一致する場合(メールアドレスが空の場合)
-            alert("カード情報を入力してください");    //エラーメッセージを出力
+            // ダイアログの呼び出し処理
+            $("#mydialog2").dialog("open");
+            //documentからイベントを削除
+            $(document).off("click",".dialog");
             return false;    //送信ボタン本来の動作をキャンセルします
         }else{
             //条件に一致しない場合(メールアドレスが入力されている場合)
@@ -34,14 +39,59 @@ $(document).on("click", "#awawa", function(){
     }
 });
 
-$(document).ready(function(){
-    // alert(document.getElementById("userid").innerText);
-    //Console.log(document.getElementById("userid"));
-    if(document.getElementById("userid").innerText!=""){
-        document.getElementById("login").style.display='none';
-        document.getElementById("logout").style.display='block';
-        //Console.log("friuhavkh");
+
+    
+$(function(){
+// ダイアログの初期設定
+    $("#mydialog2").dialog({
+        autoOpen: false,  // 自動的に開かないように設定
+        width: 500,       // 横幅のサイズを設定
+        modal: true,      // モーダルダイアログにする
+        buttons: [        // ボタン名 : 処理 を設定
+        {
+            text: '閉じる',
+            click: function(){
+                console.log("jquery");
+                $(this).dialog("close");
+            }
+        }
+        ]
+    });
+});
+
+function test(count){
+$(document).on("click", ".dialog", function(){
+    var product = document.getElementById(count).value;
+    if(product <= 0){
+        // ダイアログの呼び出し処理
+        $("#mydialog2").dialog("open");
+        //documentからイベントを削除
+        $(document).off("click",".dialog");
+        //データの送信をリセット
+        return false;
     }
 });
+}
+
+
+
+$(function() {
+// For the gray theme
+    var grayThemeCreditly = Creditly.initialize(
+        '.creditly-wrapper.gray-theme .expiration-month-and-year',
+        '.creditly-wrapper.gray-theme .credit-card-number',
+        '.creditly-wrapper.gray-theme .security-code',
+        '.creditly-wrapper.gray-theme .card-type');
+
+        $(".creditly-gray-theme-submit").click(function(e) {
+        e.preventDefault();
+        var output = grayThemeCreditly.validate();
+        if (output) {
+            // Your validated credit card output
+            console.log(output);
+        }
+    });
+});
+
 
 
