@@ -11,178 +11,8 @@ import="Bean.CustomCartBean"%>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 
-    <script src="js/lightbox.js"></script>  
-    <script>
-
-
-        $(function(){
-            $("li[name='0']").attr('class', 'inactive');
-        });
-
-        function amount(){
-            document.frml.count.value++;
-        }
-
-        $(function(){
-            // ダイアログの初期設定
-            $("#mydialog2").dialog({
-                autoOpen: false,  // 自動的に開かないように設定
-                width: 500,       // 横幅のサイズを設定
-                modal: true,      // モーダルダイアログにする
-                buttons: [        // ボタン名 : 処理 を設定
-                {
-                    text: '閉じる',
-                    click: function(){
-                        console.log("jquery");
-                        $(this).dialog("close");
-                    }
-                }
-                ]
-            });
-        });
-        
-        function test(id, count){
-            $(document).on("click", ".dialog", function(){
-                //countが今カートに入ってる個数 2　productが上書きしたい個数 18
-                var product = document.getElementById(id).value;
-                console.log("product:"+product+" id:"+id);
-                if(product <= 0){
-                    // ダイアログの呼び出し処理
-                    $("#mydialog2").dialog("open");
-                    //documentからイベントを削除
-                    $(document).off("click",".dialog");
-                    //データの送信をリセット
-                    return false;
-                }else{
-                    var i = product - count;
-                    console.log("product- count"+i);
-                    $('#'+id).attr('value', i);
-                    //documentからイベントを削除
-                    $(document).off("click",".dialog");
-                }
-                
-            });
-        }
-
-    </script>
-    <style>
-        body{
-            padding: 0;
-            margin: 0;
-        }
-
-        
-.grovalNavigation{
-    z-index: 9999;
-    width: 100%;
-    height: 100px;
-    text-align: center;
-    background-color: #d1d1d1;
-    color: #000000;
-    position: fixed;
-}
-#navi {
-  list-style: none;
-  overflow: hidden;
-}
- 
-#navi li {
-  background-color:;
-  width: 10%;
-  text-align: center;
-  float: left;
-  height: 80px;
-  line-height: 70px;
-  margin-right: 2px;
-  display: inline-block;
-}
- 
-#navi li a {
-  text-decoration: none;
-  color: #fff;
-  font-weight: bold;
-  padding: 20px;
-}
-#navi li img{
-    width: 50px;
-    height:50px;
-}
-#navi li span{
-    position:relative;
-    right: 60px;
-    top: 20px;
-    font-size: 13px;
-    text-align: center;
-}
-.logo{
-    float:left;
-    margin-top:5px;
-}
-.kensaku{
-    float:right;
-    position: relative;
-    right: 20px;
-    bottom: 50px;
-
-}
-
-.headinfo{
-    float:right;
-    position:absolute;
-    right: 80px;
-    bottom:26px;
-}
-
-
-
-
-        .active{
-            display:block;
-        }
-        .inactive{
-            display:none;
-        }
-        .nocart{
-            margin: -200px 0 0 -300px;  /*縦横半分をネガティブマージンでずらす*/
-            position: absolute;     /*body要素に対して絶対配置*/
-            top: 50%;       /*上端を中央に*/
-            left: 50%;      /*左端を中央に*/
-            width: 600px;   /*横幅*/
-            height: 400px;  /*縦幅*/
-            background-color:#fff;
-
-        }
-        .nocart p{
-            margin-top:10%;
-            margin-left: 10%;
-            position: absolute;
-            font-size: 30px;
-            color:#353834;
-            
-        }
-        .nocart a{
-            margin-top:30%;
-            margin-left: 20%;
-            position: absolute;
-            
-        }
-        .btn-flat-border {
-        display: inline-block;
-        padding: 0.3em 1em;
-        text-decoration: none;
-        color: #67c5ff;
-        border: solid 2px #67c5ff;
-        border-radius: 3px;
-        transition: .4s;
-        width:250px;
-            height:50px;
-        }
-
-        .btn-flat-border:hover {
-        background: #67c5ff;
-        color: white;
-        }
-    </style>
+    <script src="${pageContext.request.contextPath}/Browser/js/lightbox.js"></script>  
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/Browser/css">
 
 
 </head>
@@ -191,7 +21,7 @@ import="Bean.CustomCartBean"%>
 
     <header class="grovalNavigation">
         <div class="logo" title="春戸弁当">
-            <a href="top.jsp" class="fade_btn"><img src="${pageContext.request.contextPath}/Browser/img/harutoya.png" title="" height="90px" width="375px"></a>
+            <a href="TopServlet" class="fade_btn"><img src="${pageContext.request.contextPath}/Browser/img/harutoya.png" title="" height="90px" width="375px"></a>
         </div>
     
         <ul id="navi" class="icon_nav">
@@ -216,14 +46,14 @@ import="Bean.CustomCartBean"%>
             </li>
     
             <li>
-                <a href="NetOrder.jsp" class="fade_btn">
+                <a href="norder" class="fade_btn">
                     <img src="${pageContext.request.contextPath}/Browser/img/nav_04.png" alt="お知らせ" title="">
                     <span>ネット注文</span>
                 </a>
             </li>
             
             <li>
-                <a href="order.jsp" class="fade_btn">
+                <a href="TopCusServlet" class="fade_btn">
                     <img src="${pageContext.request.contextPath}/Browser/img/nav_08.png" alt="カート" title="">
                         <span>カート</span>
                 </a>
@@ -238,10 +68,10 @@ import="Bean.CustomCartBean"%>
         <div>
             <ul class="headinfo">
                 <li>
-                     <a href="" >新規会員登録</a>
+                     <a href="ruser" >新規会員登録</a>
                 </li>
                 <li>
-                    <a href="" >ログイン</a>
+                    <a href="infomation" >ログイン</a>
                 </li>
             </ul>
         </div>
@@ -295,34 +125,34 @@ import="Bean.CustomCartBean"%>
             <td>${prof.pro_shrimp}</td>
             <td>${prof.pro_crab}</td> -->
             <c:if test="${prof.pro_wheat} != 0}">
-                <td><img src="image/a1.png" name="are" height="25px" width="25px" ></td>
+                <td><img src="${pageContext.request.contextPath}/Browser/img/a1.png" name="are" height="25px" width="25px" ></td>
             </c:if>
             <c:if test="${element.ab.pro_wheat != 0}">
-                    <td><img src="image/a1.png" name="are" height="25px" width="25px" ></td>
+                    <td><img src="${pageContext.request.contextPath}/Browser/img/a1.png" name="are" height="25px" width="25px" ></td>
                 </c:if>
             
             <c:if test="${prof.pro_egg} == 1}">
-                <td><img src="image/a2.png" name="are" height="25px" width="25px" ></td>
+                <td><img src="${pageContext.request.contextPath}/Browser/img/a2.png" name="are" height="25px" width="25px" ></td>
             </c:if>
             
             <c:if test="${prof.pro_milk} == 1}">
-                <td><img src="image/a3.png" name="are" height="25px" width="25px" ></td>
+                <td><img src="${pageContext.request.contextPath}/Browser/img/a3.png" name="are" height="25px" width="25px" ></td>
             </c:if>
             
             <c:if test="${prof.pro_peanuts} == 1}">
-                <td><img src="image/a4.png" name="are" height="25px" width="25px" ></td>
+                <td><img src="${pageContext.request.contextPath}/Browser/img/a4.png" name="are" height="25px" width="25px" ></td>
             </c:if>
             
             <c:if test="${prof.pro_buckwheat} == 1}">
-                <td><img src="image/a5.png" name="are" height="25px" width="25px" ></td>
+                <td><img src="${pageContext.request.contextPath}/Browser/img/a5.png" name="are" height="25px" width="25px" ></td>
             </c:if>
             
             <c:if test="${prof.pro_shrimp} == 1}">
-                <td><img src="image/a6.png" name="are" height="25px" width="25px" ></td>
+                <td><img src="${pageContext.request.contextPath}/Browser/img/a6.png" name="are" height="25px" width="25px" ></td>
             </c:if>
             
             <c:if test="${prof.pro_crab} == 1}">
-                <td><img src="image/a7.png" name="are" height="25px" width="25px" ></td>
+                <td><img src="${pageContext.request.contextPath}/Browser/img/a7.png" name="are" height="25px" width="25px" ></td>
             </c:if>
                 
             <td>${sessionScope.list[data]}個</td>
@@ -419,31 +249,31 @@ import="Bean.CustomCartBean"%>
                 <td>${element.nb.pro_vitamin}</td>
                 <td>${element.nb.pro_inorganic}</td>
                 <c:if test="${element.ab.pro_wheat != 0}">
-                    <td><img src="image/a1.png" name="are" height="25px" width="25px" id="a1"></td>
+                    <td><img src="${pageContext.request.contextPath}/Browser/img/a1.png" name="are" height="25px" width="25px" id="a1"></td>
                 </c:if>
                 <!-- <td>${element.ab.pro_wheat}</td> -->
                 <c:if test="${element.ab.pro_egg == 1}">
-                    <td><img src="image/a2.png" name="are" height="25px" width="25px" id="a2"></td>
+                    <td><img src="${pageContext.request.contextPath}/Browser/img/a2.png" name="are" height="25px" width="25px" id="a2"></td>
                 </c:if>
                 <!-- <td>${element.ab.pro_egg}</td> -->
                 <c:if test="${element.ab.pro_milk == 1}">
-                    <td><img src="image/a3.png" name="are" height="25px" width="25px" id="a3"></td>
+                    <td><img src="${pageContext.request.contextPath}/Browser/img/a3.png" name="are" height="25px" width="25px" id="a3"></td>
                 </c:if>
                 <!-- <td>${element.ab.pro_milk}</td> -->
                 <c:if test="${element.ab.pro_peanuts == 1}">
-                    <td><img src="image/a4.png" name="are" height="25px" width="25px" id="a4"></td>
+                    <td><img src="${pageContext.request.contextPath}/Browser/img/a4.png" name="are" height="25px" width="25px" id="a4"></td>
                 </c:if>
                 <!-- <td>${element.ab.pro_peanuts}</td> -->
                 <c:if test="${element.ab.pro_buckwheat == 1}">
-                    <td><img src="image/a5.png" name="are" height="25px" width="25px" id="a5"></td>
+                    <td><img src="${pageContext.request.contextPath}/Browser/img/a5.png" name="are" height="25px" width="25px" id="a5"></td>
                 </c:if>
                 <!-- <td>${element.ab.pro_buckwheat}</td> -->
                 <c:if test="${element.ab.pro_shrimp == 1}">
-                    <td><img src="image/a6.png" name="are" height="25px" width="25px" id="a6"></td>
+                    <td><img src="${pageContext.request.contextPath}/Browser/img/a6.png" name="are" height="25px" width="25px" id="a6"></td>
                 </c:if>
                 <!-- <td>${element.ab.pro_shrimp}</td> -->
                 <c:if test="${element.ab.pro_crab == 1}">
-                    <td><img src="image/a7.png" name="are" height="25px" width="25px" id="a7"></td>
+                    <td><img src="${pageContext.request.contextPath}/Browser/img/a7.png" name="are" height="25px" width="25px" id="a7"></td>
                 </c:if>
                 <!-- <td>${element.ab.pro_crab}</td> -->
                 </tr>
@@ -475,7 +305,7 @@ import="Bean.CustomCartBean"%>
     %>
     <p>合計：${sessionScope.totalPrice + sessionScope.ccb.custom_total_money}円</p>
     <a href="TopServlet">もう一度頼む</a>
-    <a href="userinformation.jsp">個人情報入力</a>
+    <a href="infomation">個人情報入力</a>
     <td><form action="RemoveServlet" method="post" name="remove">
         <input type="hidden" value="2" name="judge">
         <input type="submit" value="カートの中身をすべて削除" id="">

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/Browser/css/bulma.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/Browser/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link rel ="stylesheet" href="${pageContext.request.contextPath}/Browser/css/Menu2.css">
   </head>
 
 
@@ -38,8 +39,8 @@
           <img src="${pageContext.request.contextPath}/Browser/img/logo3.jpg"> </a>
            <nav>
             <ul>
-              <li class=”current”><a href="top">メニュー</a></li>
-              <li><a href="store">店舗検索</a></li>
+              <li class=”current”><a href="TopServlet">メニュー</a></li>
+              <li><a href="StoreServlet">店舗検索</a></li>
               <li><a href="custom">カート</a></li>
               <li><a href="page">マイページ</a></li>
  
@@ -80,7 +81,7 @@
     <aside class="box menu">
     <ul class="menu-list">
         <li><a href="TopServlet" class="fas fa-book-open">　メニュー</a></li>
-        <li><a href="store" class="fas fa-home">　店舗</a></li>
+        <li><a href="StoreServlet" class="fas fa-home">　店舗</a></li>
         <li><a href="norder" class="fas fa-mobile-alt">　ネット注文</a></li>
     <ul class="gnav">
     <li>

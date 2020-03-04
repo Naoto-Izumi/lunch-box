@@ -11,14 +11,14 @@
 	
 		<ul id="navi" class="icon_nav">
 			<li>
-				<a href="top" class="fade_btn">
+				<a href="TopServlet" class="fade_btn">
 					<img src="${pageContext.request.contextPath}/Browser/img/nav_01.png" alt="メニュー" title="">
 					<span>メニュー</span>
 				</a>
 			</li>
 	
 			<li>
-				<a href="store" target="_blank" class="fade_btn">
+				<a href="StoreServlet" target="_blank" class="fade_btn">
 					<img src="${pageContext.request.contextPath}/Browser/img/nav_02.png" alt="店舗検索" title="">
 					<span>店舗検索</span>
 				</a>
@@ -37,7 +37,7 @@
 				</a>
 			</li>
 			<li>
-				<a href="custom" class="fade_btn">
+				<a href="TopCusServlet" class="fade_btn">
 					<img src="${pageContext.request.contextPath}/Browser/img/nav_05.png" alt="カート" title="">
 						<span>カート</span>
 				</a>
@@ -52,7 +52,7 @@
 		<div>
 			<ul class="headinfo">
 				<li>
-					 <a href="" >新規会員登録</a>
+					 <a href="ruser" >新規会員登録</a>
 				</li>
 				<li>
 					<a href="infomation" >ログイン</a>

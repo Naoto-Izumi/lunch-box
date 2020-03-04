@@ -4,68 +4,74 @@
 <head>
     <title>メニュー</title>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script src="js/lightbox.js"></script>  
+    <script src="${pageContext.request.contextPath}/Browser/js/lightbox.js"></script>  
     <!-- jQuery UI -->
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-    <script>
-
-
-        $(function(){
-            $("li[name='0']").attr('class', 'inactive');
-        });
-
-
-        $(function(){
-    // ダイアログの初期設定
-        $("#mydialog2").dialog({
-            autoOpen: false,  // 自動的に開かないように設定
-            width: 500,       // 横幅のサイズを設定
-            modal: true,      // モーダルダイアログにする
-            buttons: [        // ボタン名 : 処理 を設定
-            {
-                text: '閉じる',
-                click: function(){
-                    console.log("jquery");
-                    $(this).dialog("close");
-                }
-            }
-            ]
-        });
-    });
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/Browser/css/Menu.css">
     
-    function test(count){
-        $(document).on("click", ".dialog", function(){
-            console.log(count);
-            var product = document.getElementById(count).value;
-            if(product <= 0){
-                // ダイアログの呼び出し処理
-                $("#mydialog2").dialog("open");
-                //documentからイベントを削除
-                $(document).off("click",".dialog");
-                //データの送信をリセット
-                return false;
-            }
-        });
-        
-    }
 
-
-   
- 
-
-    
-    </script>
-    <style>
-        .active{
-            display:block;
-        }
-        .inactive{
-            display:none;
-        }
-    </style>
 </head>
     <body>
+        <header class="grovalNavigation">
+            <div class="logo" title="春戸弁当">
+                <a href="TopServlet" class="fade_btn"><img src="${pageContext.request.contextPath}/Browser/img/harutoya.png" title="" height="90px" width="375px"></a>
+            </div>
+        
+            <ul id="navi" class="icon_nav">
+                <li>
+                    <a href="TopServlet" class="fade_btn">
+                        <img src="${pageContext.request.contextPath}/Browser/img/nav_01.png" alt="メニュー" title="">
+                        <span>メニュー</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="TopCusServlet" class="fade_btn">
+                        <img src="${pageContext.request.contextPath}/Browser/img/nav_06.png" alt="カスタムメニュー" title="">
+                            <span>カスタムメニュー</span>
+                    </a>
+                </li>
+        
+                <li>
+                    <a href="StoreServlet" target="_blank" class="fade_btn">
+                        <img src="${pageContext.request.contextPath}/Browser/img/nav_02.png" alt="店舗検索" title="">
+                        <span>店舗検索</span>
+                    </a>
+                </li>
+        
+                <li>
+                    <a href="norder" class="fade_btn">
+                        <img src="${pageContext.request.contextPath}/Browser/img/nav_04.png" alt="お知らせ" title="">
+                        <span>ネット注文</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="TopCusServlet" class="fade_btn">
+                        <img src="${pageContext.request.contextPath}/Browser/img/nav_08.png" alt="カート" title="">
+                            <span>カート</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="kensaku">
+                <form action="SearchServlet" method="post" name="search">
+                    <input type="text" name="sname" id="s1" placeholder="商品検索">
+                    <input type="submit" id="sea" value="検索" >
+                </form>
+            </div>
+            <div>
+                <ul class="headinfo">
+                    <li>
+                         <a href="ruser" >新規会員登録</a>
+                    </li>
+                    <li>
+                        <a href="infomation" >ログイン</a>
+                    </li>
+                </ul>
+            </div>
+        
+        
+         </header>
         <div>
 
                     <c:forEach var="prof" items="${product}">    

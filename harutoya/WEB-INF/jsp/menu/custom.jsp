@@ -7,468 +7,20 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
         <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 
-        <script src="js/lightbox.js"></script>  
+        <script src="${pageContext.request.contextPath}/Browser/js/lightbox.js"></script>
+        <script src="${pageContext.request.contextPath}/Browser/js/Custom.js"></script>
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/Browser/css/Custom.css">  
 
 <title>カスタムメニュー</title>
-<script>
-    // function check(){
-    //     if(document.custom.syusyoku.value==""){
-    //         alert("");
-    //     }else if(document.custom.syusai.value==""){
-    //         alert("");
-    //     }else if(document.custom.huku1.value==""){
-    //         alert("");
-    //     }else if(document.custom.huku2.value==""){
-    //         alert("");
-    //     }else{
-    //         document.custom.submit();
-    //     }
-    // }
-    
-    //個数増減
-    function amount(){
-        document.frml.count.value++;
-    }
-
-    //アレルギー絞り込み
-    function onButtonClick() {
-        pro1 = document.refine.p1;
-        pro2 = document.refine.p2;
-        pro3 = document.refine.p3;
-        pro4 = document.refine.p4;
-        pro5 = document.refine.p5;
-        pro6 = document.refine.p6;
-        pro7 = document.refine.p7;
-        judgment(pro1);
-        judgment(pro2);
-        judgment(pro3);
-        judgment(pro4);
-        judgment(pro5);
-        judgment(pro6);
-        judgment(pro7);
-    }
-    function judgment(pro){
-        var proId=getId(pro);
-        if (pro.checked == true) {
-            $("#"+proId).val("0");
-        } else {
-            $("#"+proId).val("1");
-        }
-    }
-    function getId(ele){
-        var id_value = ele.id; // eleのプロパティとしてidを取得
-        console.log(id_value); //
-        return id_value;
-    }
-
-    //画像挿入
-    function gazou(){
-        var element;
-        $(document).on('input',"input[type='text']", function(event){
-            console.log("あああああああああああああ");
-            console.log($(this).val());
-            var value = $(this).val().substr(28);
-            if(value.match(/jpg/)){
-                var id = "#"+$(this).attr("id");
-                var prev = "#"+$(this).prev().attr("id");
-                $(prev).after('<input type="image" id="'+($(this).attr("id")+"1")+'" src="'+value+'" value="'+value+'" height=10% width=10% disabled>');     
-                // id=id.slice(0,-1);
-                $(id+"2").val(value);
-                console.log(id);
-                console.log(prev);                 
-                $(id).remove();
-
-            }
-        });
-    }
 
 
 
-     //customの画像削除のjs
-    $(function() {
-        $("#reset").on({
-            'click': function() {
-                var list = new Array("syusyoku","syusai","huku1","huku2");
-                for(var i=0;i<4;i++){
-
-                
-                    $('#'+list[i]+'1').get(0).type = 'text';
-                    
-                    var syusyoku = $('input[id='+list[i]+'1]');
-                    syusyoku.removeAttr("src");
-                    syusyoku.removeAttr("value");
-                    syusyoku.removeAttr("height");
-                    syusyoku.removeAttr("width");
-                    syusyoku.removeAttr("disabled");
-                    syusyoku.attr('name',list[i]);
-                    syusyoku.attr('value','');
-                    syusyoku.attr('onchange','gazou()');
-                    syusyoku.attr('id',list[i]);
-                    var a = $("input[type='hidden']");
-                    a.removeAttr("value");
-                }
-            
-            }
-        });
-    });
-
-
-    //アレルギーの画像切り替え
-    function myfunc(value) {
-        var obj=value;
-        console.log(obj);
-        var imgId=obj.substr( 7, 1 );
-        console.log(imgId);
-        var onImg='image/a'+imgId+'on.png';
-        console.log(onImg);
-        var offImg='image/a'+imgId+'.png';
-        console.log(offImg);
-        var abc=document.refine.check[imgId-1];
-        console.log(abc);
-        // var def='document.getElementById("p'+imgId+'")';
-        // console.log(def);
-        console.log(abc.checked);
-        if(abc.checked){
-            $('#a'+imgId).attr('src', onImg);
-            console.log('on');
-        }else{
-            $('#a'+imgId).attr('src', offImg);
-            console.log('off');
-        }
-
-    
-    }
-
-
-    // $(window).on('beforeunload', function(event) {
-    //     console.log('beforeunload');
-    //     return 'jquery beforeunload';
-    // });
-
-
-    // function test()
-    // {
-    //     if (frml.no1.value == 0 )
-    //     {
-    //         alert("なにか入れてください");
-    //         return false;
-    //     }
-    //     else
-    //     {
-    //         return true;
-    //     }
-    // }
-
-    $(function(){
-    // ダイアログの初期設定
-        $("#mydialog2").dialog({
-            autoOpen: false,  // 自動的に開かないように設定
-            width: 500,       // 横幅のサイズを設定
-            modal: true,      // モーダルダイアログにする
-            buttons: [        // ボタン名 : 処理 を設定
-            {
-                text: '閉じる',
-                click: function(){
-                    console.log("jquery");
-                    $(this).dialog("close");
-                }
-            }
-            //,
-            // {
-            //     text: 'ボタン2',
-            //     click: function(){
-            //     alert("ボタン2をクリックしました");
-            //     }
-            // },
-            // {
-            //     text: 'ボタン3',
-            //     click: function(){
-            //     // ダイアログを閉じる
-            //     $(this).dialog("close");
-            //     }
-            // }
-            ]
-        });
-    });
-    
-    function test(count){
-        $(document).on("click", ".dialog", function(){
-            var product = document.getElementById(count).value;
-            if(product <= 0){
-                // ダイアログの呼び出し処理
-                $("#mydialog2").dialog("open");
-                //documentからイベントを削除
-                $(document).off("click",".dialog");
-                //データの送信をリセット
-                return false;
-            }
-        });
-        
-    }
-
-
-
-
-
-
-
-
-
-</script>
-<style>
-    /*タブ切り替え全体のスタイル*/
-.tabs {
-  margin-top: 50px;
-  padding-bottom: 40px;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  width: 80%;
-  margin: 0 auto;}
-
-/*タブのスタイル*/
-.tab_item {
-  width: calc(100%/3);
-  height: 50px;
-  border-bottom: 3px solid #5ab4bd;
-  background-color: #d9d9d9;
-  line-height: 50px;
-  font-size: 16px;
-  text-align: center;
-  color: #565656;
-  display: block;
-  float: left;
-  text-align: center;
-  font-weight: bold;
-  transition: all 0.2s ease;
-}
-.tab_item:hover {
-  opacity: 0.75;
-}
-
-/*ラジオボタンを全て消す*/
-input[name="tab_item"] {
-  display: none;
-}
-
-/*タブ切り替えの中身のスタイル*/
-.tab_content {
-  display: none;
-  padding: 40px 40px 0;
-  clear: both;
-  overflow: hidden;
-}
-
-
-/*選択されているタブのコンテンツのみを表示*/
-#all:checked ~ #all_content,
-#programming:checked ~ #programming_content,
-#design:checked ~ #design_content {
-  display: block;
-}
-
-/*選択されているタブのスタイルを変える*/
-.tabs input:checked + .tab_item {
-  background-color: #5ab4bd;
-  color: #fff;
-}
-
-.customtext1{
-    background-color:#f0f8ff;
-    font-size:50px;
-    border-color:#6495ed;
-    border-width:5px;
-    position: relative;
-    height: 300px;
-    width: 400px;
-}
-.customtext2{
-    background-color:#f0f8ff;
-    font-size:50px;
-    border-color:#6495ed;
-    border-width:5px;
-    position: relative;
-    height: 150px;
-    width: 400px;
-    top:75px;
-    right:7px;
-
-}
-.customtext3{
-    background-color:#f0f8ff;
-    font-size:50px;
-    border-color:#6495ed;
-    border-width:5px;
-    position: relative;
-    height: 150px;
-    width: 200px;
-    right:412px;
-    bottom: 75px;
-}
-.customtext4{
-    background-color:#f0f8ff;
-    font-size:50px;
-    border-color:#6495ed;
-    border-width:5px;
-    position: relative;
-    height: 150px;
-    width: 200px;
-    right:418px;
-    bottom: 75px;
-
-}
-
-body{
-    margin:0;
-    padding:0;
-}
-
-
-
-.grovalNavigation{
-    z-index: 9999;
-    width: 100%;
-    height: 100px;
-    text-align: center;
-    background-color: #d1d1d1;
-    color: #000000;
-    position: fixed;
-}
-#navi {
-  list-style: none;
-  overflow: hidden;
-}
- 
-#navi li {
-  background-color:;
-  width: 10%;
-  text-align: center;
-  float: left;
-  height: 80px;
-  line-height: 70px;
-  margin-right: 2px;
-  display: inline-block;
-}
- 
-#navi li a {
-  text-decoration: none;
-  color: #fff;
-  font-weight: bold;
-  padding: 20px;
-}
-#navi li img{
-    width: 50px;
-    height:50px;
-}
-#navi li span{
-    position:relative;
-    right: 60px;
-    top: 20px;
-    font-size: 13px;
-    text-align: center;
-}
-.logo{
-    float:left;
-    margin-top:5px;
-}
-
-.kensaku{
-    float:right;
-    position: relative;
-    right: 20px;
-    bottom: 50px;
-
-}
-
-.headinfo{
-    float:right;
-    position:absolute;
-    right: 80px;
-    bottom:26px;
-}
-.allergy{
-    padding:100px 0 0 0;
-}
-
-.menuset{
-    display: inline-block;      /* インラインブロック要素にする */
-    background-color:  #ccc;    /* 背景色指定 */
-    padding:  10px;             /* 余白指定 */
-    height: 160px;              /* 高さ指定 */
-}
-
-/* allergyボタン----------------------------------------------------- */
-.btn-three {
-    color: #09186e;
-    transition: all 0.5s;
-    position: relative;
-}
-.btn-three::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 9%;
-    height: 100%;
-    z-index: 1;
-    background-color: rgba(236, 10, 134, 0.1);
-    transition: all 0.3s;
-}
-.btn-three:hover::before {
-    opacity: 0 ;
-    transform: scale(0.5,0.5);
-}
-.btn-three::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 9%;
-    height: 100%;
-    z-index: 1;
-    opacity: 0;
-    transition: all 0.3s;
-    border: 1px solid rgba(60, 223, 95, 0.5);
-    transform: scale(1.2,1.2);
-}
-.btn-three:hover::after {
-    opacity: 1;
-    transform: scale(1,1);
-}
-/* ref-btn------------------------- */
-.ref-btn {
-  display       : inline-block;
-  border-radius : 5%;          /* 角丸       */
-  font-size     : 18pt;        /* 文字サイズ */
-  text-align    : center;      /* 文字位置   */
-  cursor        : pointer;     /* カーソル   */
-  padding       : 12px 12px;   /* 余白       */
-  background    : #09186e;     /* 背景色     */
-  color         : #ffffff;     /* 文字色     */
-  line-height   : 1em;         /* 1行の高さ  */
-  transition    : .3s;         /* なめらか変化 */
-  box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
-  border        : 2px solid #09186e;    /* 枠の指定 */
-}
-.ref-btn:hover {
-  box-shadow    : none;        /* カーソル時の影消去 */
-  color         : #09186e;     /* 背景色     */
-  background    : #ffffff;     /* 文字色     */
-}
-
-</style>
-<script>
-    window.onload =function(){
-        if('${pageContext.exception.message}'!=""){
-            alert('${pageContext.exception.message}');
-        }
-    }
-</script>
 </head>
 <body>
 
     <header class="grovalNavigation">
         <div class="logo" title="春戸弁当">
-            <a href="top.jsp" class="fade_btn"><img src="${pageContext.request.contextPath}/Browser/img/harutoya.png" title="" height="90px" width="375px"></a>
+            <a href="TopServlet" class="fade_btn"><img src="${pageContext.request.contextPath}/Browser/img/harutoya.png" title="" height="90px" width="375px"></a>
         </div>
     
         <ul id="navi" class="icon_nav">
@@ -479,7 +31,7 @@ body{
                 </a>
             </li>
             <li>
-                <a href="TopCusServlet" class="fade_btn">
+                <a href="TopServlet" class="fade_btn">
                     <img src="${pageContext.request.contextPath}/Browser/img/nav_06.png" alt="カスタムメニュー" title="">
                         <span>カスタムメニュー</span>
                 </a>
@@ -493,14 +45,14 @@ body{
             </li>
     
             <li>
-                <a href="NetOrder.jsp" class="fade_btn">
+                <a href="norder" class="fade_btn">
                     <img src="${pageContext.request.contextPath}/Browser/img/nav_04.png" alt="お知らせ" title="">
                     <span>ネット注文</span>
                 </a>
             </li>
             
             <li>
-                <a href="order.jsp" class="fade_btn">
+                <a href="TopCusServlet" class="fade_btn">
                     <img src="${pageContext.request.contextPath}/Browser/img/nav_08.png" alt="カート" title="">
                         <span>カート</span>
                 </a>
@@ -515,10 +67,10 @@ body{
         <div>
             <ul class="headinfo">
                 <li>
-                     <a href="" >新規会員登録</a>
+                     <a href="ruser" >新規会員登録</a>
                 </li>
                 <li>
-                    <a href="" >ログイン</a>
+                    <a href="infomation" >ログイン</a>
                 </li>
             </ul>
         </div>
@@ -616,7 +168,7 @@ body{
 </div> 
 
 
-<a href="order.jsp">カートを見る</a>
+<a href="norder">カートを見る</a>
 
 <div class="tabs">
     <input id="all" type="radio" name="tab_item" checked>

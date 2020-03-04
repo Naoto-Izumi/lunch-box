@@ -7,7 +7,7 @@
     <body>
             <a href="TopServlet">menuページ</a>
             <a href="StoreServlet">storeページ</a>       
-            <a href="NetOrder.jsp">ネット注文</a>   
+            <a href="norder">ネット注文</a>   
             <a href="TopCusServlet">カスタム</a>         
 
     </body>
