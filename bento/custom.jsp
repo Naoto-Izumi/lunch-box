@@ -110,8 +110,6 @@
             
             }
         });
-
-
     });
 
 
@@ -391,9 +389,80 @@ body{
     padding:100px 0 0 0;
 }
 
+.menuset{
+    display: inline-block;      /* インラインブロック要素にする */
+    background-color:  #ccc;    /* 背景色指定 */
+    padding:  10px;             /* 余白指定 */
+    height: 160px;              /* 高さ指定 */
+}
 
+/* allergyボタン----------------------------------------------------- */
+.btn-three {
+    color: #09186e;
+    transition: all 0.5s;
+    position: relative;
+}
+.btn-three::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 9%;
+    height: 100%;
+    z-index: 1;
+    background-color: rgba(236, 10, 134, 0.1);
+    transition: all 0.3s;
+}
+.btn-three:hover::before {
+    opacity: 0 ;
+    transform: scale(0.5,0.5);
+}
+.btn-three::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 9%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.3s;
+    border: 1px solid rgba(60, 223, 95, 0.5);
+    transform: scale(1.2,1.2);
+}
+.btn-three:hover::after {
+    opacity: 1;
+    transform: scale(1,1);
+}
+/* ref-btn------------------------- */
+.ref-btn {
+  display       : inline-block;
+  border-radius : 5%;          /* 角丸       */
+  font-size     : 18pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 12px 12px;   /* 余白       */
+  background    : #09186e;     /* 背景色     */
+  color         : #ffffff;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
+  border        : 2px solid #09186e;    /* 枠の指定 */
+}
+.ref-btn:hover {
+  box-shadow    : none;        /* カーソル時の影消去 */
+  color         : #09186e;     /* 背景色     */
+  background    : #ffffff;     /* 文字色     */
+}
 
 </style>
+<script>
+    window.onload =function(){
+        if('${pageContext.exception.message}'!=""){
+            alert('${pageContext.exception.message}');
+        }
+    }
+</script>
 </head>
 <body>
 
@@ -409,6 +478,12 @@ body{
                     <span>メニュー</span>
                 </a>
             </li>
+            <li>
+                <a href="TopCusServlet" class="fade_btn">
+                    <img src="image/nav_06.png" alt="カスタムメニュー" title="">
+                        <span>カスタムメニュー</span>
+                </a>
+            </li>
     
             <li>
                 <a href="StoreServlet" target="_blank" class="fade_btn">
@@ -419,19 +494,14 @@ body{
     
             <li>
                 <a href="NetOrder.jsp" class="fade_btn">
-                    <img src="image/nav_03.png" alt="お知らせ" title="">
+                    <img src="image/nav_04.png" alt="お知らせ" title="">
                     <span>ネット注文</span>
                 </a>
             </li>
-            <li>
-                <a href="TopServlet" class="fade_btn">
-                    <img src="image/nav_05.png" alt="スタッフ募集" title="">
-                        <span>マイページ</span>
-                </a>
-            </li>
+            
             <li>
                 <a href="order.jsp" class="fade_btn">
-                    <img src="image/nav_05.png" alt="カート" title="">
+                    <img src="image/nav_08.png" alt="カート" title="">
                         <span>カート</span>
                 </a>
             </li>
@@ -466,7 +536,7 @@ body{
         <p>アレルギーの絞り込み</p>
     </div>
 
-    <form action="RefineServlet" method="post" name="refine">
+    <form action="RefineCusServlet" method="post" name="refine">
         
         <label>
             <img src="image/a1.png" name="are" height="40px" width="40px" id="a1">
@@ -496,8 +566,17 @@ body{
             <img src="image/a7.png" name="are" height="40px" width="40px" id="a7">
             <input type="checkbox" name="check" id="p7" value="0" onchange="myfunc('image/a7.png')">かに</label>
             <input type="hidden" name="check1" id="p7" value="1">
-        <input type="submit" id="ref" value="絞り込みページ" onclick="onButtonClick()">
+        <div >
+            <input type="submit" id="ref" value="を表示しない" class="ref-btn" onclick="onButtonClick()">
+        </div>
+           <!-- Hover #3 -->
+        <!-- <div class="box-3">
+            <div class="btn btn-three">
+                <input type="submit" id="ref" value="を表示しない" onclick="onButtonClick()">
+            </div>
+        </div> -->
     </form>
+ 
 
 
     <form action="SortServlet" method="post">
@@ -508,7 +587,7 @@ body{
                 <option value="caHigh">カロリー高い</option>
                 <option value="caLow">カロリー低い</option>
             </select>
-            <input type="submit" value="並び替え">
+            <input type="submit" value="並び替え" class="ref-btn">
         </p>
     </form>
         
@@ -518,7 +597,7 @@ body{
 <div>
         <form action="CustomMenuServlet" method="POST" name="custom">
             <div >
-            <span id="one"></span><input type="text" id="syusyoku" name="syusyoku" value="" oninput="gazou()" class="customtext1" placeholder="主食">
+            <span id="one"></span><input type="text" id="syusyoku" name="syusyoku" value="" oninput="gazou()" class="customtext1" placeholder="主食" required>
             <input type="hidden" id="syusyoku2" name="syusyoku" >
             <span id="two"></span><input type="text" id="syusai" name="syusai" value="" oninput="gazou()" class="customtext2"　placeholder="主菜">
             <input type="hidden" id="syusai2" name="syusai" >
@@ -532,19 +611,7 @@ body{
              
         </form>
         <button id="reset" >reset</button>
-        <table>
-            <tr>
-                <c:forEach var="prof" items="${product}">
-                    <td>
-                        <form method="post" name="${prof.id}1" action="DetailServlet">
-                            <img src="${prof.image}" name="bento" height="70px" width="70px">
-                            <input type="hidden" name="id" value="${prof.id}">
-                            <a href="javascript:${prof.id}1.submit()">${prof.name}</a>
-                        </form>
-                    </td>
-                </c:forEach>
-            </tr>
-        </table>
+      
             
 </div> 
 
@@ -564,20 +631,33 @@ body{
 
 
         <div>
-            <table>
+            <!-- <table>
                 <tr>
                     <c:forEach var="prof" items="${syusyokuProduct}" varStatus="st">
                         <td>
                             <form method="post" name="${prof.id}" action="DetailServlet">
-                                <img src="${prof.image}" name="bento" height="70px" width="70px">
-                                <input type="hidden" name="id" value="${prof.id}">
+                                <img src="${prof.image}" name="bento" height="170px" width="170px">
+                                <input type="hidden" name="id" value="${prof.id}"><br>
                                 <a href="javascript:${prof.id}.submit()">${prof.name}</a>
                             </form>
                      
                         </td>
                     </c:forEach>
                 </tr>
-            </table>
+            </table> -->
+            <c:forEach var="prof" items="${syusyokuProduct}" varStatus="st">
+                <diV class="menuset">
+                    <form method="post" name="${prof.id}" action="DetailServlet">
+                        <a href="javascript:${prof.id}.submit()">
+                            <img src="${prof.image}" name="bento" height="170px" width="170px">
+                            <input type="hidden" name="id" value="${prof.id}"><br>
+                            <p>${prof.name}</p>
+                            <p>${prof.pro_price}円</p>
+                            <p>${prof.pro_calorie}㎉</p>
+                        </a>
+                    </form>
+                </diV>
+            </c:forEach>
         </div>
         
 
@@ -585,40 +665,67 @@ body{
     </div>
     <div class="tab_content" id="programming_content">
         <div>
-            <table>
+            <!-- <table>
                 <tr>
                     <c:forEach var="prof" items="${syusaiProduct}" varStatus="st">
                         <td>
                             <form method="post" name="${prof.id}" action="DetailServlet">
                                 <img src="${prof.image}" name="bento" height="70px" width="70px">
-                                <input type="hidden" name="id" value="${prof.id}">
+                                <input type="hidden" name="id" value="${prof.id}"><br>
                                 <a href="javascript:${prof.id}.submit()">${prof.name}</a>
                             </form>
                          
                         </td>
                     </c:forEach>
                 </tr>
-            </table>
+            </table> -->
+            <c:forEach var="prof" items="${syusaiProduct}" varStatus="st">
+                <diV class="menuset">
+                    <form method="post" name="${prof.id}" action="DetailServlet">
+                        <a href="javascript:${prof.id}.submit()">
+                            <img src="${prof.image}" name="bento" height="170px" width="170px">
+                            <input type="hidden" name="id" value="${prof.id}"><br>
+                            <p>${prof.name}</p>
+                            <p>${prof.pro_price}円</p>
+                            <p>${prof.pro_calorie}㎉</p>
+                        </a>
+                    </form>
+                </diV>
+            </c:forEach>
         </div>
-</div>
+    </div>
     <div class="tab_content" id="design_content">
         <div>
-            <table>
+            <!-- <table>
                 <tr>
                     <c:forEach var="prof" items="${hukuProduct}" varStatus="st">
                         <td>
                             <form method="post" name="${prof.id}" action="DetailServlet">
                                 <img src="${prof.image}" name="bento" height="70px" width="70px">
-                                <input type="hidden" name="id" value="${prof.id}">
+                                <input type="hidden" name="id" value="${prof.id}"><br>
                                 <a href="javascript:${prof.id}.submit()">${prof.name}</a>
                             </form>
                            
                         </td>
                     </c:forEach>
                 </tr>
-            </table>
+            </table> -->
+                <c:forEach var="prof" items="${hukuProduct}" varStatus="st">
+                    <diV class="menuset">
+                        <form method="post" name="${prof.id}" action="DetailServlet">
+                            <a href="javascript:${prof.id}.submit()">
+                                <img src="${prof.image}" name="bento" height="170px" width="170px">
+                                <input type="hidden" name="id" value="${prof.id}"><br>
+                                <p>${prof.name}</p>
+                                <p>${prof.pro_price}円</p>
+                                <p>${prof.pro_calorie}㎉</p>
+                            </a>
+                        </form>
+                    </div>
+                </c:forEach>              
+            
         </div>
-</div>
+    </div>
 
 
 
@@ -626,6 +733,9 @@ body{
 <div id="mydialog2" title="個数を入力して下さい">
     最低注文個数に達していません。（最低注文個数：1個）<br />
 </div>
+
+
+<p></p>
 
 
 

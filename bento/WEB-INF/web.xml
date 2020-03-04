@@ -1,6 +1,17 @@
 <web-app>
-
-  <servlet>
+    <error-page>
+        <exception-type>exception.ReturnHomeException</exception-type>
+        <location>/TopCusServlet</location>
+    </error-page>
+    <servlet>
+        <servlet-name>RefineCusServlet</servlet-name>
+        <servlet-class>RefineCusServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RefineCusServlet</servlet-name>
+        <url-pattern>/RefineCusServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>TopCusServlet</servlet-name>
         <servlet-class>TopCusServlet</servlet-class>
     </servlet>

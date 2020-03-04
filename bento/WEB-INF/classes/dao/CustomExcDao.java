@@ -10,15 +10,17 @@ import java.util.ArrayList;
 
 import Bean.Product;
 
-public  class CusSyusaiDao implements ProductsDao{
-    public Product getProduct(String pid){return null;}
-    public void addProduct(Product p){}
-    public List getAllProducts(){
+public  class CustomExcDao{
+    private String id;
+    private String type;
+    public boolean getProduct(String _id,String _type){
+        id=_id;
+        type=_type;
         Connection cn=null;
         PreparedStatement st=null;
         ResultSet rs=null;
 
-        List products=new ArrayList();
+        boolean judge=false;
 
         try{
             Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -29,35 +31,28 @@ public  class CusSyusaiDao implements ProductsDao{
 
             cn.setAutoCommit(false);
 
-            String sql="select pro_id,pro_image,pro_name,pro_price,pro_calorie from productTable　where pro_type = '主菜'  ";
+            String sql="select count(*) from productTable　where pro_id = ? AND pro_type = ?";
 
             //PreparedStatementインターフェイスを実装するクラスをインスタンス化する
 			st=cn.prepareStatement(sql);
+
+            st.setString(1,id);
+            st.setString(2,type);
 
 			//select文を実行し
 			//ResultSetインターフェイスを実装したクラスの
 			//インスタンスが返る
 			rs=st.executeQuery();
 
-            //カーソルを一行だけスクロールし、データをフェッチする
-			while(rs.next()){
 
-                Product p = new Product();
-				System.out.println("no"+rs.getString(1));
-				String id = "no"+rs.getString(1);	//1列目のデータを取得
-				String image = rs.getString(2);	//2列目のデータを取得
-				String name = rs.getString(3);	//3列目のデータを取得
-                String price = rs.getString(4);
-                String calorie = rs.getString(5);
-				p.setId(id);
-				p.setImage(image);
-				p.setName(name);
-                p.setPro_price(price);
-                p.setPro_calorie(calorie);
+            System.out.println("no"+rs.getString(1));
+            int  count = rs.getInt(1);
 
-                products.add(p);
-				
-			}
+            
+
+            if(count==0){
+                judge = true;  
+            }
 
 
         }catch(ClassNotFoundException e) {
@@ -82,7 +77,7 @@ public  class CusSyusaiDao implements ProductsDao{
 				e2.printStackTrace();
 			}
 		}
-        return products;
+        return judge;
     }
 
 }

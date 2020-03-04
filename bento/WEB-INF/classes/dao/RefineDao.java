@@ -26,7 +26,7 @@ public class RefineDao implements ProductsDao{
 
             cn.setAutoCommit(false);
 
-            String sql="select  pro_id,pro_image,pro_name from productTable where PRO_WHEAT IN(0,?) AND PRO_EGG IN(0,?) AND PRO_MILK IN(0,?) AND PRO_PEANUTS IN(0,?) AND PRO_BUCKWHEAT IN(0,?) AND PRO_SHRIMP IN(0,?) AND PRO_CRAB IN(0,?)";
+            String sql="select  pro_id,pro_image,pro_name from productTable where pro_type='弁当' AND PRO_WHEAT IN(0,?) AND PRO_EGG IN(0,?) AND PRO_MILK IN(0,?) AND PRO_PEANUTS IN(0,?) AND PRO_BUCKWHEAT IN(0,?) AND PRO_SHRIMP IN(0,?) AND PRO_CRAB IN(0,?)";
 
             
             //PreparedStatementインターフェイスを実装するクラスをインスタンス化する

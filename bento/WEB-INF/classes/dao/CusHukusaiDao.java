@@ -29,7 +29,7 @@ public  class CusHukusaiDao implements ProductsDao{
 
             cn.setAutoCommit(false);
 
-            String sql="select pro_id,pro_image,pro_name from productTable　where pro_type = '副菜'  ";
+            String sql="select pro_id,pro_image,pro_name,pro_price,pro_calorie from productTable　where pro_type = '副菜'  ";
 
             //PreparedStatementインターフェイスを実装するクラスをインスタンス化する
 			st=cn.prepareStatement(sql);
@@ -47,9 +47,13 @@ public  class CusHukusaiDao implements ProductsDao{
 				String id = "no"+rs.getString(1);	//1列目のデータを取得
 				String image = rs.getString(2);	//2列目のデータを取得
 				String name = rs.getString(3);	//3列目のデータを取得
+                String price = rs.getString(4);
+                String calorie = rs.getString(5);
 				p.setId(id);
 				p.setImage(image);
 				p.setName(name);
+                p.setPro_price(price);
+                p.setPro_calorie(calorie);
 
                 products.add(p);
 				

@@ -14,9 +14,12 @@ import function.price;
 import function.CutURL;
 import java.util.*;
 import dao.CusSyusyokuDao;
+import dao.CustomExcDao;
 import Bean.CustomBean;
 import Bean.ElementBean;
 import Bean.CustomCartBean;
+import exception.ReturnHomeException;
+import function.NumberCheck;
 
 public class CustomMenuServlet extends HttpServlet{
     
@@ -35,13 +38,33 @@ public class CustomMenuServlet extends HttpServlet{
 		req.setCharacterEncoding("UTF-8");
 
         CustomCartBean ccb = (CustomCartBean)session.getAttribute("ccb");
+
         if(ccb == null){
             ccb = new CustomCartBean();
-        }
+        }   
+        
 		String syusyoku=req.getParameter("syusyoku").substring(11).replace(".jpg","");
 		String syusai=req.getParameter("syusai").substring(11).replace(".jpg","");
         String huku1=req.getParameter("huku1").substring(11).replace(".jpg","");
 		String huku2=req.getParameter("huku2").substring(11).replace(".jpg","");
+
+        CustomExcDao ce = new CustomExcDao();
+        System.out.println("syusyoku"+syusyoku);
+        System.out.println("syusai"+syusai);
+        System.out.println("huku1"+huku1);
+        System.out.println("huku2"+huku2);
+
+        System.out.println(NumberCheck.isNumber(syusyoku));
+        
+        if(!NumberCheck.isNumber(syusyoku)|!NumberCheck.isNumber(syusai)|!NumberCheck.isNumber(huku1)|!NumberCheck.isNumber(huku2)){
+            throw new ReturnHomeException("正しく入力されていません");
+        }
+        
+
+        if(ce.getProduct(syusyoku,"主食")||ce.getProduct(syusai,"主菜")||ce.getProduct(huku1,"副菜")||ce.getProduct(huku2,"副菜")){
+            throw new ReturnHomeException("正しく入力されていません");
+        }
+
         CusSyusyokuDao cd = new CusSyusyokuDao();
         CustomBean cb = new CustomBean();
         ElementBean eb = cd.getProduct(syusyoku); 

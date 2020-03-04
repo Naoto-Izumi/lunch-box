@@ -25,7 +25,7 @@ public class OrderInDao implements ProductsDao{
         try{
             Class.forName("oracle.jdbc.driver.OracleDriver");
 
-            cn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","helshin","helshinbox");
+            cn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","info","pro");
 
             cn.setAutoCommit(false);
 

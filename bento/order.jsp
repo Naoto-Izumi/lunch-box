@@ -66,17 +66,207 @@ import="Bean.CustomCartBean"%>
 
     </script>
     <style>
+        body{
+            padding: 0;
+            margin: 0;
+        }
+
+        
+.grovalNavigation{
+    z-index: 9999;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    background-color: #d1d1d1;
+    color: #000000;
+    position: fixed;
+}
+#navi {
+  list-style: none;
+  overflow: hidden;
+}
+ 
+#navi li {
+  background-color:;
+  width: 10%;
+  text-align: center;
+  float: left;
+  height: 80px;
+  line-height: 70px;
+  margin-right: 2px;
+  display: inline-block;
+}
+ 
+#navi li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  padding: 20px;
+}
+#navi li img{
+    width: 50px;
+    height:50px;
+}
+#navi li span{
+    position:relative;
+    right: 60px;
+    top: 20px;
+    font-size: 13px;
+    text-align: center;
+}
+.logo{
+    float:left;
+    margin-top:5px;
+}
+.kensaku{
+    float:right;
+    position: relative;
+    right: 20px;
+    bottom: 50px;
+
+}
+
+.headinfo{
+    float:right;
+    position:absolute;
+    right: 80px;
+    bottom:26px;
+}
+
+
+
+
         .active{
             display:block;
         }
         .inactive{
             display:none;
         }
+        .nocart{
+            margin: -200px 0 0 -300px;  /*縦横半分をネガティブマージンでずらす*/
+            position: absolute;     /*body要素に対して絶対配置*/
+            top: 50%;       /*上端を中央に*/
+            left: 50%;      /*左端を中央に*/
+            width: 600px;   /*横幅*/
+            height: 400px;  /*縦幅*/
+            background-color:#fff;
+
+        }
+        .nocart p{
+            margin-top:10%;
+            margin-left: 10%;
+            position: absolute;
+            font-size: 30px;
+            color:#353834;
+            
+        }
+        .nocart a{
+            margin-top:30%;
+            margin-left: 20%;
+            position: absolute;
+            
+        }
+        .btn-flat-border {
+        display: inline-block;
+        padding: 0.3em 1em;
+        text-decoration: none;
+        color: #67c5ff;
+        border: solid 2px #67c5ff;
+        border-radius: 3px;
+        transition: .4s;
+        width:250px;
+            height:50px;
+        }
+
+        .btn-flat-border:hover {
+        background: #67c5ff;
+        color: white;
+        }
     </style>
 
 
 </head>
 <body>
+
+
+    <header class="grovalNavigation">
+        <div class="logo" title="春戸弁当">
+            <a href="top.jsp" class="fade_btn"><img src="image/harutoya.png" title="" height="90px" width="375px"></a>
+        </div>
+    
+        <ul id="navi" class="icon_nav">
+            <li>
+                <a href="TopServlet" class="fade_btn">
+                    <img src="image/nav_01.png" alt="メニュー" title="">
+                    <span>メニュー</span>
+                </a>
+            </li>
+            <li>
+                <a href="TopCusServlet" class="fade_btn">
+                    <img src="image/nav_06.png" alt="カスタムメニュー" title="">
+                        <span>カスタムメニュー</span>
+                </a>
+            </li>
+    
+            <li>
+                <a href="StoreServlet" target="_blank" class="fade_btn">
+                    <img src="image/nav_02.png" alt="店舗検索" title="">
+                    <span>店舗検索</span>
+                </a>
+            </li>
+    
+            <li>
+                <a href="NetOrder.jsp" class="fade_btn">
+                    <img src="image/nav_04.png" alt="お知らせ" title="">
+                    <span>ネット注文</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="order.jsp" class="fade_btn">
+                    <img src="image/nav_08.png" alt="カート" title="">
+                        <span>カート</span>
+                </a>
+            </li>
+        </ul>
+        <div class="kensaku">
+            <form action="SearchServlet" method="post" name="search">
+                <input type="text" name="sname" id="s1" placeholder="商品検索">
+                <input type="submit" id="sea" value="検索" >
+            </form>
+        </div>
+        <div>
+            <ul class="headinfo">
+                <li>
+                     <a href="" >新規会員登録</a>
+                </li>
+                <li>
+                    <a href="" >ログイン</a>
+                </li>
+            </ul>
+        </div>
+    
+    
+     </header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <c:forEach var="prof" items="${cart}" varStatus="st">
         <c:set var="data" value="${prof.pro_id}" />
@@ -97,13 +287,44 @@ import="Bean.CustomCartBean"%>
             <td>${prof.pro_lipid}</td>
             <td>${prof.pro_vitamin}</td>
             <td>${prof.pro_inorganic}</td>
-            <td>${prof.pro_wheat}</td>
+            <!-- <td>${prof.pro_wheat}</td>
             <td>${prof.pro_egg}</td>
             <td>${prof.pro_milk}</td>
             <td>${prof.pro_peanuts}</td>
             <td>${prof.pro_buckwheat}</td>
             <td>${prof.pro_shrimp}</td>
-            <td>${prof.pro_crab}</td>
+            <td>${prof.pro_crab}</td> -->
+            <c:if test="${prof.pro_wheat} != 0}">
+                <td><img src="image/a1.png" name="are" height="25px" width="25px" ></td>
+            </c:if>
+            <c:if test="${element.ab.pro_wheat != 0}">
+                    <td><img src="image/a1.png" name="are" height="25px" width="25px" ></td>
+                </c:if>
+            
+            <c:if test="${prof.pro_egg} == 1}">
+                <td><img src="image/a2.png" name="are" height="25px" width="25px" ></td>
+            </c:if>
+            
+            <c:if test="${prof.pro_milk} == 1}">
+                <td><img src="image/a3.png" name="are" height="25px" width="25px" ></td>
+            </c:if>
+            
+            <c:if test="${prof.pro_peanuts} == 1}">
+                <td><img src="image/a4.png" name="are" height="25px" width="25px" ></td>
+            </c:if>
+            
+            <c:if test="${prof.pro_buckwheat} == 1}">
+                <td><img src="image/a5.png" name="are" height="25px" width="25px" ></td>
+            </c:if>
+            
+            <c:if test="${prof.pro_shrimp} == 1}">
+                <td><img src="image/a6.png" name="are" height="25px" width="25px" ></td>
+            </c:if>
+            
+            <c:if test="${prof.pro_crab} == 1}">
+                <td><img src="image/a7.png" name="are" height="25px" width="25px" ></td>
+            </c:if>
+                
             <td>${sessionScope.list[data]}個</td>
             <td>${prof.total}円</td>
             </tr>
@@ -116,6 +337,7 @@ import="Bean.CustomCartBean"%>
         </form>
         <form action="RemoveServlet" method="post" name="remove">
             <input type="hidden" value="${prof.pro_id}" name="id">
+            <input type="hidden" value="0" name="judge">
             <input type="hidden" value="${st.count}" name="remove">
             <input type="submit" value="削除" id="">
         </form>
@@ -201,27 +423,27 @@ import="Bean.CustomCartBean"%>
                 </c:if>
                 <!-- <td>${element.ab.pro_wheat}</td> -->
                 <c:if test="${element.ab.pro_egg == 1}">
-                    <td><img src="image/a2.png" name="are" height="25px" width="25px" id="a1"></td>
+                    <td><img src="image/a2.png" name="are" height="25px" width="25px" id="a2"></td>
                 </c:if>
                 <!-- <td>${element.ab.pro_egg}</td> -->
                 <c:if test="${element.ab.pro_milk == 1}">
-                    <td><img src="image/a3.png" name="are" height="25px" width="25px" id="a1"></td>
+                    <td><img src="image/a3.png" name="are" height="25px" width="25px" id="a3"></td>
                 </c:if>
                 <!-- <td>${element.ab.pro_milk}</td> -->
                 <c:if test="${element.ab.pro_peanuts == 1}">
-                    <td><img src="image/a4.png" name="are" height="25px" width="25px" id="a1"></td>
+                    <td><img src="image/a4.png" name="are" height="25px" width="25px" id="a4"></td>
                 </c:if>
                 <!-- <td>${element.ab.pro_peanuts}</td> -->
                 <c:if test="${element.ab.pro_buckwheat == 1}">
-                    <td><img src="image/a5.png" name="are" height="25px" width="25px" id="a1"></td>
+                    <td><img src="image/a5.png" name="are" height="25px" width="25px" id="a5"></td>
                 </c:if>
                 <!-- <td>${element.ab.pro_buckwheat}</td> -->
                 <c:if test="${element.ab.pro_shrimp == 1}">
-                    <td><img src="image/a6.png" name="are" height="25px" width="25px" id="a1"></td>
+                    <td><img src="image/a6.png" name="are" height="25px" width="25px" id="a6"></td>
                 </c:if>
                 <!-- <td>${element.ab.pro_shrimp}</td> -->
                 <c:if test="${element.ab.pro_crab == 1}">
-                    <td><img src="image/a7.png" name="are" height="25px" width="25px" id="a1"></td>
+                    <td><img src="image/a7.png" name="are" height="25px" width="25px" id="a7"></td>
                 </c:if>
                 <!-- <td>${element.ab.pro_crab}</td> -->
                 </tr>
@@ -263,8 +485,10 @@ import="Bean.CustomCartBean"%>
         }
         if(list==null && customCart==null){
     %>
-    <p>カートに商品が入っておりません。</p>
-    <a href="TopServlet">TOPページへ</a>
+    <div class="nocart">
+        <p>カートに商品が入っておりません。</p>
+        <a href="TopServlet" class="btn-flat-border">TOPページへ</a>
+    </div>
     <%
         }
     %>

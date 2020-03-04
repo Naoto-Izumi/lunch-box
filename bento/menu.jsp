@@ -319,10 +319,14 @@ input[name="tab_item"] {
 
 }
 
-
+body{
+    margin:0;
+    padding:0;
+}
 
 
 .grovalNavigation{
+    z-index: 9999;
     width: 100%;
     height: 100px;
     text-align: center;
@@ -383,6 +387,9 @@ input[name="tab_item"] {
     bottom:26px;
 }
 
+.allergy{
+    padding:100px 0 0 0;
+}
 
 
 </style>
@@ -401,6 +408,12 @@ input[name="tab_item"] {
                     <span>メニュー</span>
                 </a>
             </li>
+            <li>
+                <a href="TopCusServlet" class="fade_btn">
+                    <img src="image/nav_06.png" alt="カスタムメニュー" title="">
+                        <span>カスタムメニュー</span>
+                </a>
+            </li>
     
             <li>
                 <a href="StoreServlet" target="_blank" class="fade_btn">
@@ -411,19 +424,14 @@ input[name="tab_item"] {
     
             <li>
                 <a href="NetOrder.jsp" class="fade_btn">
-                    <img src="image/nav_03.png" alt="お知らせ" title="">
+                    <img src="image/nav_04.png" alt="お知らせ" title="">
                     <span>ネット注文</span>
                 </a>
             </li>
-            <li>
-                <a href="TopCusServlet" class="fade_btn">
-                    <img src="image/nav_05.png" alt="スタッフ募集" title="">
-                        <span>マイページ</span>
-                </a>
-            </li>
+            
             <li>
                 <a href="order.jsp" class="fade_btn">
-                    <img src="image/nav_05.png" alt="カート" title="">
+                    <img src="image/nav_08.png" alt="カート" title="">
                         <span>カート</span>
                 </a>
             </li>
@@ -449,13 +457,14 @@ input[name="tab_item"] {
      </header>
 
 <a href="top.jsp">topページ</a>
-<p>商品の検索</p>
+<!-- <p>商品の検索</p>
     <form action="SearchServlet" method="post" name="search">
         <input type="text" name="sname" id="s1">
         <input type="submit" id="sea" value="検索" >
-    </form>
-<p>アレルギーの絞り込み</p>
-
+    </form> -->
+    <div class="allergy">
+        <p>アレルギーの絞り込み</p>
+    </div>
     <form action="RefineServlet" method="post" name="refine">
         
         <label>
@@ -504,39 +513,7 @@ input[name="tab_item"] {
         
 
 
-<!-- 
-<div>
-        <form action="CustomMenuServlet" method="POST" name="custom">
-            <div >
-            <span id="one"></span><input type="text" id="syusyoku" name="syusyoku" value="" oninput="gazou()" class="customtext1" placeholder="主食">
-            <input type="hidden" id="syusyoku2" name="syusyoku" >
-            <span id="two"></span><input type="text" id="syusai" name="syusai" value="" oninput="gazou()" class="customtext2"　placeholder="主菜">
-            <input type="hidden" id="syusai2" name="syusai" >
-            <span id="three"></span><input type="text" id="huku1" name="huku1" value="" oninput="gazou()" class="customtext3"　placeholder="副菜">
-            <input type="hidden" id="huku12" name="huku1" >
-            <span id="four"></span><input type="text" id="huku2" name="huku2" oninput="gazou()" class="customtext4"　placeholder="副菜">
-            <input type="hidden" id="huku22" name="huku2" >
-            </div> -->
-            <!-- このコードは使わない<input type="button" onclick="check();" value="カート"> -->
-             <!-- <input type="submit" id="cart" value="カート">
-             
-        </form>
-        <button id="reset" >reset</button>
-        <table>
-            <tr>
-                <c:forEach var="prof" items="${product}">
-                    <td>
-                        <form method="post" name="${prof.id}1" action="DetailServlet">
-                            <img src="${prof.image}" name="bento" height="70px" width="70px">
-                            <input type="hidden" name="id" value="${prof.id}">
-                            <a href="javascript:${prof.id}1.submit()">${prof.name}</a>
-                        </form>
-                    </td>
-                </c:forEach>
-            </tr>
-        </table>
-            
-</div>  -->
+
 
 
 <a href="order.jsp">カートを見る</a>
@@ -580,10 +557,10 @@ input[name="tab_item"] {
 
     </div>
     <div class="tab_content" id="programming_content">
-        プログラミングの内容がここに入ります
+        単品メニュー
 </div>
     <div class="tab_content" id="design_content">
-        デザインの内容がここに入ります
+        飲み物メニュー  
 </div>
 
 
