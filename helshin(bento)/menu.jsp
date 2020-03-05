@@ -31,35 +31,35 @@
     }
 
     //アレルギー絞り込み
-    function onButtonClick() {
-        pro1 = document.refine.p1;
-        pro2 = document.refine.p2;
-        pro3 = document.refine.p3;
-        pro4 = document.refine.p4;
-        pro5 = document.refine.p5;
-        pro6 = document.refine.p6;
-        pro7 = document.refine.p7;
-        judgment(pro1);
-        judgment(pro2);
-        judgment(pro3);
-        judgment(pro4);
-        judgment(pro5);
-        judgment(pro6);
-        judgment(pro7);
-    }
-    function judgment(pro){
-        var proId=getId(pro);
-        if (pro.checked == true) {
-            $("#"+proId).val("0");
-        } else {
-            $("#"+proId).val("1");
-        }
-    }
-    function getId(ele){
-        var id_value = ele.id; // eleのプロパティとしてidを取得
-        console.log(id_value); //
-        return id_value;
-    }
+    // function onButtonClick() {
+    //     pro1 = document.refine.p1;
+    //     pro2 = document.refine.p2;
+    //     pro3 = document.refine.p3;
+    //     pro4 = document.refine.p4;
+    //     pro5 = document.refine.p5;
+    //     pro6 = document.refine.p6;
+    //     pro7 = document.refine.p7;
+    //     judgment(pro1);
+    //     judgment(pro2);
+    //     judgment(pro3);
+    //     judgment(pro4);
+    //     judgment(pro5);
+    //     judgment(pro6);
+    //     judgment(pro7);
+    // }
+    // function judgment(pro){
+    //     var proId=getId(pro);
+    //     if (pro.checked == true) {
+    //         $("#"+proId).val("0");
+    //     } else {
+    //         $("#"+proId).val("1");
+    //     }
+    // }
+    // function getId(ele){
+    //     var id_value = ele.id; // eleのプロパティとしてidを取得
+    //     console.log(id_value); //
+    //     return id_value;
+    // }
 
     //画像挿入
     function gazou(){
@@ -86,7 +86,7 @@
 
 
 
-    });
+    
 
 
     //アレルギーの画像切り替え
@@ -106,9 +106,13 @@
         console.log(abc.checked);
         if(abc.checked){
             $('#a'+imgId).attr('src', onImg);
+            $('#p'+imgId).val("0");
+            console.log($('#p'+imgId).val());
             console.log('on');
         }else{
             $('#a'+imgId).attr('src', offImg);
+            $('#p'+imgId).val("1");
+            console.log($('#p'+imgId).val());
             console.log('off');
         }
 
@@ -116,24 +120,6 @@
     }
 
 
-    // $(window).on('beforeunload', function(event) {
-    //     console.log('beforeunload');
-    //     return 'jquery beforeunload';
-    // });
-
-
-    // function test()
-    // {
-    //     if (frml.no1.value == 0 )
-    //     {
-    //         alert("なにか入れてください");
-    //         return false;
-    //     }
-    //     else
-    //     {
-    //         return true;
-    //     }
-    // }
 
     $(function(){
     // ダイアログの初期設定
@@ -149,26 +135,13 @@
                     $(this).dialog("close");
                 }
             }
-            //,
-            // {
-            //     text: 'ボタン2',
-            //     click: function(){
-            //     alert("ボタン2をクリックしました");
-            //     }
-            // },
-            // {
-            //     text: 'ボタン3',
-            //     click: function(){
-            //     // ダイアログを閉じる
-            //     $(this).dialog("close");
-            //     }
-            // }
             ]
         });
     });
     
     function test(count){
         $(document).on("click", ".dialog", function(){
+            console.log(count);
             var product = document.getElementById(count).value;
             if(product <= 0){
                 // ダイアログの呼び出し処理
@@ -401,11 +374,7 @@ body{
   background    : #ffffff;     /* 文字色     */
 }
 
-.arebtn{
-    position:absolute;
-    margin-left: 710px;
-    top: 190px;
-}
+
 
 </style>
 </head>
@@ -477,40 +446,40 @@ body{
     <div class="allergy">
         <p>アレルギーの絞り込み</p>
     </div>
-    <form action="RefineServlet" method="post" name="refine">
-        
-        <label>
-            <img src="image/a1.png" name="are" height="40px" width="40px" id="a1">
-            <input type="checkbox" name="check" id="p1" value="0" onchange="myfunc('image/a1.png')">小麦</label>
-            <input type="hidden" name="check1" id="p1" value="1">
-        <label>
-            <img src="image/a2.png" name="are" height="40px" width="40px" id="a2">
-            <input type="checkbox" name="check" id="p2" value="0" onchange="myfunc('image/a2.png')">卵</label>
-            <input type="hidden" name="check1" id="p2" value="1">
-        <label>
-            <img src="image/a3.png" name="are" height="40px" width="40px" id="a3">
-            <input type="checkbox" name="check" id="p3" value="0" onchange="myfunc('image/a3.png')">乳</label>
-            <input type="hidden" name="check1" id="p3" value="1">
-        <label>
-            <img src="image/a4.png" name="are" height="40px" width="40px" id="a4">
-            <input type="checkbox" name="check" id="p4" value="0" onchange="myfunc('image/a4.png')">落花生</label>
-            <input type="hidden" name="check1" id="p4" value="1">
-        <label>
-            <img src="image/a5.png" name="are" height="40px" width="40px" id="a5">
-            <input type="checkbox" name="check" id="p5" value="0" onchange="myfunc('image/a5.png')">そば</label>
-            <input type="hidden" name="check1" id="p5" value="1">
-        <label>
-            <img src="image/a6.png" name="are" height="40px" width="40px" id="a6">
-            <input type="checkbox" name="check" id="p6" value="0" onchange="myfunc('image/a6.png')">えび</label>
-            <input type="hidden" name="check1" id="p6" value="1">
-        <label>
-            <img src="image/a7.png" name="are" height="40px" width="40px" id="a7">
-            <input type="checkbox" name="check" id="p7" value="0" onchange="myfunc('image/a7.png')">かに</label>
-            <input type="hidden" name="check1" id="p7" value="1">
-            <div class="arebtn">
-                <input type="submit" id="ref" value="を表示しない" onclick="onButtonClick()" class="ref-btn">
-            </div>
-    </form>
+    <div class="refbar">
+        <form action="RefineServlet" method="post" name="refine">
+            
+            <label>
+                <img src="image/a1.png" name="are" height="40px" width="40px" id="a1">
+                <input type="checkbox" name="check"  onchange="myfunc('image/a1.png')">小麦</label>
+                <input type="hidden" name="check1" id="p1" value="1">
+            <label>
+                <img src="image/a2.png" name="are" height="40px" width="40px" id="a2">
+                <input type="checkbox" name="check"  onchange="myfunc('image/a2.png')">卵</label>
+                <input type="hidden" name="check2" id="p2" value="1">
+            <label>
+                <img src="image/a3.png" name="are" height="40px" width="40px" id="a3">
+                <input type="checkbox" name="check"  onchange="myfunc('image/a3.png')">乳</label>
+                <input type="hidden" name="check3" id="p3" value="1">
+            <label>
+                <img src="image/a4.png" name="are" height="40px" width="40px" id="a4">
+                <input type="checkbox" name="check"  onchange="myfunc('image/a4.png')">落花生</label>
+                <input type="hidden" name="check4" id="p4" value="1">
+            <label>
+                <img src="image/a5.png" name="are" height="40px" width="40px" id="a5">
+                <input type="checkbox" name="check"  onchange="myfunc('image/a5.png')">そば</label>
+                <input type="hidden" name="check5" id="p5" value="1">
+            <label>
+                <img src="image/a6.png" name="are" height="40px" width="40px" id="a6">
+                <input type="checkbox" name="check"  onchange="myfunc('image/a6.png')">えび</label>
+                <input type="hidden" name="check6" id="p6" value="1">
+            <label>
+                <img src="image/a7.png" name="are" height="40px" width="40px" id="a7">
+                <input type="checkbox" name="check"  onchange="myfunc('image/a7.png')">かに</label>
+                <input type="hidden" name="check7" id="p7" value="1">
+                    <input type="submit" id="ref" value="を表示しない" class="ref-btn">
+        </form>
+    </div>
 
 
     <form action="SortServlet" method="post">
@@ -526,51 +495,52 @@ body{
     </form>
         
 
-<div class="tabs">
-    <input id="all" type="radio" name="tab_item" checked>
-    <label class="tab_item" for="all">弁当</label>
-    <!-- <input id="programming" type="radio" name="tab_item">
-    <label class="tab_item" for="programming">単品</label>
-    <input id="design" type="radio" name="tab_item">
-    <label class="tab_item" for="design">飲み物</label> -->
-    <div class="tab_content" id="all_content">
-        
+    <div class="tabs">
+        <input id="all" type="radio" name="tab_item" checked>
+        <label class="tab_item" for="all">弁当</label>
+        <!-- <input id="programming" type="radio" name="tab_item">
+        <label class="tab_item" for="programming">単品</label>
+        <input id="design" type="radio" name="tab_item">
+        <label class="tab_item" for="design">飲み物</label> -->
+        <div class="tab_content" id="all_content">
+            
 
 
 
-        <div>
-                    <c:forEach var="prof" items="${product}" varStatus="st">
-                        <diV class="menuset">
-                            <form method="post" name="${prof.id}" action="DetailServlet">
-                                <a href="javascript:document.forms.${prof.id}.submit()">
-                                    <img src="${prof.image}" name="bento" height="170px" width="170px">
-                                    <input type="hidden" name="id" value="${prof.id}"><br>
-                                    <p>${prof.name}</p>
-                                </a>
-                                <p>${prof.pro_price}円</p>
-                                <p>${prof.pro_calorie}㎉</p>
-                            </form>
-                            <form action="MenuServlet" method="post" name="frml" >
-                                <input type="number" name="${prof.id}" id="${prof.id}" value=0 size=6 MIN="O" MAX="99"><br>
-                                <input type="button" value="＋" onClick="javascript:this.form.${prof.id}.value++;"> 
-                                <input type="button" value="－" onClick="javascript:this.form.${prof.id}.value--;">
-                                <input type="submit" value="カート" id="${st.count}" class="dialog" onclick="test('${prof.id}')">
-                            
-                            </form>
-                        </diV>
-                    </c:forEach>
+            <div>
+                        <c:forEach var="prof" items="${product}" varStatus="st">
+                            <diV class="menuset">
+                                <form method="post" name="${prof.id}" action="DetailServlet">
+                                    <a href="javascript:document.forms.${prof.id}.submit()">
+                                        <img src="${prof.image}" name="bento" height="170px" width="170px">
+                                        <input type="hidden" name="id" value="${prof.id}"><br>
+                                        <p>${prof.name}</p>
+                                    </a>
+                                    <p>${prof.pro_price}円</p>
+                                    <p>${prof.pro_calorie}㎉</p>
+                                </form>
+                                <form action="MenuServlet" method="post" name="frml" >
+                                    <input type="number" name="${prof.id}" id="${prof.id}" value=0 size=6 MIN="O" MAX="99"><br>
+                                    <input type="button" value="＋" onClick="javascript:this.form.${prof.id}.value++;"> 
+                                    <input type="button" value="－" onClick="javascript:this.form.${prof.id}.value--;">
+                                    <input type="submit" value="カート" id="${st.count}" class="dialog" onclick="test('${prof.id}')">
+                                
+                                </form>
+                            </diV>
+                        </c:forEach>
+
+            </div>
+            
+
 
         </div>
-        
-
-
+        <!-- <div class="tab_content" id="programming_content">
+            単品メニュー
     </div>
-    <!-- <div class="tab_content" id="programming_content">
-        単品メニュー
-</div>
-    <div class="tab_content" id="design_content">
-        飲み物メニュー  
-</div> -->
+        <div class="tab_content" id="design_content">
+            飲み物メニュー  
+    </div> -->
+    </div>
 
 
 <!--ダイアログの内容-->

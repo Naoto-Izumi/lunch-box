@@ -267,7 +267,7 @@
                         </form>
                                     
                     </c:forEach>
-
+                    <a href="TopServlet">Topへ戻る</a>
                     
           
         </div>

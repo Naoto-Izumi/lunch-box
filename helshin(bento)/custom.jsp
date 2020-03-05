@@ -31,35 +31,39 @@
     }
 
     //アレルギー絞り込み
-    function onButtonClick() {
-        pro1 = document.refine.p1;
-        pro2 = document.refine.p2;
-        pro3 = document.refine.p3;
-        pro4 = document.refine.p4;
-        pro5 = document.refine.p5;
-        pro6 = document.refine.p6;
-        pro7 = document.refine.p7;
-        judgment(pro1);
-        judgment(pro2);
-        judgment(pro3);
-        judgment(pro4);
-        judgment(pro5);
-        judgment(pro6);
-        judgment(pro7);
-    }
-    function judgment(pro){
-        var proId=getId(pro);
-        if (pro.checked == true) {
-            $("#"+proId).val("0");
-        } else {
-            $("#"+proId).val("1");
-        }
-    }
-    function getId(ele){
-        var id_value = ele.id; // eleのプロパティとしてidを取得
-        console.log(id_value); //
-        return id_value;
-    }
+    // function onButtonClick() {
+    //     pro1 = document.refine.p1;
+    //     pro2 = document.refine.p2;
+    //     pro3 = document.refine.p3;
+    //     pro4 = document.refine.p4;
+    //     pro5 = document.refine.p5;
+    //     pro6 = document.refine.p6;
+    //     pro7 = document.refine.p7;
+    //     judgment(pro1);
+    //     judgment(pro2);
+    //     judgment(pro3);
+    //     judgment(pro4);
+    //     judgment(pro5);
+    //     judgment(pro6);
+    //     judgment(pro7);
+    // }
+    // var aaaaaa = 0;
+    // function judgment(pro){
+    //     aaaaaa++;
+    //     var proId=getId(pro);
+    //     if (pro.checked == true) {
+    //         $("#"+proId).val("0");
+    //         console.log(aaaaaa+"０にするよ");
+    //     } else {
+    //         $("#"+proId).val("1");
+    //         console.log(aaaaaa+"１にするよ");
+    //     }
+    // }
+    // function getId(ele){
+    //     var id_value = ele.id; // eleのプロパティとしてidを取得
+    //     console.log(id_value); //
+    //     return id_value;
+    // }
 
     //画像挿入
     function gazou(){
@@ -91,10 +95,17 @@
                 var list = new Array("syusyoku","syusai","huku1","huku2");
                 for(var i=0;i<4;i++){
 
-                
+                    
+                    console.log("syusyokuだよ"+$('#'+list[i]+'1').get(0));
+                    
+                    if(typeof $('#'+list[i]+'1').get(0) === "undefined"){
+                        console.log("if内だよ");
+                        continue;
+                    }
                     $('#'+list[i]+'1').get(0).type = 'text';
                     
                     var syusyoku = $('input[id='+list[i]+'1]');
+                    
                     syusyoku.removeAttr("src");
                     syusyoku.removeAttr("value");
                     syusyoku.removeAttr("height");
@@ -104,7 +115,6 @@
                     syusyoku.attr('value','');
                     syusyoku.attr('onchange','gazou()');
                     syusyoku.attr('id',list[i]);
-                    // syusyoku.attr('class',list[i]+'text');
                     var a = $("input[type='hidden']");
                     a.removeAttr("value");
                 }
@@ -131,9 +141,13 @@
         console.log(abc.checked);
         if(abc.checked){
             $('#a'+imgId).attr('src', onImg);
+            $('#p'+imgId).val("0");
+            console.log($('#p'+imgId).val());
             console.log('on');
         }else{
             $('#a'+imgId).attr('src', offImg);
+            $('#p'+imgId).val("1");
+            console.log($('#p'+imgId).val());
             console.log('off');
         }
 
@@ -141,24 +155,6 @@
     }
 
 
-    // $(window).on('beforeunload', function(event) {
-    //     console.log('beforeunload');
-    //     return 'jquery beforeunload';
-    // });
-
-
-    // function test()
-    // {
-    //     if (frml.no1.value == 0 )
-    //     {
-    //         alert("なにか入れてください");
-    //         return false;
-    //     }
-    //     else
-    //     {
-    //         return true;
-    //     }
-    // }
 
     $(function(){
     // ダイアログの初期設定
@@ -384,7 +380,6 @@ body{
 }
  
 #navi li {
-  background-color:;
   width: 10%;
   text-align: center;
   float: left;
@@ -581,32 +576,27 @@ body{
     </form> -->
 
 <div class="zuras">
-    <div>
+    <div class="kotei">
         <form action="CustomMenuServlet" method="POST" name="custom">
-            <div class="kotei">
                 主食
                 <span id="one"></span><input type="text" id="syusyoku" name="syusyoku" value="" oninput="gazou()"  required>
                 <input type="hidden" id="syusyoku2" name="syusyoku" >
                 主菜
-                <span id="two"></span><input type="text" id="syusai" name="syusai" value="" oninput="gazou()" " required>
+                <span id="two"></span><input type="text" id="syusai" name="syusai" value="" oninput="gazou()"  >
                 <input type="hidden" id="syusai2" name="syusai" >
                 副菜
-                <span id="three"></span><input type="text" id="huku1" name="huku1" value="" oninput="gazou()" " required>
+                <span id="three"></span><input type="text" id="huku1" name="huku1" value="" oninput="gazou()"  >
                 <input type="hidden" id="huku12" name="huku1" >
                 副菜
-                <span id="four"></span><input type="text" id="huku2" name="huku2" value="" oninput="gazou()" " required>
+                <span id="four"></span><input type="text" id="huku2" name="huku2" value="" oninput="gazou()"  >
                 <input type="hidden" id="huku22" name="huku2" >
             
             <!-- このコードは使わない<input type="button" onclick="check();" value="カート"> -->
                 <input type="submit" id="cart" value="カート" class="ref-btn">
-                    
-                </form>
-                <button id="reset" class="ref-btn">リセット</button>
+                <button id="reset" type="button" class="ref-btn">リセット</button>
                 <br>※画像をドラッグして入れてください
-            </div>
-            
-    
-            
+        </form> 
+        
     </div> 
    
         アレルギーの絞り込み
@@ -616,35 +606,35 @@ body{
         
         <label>
             <img src="image/a1.png" name="are" height="40px" width="40px" id="a1">
-            <input type="checkbox" name="check" id="p1" value="0" onchange="myfunc('image/a1.png')">小麦</label>
+            <input type="checkbox" name="check" onchange="myfunc('image/a1.png')">小麦</label>
             <input type="hidden" name="check1" id="p1" value="1">
         <label>
             <img src="image/a2.png" name="are" height="40px" width="40px" id="a2">
-            <input type="checkbox" name="check" id="p2" value="0" onchange="myfunc('image/a2.png')">卵</label>
-            <input type="hidden" name="check1" id="p2" value="1">
+            <input type="checkbox" name="check" onchange="myfunc('image/a2.png')">卵</label>
+            <input type="hidden" name="check2" id="p2" value="1">
         <label>
             <img src="image/a3.png" name="are" height="40px" width="40px" id="a3">
-            <input type="checkbox" name="check" id="p3" value="0" onchange="myfunc('image/a3.png')">乳</label>
-            <input type="hidden" name="check1" id="p3" value="1">
+            <input type="checkbox" name="check" onchange="myfunc('image/a3.png')">乳</label>
+            <input type="hidden" name="check3" id="p3" value="1">
         <label>
             <img src="image/a4.png" name="are" height="40px" width="40px" id="a4">
-            <input type="checkbox" name="check" id="p4" value="0" onchange="myfunc('image/a4.png')">落花生</label>
-            <input type="hidden" name="check1" id="p4" value="1">
+            <input type="checkbox" name="check" onchange="myfunc('image/a4.png')">落花生</label>
+            <input type="hidden" name="check4" id="p4" value="1">
         <label>
             <img src="image/a5.png" name="are" height="40px" width="40px" id="a5">
-            <input type="checkbox" name="check" id="p5" value="0" onchange="myfunc('image/a5.png')">そば</label>
-            <input type="hidden" name="check1" id="p5" value="1">
+            <input type="checkbox" name="check" onchange="myfunc('image/a5.png')">そば</label>
+            <input type="hidden" name="check5" id="p5" value="1">
         <label>
             <img src="image/a6.png" name="are" height="40px" width="40px" id="a6">
-            <input type="checkbox" name="check" id="p6" value="0" onchange="myfunc('image/a6.png')">えび</label>
-            <input type="hidden" name="check1" id="p6" value="1">
+            <input type="checkbox" name="check" onchange="myfunc('image/a6.png')">えび</label>
+            <input type="hidden" name="check6" id="p6" value="1">
         <label>
             <img src="image/a7.png" name="are" height="40px" width="40px" id="a7">
-            <input type="checkbox" name="check" id="p7" value="0" onchange="myfunc('image/a7.png')">かに</label>
-            <input type="hidden" name="check1" id="p7" value="1">
-        <div class="are_btn">
-            <input type="submit" id="ref" value="を表示しない" class="ref-btn" onclick="onButtonClick()">
-        </div>
+            <input type="checkbox" name="check" onchange="myfunc('image/a7.png')">かに</label>
+            <input type="hidden" name="check7" id="p7" value="1">
+      
+            <input type="submit" id="ref" value="を表示しない" class="ref-btn" >
+        
            <!-- Hover #3 -->
         <!-- <div class="box-3">
             <div class="btn btn-three">

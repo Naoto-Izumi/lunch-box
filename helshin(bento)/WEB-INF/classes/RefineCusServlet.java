@@ -44,13 +44,13 @@ public void doPost(HttpServletRequest req,HttpServletResponse res)
         String s6=req.getParameter("check6");
         String s7=req.getParameter("check7");
 
-        System.out.println(s1);
-        System.out.println(s2);
-        System.out.println(s3);
-        System.out.println(s4);
-        System.out.println(s5);
-        System.out.println(s6);
-        System.out.println(s7);
+        System.out.println("小麦"+s1);
+        System.out.println("卵"+s2);
+        System.out.println("乳"+s3);
+        System.out.println("落花生"+s4);
+        System.out.println("そば"+s5);
+        System.out.println("えび"+s6);
+        System.out.println("かに"+s7);
 
         p.setPro_wheat(s1);
         p.setPro_egg(s2);

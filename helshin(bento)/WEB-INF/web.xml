@@ -1,4 +1,5 @@
 <web-app>
+
     <error-page>
         <error-code>404</error-code>
         <location>/TopServlet</location>
@@ -10,10 +11,6 @@
     </error-page>
     <error-page>
         <error-code>500</error-code>
-        <location>/TopServlet</location>
-    </error-page>
-    <error-page>
-        <exception-type>java.lang.Throwable</exception-type>
         <location>/TopServlet</location>
     </error-page>
 
