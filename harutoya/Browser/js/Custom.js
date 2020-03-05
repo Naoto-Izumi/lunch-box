@@ -4,7 +4,7 @@ function amount(){
 }
 
 //アレルギー絞り込み
-function onButtonClick() {
+/*function onButtonClick() {
     pro1 = document.refine.p1;
     pro2 = document.refine.p2;
     pro3 = document.refine.p3;
@@ -32,7 +32,7 @@ function getId(ele){
     var id_value = ele.id; // eleのプロパティとしてidを取得
     console.log(id_value); //
     return id_value;
-}
+}*/
 
 //画像挿入
 function gazou(){
@@ -40,7 +40,7 @@ function gazou(){
     $(document).on('input',"input[type='text']", function(event){
         console.log("あああああああああああああ");
         console.log($(this).val());
-        var value = $(this).val().substr(28);
+        var value = $(this).val().substr(21);
         if(value.match(/jpg/)){
             var id = "#"+$(this).attr("id");
             var prev = "#"+$(this).prev().attr("id");

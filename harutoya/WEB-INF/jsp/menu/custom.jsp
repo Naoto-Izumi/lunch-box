@@ -9,51 +9,341 @@
 
         <script src="${pageContext.request.contextPath}/Browser/js/lightbox.js"></script>
         <script src="${pageContext.request.contextPath}/Browser/js/Custom.js"></script>
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/Browser/css/Custom.css">  
+        <script src="${pageContext.request.contextPath}/Browser/js/login.js"></script>
+        <!--<link rel="stylesheet" href="${pageContext.request.contextPath}/Browser/css/Menu.css"> -->
+        <link rel="shortcut icon" href="${pageContext.request.contextPath}/Browser/favicon/favicon.ico"> 
 
 <title>カスタムメニュー</title>
 
+<style>
+    /*タブ切り替え全体のスタイル*/
+.tabs {
+  margin-top: 50px;
+  padding-bottom: 40px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 80%;
+  margin: 0 auto;}
 
+/*タブのスタイル*/
+.tab_item {
+  width: calc(100%/3);
+  height: 50px;
+  border-bottom: 3px solid#e49e61;
+  background-color: #d9d9d9;
+  line-height: 50px;
+  font-size: 16px;
+  text-align: center;
+  color: #565656;
+  display: block;
+  float: left;
+  text-align: center;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+.tab_item:hover {
+  opacity: 0.75;
+}
+
+/*ラジオボタンを全て消す*/
+input[name="tab_item"] {
+  display: none;
+}
+
+/*タブ切り替えの中身のスタイル*/
+.tab_content {
+  display: none;
+  padding: 40px 40px 0;
+  clear: both;
+  overflow: hidden;
+}
+
+
+/*選択されているタブのコンテンツのみを表示*/
+#all:checked ~ #all_content,
+#programming:checked ~ #programming_content,
+#design:checked ~ #design_content {
+  display: block;
+}
+
+/*選択されているタブのスタイルを変える*/
+.tabs input:checked + .tab_item {
+  background-color:#e49e61;
+  color: #fff;
+}
+
+.syusyokutext{
+    background-color:#f0f8ff;
+    font-size:50px;
+    border-color:#6495ed;
+    border-width:5px;
+    position: relative;
+    height: 300px;
+    width: 400px;
+}
+.syusaitext{
+    background-color:#f0f8ff;
+    font-size:50px;
+    border-color:#6495ed;
+    border-width:5px;
+    position: relative;
+    height: 150px;
+    width: 400px;
+    top:75px;
+    right:7px;
+
+}
+.huku1text{
+    background-color:#f0f8ff;
+    font-size:50px;
+    border-color:#6495ed;
+    border-width:5px;
+    position: relative;
+    height: 150px;
+    width: 200px;
+    right:412px;
+    bottom: 75px;
+}
+.huku2text{
+    background-color:#f0f8ff;
+    font-size:50px;
+    border-color:#6495ed;
+    border-width:5px;
+    position: relative;
+    height: 150px;
+    width: 200px;
+    right:418px;
+    bottom: 75px;
+
+}
+
+
+.Asyusyokutext{
+    background-color:#f0f8ff;
+    font-size:5px;
+    border-color:#6495ed;
+    border-width:2px;
+    position: fixed;
+    height: 30px;
+    width: 80px;
+}
+.Asyusaitext{
+    background-color:#f0f8ff;
+    font-size:5px;
+    border-color:#6495ed;
+    border-width:2px;
+    position: fixed;
+    height: 30px;
+    width: 80px;
+
+}
+
+/* .kotei{
+    position: fixed;
+} */
+.Ahuku1text{
+    background-color:#f0f8ff;
+    font-size:5px;
+    border-color:#6495ed;
+    border-width:2px;
+    position: fixed;
+    height: 30px;
+    width: 80px;
+}
+.Ahuku2text{
+    background-color:#f0f8ff;
+    font-size:5px;
+    border-color:#6495ed;
+    border-width:2px;
+    position: fixed;
+    height: 30px;
+    width: 80px;
+
+}
+
+body{
+    margin:0;
+    padding:0;
+}
+
+
+
+.grovalNavigation{
+    z-index: 9999;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    background-color: #ffffff;
+    color: #000000;
+    position: fixed;
+}
+#navi {
+  list-style: none;
+  overflow: hidden;
+}
+ 
+#navi li {
+  width: 10%;
+  text-align: center;
+  float: left;
+  height: 80px;
+  line-height: 70px;
+  margin-right: 2px;
+  display: inline-block;
+}
+ 
+#navi li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  padding: 20px;
+}
+#navi li img{
+    width: 80px;
+    height:80px;
+}
+#navi li span{
+    position:relative;
+    right: 60px;
+    top: 20px;
+    font-size: 13px;
+    text-align: center;
+}
+.logo{
+    float:left;
+    margin-top:5px;
+}
+
+.kensaku{
+    float:right;
+    position: relative;
+    right: 20px;
+    bottom: 50px;
+
+}
+
+.headinfo{
+    float:right;
+    position:absolute;
+    right: 80px;
+    bottom:26px;
+}
+.zuras{
+    padding:100px 0 0 0;
+}
+
+.menuset{
+    display: inline-block;      /* インラインブロック要素にする */
+    background-color:  #fff;    /* 背景色指定 */
+    padding:  29px;             /* 余白指定 */
+    height: 300px;              /* 高さ指定 */
+}
+
+/* allergyボタン----------------------------------------------------- */
+.are_btn{
+    position:absolute;
+    margin-left: 710px;
+    top: 250px;
+}
+.btn-three {
+    color: #09186e;
+    transition: all 0.5s;
+    position: relative;
+}
+.btn-three::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 9%;
+    height: 100%;
+    z-index: 1;
+    background-color: rgba(236, 10, 134, 0.1);
+    transition: all 0.3s;
+}
+.btn-three:hover::before {
+    opacity: 0 ;
+    transform: scale(0.5,0.5);
+}
+.btn-three::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 9%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.3s;
+    border: 1px solid rgba(60, 223, 95, 0.5);
+    transform: scale(1.2,1.2);
+}
+.btn-three:hover::after {
+    opacity: 1;
+    transform: scale(1,1);
+}
+/* ref-btn------------------------- */
+.ref-btn {
+  display       : inline-block;
+  border-radius : 5%;          /* 角丸       */
+  font-size     : 10pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 6px 6px;   /* 余白       */
+  background    : #f8b500;     /* 背景色     */
+  color         : #ffffff;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  box-shadow    : 3px 3px 1px #666666;  /* 影の設定 */
+  border        : 2px solid #f8b500;    /* 枠の指定 */
+}
+.ref-btn:hover {
+  box-shadow    : none;        /* カーソル時の影消去 */
+  color         : #f8b500;     /* 背景色     */
+  background    : #ffffff;     /* 文字色     */
+}
+
+</style>
 
 </head>
 <body>
 
     <header class="grovalNavigation">
         <div class="logo" title="春戸弁当">
-            <a href="TopServlet" class="fade_btn"><img src="${pageContext.request.contextPath}/Browser/img/harutoya.png" title="" height="90px" width="375px"></a>
+            <a href="start" class="fade_btn"><img src="${pageContext.request.contextPath}/Browser/img/harutoya.png" title="" height="90px" width="375px"></a>
         </div>
     
         <ul id="navi" class="icon_nav">
             <li>
                 <a href="TopServlet" class="fade_btn">
-                    <img src="${pageContext.request.contextPath}/Browser/img/nav_01.png" alt="メニュー" title="">
+                    <img src="${pageContext.request.contextPath}/Browser/img/5.png" alt="メニュー" title="">
                     <span>メニュー</span>
                 </a>
             </li>
             <li>
-                <a href="TopServlet" class="fade_btn">
-                    <img src="${pageContext.request.contextPath}/Browser/img/nav_06.png" alt="カスタムメニュー" title="">
+                <a href="TopCusServlet" class="fade_btn">
+                    <img src="${pageContext.request.contextPath}/Browser/img/4.png" alt="カスタムメニュー" title="">
                         <span>カスタムメニュー</span>
                 </a>
             </li>
     
             <li>
-                <a href="StoreServlet" target="_blank" class="fade_btn">
-                    <img src="${pageContext.request.contextPath}/Browser/img/nav_02.png" alt="店舗検索" title="">
+                <a href="StoreServlet"  class="fade_btn">
+                    <img src="${pageContext.request.contextPath}/Browser/img/1.png" alt="店舗検索" title="">
                     <span>店舗検索</span>
                 </a>
             </li>
     
             <li>
                 <a href="norder" class="fade_btn">
-                    <img src="${pageContext.request.contextPath}/Browser/img/nav_04.png" alt="お知らせ" title="">
+                    <img src="${pageContext.request.contextPath}/Browser/img/2.png" alt="お知らせ" title="">
                     <span>ネット注文</span>
                 </a>
             </li>
             
             <li>
                 <a href="TopCusServlet" class="fade_btn">
-                    <img src="${pageContext.request.contextPath}/Browser/img/nav_08.png" alt="カート" title="">
+                    <img src="${pageContext.request.contextPath}/Browser/img/3.png" alt="カート" title="">
                         <span>カート</span>
                 </a>
             </li>
@@ -66,11 +356,15 @@
         </div>
         <div>
             <ul class="headinfo">
+                <div id="newregist">
                 <li>
                      <a href="ruser" >新規会員登録</a>
                 </li>
+                </div>
                 <li>
-                    <a href="infomation" >ログイン</a>
+                    <h1 id ="userid">${menutoken}</h1>
+                    <a id="login"  href="page" >ログイン</a>
+                    <a id="logout" href="vmenu" style="display:none;">ログアウト</a>
                 </li>
             </ul>
         </div>
@@ -84,8 +378,35 @@
         <input type="text" name="sname" id="s1">
         <input type="submit" id="sea" value="検索" >
     </form> -->
-    <div class="allergy">
-        <p>アレルギーの絞り込み</p>
+    <div class="zuras">
+        <div>
+            <form action="CustomMenuServlet" method="POST" name="custom">
+                <div class="kotei">
+                    主食
+                    <span id="one"></span><input type="text" id="syusyoku" name="syusyoku" value="" oninput="gazou()"  required>
+                    <input type="hidden" id="syusyoku2" name="syusyoku" >
+                    主菜
+                    <span id="two"></span><input type="text" id="syusai" name="syusai" value="" oninput="gazou()" " required>
+                    <input type="hidden" id="syusai2" name="syusai" >
+                    副菜
+                    <span id="three"></span><input type="text" id="huku1" name="huku1" value="" oninput="gazou()" " required>
+                    <input type="hidden" id="huku12" name="huku1" >
+                    副菜
+                    <span id="four"></span><input type="text" id="huku2" name="huku2" value="" oninput="gazou()" " required>
+                    <input type="hidden" id="huku22" name="huku2" >
+                
+                <!-- このコードは使わない<input type="button" onclick="check();" value="カート"> -->
+                    <input type="submit" id="cart" value="カート" class="ref-btn">
+                        
+                    </form>
+                    <button id="reset" class="ref-btn">リセット</button>
+                    <br>※画像をドラッグして入れてください
+                </div>
+                
+        
+                
+        </div> 
+        アレルギーの絞り込み
     </div>
 
     <form action="RefineCusServlet" method="post" name="refine">
@@ -142,33 +463,6 @@
             <input type="submit" value="並び替え" class="ref-btn">
         </p>
     </form>
-        
-
-
-
-<div>
-        <form action="CustomMenuServlet" method="POST" name="custom">
-            <div >
-            <span id="one"></span><input type="text" id="syusyoku" name="syusyoku" value="" oninput="gazou()" class="customtext1" placeholder="主食" required>
-            <input type="hidden" id="syusyoku2" name="syusyoku" >
-            <span id="two"></span><input type="text" id="syusai" name="syusai" value="" oninput="gazou()" class="customtext2"　placeholder="主菜">
-            <input type="hidden" id="syusai2" name="syusai" >
-            <span id="three"></span><input type="text" id="huku1" name="huku1" value="" oninput="gazou()" class="customtext3"　placeholder="副菜">
-            <input type="hidden" id="huku12" name="huku1" >
-            <span id="four"></span><input type="text" id="huku2" name="huku2" oninput="gazou()" class="customtext4"　placeholder="副菜">
-            <input type="hidden" id="huku22" name="huku2" >
-            </div>
-            <!-- このコードは使わない<input type="button" onclick="check();" value="カート"> -->
-             <input type="submit" id="cart" value="カート">
-             
-        </form>
-        <button id="reset" >reset</button>
-      
-            
-</div> 
-
-
-<a href="norder">カートを見る</a>
 
 <div class="tabs">
     <input id="all" type="radio" name="tab_item" checked>
@@ -199,14 +493,16 @@
             </table> -->
             <c:forEach var="prof" items="${syusyokuProduct}" varStatus="st">
                 <diV class="menuset">
+                    <img src="${prof.image}" name="bento" height="170px" width="170px">
+
                     <form method="post" name="${prof.id}" action="DetailServlet">
-                        <a href="javascript:${prof.id}.submit()">
-                            <img src="${prof.image}" name="bento" height="170px" width="170px">
+                        <a href="javascript:document.forms.${prof.id}.submit()">  
                             <input type="hidden" name="id" value="${prof.id}"><br>
                             <p>${prof.name}</p>
-                            <p>${prof.pro_price}円</p>
-                            <p>${prof.pro_calorie}㎉</p>
+                            
                         </a>
+                        <p>${prof.pro_price}円</p>
+                        <p>${prof.pro_calorie}㎉</p>
                     </form>
                 </diV>
             </c:forEach>
@@ -234,13 +530,13 @@
             <c:forEach var="prof" items="${syusaiProduct}" varStatus="st">
                 <diV class="menuset">
                     <form method="post" name="${prof.id}" action="DetailServlet">
+                        <img src="${prof.image}" name="bento" height="170px" width="170px">
                         <a href="javascript:${prof.id}.submit()">
-                            <img src="${prof.image}" name="bento" height="170px" width="170px">
                             <input type="hidden" name="id" value="${prof.id}"><br>
                             <p>${prof.name}</p>
-                            <p>${prof.pro_price}円</p>
-                            <p>${prof.pro_calorie}㎉</p>
                         </a>
+                        <p>${prof.pro_price}円</p>
+                        <p>${prof.pro_calorie}㎉</p>
                     </form>
                 </diV>
             </c:forEach>
@@ -264,14 +560,14 @@
             </table> -->
                 <c:forEach var="prof" items="${hukuProduct}" varStatus="st">
                     <diV class="menuset">
+                        <img src="${prof.image}" name="bento" height="170px" width="170px">
                         <form method="post" name="${prof.id}" action="DetailServlet">
                             <a href="javascript:${prof.id}.submit()">
-                                <img src="${prof.image}" name="bento" height="170px" width="170px">
                                 <input type="hidden" name="id" value="${prof.id}"><br>
                                 <p>${prof.name}</p>
-                                <p>${prof.pro_price}円</p>
-                                <p>${prof.pro_calorie}㎉</p>
                             </a>
+                            <p>${prof.pro_price}円</p>
+                            <p>${prof.pro_calorie}㎉</p>
                         </form>
                     </div>
                 </c:forEach>              

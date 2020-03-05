@@ -3,11 +3,16 @@
   <head>
     <meta charset="utf-8">
     <title>ぶるまてすと</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <!-- jQuery UI -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <link rel="shortcut icon" href="${pageContext.request.contextPath}/Browser/favicon/favicon.ico">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/Browser/css/bulma.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/Browser/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <link rel ="stylesheet" href="${pageContext.request.contextPath}/Browser/css/Menu2.css">
+    <script src="${pageContext.request.contextPath}/Browser/js/login.js"></script>
   </head>
 
 
@@ -28,8 +33,18 @@
     </span>
     <!--------------------------------------------保留---------------------------------------------->
     <span class="nav-item">
-      <a class="regist" href="ruser">新規会員登録</a>
-      <a class="login" href="infomation">ログイン</a>
+      <ul class="headinfo">
+        <div id="newregist">
+        <li>
+             <a href="ruser" >新規会員登録</a>
+        </li>
+        </div>
+        <li>
+            <h1 id ="userid">${menutoken}</h1>
+            <a id="login"  href="page" >ログイン</a>
+            <a id="logout" href="vmenu" style="display:none;">ログアウト</a>
+        </li>
+    </ul>
     </span>
   </div>
  
@@ -87,9 +102,7 @@
     <li>
         <a href="#" class="fas fa-ellipsis-h">　その他</a>
         <ul>
-          <li><a href="#">よくある質問</a></li>
-          <li><a href="#">お問い合わせ</a></li>
-          <li><a href="#">ニュース</a></li>
+          <li><a href="member">メンバー紹介</a></li>
         </ul>
     </li>
     </ul>

@@ -145,7 +145,7 @@ public class MenuServlet extends HttpServlet{
 
 
 
-		RequestDispatcher dispatcher=req.getRequestDispatcher("/order.jsp");
+		RequestDispatcher dispatcher=req.getRequestDispatcher("/WEB-INF/jsp/menu/order.jsp");
 		
 		dispatcher.forward(req,res);
 

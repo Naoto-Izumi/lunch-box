@@ -66,7 +66,7 @@ public void doPost(HttpServletRequest req,HttpServletResponse res)
             //nullにした個数をセット
             h.setAttribute("list", map);
         }
-		RequestDispatcher dispatcher=req.getRequestDispatcher("/order.jsp");
+		RequestDispatcher dispatcher=req.getRequestDispatcher("/WEB-INF/jsp/menu/order.jsp");
 		
 		dispatcher.forward(req,res);
 

@@ -60,17 +60,17 @@ $(function(){
 });
 
 function test(count){
-$(document).on("click", ".dialog", function(){
-    var product = document.getElementById(count).value;
-    if(product <= 0){
-        // ダイアログの呼び出し処理
-        $("#mydialog2").dialog("open");
-        //documentからイベントを削除
-        $(document).off("click",".dialog");
-        //データの送信をリセット
-        return false;
-    }
-});
+    $(document).on("click", ".dialog", function(){
+        var product = document.getElementById(count).value;
+        if(product <= 0){
+            // ダイアログの呼び出し処理
+            $("#mydialog2").dialog("open");
+            //documentからイベントを削除
+            $(document).off("click",".dialog");
+            //データの送信をリセット
+            return false;
+        }
+    });
 }
 
 

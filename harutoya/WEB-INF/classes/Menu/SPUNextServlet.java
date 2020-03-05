@@ -44,7 +44,7 @@ public void doPost(HttpServletRequest req,HttpServletResponse res)
         System.out.println(mlist);
         req.setAttribute("product",mlist);
 
-		RequestDispatcher dispatcher=req.getRequestDispatcher("/menu.jsp");
+		RequestDispatcher dispatcher=req.getRequestDispatcher("/WEB-INF/jsp/menu/menu.jsp");
 		
 		dispatcher.forward(req,res);
 

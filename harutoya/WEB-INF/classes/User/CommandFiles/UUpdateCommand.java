@@ -7,14 +7,14 @@ import Main.AbstractCommand;
 import Main.ResponseContext;
 import Main.RequestContext;
 import User.Beans.UserBean;
-import Menu.Beans.ProductBean;
+//import Menu.Beans.Product;
 
 //ユーザ情報を	更新
 public class UUpdateCommand extends AbstractCommand{
 	
 	public ResponseContext execute(ResponseContext resc){
 		RequestContext reqc = getRequestContext();
-		ProductBean pb = new ProductBean();
+		//Product pb = new Product();
 		//JDBCにユーザ情報を要求
 		System.out.println("UUpdateCommand"+reqc.getId());
 		

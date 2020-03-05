@@ -7,7 +7,7 @@ function amount(){
 }
 
 //アレルギー絞り込み
-function onButtonClick() {
+/*function onButtonClick() {
     pro1 = document.refine.p1;
     pro2 = document.refine.p2;
     pro3 = document.refine.p3;
@@ -35,7 +35,7 @@ function getId(ele){
     var id_value = ele.id; // eleのプロパティとしてidを取得
     console.log(id_value); //
     return id_value;
-}
+}*/
 
 //画像挿入
 function gazou(){
@@ -60,35 +60,7 @@ function gazou(){
 
 
 
- //customの画像削除のjs
-$(function() {
-    $("#reset").on({
-        'click': function() {
-            var list = new Array("syusyoku","syusai","huku1","huku2");
-            for(var i=0;i<4;i++){
 
-            
-                $('#'+list[i]+'1').get(0).type = 'text';
-                
-                var syusyoku = $('input[id='+list[i]+'1]');
-                syusyoku.removeAttr("src");
-                syusyoku.removeAttr("value");
-                syusyoku.removeAttr("height");
-                syusyoku.removeAttr("width");
-                syusyoku.removeAttr("disabled");
-                syusyoku.attr('name',list[i]);
-                syusyoku.attr('value','');
-                syusyoku.attr('onchange','gazou()');
-                syusyoku.attr('id',list[i]);
-                var a = $("input[type='hidden']");
-                a.removeAttr("value");
-            }
-        
-        }
-    });
-
-
-});
 
 
 //アレルギーの画像切り替え

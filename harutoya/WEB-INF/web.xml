@@ -87,12 +87,12 @@
 	</filter-mapping>
 	<filter-mapping>
 		<filter-name>menufilter</filter-name>
-		<url-pattern>/spup</url-pattern>
+		<url-pattern>/StorePickUpServlet</url-pattern>
 		<dispatcher>REQUEST</dispatcher>
 	</filter-mapping>
 	<filter-mapping>
 		<filter-name>menufilter</filter-name>
-		<url-pattern>/snext</url-pattern>
+		<url-pattern>/SPUNextCommand</url-pattern>
 		<dispatcher>REQUEST</dispatcher>
 	</filter-mapping>
 	<filter-mapping>
@@ -102,7 +102,7 @@
 	</filter-mapping>
 	<filter-mapping>
 		<filter-name>menufilter</filter-name>
-		<url-pattern>/mmenu</url-pattern>
+		<url-pattern>/MenuServlet</url-pattern>
 		<dispatcher>REQUEST</dispatcher>
 	</filter-mapping>
 	<filter-mapping>
@@ -112,17 +112,22 @@
 	</filter-mapping>
 	<filter-mapping>
 		<filter-name>menufilter</filter-name>
-		<url-pattern>/uinfo</url-pattern>
+		<url-pattern>/InfoServlet</url-pattern>
 		<dispatcher>REQUEST</dispatcher>
 	</filter-mapping>
 	<filter-mapping>
 		<filter-name>menufilter</filter-name>
-		<url-pattern>/orderin</url-pattern>
+		<url-pattern>/UserInfoServlet</url-pattern>
 		<dispatcher>REQUEST</dispatcher>
 	</filter-mapping>
 	<filter-mapping>
 		<filter-name>menufilter</filter-name>
 		<url-pattern>/page</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>menufilter</filter-name>
+		<url-pattern>/CompleteServlet</url-pattern>
 		<dispatcher>REQUEST</dispatcher>
 	</filter-mapping>
 	
@@ -137,17 +142,17 @@
 	</filter-mapping>
 	<filter-mapping>
 		<filter-name>menuauthenticatefilter</filter-name>
-		<url-pattern>/mmenu</url-pattern>
+		<url-pattern>/StorePickUpServlet</url-pattern>
 		<dispatcher>REQUEST</dispatcher>
 	</filter-mapping>
 	<filter-mapping>
 		<filter-name>menuauthenticatefilter</filter-name>
-		<url-pattern>/spup</url-pattern>
+		<url-pattern>/SPUNextServlet</url-pattern>
 		<dispatcher>REQUEST</dispatcher>
 	</filter-mapping>
 	<filter-mapping>
 		<filter-name>menuauthenticatefilter</filter-name>
-		<url-pattern>/snext</url-pattern>
+		<url-pattern>/MenuServlet</url-pattern>
 		<dispatcher>REQUEST</dispatcher>
 	</filter-mapping>
 	<filter-mapping>
@@ -157,7 +162,7 @@
 	</filter-mapping>
 	<filter-mapping>
 		<filter-name>menuauthenticatefilter</filter-name>
-		<url-pattern>/menu</url-pattern>
+		<url-pattern>/InfoServlet</url-pattern>
 		<dispatcher>REQUEST</dispatcher>
 	</filter-mapping>
 	<filter-mapping>
@@ -167,12 +172,12 @@
 	</filter-mapping>
 	<filter-mapping>
 		<filter-name>menuauthenticatefilter</filter-name>
-		<url-pattern>/uinfo</url-pattern>
+		<url-pattern>/UserInfoServlet</url-pattern>
 		<dispatcher>REQUEST</dispatcher>
 	</filter-mapping>
 	<filter-mapping>
 		<filter-name>menuauthenticatefilter</filter-name>
-		<url-pattern>/orderin</url-pattern>
+		<url-pattern>/UserInfomationServlet</url-pattern>
 		<dispatcher>REQUEST</dispatcher>
 	</filter-mapping>
 	<filter-mapping>
@@ -180,7 +185,11 @@
 		<url-pattern>/page</url-pattern>
 		<dispatcher>REQUEST</dispatcher>
 	</filter-mapping>
-	
+	<filter-mapping>
+		<filter-name>menuauthenticatefilter</filter-name>
+		<url-pattern>/CompleteServlet</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+	</filter-mapping>
 	
 	<servlet>
 		<servlet-name>kanrisya</servlet-name>
