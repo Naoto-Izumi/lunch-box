@@ -9,6 +9,7 @@
     <!-- <link rel="stylesheet" href="${pageContext.request.contextPath}/Browser/css/Menu.css"> -->
     <link rel="shortcut icon" href="${pageContext.request.contextPath}/Browser/favicon/favicon.ico">
     <script src="${pageContext.request.contextPath}/Browser/js/login.js"></script>
+    <link rel ="stylesheet" href="${pageContext.request.contextPath}/Browser/css/Menu.css">
 </head>
 <body>
     <header class="grovalNavigation">

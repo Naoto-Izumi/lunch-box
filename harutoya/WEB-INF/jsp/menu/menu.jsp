@@ -9,7 +9,6 @@
 
         <script src="${pageContext.request.contextPath}/Browser/js/lightbox.js"></script>
         <script src="${pageContext.request.contextPath}/Browser/js/Menu.js"></script>
-        <script src="${pageContext.request.contextPath}/Browser/js/login.js"></script>
         <!-- <link rel="stylesheet" href="${pageContext.request.contextPath}/Browser/css/Menu.css"> -->
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/Browser/favicon/favicon.ico">
     
@@ -280,7 +279,7 @@ body{
                 <li>
                      <a href="ruser" >新規会員登録</a>
                 </li>
-                </div>
+            </div>
                 <li>
                     <h1 id ="userid">${menutoken}</h1>
                     <a id="login"  href="page" >ログイン</a>

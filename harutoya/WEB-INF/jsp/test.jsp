@@ -33,18 +33,10 @@
     </span>
     <!--------------------------------------------保留---------------------------------------------->
     <span class="nav-item">
-      <ul class="headinfo">
-        <div id="newregist">
-        <li>
-             <a href="ruser" >新規会員登録</a>
-        </li>
-        </div>
-        <li>
-            <h1 id ="userid">${menutoken}</h1>
-            <a id="login"  href="page" >ログイン</a>
-            <a id="logout" href="vmenu" style="display:none;">ログアウト</a>
-        </li>
-    </ul>
+      <h1 id ="userid">${menutoken}</h1>
+      <a class="regist" id="newregist" href="ruser">新規会員登録</a>
+      <a class="login" id="login" href="infomation">ログイン</a>
+      <a id="logout" href="vmenu" style="display:none;">ログアウト</a>
     </span>
   </div>
  
