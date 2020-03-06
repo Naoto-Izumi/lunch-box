@@ -174,6 +174,10 @@
 
 .zuras{
     padding:100px 0 0 0;
+    
+}
+.cent{
+    text-align: center;
 }
         .btn-pop {
         position: relative;
@@ -186,6 +190,8 @@
         border-radius: 4px;/*角の丸み*/
         box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
         font-weight: bold;
+        width: 100px;
+        
         }
 
         .btn-pop:active {
@@ -195,6 +201,93 @@
         ul {
         list-style: none;
         }
+        .cp_iptxt {
+	position: relative;
+	width: 80%;
+	margin: 40px 3%;
+}
+.cp_iptxt input[type='text'] {
+	font: 15px/24px sans-serif;
+	box-sizing: border-box;
+	width: 30%;
+	padding: 0.3em;
+	transition: 0.3s;
+	letter-spacing: 1px;
+	color: #aaaaaa;
+	border: 1px solid #1b2538;
+	border-radius: 4px;
+    
+}
+.ef input[type='text']:focus {
+	border: 1px solid #da3c41;
+	outline: none;
+	box-shadow: 0 0 5px 1px rgba(218,60,65, .5);
+}
+.cp_iptxt input[type='tel'] {
+	font: 15px/24px sans-serif;
+	box-sizing: border-box;
+	width: 30%;
+	padding: 0.3em;
+	transition: 0.3s;
+	letter-spacing: 1px;
+	color: #aaaaaa;
+	border: 1px solid #1b2538;
+	border-radius: 4px;
+}
+.ef input[type='tel']:focus {
+	border: 1px solid #da3c41;
+	outline: none;
+	box-shadow: 0 0 5px 1px rgba(218,60,65, .5);
+}
+.cp_iptxt input[type='email'] {
+	font: 15px/24px sans-serif;
+	box-sizing: border-box;
+	width: 30%;
+	padding: 0.3em;
+	transition: 0.3s;
+	letter-spacing: 1px;
+	color: #aaaaaa;
+	border: 1px solid #1b2538;
+	border-radius: 4px;
+}
+.ef input[type='email']:focus {
+	border: 1px solid #da3c41;
+	outline: none;
+	box-shadow: 0 0 5px 1px rgba(218,60,65, .5);
+}
+.cp_iptxt input[type='time'] {
+	font: 15px/24px sans-serif;
+	box-sizing: border-box;
+	width: 30%;
+	padding: 0.3em;
+	transition: 0.3s;
+	letter-spacing: 1px;
+	color: #aaaaaa;
+	border: 1px solid #1b2538;
+	border-radius: 4px;
+}
+.ef input[type='time']:focus {
+	border: 1px solid #da3c41;
+	outline: none;
+	box-shadow: 0 0 5px 1px rgba(218,60,65, .5);
+}
+.cp_iptxt input[type='password'] {
+	font: 15px/24px sans-serif;
+	box-sizing: border-box;
+	width: 30%;
+	padding: 0.3em;
+	transition: 0.3s;
+	letter-spacing: 1px;
+	color: #aaaaaa;
+	border: 1px solid #1b2538;
+	border-radius: 4px;
+}
+.ef input[type='password']:focus {
+	border: 1px solid #da3c41;
+	outline: none;
+	box-shadow: 0 0 5px 1px rgba(218,60,65, .5);
+}
+
     </style>
     
 </head>
@@ -262,30 +355,56 @@
 
 <div class="zuras">
     <h1>ご注文内容の指定</h1>
+    <div class="cent">
     <form method="POST" action="UserInformationServlet" name="info">
-            名前<input type="text" name="name" required><br>
-            電話<input type="tel" name="tel" oninput="check(this)"  required><br>
-            メール<input type="email" name="mail" required><br>
-            住所<input type="text" name="address" required><br>
-            日付<input type="text" name="date" id="datepicker" required><br>
-            時間<input type="time" name="time"  required><br>
-            支払い方法
-            <input type="radio" name="type" value="0" onchange="showCash();" checked>現金
-            <input type="radio" name="type" value="1" onchange="showCard();" >カード<br>
+        
+       
+            <div class="cp_iptxt">
+                <label class="ef">
+                    名前<br><input type="text" name="name" required><br>
+                </label>
+                <label class="ef">
+                電話<br><input type="tel" name="tel" oninput="check(this)"  required><br>
+                </label>
+                <label class="ef">
+                メール<br><input type="email" name="mail" required><br>
+                </label>
+                <label class="ef">
+                住所<br><input type="text" name="address" required><br>
+                </label>
+                <label class="ef">
+                日付<br><input type="text" name="date" id="datepicker" required><br>
+                </label>
+                <label class="ef">
+                時間<br><input type="time" name="time"  required><br>
+                </label>
+                <label class="ef">
+                支払い方法
+                <input type="radio" name="type" value="0" onchange="showCash();" checked>現金
+                <input type="radio" name="type" value="1" onchange="showCard();" >カード<br>
 
-            <ul id="card" class="passive">
-                <li>カード名義人(半角ローマ字)<input type="text" name="cardname" class="cardinfo"　maxlength="50" pattern="/d*"></li>
-                <li>カード番号<input type="password" name="cardnumber" class="cardinfo" pattern="/d*"></li>
-                <li>有効期限<input type="password" name="carddate" class="cardinfo" pattern="/d*"></li>
-            </ul>
-            <input type="submit" value="確認" id="awawa" class="btn-pop">
-        </form>
+                <ul id="card" class="passive">
+                    </label>
+                    <label class="ef">
+                    <li>カード名義人(半角ローマ字)<br><input type="text" name="cardname" class="cardinfo"　maxlength="50" pattern="/d*"></li>
+                    </label>
+                    <label class="ef">
+                    <li>カード番号<br><input type="password" name="cardnumber" class="cardinfo" pattern="/d*"></li>
+                    </label>
+                    <label class="ef">
+                    <li>有効期限<br><input type="password" name="carddate" class="cardinfo" pattern="/d*"></li>
+                    </label>
+                </ul>
+                <input type="submit" value="確認" id="awawa" class="btn-pop">
+            </div>
+            </form>
 
-        <!--ダイアログの内容-->
-        <div id="mydialog2" title="入力欄が空白です">
-            カード情報を入力してください<br />
+            <!--ダイアログの内容-->
+            <div id="mydialog2" title="入力欄が空白です">
+                カード情報を入力してください<br />
+            </div>
         </div>
-    </div>
+</div>
 
     </body>
 </html>
