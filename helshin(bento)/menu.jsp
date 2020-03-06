@@ -361,19 +361,63 @@ body{
   text-align    : center;      /* 文字位置   */
   cursor        : pointer;     /* カーソル   */
   padding       : 6px 6px;   /* 余白       */
-  background    : #f8b500;     /* 背景色     */
-  color         : #ffffff;     /* 文字色     */
+  background    : #e8ecef;     /* 背景色     */
+  color         : #09186e;     /* 文字色     */
   line-height   : 1em;         /* 1行の高さ  */
   transition    : .3s;         /* なめらか変化 */
-  box-shadow    : 3px 3px 1px #666666;  /* 影の設定 */
-  border        : 2px solid #f8b500;    /* 枠の指定 */
+  box-shadow    : 1px 1px 1px #666666;  /* 影の設定 */
+  border        : 2px solid #e8ecef;    /* 枠の指定 */
 }
 .ref-btn:hover {
   box-shadow    : none;        /* カーソル時の影消去 */
-  color         : #f8b500;     /* 背景色     */
+  color         : #3d4da7;     /* 背景色     */
   background    : #ffffff;     /* 文字色     */
 }
+a {
+text-decoration: none;
+}
+.btn-pop {
+  position: relative;
+  display: inline-block;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  color: #FFF;
+  background: #fd9535;/*背景色*/
+  border-bottom: solid 2px #d27d00;/*少し濃い目の色に*/
+  border-radius: 4px;/*角の丸み*/
+  box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
+  font-weight: bold;
+}
 
+.btn-pop:active {
+  border-bottom: solid 2px #fd9535;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+}
+.btn-square-pop {
+  position: relative;
+  display: inline-block;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  color: #FFF;
+  background: #fd9535;/*背景色*/
+  border-bottom: solid 2px #d27d00;/*少し濃い目の色に*/
+  border-radius: 4px;/*角の丸み*/
+  box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
+  font-weight: bold;
+}
+
+.btn-square-pop:active {
+  border-bottom: solid 2px #fd9535;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+}
+ul {
+  list-style: none;
+}
+.plmi{
+    border-color: #887f7a;
+  border-style: solid;
+  background-color:#eaf4fc;
+}
 
 
 </style>
@@ -420,7 +464,7 @@ body{
         <div class="kensaku">
             <form action="SearchServlet" method="post" name="search">
                 <input type="text" name="sname" id="s1" placeholder="商品検索">
-                <input type="submit" id="sea" value="検索" >
+                <input type="submit" id="sea" value="検索" class="ref-btn">
             </form>
         </div>
         <div>
@@ -437,7 +481,7 @@ body{
     
      </header>
 
-<a href="top.jsp">topページ</a>
+<a href="top.jsp" class="btn-pop">topページ</a>
 <!-- <p>商品の検索</p>
     <form action="SearchServlet" method="post" name="search">
         <input type="text" name="sname" id="s1">
@@ -521,9 +565,9 @@ body{
                                 </form>
                                 <form action="MenuServlet" method="post" name="frml" >
                                     <input type="number" name="${prof.id}" id="${prof.id}" value=0 size=6 MIN="O" MAX="99"><br>
-                                    <input type="button" value="＋" onClick="javascript:this.form.${prof.id}.value++;"> 
-                                    <input type="button" value="－" onClick="javascript:this.form.${prof.id}.value--;">
-                                    <input type="submit" value="カート" id="${st.count}" class="dialog" onclick="test('${prof.id}')">
+                                    <input type="button" value="＋" onClick="javascript:this.form.${prof.id}.value++;" class="plmi"> 
+                                    <input type="button" value="－" onClick="javascript:this.form.${prof.id}.value--;" class="plmi">
+                                    <input type="submit" value="カート" id="${st.count}" class="dialog ref-btn" onclick="test('${prof.id}')">
                                 
                                 </form>
                             </diV>

@@ -179,12 +179,74 @@ import="Bean.CustomCartBean"%>
         transition: .4s;
         width:250px;
             height:50px;
+            text-align: center;
+            font-size: 32px;
+            text-decoration: none;
         }
 
         .btn-flat-border:hover {
         background: #67c5ff;
         color: white;
         }
+
+        .tablecus table{
+        border-collapse:collapse;
+        margin:0 auto;
+        table-layout: fixed;
+        }
+        .tablecus td,th{
+        padding:10px;
+        border-bottom:1px solid #ccc;
+        text-align: center;
+        }
+        .tablecus table tr th:nth-child(odd),
+        .tablecus table tr td:nth-child(odd){
+        background:#e6f2ff;
+        }
+
+        .ref-btn {
+        display       : inline-block;
+        border-radius : 5%;          /* 角丸       */
+        font-size     : 10pt;        /* 文字サイズ */
+        text-align    : center;      /* 文字位置   */
+        cursor        : pointer;     /* カーソル   */
+        padding       : 6px 6px;   /* 余白       */
+        background    : #e8ecef;     /* 背景色     */
+        color         : #09186e;     /* 文字色     */
+        line-height   : 1em;         /* 1行の高さ  */
+        transition    : .3s;         /* なめらか変化 */
+        box-shadow    : 1px 1px 1px #666666;  /* 影の設定 */
+        border        : 2px solid #e8ecef;    /* 枠の指定 */
+        }
+        .ref-btn:hover {
+        box-shadow    : none;        /* カーソル時の影消去 */
+        color         : #3d4da7;     /* 背景色     */
+        background    : #ffffff;     /* 文字色     */
+        }
+        a {
+        text-decoration: none;
+        }
+        .btn-pop {
+        position: relative;
+        display: inline-block;
+        padding: 0.25em 0.5em;
+        text-decoration: none;
+        color: #FFF;
+        background: #fd9535;/*背景色*/
+        border-bottom: solid 2px #d27d00;/*少し濃い目の色に*/
+        border-radius: 4px;/*角の丸み*/
+        box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
+        font-weight: bold;
+        }
+
+        .btn-pop:active {
+        border-bottom: solid 2px #fd9535;
+        box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+        }
+        ul {
+        list-style: none;
+        }
+
     </style>
 
 
@@ -232,7 +294,7 @@ import="Bean.CustomCartBean"%>
         <div class="kensaku">
             <form action="SearchServlet" method="post" name="search">
                 <input type="text" name="sname" id="s1" placeholder="商品検索">
-                <input type="submit" id="sea" value="検索" >
+                <input type="submit" id="sea" value="検索" class="ref-btn">
             </form>
         </div>
         <div>
@@ -256,66 +318,67 @@ import="Bean.CustomCartBean"%>
     <h1>カート</h1>
     <c:forEach var="prof" items="${cart}" varStatus="st">
         <c:set var="data" value="${prof.pro_id}" />
-
-        <table>
-            <tr>
-            <td>${prof.pro_name}</td>
-            <td>${prof.pro_price}円</td>
-            <td>${prof.pro_calorie}㎉</td>
-            <td><img src="${prof.pro_image}" width="50px" height="50px"></td>
-            </tr>
-            <tr>
-            <td>タンパク質：${prof.pro_protein}g</td>
-            <td>糖質：${prof.pro_carbohydrate}g</td>
-            <td>脂質：${prof.pro_lipid}g</td>
-            <td>ビタミン：${prof.pro_vitamin}g</td>
-            <td>無機質：${prof.pro_inorganic}g</td>
-            <c:if test="${prof.pro_wheat} != 0}">
-                <td><img src="image/a1.png" name="are" height="25px" width="25px" ></td>
-            </c:if>
-            <c:if test="${element.ab.pro_wheat != 0}">
+        <div class="custable">
+            <table>
+                <tr>
+                <td>${prof.pro_name}</td>
+                <td>${prof.pro_price}円</td>
+                <td>${prof.pro_calorie}㎉</td>
+                <td><img src="${prof.pro_image}" width="50px" height="50px"></td>
+                </tr>
+                <tr>
+                <td>タンパク質：${prof.pro_protein}g</td>
+                <td>糖質：${prof.pro_carbohydrate}g</td>
+                <td>脂質：${prof.pro_lipid}g</td>
+                <td>ビタミン：${prof.pro_vitamin}g</td>
+                <td>無機質：${prof.pro_inorganic}g</td>
+                <c:if test="${prof.pro_wheat} != 0}">
                     <td><img src="image/a1.png" name="are" height="25px" width="25px" ></td>
                 </c:if>
-            
-            <c:if test="${prof.pro_egg} == 1}">
-                <td><img src="image/a2.png" name="are" height="25px" width="25px" ></td>
-            </c:if>
-            
-            <c:if test="${prof.pro_milk} == 1}">
-                <td><img src="image/a3.png" name="are" height="25px" width="25px" ></td>
-            </c:if>
-            
-            <c:if test="${prof.pro_peanuts} == 1}">
-                <td><img src="image/a4.png" name="are" height="25px" width="25px" ></td>
-            </c:if>
-            
-            <c:if test="${prof.pro_buckwheat} == 1}">
-                <td><img src="image/a5.png" name="are" height="25px" width="25px" ></td>
-            </c:if>
-            
-            <c:if test="${prof.pro_shrimp} == 1}">
-                <td><img src="image/a6.png" name="are" height="25px" width="25px" ></td>
-            </c:if>
-            
-            <c:if test="${prof.pro_crab} == 1}">
-                <td><img src="image/a7.png" name="are" height="25px" width="25px" ></td>
-            </c:if>
+                <c:if test="${element.ab.pro_wheat != 0}">
+                        <td><img src="image/a1.png" name="are" height="25px" width="25px" ></td>
+                    </c:if>
                 
-            <td>${sessionScope.list[data]}個</td>
-            <td>${prof.total}円</td>
-            </tr>
-        </table>
+                <c:if test="${prof.pro_egg} == 1}">
+                    <td><img src="image/a2.png" name="are" height="25px" width="25px" ></td>
+                </c:if>
+                
+                <c:if test="${prof.pro_milk} == 1}">
+                    <td><img src="image/a3.png" name="are" height="25px" width="25px" ></td>
+                </c:if>
+                
+                <c:if test="${prof.pro_peanuts} == 1}">
+                    <td><img src="image/a4.png" name="are" height="25px" width="25px" ></td>
+                </c:if>
+                
+                <c:if test="${prof.pro_buckwheat} == 1}">
+                    <td><img src="image/a5.png" name="are" height="25px" width="25px" ></td>
+                </c:if>
+                
+                <c:if test="${prof.pro_shrimp} == 1}">
+                    <td><img src="image/a6.png" name="are" height="25px" width="25px" ></td>
+                </c:if>
+                
+                <c:if test="${prof.pro_crab} == 1}">
+                    <td><img src="image/a7.png" name="are" height="25px" width="25px" ></td>
+                </c:if>
+                    
+                <td>${sessionScope.list[data]}個</td>
+                <td>${prof.total}円</td>
+                </tr>
+            </table>
+        </div>
         <form action="MenuServlet" method="post" name="frml">
             <input type="number" name="${prof.pro_id}" id="${prof.pro_id}" value='${sessionScope.list[data]}' size=6 MIN="O" MAX="99"><br>
             <input type="button" value="＋" onClick="javascript:this.form.${prof.pro_id}.value++;"> 
             <input type="button" value="－" onClick="javascript:this.form.${prof.pro_id}.value--;">
-            <input type="submit" value="カート" id="${st.count}" class="dialog"  onclick="test('${prof.pro_id}', '${sessionScope.list[data]}')">
+            <input type="submit" value="カート" id="${st.count}" class="dialog ref-btn"  onclick="test('${prof.pro_id}', '${sessionScope.list[data]}')">
         </form>
         <form action="RemoveServlet" method="post" name="remove">
             <input type="hidden" value="${prof.pro_id}" name="id">
             <input type="hidden" value="0" name="judge">
             <input type="hidden" value="${st.count}" name="remove">
-            <input type="submit" value="削除" id="">
+            <input type="submit" value="削除" id="" class="ref-btn">
         </form>
         
         
@@ -326,13 +389,9 @@ import="Bean.CustomCartBean"%>
         <tr>
             <table>
                 <tr>
-                <th>id</th>
-                <th>img</th>
-                <th>name</th>
-                <th>money</th>
-                <th>calory</th>
-                <th>type</th>
-                <th>count</th>
+                <th>商品名</th>
+                <th>金額</th>
+                <th>熱量</th>
                 <th>タンパク質</th>
                 <th>糖質</th>
                 <th>脂質</th>
@@ -341,13 +400,10 @@ import="Bean.CustomCartBean"%>
             </tr>
         <c:forEach var="element" items="${elements.elementList}">                   
             <tr>
-                <td>${element.id}</td>
                 <td><img src="${element.image}" width="50px" height="50px"></td>
                 <td>${element.name}</td>
                 <td>${element.money}</td>
                 <td>${element.calory}</td>
-                <td>${element.type}</td>
-                <td>${element.count}</td>
                 <td>${element.nb.pro_protein}</td>
                 <td>${element.nb.pro_carbohydrate}</td>
                 <td>${element.nb.pro_lipid}</td>
@@ -394,7 +450,7 @@ import="Bean.CustomCartBean"%>
                 <input type="hidden" value="${prof.pro_id}" name="id">
                 <input type="hidden" value="1" name="judge">
                 <input type="hidden" value="${el.count}" name="remove">
-                <input type="submit" value="削除" id="">
+                <input type="submit" value="削除" id="" class="ref-btn">
             </form></td>
         </table></tr>
         </c:forEach>
@@ -411,10 +467,10 @@ import="Bean.CustomCartBean"%>
     <p>合計：${sessionScope.totalPrice + sessionScope.ccb.custom_total_money}円</p>
     <form action="RemoveServlet" method="post" name="remove">
         <input type="hidden" value="2" name="judge">
-        <input type="submit" value="カートの中身をすべて削除" id="">
+        <input type="submit" value="カートの中身をすべて削除" id="" class="ref-btn">
     </form>
-    <a href="TopServlet">もう一度頼む</a>
-    <a href="userinformation.jsp">ご注文内容の指定へ進む</a>
+    <a href="TopServlet" class="btn-pop">もう一度頼む</a>
+    <a href="userinformation.jsp" class="btn-pop">ご注文内容の指定へ進む</a>
     
 
     <%
@@ -423,7 +479,7 @@ import="Bean.CustomCartBean"%>
     %>
     <div class="nocart">
         <p>カートに商品が入っておりません。</p>
-        <a href="TopServlet" class="btn-flat-border">TOPページへ</a>
+        <a href="TopServlet" class="btn-flat-border ">TOPページへ</a>
     </div>
     <%
         }

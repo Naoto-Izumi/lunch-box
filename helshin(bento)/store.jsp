@@ -76,6 +76,9 @@
 .zuras{
     padding:100px 0 0 0;
 }
+ul {
+  list-style: none;
+}
 </style>
 </head>
     <body>
@@ -119,7 +122,7 @@
             <div class="kensaku">
                 <form action="SearchServlet" method="post" name="search">
                     <input type="text" name="sname" id="s1" placeholder="商品検索">
-                    <input type="submit" id="sea" value="検索" >
+                    <input type="submit" id="sea" value="検索" class="ref-btn">
                 </form>
             </div>
             <div>
@@ -142,27 +145,22 @@
     <div class="zuras">
         <h1>店舗詳細</h1>
         <div>
-            <table>
+            
                 
                     <c:forEach var="prof" items="${product}">
-                        <tr>
-                        <td>
-                            ${prof.st_name}
-                        </td>
-                        <td>
-                            ${prof.st_address}
-                        </td>
-                        <td>
-                            ${prof.st_phone}
-                        </td>
-                        <td>
-                            ${prof.st_hours}
-                        </td>
-                    </tr>
-                                
+                        <h2>${prof.st_name}</h2>
+                        <dl>
+                            <dt>営業時間</dt><dd>${prof.st_hours}</dd>
+                        </dl>
+                        <dl>
+                            <dt>住所</dt><dd>${prof.st_address}</dd>
+                        </dl>
+                        <dl>
+                            <dt>TEL</dt><dd>${prof.st_phone}</dd>
+                        </dl>                                
                     </c:forEach>
             
-            </table>
+            
         </div>
         </div>  
     </body>

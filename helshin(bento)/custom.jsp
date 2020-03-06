@@ -487,17 +487,28 @@ body{
   text-align    : center;      /* 文字位置   */
   cursor        : pointer;     /* カーソル   */
   padding       : 6px 6px;   /* 余白       */
-  background    : #f8b500;     /* 背景色     */
-  color         : #ffffff;     /* 文字色     */
+  background    : #e8ecef;     /* 背景色     */
+  color         : #09186e;     /* 文字色     */
   line-height   : 1em;         /* 1行の高さ  */
   transition    : .3s;         /* なめらか変化 */
-  box-shadow    : 3px 3px 1px #666666;  /* 影の設定 */
-  border        : 2px solid #f8b500;    /* 枠の指定 */
+  box-shadow    : 1px 1px 1px #666666;  /* 影の設定 */
+  border        : 2px solid #e8ecef;    /* 枠の指定 */
 }
 .ref-btn:hover {
   box-shadow    : none;        /* カーソル時の影消去 */
-  color         : #f8b500;     /* 背景色     */
+  color         : #3d4da7;     /* 背景色     */
   background    : #ffffff;     /* 文字色     */
+}
+a {
+text-decoration: none;
+}
+ul {
+  list-style: none;
+}
+.plmi{
+    border-color: #ba2636;
+  border-style: solid;
+  background-color:#eaf4fc;
 }
 
 </style>
@@ -551,7 +562,7 @@ body{
         <div class="kensaku">
             <form action="SearchServlet" method="post" name="search">
                 <input type="text" name="sname" id="s1" placeholder="商品検索">
-                <input type="submit" id="sea" value="検索" >
+                <input type="submit" id="sea" value="検索" class="ref-btn">
             </form>
         </div>
         <div>

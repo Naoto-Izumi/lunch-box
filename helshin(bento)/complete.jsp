@@ -80,6 +80,9 @@
         transition: .4s;
         width:250px;
             height:50px;
+            text-align: center;
+            font-size: 32px;
+            text-decoration: none;
         }
 
         .btn-flat-border:hover {
@@ -109,6 +112,9 @@
             margin-left: 20%;
             position: absolute;
             
+        }
+        ul {
+        list-style: none;
         }
 </style>
 </head>
@@ -153,7 +159,7 @@
             <div class="kensaku">
                 <form action="SearchServlet" method="post" name="search">
                     <input type="text" name="sname" id="s1" placeholder="商品検索">
-                    <input type="submit" id="sea" value="検索" >
+                    <input type="submit" id="sea" value="検索" class="ref-btn">
                 </form>
             </div>
             <div>

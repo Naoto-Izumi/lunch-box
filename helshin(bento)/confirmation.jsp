@@ -101,6 +101,26 @@
 .zuras{
     padding:100px 0 0 0;
 }
+ul {
+        list-style: none;
+        }
+        .btn-pop {
+        position: relative;
+        display: inline-block;
+        padding: 0.25em 0.5em;
+        text-decoration: none;
+        color: #FFF;
+        background: #fd9535;/*背景色*/
+        border-bottom: solid 2px #d27d00;/*少し濃い目の色に*/
+        border-radius: 4px;/*角の丸み*/
+        box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
+        font-weight: bold;
+        }
+
+        .btn-pop:active {
+        border-bottom: solid 2px #fd9535;
+        box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+        }
     </style>
 </head>
     <body>
@@ -145,7 +165,7 @@
             <div class="kensaku">
                 <form action="SearchServlet" method="post" name="search">
                     <input type="text" name="sname" id="s1" placeholder="商品検索">
-                    <input type="submit" id="sea" value="検索" >
+                    <input type="submit" id="sea" value="検索" class="ref-btn">
                 </form>
             </div>
             <div>
@@ -175,7 +195,7 @@
             <p>時間${sessionScope.p.time}</p>
             <div class="${sessionScope.p.type}" id="pay"><p>支払い方法=${sessionScope.p.type}</p></div>
             <p>合計金額${sessionScope.totalPrice + sessionScope.ccb.custom_total_money}</p>
-            <a href="CompleteServlet">注文を確定する</a>
+            <a href="CompleteServlet" class="btn-pop">注文を確定する</a>
         </div>
     </body>
 </html>

@@ -175,6 +175,26 @@
 .zuras{
     padding:100px 0 0 0;
 }
+        .btn-pop {
+        position: relative;
+        display: inline-block;
+        padding: 0.25em 0.5em;
+        text-decoration: none;
+        color: #FFF;
+        background: #fd9535;/*背景色*/
+        border-bottom: solid 2px #d27d00;/*少し濃い目の色に*/
+        border-radius: 4px;/*角の丸み*/
+        box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
+        font-weight: bold;
+        }
+
+        .btn-pop:active {
+        border-bottom: solid 2px #fd9535;
+        box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+        }
+        ul {
+        list-style: none;
+        }
     </style>
     
 </head>
@@ -220,7 +240,7 @@
         <div class="kensaku">
             <form action="SearchServlet" method="post" name="search">
                 <input type="text" name="sname" id="s1" placeholder="商品検索">
-                <input type="submit" id="sea" value="検索" >
+                <input type="submit" id="sea" value="検索" class="ref-btn">
             </form>
         </div>
         <div>
@@ -258,7 +278,7 @@
                 <li>カード番号<input type="password" name="cardnumber" class="cardinfo" pattern="/d*"></li>
                 <li>有効期限<input type="password" name="carddate" class="cardinfo" pattern="/d*"></li>
             </ul>
-            <input type="submit" value="確認" id="awawa" >
+            <input type="submit" value="確認" id="awawa" class="btn-pop">
         </form>
 
         <!--ダイアログの内容-->
