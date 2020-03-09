@@ -11,6 +11,16 @@
     <link rel="stylesheet" href="css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/Browser/css/Menu2.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/Browser/css/Menu.css">
+    <script src="${pageContext.request.contextPath}/Browser/js/login.js"></script>
+    <style>
+        .active{
+            display: inline;
+        }
+        .passive{
+            display: none;
+        }
+    </style>
   </head>
 
 
@@ -24,52 +34,59 @@
       </div>
   
       <ul id="navi" class="icon_nav">
-          <li>
-              <a href="TopServlet" class="fade_btn">
-                  <img src="${pageContext.request.contextPath}/Browser/img/nav_01.png" alt="メニュー" title="">
-                  <span>メニュー</span>
-              </a>
-          </li>
-  
-          <li>
-              <a href="StoreServlet" target="_blank" class="fade_btn">
-                  <img src="${pageContext.request.contextPath}/Browser/img/nav_02.png" alt="店舗検索" title="">
-                  <span>店舗検索</span>
-              </a>
-          </li>
-  
-          <li>
-              <a href="norder" class="fade_btn">
-                  <img src="${pageContext.request.contextPath}/Browser/img/nav_03.png" alt="お知らせ" title="">
-                  <span>ネット注文</span>
-              </a>
-          </li>
-          <li>
-              <a href="page" class="fade_btn">
-                  <img src="${pageContext.request.contextPath}/Browser/img/nav_05.png" alt="スタッフ募集" title="">
-                      <span>マイページ</span>
-              </a>
-          </li>
-          <li>
-              <a href="custom" class="fade_btn">
-                  <img src="${pageContext.request.contextPath}/Browser/img/nav_05.png" alt="カート" title="">
-                      <span>カート</span>
-              </a>
-          </li>
-      </ul>
+        <li>
+            <a href="TopServlet" class="fade_btn">
+                <img src="${pageContext.request.contextPath}/Browser/img/5.png" alt="メニュー" title="">
+                <span>メニュー</span>
+            </a>
+        </li>
+        <li>
+            <a href="TopCusServlet" class="fade_btn">
+                <img src="${pageContext.request.contextPath}/Browser/img/4.png" alt="カスタムメニュー" title="">
+                    <span>カスタムメニュー</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="StoreServlet" class="fade_btn">
+                <img src="${pageContext.request.contextPath}/Browser/img/1.png" alt="店舗検索" title="">
+                <span>店舗検索</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="norder" class="fade_btn">
+                <img src="${pageContext.request.contextPath}/Browser/img/2.png" alt="お知らせ" title="">
+                <span>ネット注文</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="look" class="fade_btn">
+                <img src="${pageContext.request.contextPath}/Browser/img/3.png" alt="カート" title="">
+                    <span>カート</span>
+            </a>
+        </li>
+        <li>
+            <a href="page" class="fade_btn">
+                <img src="${pageContext.request.contextPath}/Browser/img/6.png" alt="カート" title="">
+                    <span>マイページ</span>
+            </a>
+        </li>
+    </ul>
       
       <div>
         <ul class="headinfo">
             <div id="newregist">
-            <li>
+            
                  <a href="ruser" >新規会員登録</a>
-            </li>
+            
             </div>
-            <li>
-                <h1 id ="userid">${menutoken}</h1>
+            
+                <h1 id ="userid" style="display:none;">${menutoken}</h1>
                 <a id="login"  href="page" >ログイン</a>
-                <a id="logout" href="vmenu" style="display:none;">ログアウト</a>
-            </li>
+                <a id="logout" href="vmenu" style="display:none; text-decoration:none;">ログアウト</a>
+            
         </ul>
       </div>
   </header>
@@ -80,16 +97,16 @@
             デザインと管理者画面とユーザー画面を担当しました。</p>
         <hr>
         <h2>泉 奈央人</h2>
-        <p>管理者画面とユーザー画面を担当しました。</p>
+        <p>普通の人。<br>管理者画面とユーザー画面を担当しました。</p>
         <hr>
         <h2>川口剛司</h2>
-        <p>商品画面・店舗画面を担当しました。</p>
+        <p>春戸屋を提案した一人。<br>商品画面・店舗画面を担当しました。</p>
         <hr>
         <h2>本城早友里</h2>
         <p>チーム唯一の華。<br>商品画面・店舗画面を担当しました。</p>
         <hr>
         <h2>山崎智史</h2>
-        <p>管理者画面とユーザー画面を担当しました。</p>
+        <p>チームのリーダー的存在。<br>管理者画面とユーザー画面を担当しました。</p>
         <hr>
   </div>
   </body>

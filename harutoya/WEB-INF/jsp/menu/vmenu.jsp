@@ -8,7 +8,18 @@
     <!-- jQuery UI -->
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-    <title>ログイン画面</title></head>
+    <script src="${pageContext.request.contextPath}/Browser/js/login.js"></script>
+    <title>ログイン画面</title>
+
+    <style>
+    .active{
+        display: inline;
+    }
+    .passive{
+        display: none;
+    }
+    </style>
+</head>
 <body>
     <header class="grovalNavigation">
         <div class="logo" title="春戸弁当">
@@ -44,16 +55,22 @@
             </li>
             
             <li>
-                <a href="TopCusServlet" class="fade_btn">
+                <a href="look" class="fade_btn">
                     <img src="${pageContext.request.contextPath}/Browser/img/3.png" alt="カート" title="">
                         <span>カート</span>
+                </a>
+            </li>
+            <li>
+                <a href="page" class="fade_btn">
+                    <img src="${pageContext.request.contextPath}/Browser/img/6.png" alt="カート" title="">
+                        <span>マイページ</span>
                 </a>
             </li>
         </ul>
         <div class="kensaku">
             <form action="SearchServlet" method="post" name="search">
                 <input type="text" name="sname" id="s1" placeholder="商品検索">
-                <input type="submit" id="sea" value="検索" >
+                <input type="submit" id="sea" value="検索" class="ref-btn">
             </form>
         </div>
         <div>
@@ -63,11 +80,11 @@
                      <a href="ruser" >新規会員登録</a>
                 </li>
                 </div>
-                <li>
-                    <h1 id ="userid">${menutoken}</h1>
+                
+                    <h1 id ="userid" style="display:none;">${menutoken}</h1>
                     <a id="login"  href="page" >ログイン</a>
-                    <a id="logout" href="vmenu" style="display:none;">ログアウト</a>
-                </li>
+                    <a id="logout" href="vmenu" style="display:none; text-decoration:none;">ログアウト</a>
+                
             </ul>
         </div>
     

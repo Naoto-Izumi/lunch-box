@@ -1,4 +1,5 @@
 package Menu.JDBCFiles;
+import Menu.Beans.Product;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -7,8 +8,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
-import Menu.Beans.Product;
 
 public class SearchDao implements ProductsDao{
     private Product _p;

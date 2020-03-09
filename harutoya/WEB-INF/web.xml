@@ -1,4 +1,22 @@
 <web-app>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/TopServlet</location>
+    </error-page>
+
+    <error-page>
+        <error-code>405</error-code>
+        <location>/TopServlet</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/TopServlet</location>
+    </error-page>
+
+    <error-page>
+        <exception-type>Menu.exception.ReturnHomeException</exception-type>
+        <location>/TopCusServlet</location>
+    </error-page>
 	
 	
 	<filter>
@@ -97,16 +115,6 @@
 	</filter-mapping>
 	<filter-mapping>
 		<filter-name>menufilter</filter-name>
-		<url-pattern>/look</url-pattern>
-		<dispatcher>REQUEST</dispatcher>
-	</filter-mapping>
-	<filter-mapping>
-		<filter-name>menufilter</filter-name>
-		<url-pattern>/MenuServlet</url-pattern>
-		<dispatcher>REQUEST</dispatcher>
-	</filter-mapping>
-	<filter-mapping>
-		<filter-name>menufilter</filter-name>
 		<url-pattern>/infomation</url-pattern>
 		<dispatcher>REQUEST</dispatcher>
 	</filter-mapping>
@@ -148,16 +156,6 @@
 	<filter-mapping>
 		<filter-name>menuauthenticatefilter</filter-name>
 		<url-pattern>/SPUNextServlet</url-pattern>
-		<dispatcher>REQUEST</dispatcher>
-	</filter-mapping>
-	<filter-mapping>
-		<filter-name>menuauthenticatefilter</filter-name>
-		<url-pattern>/MenuServlet</url-pattern>
-		<dispatcher>REQUEST</dispatcher>
-	</filter-mapping>
-	<filter-mapping>
-		<filter-name>menuauthenticatefilter</filter-name>
-		<url-pattern>/look</url-pattern>
 		<dispatcher>REQUEST</dispatcher>
 	</filter-mapping>
 	<filter-mapping>

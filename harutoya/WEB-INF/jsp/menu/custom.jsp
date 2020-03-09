@@ -16,6 +16,12 @@
 <title>カスタムメニュー</title>
 
 <style>
+    .active{
+            display: inline;
+        }
+        .passive{
+            display: none;
+        }
     /*タブ切り替え全体のスタイル*/
 .tabs {
   margin-top: 50px;
@@ -290,18 +296,30 @@ body{
   text-align    : center;      /* 文字位置   */
   cursor        : pointer;     /* カーソル   */
   padding       : 6px 6px;   /* 余白       */
-  background    : #f8b500;     /* 背景色     */
-  color         : #ffffff;     /* 文字色     */
+  background    : #e8ecef;     /* 背景色     */
+  color         : #09186e;     /* 文字色     */
   line-height   : 1em;         /* 1行の高さ  */
   transition    : .3s;         /* なめらか変化 */
-  box-shadow    : 3px 3px 1px #666666;  /* 影の設定 */
-  border        : 2px solid #f8b500;    /* 枠の指定 */
+  box-shadow    : 1px 1px 1px #666666;  /* 影の設定 */
+  border        : 2px solid #e8ecef;    /* 枠の指定 */
 }
 .ref-btn:hover {
   box-shadow    : none;        /* カーソル時の影消去 */
-  color         : #f8b500;     /* 背景色     */
+  color         : #3d4da7;     /* 背景色     */
   background    : #ffffff;     /* 文字色     */
 }
+a {
+text-decoration: none;
+}
+ul {
+  list-style: none;
+}
+.plmi{
+    border-color: #ba2636;
+  border-style: solid;
+  background-color:#eaf4fc;
+}
+
 
 </style>
 
@@ -342,16 +360,22 @@ body{
             </li>
             
             <li>
-                <a href="TopCusServlet" class="fade_btn">
+                <a href="look" class="fade_btn">
                     <img src="${pageContext.request.contextPath}/Browser/img/3.png" alt="カート" title="">
                         <span>カート</span>
+                </a>
+            </li>
+            <li>
+                <a href="page" class="fade_btn">
+                    <img src="${pageContext.request.contextPath}/Browser/img/6.png" alt="カート" title="">
+                        <span>マイページ</span>
                 </a>
             </li>
         </ul>
         <div class="kensaku">
             <form action="SearchServlet" method="post" name="search">
                 <input type="text" name="sname" id="s1" placeholder="商品検索">
-                <input type="submit" id="sea" value="検索" >
+                <input type="submit" id="sea" value="検索" class="ref-btn">
             </form>
         </div>
         <div>
@@ -362,7 +386,7 @@ body{
                 </li>
                 </div>
                 <li>
-                    <h1 id ="userid">${menutoken}</h1>
+                    <h1 id ="userid" style="display:none;">${menutoken}</h1>
                     <a id="login"  href="page" >ログイン</a>
                     <a id="logout" href="vmenu" style="display:none;">ログアウト</a>
                 </li>
@@ -413,34 +437,34 @@ body{
         
         <label>
             <img src="${pageContext.request.contextPath}/Browser/img/a1.png" name="are" height="40px" width="40px" id="a1">
-            <input type="checkbox" name="check" id="p1" value="0" onchange="myfunc('${pageContext.request.contextPath}/Browser/img/a1.png')">小麦</label>
+            <input type="checkbox" name="check" onchange="myfunc('${pageContext.request.contextPath}/Browser/img/a1.png')">小麦</label>
             <input type="hidden" name="check1" id="p1" value="1">
         <label>
             <img src="${pageContext.request.contextPath}/Browser/img/a2.png" name="are" height="40px" width="40px" id="a2">
-            <input type="checkbox" name="check" id="p2" value="0" onchange="myfunc('${pageContext.request.contextPath}/Browser/img/a2.png')">卵</label>
-            <input type="hidden" name="check1" id="p2" value="1">
+            <input type="checkbox" name="check"  onchange="myfunc('${pageContext.request.contextPath}/Browser/img/a2.png')">卵</label>
+            <input type="hidden" name="check2" id="p2" value="1">
         <label>
             <img src="${pageContext.request.contextPath}/Browser/img/a3.png" name="are" height="40px" width="40px" id="a3">
-            <input type="checkbox" name="check" id="p3" value="0" onchange="myfunc('${pageContext.request.contextPath}/Browser/img/a3.png')">乳</label>
-            <input type="hidden" name="check1" id="p3" value="1">
+            <input type="checkbox" name="check"  onchange="myfunc('${pageContext.request.contextPath}/Browser/img/a3.png')">乳</label>
+            <input type="hidden" name="check3" id="p3" value="1">
         <label>
             <img src="${pageContext.request.contextPath}/Browser/img/a4.png" name="are" height="40px" width="40px" id="a4">
-            <input type="checkbox" name="check" id="p4" value="0" onchange="myfunc('${pageContext.request.contextPath}/Browser/img/a4.png')">落花生</label>
-            <input type="hidden" name="check1" id="p4" value="1">
+            <input type="checkbox" name="check"  onchange="myfunc('${pageContext.request.contextPath}/Browser/img/a4.png')">落花生</label>
+            <input type="hidden" name="check4" id="p4" value="1">
         <label>
             <img src="${pageContext.request.contextPath}/Browser/img/a5.png" name="are" height="40px" width="40px" id="a5">
-            <input type="checkbox" name="check" id="p5" value="0" onchange="myfunc('${pageContext.request.contextPath}/Browser/img/a5.png')">そば</label>
-            <input type="hidden" name="check1" id="p5" value="1">
+            <input type="checkbox" name="check"  onchange="myfunc('${pageContext.request.contextPath}/Browser/img/a5.png')">そば</label>
+            <input type="hidden" name="check5" id="p5" value="1">
         <label>
             <img src="${pageContext.request.contextPath}/Browser/img/a6.png" name="are" height="40px" width="40px" id="a6">
-            <input type="checkbox" name="check" id="p6" value="0" onchange="myfunc('${pageContext.request.contextPath}/Browser/img/a6.png')">えび</label>
-            <input type="hidden" name="check1" id="p6" value="1">
+            <input type="checkbox" name="check"  onchange="myfunc('${pageContext.request.contextPath}/Browser/img/a6.png')">えび</label>
+            <input type="hidden" name="check6" id="p6" value="1">
         <label>
             <img src="${pageContext.request.contextPath}/Browser/img/a7.png" name="are" height="40px" width="40px" id="a7">
-            <input type="checkbox" name="check" id="p7" value="0" onchange="myfunc('${pageContext.request.contextPath}/Browser/img/a7.png')">かに</label>
-            <input type="hidden" name="check1" id="p7" value="1">
+            <input type="checkbox" name="check"  onchange="myfunc('${pageContext.request.contextPath}/Browser/img/a7.png')">かに</label>
+            <input type="hidden" name="check7" id="p7" value="1">
         <div >
-            <input type="submit" id="ref" value="を表示しない" class="ref-btn" onclick="onButtonClick()">
+            <input type="submit" id="ref" value="を表示しない" class="ref-btn">
         </div>
            <!-- Hover #3 -->
         <!-- <div class="box-3">

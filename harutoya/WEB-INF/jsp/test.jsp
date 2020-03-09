@@ -13,6 +13,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <link rel ="stylesheet" href="${pageContext.request.contextPath}/Browser/css/Menu2.css">
     <script src="${pageContext.request.contextPath}/Browser/js/login.js"></script>
+    <style>
+      .active{
+            display: inline;
+        }
+        .passive{
+            display: none;
+        }
+    </style>
+
   </head>
 
 
@@ -33,7 +42,7 @@
     </span>
     <!--------------------------------------------保留---------------------------------------------->
     <span class="nav-item">
-      <h1 id ="userid">${menutoken}</h1>
+      <h1 id ="userid" style="display:none;">${menutoken}</h1>
       <a class="regist" id="newregist" href="ruser">新規会員登録</a>
       <a class="login" id="login" href="infomation">ログイン</a>
       <a id="logout" href="vmenu" style="display:none;">ログアウト</a>
@@ -48,7 +57,7 @@
             <ul>
               <li class=”current”><a href="TopServlet">メニュー</a></li>
               <li><a href="StoreServlet">店舗検索</a></li>
-              <li><a href="custom">カート</a></li>
+              <li><a href="look">カート</a></li>
               <li><a href="page">マイページ</a></li>
  
             </ul>

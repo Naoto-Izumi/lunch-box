@@ -1,4 +1,5 @@
 package Menu.JDBCFiles;
+import Menu.Beans.Product;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -7,8 +8,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.ArrayList;
-
-import Menu.Beans.Product;
 
 public  class MenuDao implements ProductsDao{
     public Product getProduct(String pid){return null;}
@@ -29,7 +28,7 @@ public  class MenuDao implements ProductsDao{
 
             cn.setAutoCommit(false);
 
-            String sql="select pro_id,pro_image,pro_name from productTable";
+            String sql="select pro_id,pro_image,pro_name,pro_price,pro_calorie from productTable　where pro_type='弁当' ";
 
             //PreparedStatementインターフェイスを実装するクラスをインスタンス化する
 			st=cn.prepareStatement(sql);
@@ -47,10 +46,13 @@ public  class MenuDao implements ProductsDao{
 				String id = "no"+rs.getString(1);	//1列目のデータを取得
 				String image = rs.getString(2);	//2列目のデータを取得
 				String name = rs.getString(3);	//3列目のデータを取得
+				String price = rs.getString(4);	//2列目のデータを取得
+				String calorie = rs.getString(5);
 				p.setId(id);
 				p.setImage(image);
-				System.out.println(image);
 				p.setName(name);
+				p.setPro_price(price);
+				p.setPro_calorie(calorie);
 
                 products.add(p);
 				

@@ -3,23 +3,112 @@
 <html>
 <head>
     <title>メニュー</title>
-    <link rel="shortcut icon" href="${pageContext.request.contextPath}/Browser/favicon/favicon.ico">
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
     <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
-    <script src="${pageContext.request.contextPath}/Browser/js/UserInfomation.js"></script>
+
     <script src="${pageContext.request.contextPath}/Browser/js/login.js"></script>
-    <script src="${pageContext.request.contextPath}/Browser/js/login.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <!-- jQuery UI -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-    <!--<link rel="stylesheet" href="${pageContext.request.contextPath}/Browser/css/Menu.css">
+    <script>
+        function check(e){
+            console.log(e.value);   
+            if(e.value.match(/^(0{1}\d{9,10})$/)==null){
+                console.log("error");
+            }
+        }
+        function showCash(){
+            $(".cardinfo").removeAttr('required');
+            document.getElementById("card").className = "passive";
+        }
+        function showCard(){
+            $(".cardinfo").attr('required','');
+            document.getElementById("card").className = "active";
+            
+        }
+
+        $(function() {
+            $.datepicker.setDefaults( $.datepicker.regional[ "ja" ] );
+            $( "#datepicker" ).datepicker({ minDate: 0, maxDate: "+1M +10D" });
+        });
+
+        $(document).on("click", "#awawa", function(){
+            var a=info.type.value;
+            console.log(a);
+            if(a==1){
+                if (info.cardname.value == ""||info.cardnumber.value == ""||info.carddate.value == ""){
+                    //条件に一致する場合(メールアドレスが空の場合)
+                    // ダイアログの呼び出し処理
+                    $("#mydialog2").dialog("open");
+                    //documentからイベントを削除
+                    $(document).off("click",".dialog");
+                    return false;    //送信ボタン本来の動作をキャンセルします
+                }else{
+                    //条件に一致しない場合(メールアドレスが入力されている場合)
+                    return true;    //送信ボタン本来の動作を実行します
+                }
+            }else{
+                return true;
+            }
+        });
+
+
+            
+        $(function(){
+        // ダイアログの初期設定
+            $("#mydialog2").dialog({
+                autoOpen: false,  // 自動的に開かないように設定
+                width: 500,       // 横幅のサイズを設定
+                modal: true,      // モーダルダイアログにする
+                buttons: [        // ボタン名 : 処理 を設定
+                {
+                    text: '閉じる',
+                    click: function(){
+                        console.log("jquery");
+                        $(this).dialog("close");
+                    }
+                }
+                ]
+            });
+        });
+    
+    function test(count){
+        $(document).on("click", ".dialog", function(){
+            var product = document.getElementById(count).value;
+            if(product <= 0){
+                // ダイアログの呼び出し処理
+                $("#mydialog2").dialog("open");
+                //documentからイベントを削除
+                $(document).off("click",".dialog");
+                //データの送信をリセット
+                return false;
+            }
+        });
+    }
+
+
+
+    $(function() {
+      // For the gray theme
+      var grayThemeCreditly = Creditly.initialize(
+          '.creditly-wrapper.gray-theme .expiration-month-and-year',
+          '.creditly-wrapper.gray-theme .credit-card-number',
+          '.creditly-wrapper.gray-theme .security-code',
+          '.creditly-wrapper.gray-theme .card-type');
+
+      $(".creditly-gray-theme-submit").click(function(e) {
+        e.preventDefault();
+        var output = grayThemeCreditly.validate();
+        if (output) {
+          // Your validated credit card output
+          console.log(output);
+        }
+      });
+    });
+
+
+
         
-        
-   -->
+    </script>
     <style>
         .grovalNavigation{
     z-index: 9999;
@@ -85,65 +174,261 @@
 
 .zuras{
     padding:100px 0 0 0;
+    
 }
+.cent{
+    text-align: center;
+}
+        .btn-pop {
+        position: relative;
+        display: inline-block;
+        padding: 0.25em 0.5em;
+        text-decoration: none;
+        color: #FFF;
+        background: #fd9535;/*背景色*/
+        border-bottom: solid 2px #d27d00;/*少し濃い目の色に*/
+        border-radius: 4px;/*角の丸み*/
+        box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
+        font-weight: bold;
+        width: 100px;
+        
+        }
+
+        .btn-pop:active {
+        border-bottom: solid 2px #fd9535;
+        box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+        }
+        ul {
+        list-style: none;
+        }
+        .cp_iptxt {
+	position: relative;
+	width: 80%;
+	margin: 40px 3%;
+}
+.cp_iptxt input[type='text'] {
+	font: 15px/24px sans-serif;
+	box-sizing: border-box;
+	width: 30%;
+	padding: 0.3em;
+	transition: 0.3s;
+	letter-spacing: 1px;
+	color: #aaaaaa;
+	border: 1px solid #1b2538;
+	border-radius: 4px;
+    
+}
+.ef input[type='text']:focus {
+	border: 1px solid #da3c41;
+	outline: none;
+	box-shadow: 0 0 5px 1px rgba(218,60,65, .5);
+}
+.cp_iptxt input[type='tel'] {
+	font: 15px/24px sans-serif;
+	box-sizing: border-box;
+	width: 30%;
+	padding: 0.3em;
+	transition: 0.3s;
+	letter-spacing: 1px;
+	color: #aaaaaa;
+	border: 1px solid #1b2538;
+	border-radius: 4px;
+}
+.ef input[type='tel']:focus {
+	border: 1px solid #da3c41;
+	outline: none;
+	box-shadow: 0 0 5px 1px rgba(218,60,65, .5);
+}
+.cp_iptxt input[type='email'] {
+	font: 15px/24px sans-serif;
+	box-sizing: border-box;
+	width: 30%;
+	padding: 0.3em;
+	transition: 0.3s;
+	letter-spacing: 1px;
+	color: #aaaaaa;
+	border: 1px solid #1b2538;
+	border-radius: 4px;
+}
+.ef input[type='email']:focus {
+	border: 1px solid #da3c41;
+	outline: none;
+	box-shadow: 0 0 5px 1px rgba(218,60,65, .5);
+}
+.cp_iptxt input[type='time'] {
+	font: 15px/24px sans-serif;
+	box-sizing: border-box;
+	width: 30%;
+	padding: 0.3em;
+	transition: 0.3s;
+	letter-spacing: 1px;
+	color: #aaaaaa;
+	border: 1px solid #1b2538;
+	border-radius: 4px;
+}
+.ef input[type='time']:focus {
+	border: 1px solid #da3c41;
+	outline: none;
+	box-shadow: 0 0 5px 1px rgba(218,60,65, .5);
+}
+.cp_iptxt input[type='password'] {
+	font: 15px/24px sans-serif;
+	box-sizing: border-box;
+	width: 30%;
+	padding: 0.3em;
+	transition: 0.3s;
+	letter-spacing: 1px;
+	color: #aaaaaa;
+	border: 1px solid #1b2538;
+	border-radius: 4px;
+}
+.ef input[type='password']:focus {
+	border: 1px solid #da3c41;
+	outline: none;
+	box-shadow: 0 0 5px 1px rgba(218,60,65, .5);
+}
+table{
+      border-collapse:collapse;
+      margin:0 auto;
+      table-layout: fixed;
+  }
+  td,th{
+      padding:10px;
+      border-bottom:1px solid #ccc;
+      text-align: center;
+  }
+  table tr th:nth-child(odd),
+  table tr td:nth-child(odd){
+      background:#e6f2ff;
+  }
+
+  ul {
+  list-style: none;
+  }
+  .menuimg{
+      float:left;
+  }
+  #alle{
+      clear:both;
+  }
+  .ref-btn {
+  display       : inline-block;
+  border-radius : 5%;          /* 角丸       */
+  font-size     : 10pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 6px 6px;   /* 余白       */
+  background    : #e8ecef;     /* 背景色     */
+  color         : #09186e;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  box-shadow    : 1px 1px 1px #666666;  /* 影の設定 */
+  border        : 2px solid #e8ecef;    /* 枠の指定 */
+  }
+  .ref-btn:hover {
+  box-shadow    : none;        /* カーソル時の影消去 */
+  color         : #3d4da7;     /* 背景色     */
+  background    : #ffffff;     /* 文字色     */
+  }
+  a {
+  text-decoration: none;
+  }
+  .btn-pop {
+  position: relative;
+  display: inline-block;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  color: #FFF;
+  background: #fd9535;/*背景色*/
+  border-bottom: solid 2px #d27d00;/*少し濃い目の色に*/
+  border-radius: 4px;/*角の丸み*/
+  box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
+  font-weight: bold;
+  }
+
+  .btn-pop:active {
+  border-bottom: solid 2px #fd9535;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+  }
+  .btn-top{
+      margin:0 auto;
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+
+  }
+  .rebtn{
+      text-align: center;
+  }
+  .plmi{
+      border-color: #ba2636;
+      border-style: solid;
+      background-color:#eaf4fc;
+  }
+
     </style>
+    
 </head>
 <body>
+
     <header class="grovalNavigation">
         <div class="logo" title="春戸弁当">
-            <a href="start" class="fade_btn"><img src="${pageContext.request.contextPath}/Browser/img/harutoya.png" title="" height="90px" width="375px"></a>
+            <a href="top.jsp" class="fade_btn"><img src="${pageContext.request.contextPath}/Browser/img/harutoya.png" title="" height="90px" width="375px"></a>
         </div>
     
         <ul id="navi" class="icon_nav">
             <li>
                 <a href="TopServlet" class="fade_btn">
                     <img src="${pageContext.request.contextPath}/Browser/img/5.png" alt="メニュー" title="">
-                    <span>メニュー</span>
                 </a>
             </li>
             <li>
                 <a href="TopCusServlet" class="fade_btn">
                     <img src="${pageContext.request.contextPath}/Browser/img/4.png" alt="カスタムメニュー" title="">
-                        <span>カスタムメニュー</span>
+
                 </a>
             </li>
     
             <li>
-                <a href="StoreServlet" class="fade_btn">
+                <a href="StoreServlet"  class="fade_btn">
                     <img src="${pageContext.request.contextPath}/Browser/img/1.png" alt="店舗検索" title="">
-                    <span>店舗検索</span>
                 </a>
             </li>
     
             <li>
                 <a href="norder" class="fade_btn">
                     <img src="${pageContext.request.contextPath}/Browser/img/2.png" alt="お知らせ" title="">
-                    <span>ネット注文</span>
                 </a>
             </li>
             
             <li>
-                <a href="TopCusServlet" class="fade_btn">
+                <a href="look" class="fade_btn">
                     <img src="${pageContext.request.contextPath}/Browser/img/3.png" alt="カート" title="">
-                        <span>カート</span>
+
+                </a>
+            </li>
+            <li>
+                <a href="page" class="fade_btn">
+                    <img src="${pageContext.request.contextPath}/Browser/img/6.png" alt="カート" title="">
+                        <span>マイページ</span>
                 </a>
             </li>
         </ul>
         <div class="kensaku">
             <form action="SearchServlet" method="post" name="search">
                 <input type="text" name="sname" id="s1" placeholder="商品検索">
-                <input type="submit" id="sea" value="検索" >
+                <input type="submit" id="sea" value="検索" class="ref-btn">
             </form>
         </div>
         <div>
             <ul class="headinfo">
                 <div id="newregist">
-                <li>
-                     <a href="ruser" >新規会員登録</a>
-                </li>
+                    <li>
+                        <a href="ruser" >新規会員登録</a>
+                    </li>
                 </div>
                 <li>
-                    <h1 id ="userid">${menutoken}</h1>
+                    <h1 id ="userid" style="display:none;">${menutoken}</h1>
                     <a id="login"  href="page" >ログイン</a>
                     <a id="logout" href="vmenu" style="display:none;">ログアウト</a>
                 </li>
@@ -152,32 +437,62 @@
     
     
      </header>
-     <div class="zuras"></div>
-     <h1>ご注文内容の指定</h1>
-        <form method="POST" action="UserInformationServlet" name="info">
-            名前<input type="text" name="name" required><br>
-            電話<input type="tel" name="tel" oninput="check(this)"  required><br>
-            メール<input type="email" name="mail" required><br>
-            住所<input type="text" name="address" required><br>
-            日付<input type="text" name="date" id="datepicker" required><br>
-            時間<input type="time" name="time"  required><br>
-            支払い方法
-            <input type="radio" name="type" value="0" onchange="showCash();" checked>現金
-            <input type="radio" name="type" value="1" onchange="showCard();" >カード<br>
 
-            <ul id="card" class="passive">
-                <li>カード名義人(半角ローマ字)<input type="text" name="cardname" class="cardinfo"　maxlength="50" pattern="/d*"></li>
-                <li>カード番号<input type="password" name="cardnumber" class="cardinfo" pattern="/d*"></li>
-                <li>有効期限<input type="password" name="carddate" class="cardinfo" pattern="/d*"></li>
-            </ul>
-            <input type="submit" value="確認" id="awawa" >
-        </form>
-    </div>
 
-        <!--ダイアログの内容-->
-        <div id="mydialog2" title="入力欄が空白です">
-            カード情報を入力してください<br />
+
+
+<div class="zuras">
+    <h1>ご注文内容の指定</h1>
+    <div class="cent">
+    <form method="POST" action="UserInformationServlet" name="info">
+        
+       
+            <div class="cp_iptxt">
+                <label class="ef">
+                    名前<br><input type="text" name="name" required><br>
+                </label>
+                <label class="ef">
+                電話<br><input type="tel" name="tel" oninput="check(this)"  required><br>
+                </label>
+                <label class="ef">
+                メール<br><input type="email" name="mail" required><br>
+                </label>
+                <label class="ef">
+                住所<br><input type="text" name="address" required><br>
+                </label>
+                <label class="ef">
+                日付<br><input type="text" name="date" id="datepicker" required><br>
+                </label>
+                <label class="ef">
+                時間<br><input type="time" name="time"  required><br>
+                </label>
+                <label class="ef">
+                支払い方法
+                <input type="radio" name="type" value="0" onchange="showCash();" checked>現金
+                <input type="radio" name="type" value="1" onchange="showCard();" >カード<br>
+
+                <ul id="card" class="passive">
+                    </label>
+                    <label class="ef">
+                    <li>カード名義人(半角ローマ字)<br><input type="text" name="cardname" class="cardinfo"　maxlength="50" pattern="/d*"></li>
+                    </label>
+                    <label class="ef">
+                    <li>カード番号<br><input type="password" name="cardnumber" class="cardinfo" pattern="/d*"></li>
+                    </label>
+                    <label class="ef">
+                    <li>有効期限<br><input type="password" name="carddate" class="cardinfo" pattern="/d*"></li>
+                    </label>
+                </ul>
+                <input type="submit" value="確認" id="awawa" class="btn-pop">
+            </div>
+            </form>
+
+            <!--ダイアログの内容-->
+            <div id="mydialog2" title="入力欄が空白です">
+                カード情報を入力してください<br />
+            </div>
         </div>
+</div>
 
     </body>
 </html>

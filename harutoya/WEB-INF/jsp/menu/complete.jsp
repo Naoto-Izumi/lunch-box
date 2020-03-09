@@ -10,6 +10,12 @@
     <!--<link rel="stylesheet" href="${pageContext.request.contextPath}/Browser/css/Menu.css">-->
     <script src="${pageContext.request.contextPath}/Browser/js/login.js"></script>
     <style>
+        .active{
+            display: inline;
+        }
+        .passive{
+            display: none;
+        }
         .grovalNavigation{
             z-index: 9999;
             width: 100%;
@@ -77,7 +83,7 @@
         }
     
     
-            .btn-flat-border {
+        .btn-flat-border {
             display: inline-block;
             padding: 0.3em 1em;
             text-decoration: none;
@@ -87,36 +93,117 @@
             transition: .4s;
             width:250px;
                 height:50px;
-            }
+        }
     
-            .btn-flat-border:hover {
+        .btn-flat-border:hover {
             background: #67c5ff;
             color: white;
-            }
-            .zuras{
-                margin: -200px 0 0 -300px;  /*縦横半分をネガティブマージンでずらす*/
-                position: absolute;     /*body要素に対して絶対配置*/
-                top: 50%;       /*上端を中央に*/
-                left: 50%;      /*左端を中央に*/
-                width: 600px;   /*横幅*/
-                height: 400px;  /*縦幅*/
-                background-color:#fff;
+        }
+        .zuras{
+            margin: -200px 0 0 -300px;  /*縦横半分をネガティブマージンでずらす*/
+            position: absolute;     /*body要素に対して絶対配置*/
+            top: 50%;       /*上端を中央に*/
+            left: 50%;      /*左端を中央に*/
+            width: 600px;   /*横幅*/
+            height: 400px;  /*縦幅*/
+            background-color:#fff;
     
-            }
-            .zuras p{
-                margin-top:10%;
-                margin-left: 22%;
-                position: absolute;
-                font-size: 30px;
-                color:#353834;
+        }
+        .zuras p{
+            margin-top:10%;
+            margin-left: 22%;
+            position: absolute;
+            font-size: 30px;
+            color:#353834;
                 
-            }
-            .zuras a{
-                margin-top:30%;
-                margin-left: 20%;
-                position: absolute;
+        }
+        .zuras a{
+            margin-top:30%;
+            margin-left: 20%;
+            position: absolute;
                 
-            }
+        }
+        ul {
+            list-style: none;
+        }
+        table{
+      border-collapse:collapse;
+      margin:0 auto;
+      table-layout: fixed;
+  }
+  td,th{
+      padding:10px;
+      border-bottom:1px solid #ccc;
+      text-align: center;
+  }
+  table tr th:nth-child(odd),
+  table tr td:nth-child(odd){
+      background:#e6f2ff;
+  }
+
+  ul {
+  list-style: none;
+  }
+  .menuimg{
+      float:left;
+  }
+  #alle{
+      clear:both;
+  }
+  .ref-btn {
+  display       : inline-block;
+  border-radius : 5%;          /* 角丸       */
+  font-size     : 10pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 6px 6px;   /* 余白       */
+  background    : #e8ecef;     /* 背景色     */
+  color         : #09186e;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  box-shadow    : 1px 1px 1px #666666;  /* 影の設定 */
+  border        : 2px solid #e8ecef;    /* 枠の指定 */
+  }
+  .ref-btn:hover {
+  box-shadow    : none;        /* カーソル時の影消去 */
+  color         : #3d4da7;     /* 背景色     */
+  background    : #ffffff;     /* 文字色     */
+  }
+  a {
+  text-decoration: none;
+  }
+  .btn-pop {
+  position: relative;
+  display: inline-block;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  color: #FFF;
+  background: #fd9535;/*背景色*/
+  border-bottom: solid 2px #d27d00;/*少し濃い目の色に*/
+  border-radius: 4px;/*角の丸み*/
+  box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
+  font-weight: bold;
+  }
+
+  .btn-pop:active {
+  border-bottom: solid 2px #fd9535;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+  }
+  .btn-top{
+      margin:0 auto;
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+
+  }
+  .rebtn{
+      text-align: center;
+  }
+  .plmi{
+      border-color: #ba2636;
+      border-style: solid;
+      background-color:#eaf4fc;
+  }
     </style>
 </head>
     <body>
@@ -154,16 +241,22 @@
                 </li>
                 
                 <li>
-                    <a href="TopCusServlet" class="fade_btn">
+                    <a href="look" class="fade_btn">
                         <img src="${pageContext.request.contextPath}/Browser/img/3.png" alt="カート" title="">
                             <span>カート</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="page" class="fade_btn">
+                        <img src="${pageContext.request.contextPath}/Browser/img/6.png" alt="カート" title="">
+                            <span>マイページ</span>
                     </a>
                 </li>
             </ul>
             <div class="kensaku">
                 <form action="SearchServlet" method="post" name="search">
                     <input type="text" name="sname" id="s1" placeholder="商品検索">
-                    <input type="submit" id="sea" value="検索" >
+                    <input type="submit" id="sea" value="検索" class="ref-btn">
                 </form>
             </div>
             <div>
@@ -174,7 +267,7 @@
                     </li>
                     </div>
                     <li>
-                        <h1 id ="userid">${menutoken}</h1>
+                        <h1 id ="userid" style="display:none;">${menutoken}</h1>
                         <a id="login"  href="page" >ログイン</a>
                         <a id="logout" href="vmenu" style="display:none;">ログアウト</a>
                     </li>

@@ -1,38 +1,42 @@
-//個数増減
+ //個数増減
 function amount(){
     document.frml.count.value++;
 }
 
 //アレルギー絞り込み
-/*function onButtonClick() {
-    pro1 = document.refine.p1;
-    pro2 = document.refine.p2;
-    pro3 = document.refine.p3;
-    pro4 = document.refine.p4;
-    pro5 = document.refine.p5;
-    pro6 = document.refine.p6;
-    pro7 = document.refine.p7;
-    judgment(pro1);
-    judgment(pro2);
-    judgment(pro3);
-    judgment(pro4);
-    judgment(pro5);
-    judgment(pro6);
-    judgment(pro7);
-}
-function judgment(pro){
-    var proId=getId(pro);
-    if (pro.checked == true) {
-        $("#"+proId).val("0");
-    } else {
-        $("#"+proId).val("1");
-    }
-}
-function getId(ele){
-    var id_value = ele.id; // eleのプロパティとしてidを取得
-    console.log(id_value); //
-    return id_value;
-}*/
+// function onButtonClick() {
+//     pro1 = document.refine.p1;
+//     pro2 = document.refine.p2;
+//     pro3 = document.refine.p3;
+//     pro4 = document.refine.p4;
+//     pro5 = document.refine.p5;
+//     pro6 = document.refine.p6;
+//     pro7 = document.refine.p7;
+//     judgment(pro1);
+//     judgment(pro2);
+//     judgment(pro3);
+//     judgment(pro4);
+//     judgment(pro5);
+//     judgment(pro6);
+//     judgment(pro7);
+// }
+// var aaaaaa = 0;
+// function judgment(pro){
+//     aaaaaa++;
+//     var proId=getId(pro);
+//     if (pro.checked == true) {
+//         $("#"+proId).val("0");
+//         console.log(aaaaaa+"０にするよ");
+//     } else {
+//         $("#"+proId).val("1");
+//         console.log(aaaaaa+"１にするよ");
+//     }
+// }
+// function getId(ele){
+//     var id_value = ele.id; // eleのプロパティとしてidを取得
+//     console.log(id_value); //
+//     return id_value;
+// }
 
 //画像挿入
 function gazou(){
@@ -44,7 +48,7 @@ function gazou(){
         if(value.match(/jpg/)){
             var id = "#"+$(this).attr("id");
             var prev = "#"+$(this).prev().attr("id");
-            $(prev).after('<input type="{pageContext.request.contextPath}/Browser/img" id="'+($(this).attr("id")+"1")+'" src="'+value+'" value="'+value+'" height=10% width=10% disabled>');     
+            $(prev).after('<input type="image" id="'+($(this).attr("id")+"1")+'" src="'+value+'" value="'+value+'" height=10% width=10% disabled>');     
             // id=id.slice(0,-1);
             $(id+"2").val(value);
             console.log(id);
@@ -64,10 +68,17 @@ $(function() {
             var list = new Array("syusyoku","syusai","huku1","huku2");
             for(var i=0;i<4;i++){
 
-            
+                
+                console.log("syusyokuだよ"+$('#'+list[i]+'1').get(0));
+                
+                if(typeof $('#'+list[i]+'1').get(0) === "undefined"){
+                    console.log("if内だよ");
+                    continue;
+                }
                 $('#'+list[i]+'1').get(0).type = 'text';
                 
                 var syusyoku = $('input[id='+list[i]+'1]');
+                
                 syusyoku.removeAttr("src");
                 syusyoku.removeAttr("value");
                 syusyoku.removeAttr("height");
@@ -90,11 +101,11 @@ $(function() {
 function myfunc(value) {
     var obj=value;
     console.log(obj);
-    var imgId=obj.substr( 7, 1 );
+    var imgId=obj.substr( 22, 1 );
     console.log(imgId);
-    var onImg='${pageContext.request.contextPath}/Browser/img/a'+imgId+'on.png';
+    var onImg='/helshin/Browser/img/a'+imgId+'on.png';
     console.log(onImg);
-    var offImg='${pageContext.request.contextPath}/Browser/img/a'+imgId+'.png';
+    var offImg='/helshin/Browser/img/a'+imgId+'.png';
     console.log(offImg);
     var abc=document.refine.check[imgId-1];
     console.log(abc);
@@ -103,9 +114,13 @@ function myfunc(value) {
     console.log(abc.checked);
     if(abc.checked){
         $('#a'+imgId).attr('src', onImg);
+        $('#p'+imgId).val("0");
+        console.log($('#p'+imgId).val());
         console.log('on');
     }else{
         $('#a'+imgId).attr('src', offImg);
+        $('#p'+imgId).val("1");
+        console.log($('#p'+imgId).val());
         console.log('off');
     }
 
@@ -113,24 +128,6 @@ function myfunc(value) {
 }
 
 
-// $(window).on('beforeunload', function(event) {
-//     console.log('beforeunload');
-//     return 'jquery beforeunload';
-// });
-
-
-// function test()
-// {
-//     if (frml.no1.value == 0 )
-//     {
-//         alert("なにか入れてください");
-//         return false;
-//     }
-//     else
-//     {
-//         return true;
-//     }
-// }
 
 $(function(){
 // ダイアログの初期設定
@@ -177,10 +174,4 @@ function test(count){
         }
     });
     
-}
-
-window.onload =function(){
-    if('${pageContext.exception.message}'!=""){
-        alert('${pageContext.exception.message}');
-    }
 }

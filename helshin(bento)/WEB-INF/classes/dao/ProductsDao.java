@@ -1,8 +1,6 @@
-package dao;
-
+package Menu.JDBCFiles;
+import Menu.Beans.Product;
 import java.util.List;
-
-import Bean.Product;
 
 public interface ProductsDao{
     public void addProduct(Product p);

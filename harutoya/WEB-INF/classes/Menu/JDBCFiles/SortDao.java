@@ -1,4 +1,5 @@
 package Menu.JDBCFiles;
+import Menu.Beans.Product;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,7 +9,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import Menu.Beans.Product;
 
 public class SortDao implements ProductsDao{
     private Product _p;
@@ -28,27 +28,8 @@ public class SortDao implements ProductsDao{
 
             
 
-            // String kind = _p.getSortKind();
-
-            // System.out.println(" _p.getSortKind()"+kind);
-
-            // String sql=null;
-
-            // if(kind.equals("ASC")){
-
-            //     sql="select  pro_id,pro_image,pro_name from productTable where pro_type='弁当' ORDER BY ? ASC";
-            //     System.out.println("ascSQL"+sql);
-
-            // }else if(kind.equals("DESC")){
-
-            //     sql="select  pro_id,pro_image,pro_name from productTable where pro_type='弁当' ORDER BY ?  DESC";
-            //     System.out.println("descSQL"+sql);
-
-            // }else{
-            //     System.out.println("スルー");
-            // }
             String reSql = _p.getSortVal();
-            String preSql="select  pro_id,pro_image,pro_name from productTable where pro_type='弁当' ORDER BY ";
+            String preSql="select  pro_id,pro_image,pro_name from productTable where ";
             String sql=preSql + reSql;
 
             

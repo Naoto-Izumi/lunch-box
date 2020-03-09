@@ -1,5 +1,6 @@
 //注文を受付てorderTableにinsert
 package Menu.JDBCFiles;
+import Menu.Beans.Product;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,7 +12,6 @@ import java.util.List;
 
 import java.util.Calendar;
 import java.text.SimpleDateFormat;
-import Menu.Beans.Product;
 
 
 public class OrderInDao implements ProductsDao{
@@ -35,9 +35,8 @@ public class OrderInDao implements ProductsDao{
             SimpleDateFormat sdf = new SimpleDateFormat("yy-MM-dd");
             System.out.println(sdf.format(cl.getTime()));
             String da=sdf.format(cl.getTime());
-        	String okey = p.getUser_id();
             System.out.println(da+" "+p.getTime());
-            String a1="insert into orderTable(or_id,or_user_id,or_type,OR_ADDRESS_ID,OR_DATE) values(sq_or_id.NEXTVAL,"+okey+",?,1,TO_DATE('";
+            String a1="insert into orderTable(or_id,or_user_id,or_type,OR_ADDRESS_ID,OR_DATE) values(sq_or_id.NEXTVAL,1,?,1,TO_DATE('";
              String a2=da+" "+p.getTime();
              String a3="','yy-MM-dd hh24:mi:ss'))";
 
@@ -48,7 +47,7 @@ public class OrderInDao implements ProductsDao{
            
             System.out.println("p.getType()"+p.getType());
             System.out.println("p.getTime()"+p.getTime());
-			System.out.println(sql);
+
             st=cn.prepareStatement(sql);
 
             
@@ -80,8 +79,9 @@ public class OrderInDao implements ProductsDao{
 
 
             st.executeUpdate();
-        	
-        	//明細書insert-------------------------------------------------------------
+
+
+        //明細書insert-------------------------------------------------------------
 
             String meisaisql="INSERT  INTO  specificationTable(sp_or_id,sp_count,sp_pro_id) values(sq_or_id.CURRVAL,?,?)";
 

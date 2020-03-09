@@ -10,6 +10,14 @@
     <link rel="shortcut icon" href="${pageContext.request.contextPath}/Browser/favicon/favicon.ico">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/Browser/css/User.css">
     <script src="${pageContext.request.contextPath}/Browser/js/login.js"></script>
+    <style>
+        .active{
+            display: inline;
+        }
+        .passive{
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <header class="grovalNavigation">
@@ -46,9 +54,15 @@
             </li>
             
             <li>
-                <a href="TopCusServlet" class="fade_btn">
+                <a href="look" class="fade_btn">
                     <img src="${pageContext.request.contextPath}/Browser/img/3.png" alt="カート" title="">
                         <span>カート</span>
+                </a>
+            </li>
+            <li>
+                <a href="page" class="fade_btn">
+                    <img src="${pageContext.request.contextPath}/Browser/img/6.png" alt="カート" title="">
+                        <span>マイページ</span>
                 </a>
             </li>
         </ul>
@@ -66,7 +80,7 @@
                 </li>
                 </div>
                 <li>
-                    <h1 id ="userid">${menutoken}</h1>
+                    <h1 id ="userid" style="display:none;">${menutoken}</h1>
                     <a id="login"  href="page" >ログイン</a>
                     <a id="logout" href="vmenu" style="display:none;">ログアウト</a>
                 </li>
@@ -83,10 +97,15 @@
         名前(めい):<input type="text" name="firstname_hira"><br>
         電話番号:<input type="text" name="phone"><br>
         メールアドレス:<input type="text" name="mail"><br>
-        パスワード:<input type="text" name="password"><br>
+        パスワード:<input type="password" name="password"><br>
         住所:<input type="text" name="address"><br>
         性別:<input type="text" name="sex"><br>
-        誕生日:<input type="text" name="birthyear"><br><br>
+        <datalist id='sex'>
+            <option value="男"></option>
+            <option value="女"></option>
+            <option value="その他"></option>
+        </datalist>
+        誕生日:<input type="date" name="birthyear"><br><br>
         <input type="submit" value="登録">
     </form>
 </div>
