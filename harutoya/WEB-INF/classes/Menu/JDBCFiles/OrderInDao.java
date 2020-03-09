@@ -36,7 +36,7 @@ public class OrderInDao implements ProductsDao{
             System.out.println(sdf.format(cl.getTime()));
             String da=sdf.format(cl.getTime());
             System.out.println(da+" "+p.getTime());
-            String a1="insert into orderTable(or_id,or_user_id,or_type,OR_ADDRESS_ID,OR_DATE) values(sq_or_id.NEXTVAL,1,?,1,TO_DATE('";
+            String a1="insert into orderTable(or_id,or_user_id,or_type,OR_ADDRESS_ID,OR_DATE) values(sq_or_id.NEXTVAL,"+p.getUser_id()+",?,1,TO_DATE('";
              String a2=da+" "+p.getTime();
              String a3="','yy-MM-dd hh24:mi:ss'))";
 

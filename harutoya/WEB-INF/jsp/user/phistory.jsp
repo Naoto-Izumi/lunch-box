@@ -95,7 +95,7 @@
                 <form method="post" action="uuc">
                 <table>
 
-                    <tr><td>${a.odate}</td><td>${a.sproid}</td><td>${a.scount}</td><td>${a.pid}</td></tr>
+                    <tr><td>${a.sproid}</td><td>${a.scount}</td><td>${a.pid}個</td></tr>
                 </table>
             </form>
             </c:forEach>
